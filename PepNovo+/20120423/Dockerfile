@@ -1,0 +1,44 @@
+#################################################################
+# Dockerfile
+#
+# Version:          1
+# Software:         PepNovo+
+# Software Version: 20120423
+# Base Image:       biodckr/biodocker:latest
+# Build Cmd:        docker build --rm -t biodckr/pepnovo 20120423/.
+# Pull Cmd:         docker pull biodckr/pepnovo
+# Run Cmd:          docker run --rm biodckr/pepnovo
+#################################################################
+
+# Set the base image
+FROM biodckr/biodocker:latest
+
+################## BEGIN INSTALLATION ###########################
+
+USER root
+
+RUN apt-get update && apt-get install -y \
+	build-essential \
+	dos2unix
+
+USER biodocker
+
+RUN ZIP=PepNovo.20120423.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/PepNovo/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/PepNovo/ && \
+    rm /tmp/$ZIP && \
+    cd /home/biodocker/bin/PepNovo/src && \
+    make && \
+    cp PepNovo_bin /home/biodocker/bin/ && \
+    dos2unix /home/biodocker/bin/PepNovo/Models/*.* && \
+    dos2unix /home/biodocker/bin/PepNovo/Models/*/*.* 
+
+WORKDIR /data
+
+CMD ["PepNovo_bin"]
+
+##################### INSTALLATION END ##########################
+
+# File Author / Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2015

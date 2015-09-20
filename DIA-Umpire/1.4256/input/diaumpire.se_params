@@ -1,0 +1,46 @@
+#DIA-Umpire (version 2015.01)
+#Data Independent Acquisition data processing and analysis package (Signal extraction module)
+
+#No of threads
+Thread = 10
+
+#Fragment grouping parameter
+RPmax = 25
+RFmax = 300
+CorrThreshold=0.2
+DeltaApex = 0.6
+AdjustFragIntensity =true
+BoostComplementaryIon=true
+
+#Report peak
+ExportPrecursorPeak = false
+ExportFragmentPeak = false
+
+#Signal extraction parameters
+SE.MS1PPM = 30
+SE.MS2PPM = 40
+SE.SN = 2
+SE.MS2SN = 2
+SE.MinMSIntensity = 5
+SE.MinMSMSIntensity = 1
+SE.MaxCurveRTRange = 1
+SE.Resolution = 17000
+SE.StartCharge = 2
+SE.EndCharge = 4
+SE.MS2StartCharge = 2
+SE.MS2EndCharge = 4
+SE.NoMissedScan = 1
+SE.MinFrag=10
+SE.EstimateBG = true
+
+#Isolation window setting
+#The current version supports the following window type: SWATH (fixed window size), V_SWATH (variable SWATH window), MSX, MSE, pSMART
+WindowType=SWATH
+
+#Fix window size (For SWATH)
+WindowSize=25
+
+#Variable SWATH window setting (start m/z, end m/z, separated by Tab)
+==window setting begin
+
+==window setting end
