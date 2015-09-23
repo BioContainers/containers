@@ -25,7 +25,10 @@ RUN apt-get install -y \
         fuse       \
         git        \
         wget       \
-        zip
+        zip        \
+        openjdk-7-jre \
+        build-essential \
+        python
 
 #        subversion \
 #        mercurial  \
