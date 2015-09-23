@@ -18,9 +18,11 @@ FROM biodckr/biodocker:latest
 USER root
 
 RUN apt-get update && apt-get install -y \
-	openjdk-7-jre \
 	openms=1.11.1-3 \
-	topp=1.11.1-3
+	topp=1.11.1-3 && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo "biodocker ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/biodocker
 

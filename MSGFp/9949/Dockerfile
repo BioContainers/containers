@@ -15,8 +15,6 @@ FROM biodckr/biodocker:latest
 
 ################## BEGIN INSTALLATION ###########################
 
-USER root
-
 USER biodocker
 
 RUN ZIP=MSGFPlus_9949.zip && \
