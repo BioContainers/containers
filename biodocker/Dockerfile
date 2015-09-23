@@ -29,6 +29,7 @@ RUN apt-get install -y  \
         zip             \
         openjdk-7-jre   \
         build-essential \
+        pkg-config      \
         python          \
 	python-dev      \
         python-pip      \
