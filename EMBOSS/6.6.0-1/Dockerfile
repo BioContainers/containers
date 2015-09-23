@@ -18,7 +18,12 @@ FROM biodckr/biodocker:latest
 USER root
 
 # Install EMBOSS package
-RUN apt-get update && apt-get install -y emboss=6.6.0-1
+RUN apt-get update && \
+    apt-get install -y \
+      emboss=6.6.0-1 && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 USER biodocker
 

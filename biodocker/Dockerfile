@@ -28,18 +28,18 @@ RUN apt-get install -y \
         zip        \
         openjdk-7-jre \
         build-essential \
-        python
+        python \
+	python-dev \
+        python-pip \
+        zlib1g-dev && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    mkdir /data /config
 
 #        subversion \
 #        mercurial  \
 #        cvs        \
-
-
-# apt clean
-RUN apt-get clean && \
-    apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    mkdir /data /config
 
 # Add biodocker user with password biodocker
 RUN useradd --create-home --shell /bin/bash --user-group --uid 1001 --groups sudo,fuse biodocker && \
@@ -54,6 +54,9 @@ RUN mkdir /home/biodocker/bin
 # Add $HOME/bin to path
 ENV PATH=$PATH:/home/biodocker/bin
 ENV HOME=/home/biodocker
+
+# Share default volumes
+VOLUME ["/data", "/config"]
 
 # Overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]
