@@ -17,10 +17,13 @@ FROM biodckr/biodocker:latest
 
 USER root
 
-RUN apt-get update && apt-get install -y \
-	openjdk-7-jre \
-	openms=1.11.1-3 \
-	topp=1.11.1-3
+RUN apt-get update && \
+    apt-get install -y \
+      openms=1.11.1-3 \
+      topp=1.11.1-3 && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #RUN export uid=1000 gid=1000 && \
 #    mkdir -p /home/developer && \
