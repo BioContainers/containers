@@ -48,11 +48,12 @@ USER biodocker
 # Create $HOME/bin folder
 RUN mkdir /home/biodocker/bin
 
-VOLUMES ["/data", "/config"]
-
 # Add $HOME/bin to path
 ENV PATH=$PATH:/home/biodocker/bin
 ENV HOME=/home/biodocker
+
+# Share default volumes
+VOLUME ["/data", "/config"]
 
 # Overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]
