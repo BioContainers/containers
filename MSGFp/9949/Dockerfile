@@ -17,8 +17,6 @@ FROM biodckr/biodocker:latest
 
 USER root
 
-RUN apt-get update && apt-get install openjdk-7-jre -y
-
 USER biodocker
 
 RUN ZIP=MSGFPlus_9949.zip && \
