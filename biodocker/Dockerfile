@@ -28,7 +28,9 @@ RUN apt-get install -y \
         zip        \
         openjdk-7-jre \
         build-essential \
-        python && \
+        python \
+	python-dev \
+        python-pip && \
     apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
