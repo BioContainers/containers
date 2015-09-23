@@ -15,14 +15,6 @@ FROM biodckr/biodocker:latest
 
 ################## BEGIN INSTALLATION ###########################
 
-USER root
-
-RUN apt-get update && apt-get install openjdk-7-jre -y
-
-#USER developer
-
-#ENV HOME /home/developer
-
 USER biodocker
 
 RUN GZ=SearchGUI-1.30.1-mac_and_linux.tar.gz && \
