@@ -15,10 +15,6 @@ FROM biodckr/biodocker:latest
 
 ################## BEGIN INSTALLATION ###########################
 
-USER root
-
-RUN apt-get update && apt-get install -y openjdk-7-jre
-
 USER biodocker
 
 RUN ZIP=novor_academic_latest.zip && \
