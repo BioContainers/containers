@@ -15,8 +15,6 @@ FROM biodckr/biodocker:latest
 
 ################## BEGIN INSTALLATION ###########################
 
-USER biodocker
-
 RUN ZIP=MSGFPlus_9949.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/MSGFPlus/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /home/biodocker/bin/MSGFPlus_9949/ && \

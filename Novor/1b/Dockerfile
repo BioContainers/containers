@@ -15,8 +15,6 @@ FROM biodckr/biodocker:latest
 
 ################## BEGIN INSTALLATION ###########################
 
-USER biodocker
-
 RUN ZIP=novor_academic_latest.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/NovoR/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /home/biodocker/bin/ && \

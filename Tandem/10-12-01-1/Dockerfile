@@ -15,8 +15,6 @@ FROM biodckr/biodocker:latest
 
 ################## BEGIN INSTALLATION ###########################
 
-USER biodocker
-
 RUN ZIP=tandem-linux-10-12-01-1.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/X!Tandem/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
