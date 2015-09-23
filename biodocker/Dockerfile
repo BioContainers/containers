@@ -30,7 +30,8 @@ RUN apt-get install -y \
         build-essential \
         python \
 	python-dev \
-        python-pip && \
+        python-pip \
+        zlib1g-dev && \
     apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
