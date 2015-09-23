@@ -17,8 +17,7 @@ FROM biodckr/biodocker:latest
 
 USER root
 
-RUN apt-get update && apt-get install openjdk-7-jre -y && \
-    echo "biodocker ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/biodocker
+RUN echo "biodocker ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/biodocker
 
 USER biodocker
 
