@@ -17,9 +17,12 @@ FROM biodckr/biodocker:latest
 
 USER root
 
-RUN apt-get update && apt-get install -y \
-	build-essential \
-	dos2unix
+RUN apt-get update && \
+    apt-get install -y \
+	dos2unix  && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 USER biodocker
 
