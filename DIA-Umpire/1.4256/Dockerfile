@@ -17,9 +17,12 @@ FROM biodckr/biodocker:latest
 
 USER root
 
-RUN apt-get update && apt-get install -y \
-	openjdk-7-jre \
-	gnuplot 
+RUN apt-get update && \
+    apt-get install -y \
+      gnuplot     && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN ZIP=tpp-4.8.0.zip && \
     mkdir -p /usr/local && \
