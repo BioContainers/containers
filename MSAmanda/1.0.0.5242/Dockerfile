@@ -17,7 +17,11 @@ FROM biodckr/biodocker:latest
 
 USER root
 
-RUN apt-get update && apt-get install mono-complete -y
+RUN apt-get update && \
+    apt-get install mono-complete -y && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 USER biodocker
 
