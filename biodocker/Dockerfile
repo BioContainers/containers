@@ -21,6 +21,8 @@ RUN apt-get clean all && apt-get update && apt-get upgrade -y
 
 # apt install
 RUN apt-get install -y  \
+        autotools-dev   \
+        automake        \
         cmake           \
         curl            \
         fuse            \
