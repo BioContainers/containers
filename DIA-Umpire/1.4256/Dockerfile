@@ -37,6 +37,7 @@ USER biodocker
 RUN ZIP=DIA-Umpire_v1_4256.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/DIA-Umpire/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /home/biodocker/bin/DIA-Umpire/ && \
+    chmod -R 755 /home/biodocker/bin/DIA-Umpire/ && \
     rm /tmp/$ZIP
 
 RUN ZIP=comet_binaries_2015010.zip && \
@@ -49,6 +50,7 @@ RUN ZIP=comet_binaries_2015010.zip && \
 RUN ZIP=MSGFPlus_9949.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/MSGFPlus/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /home/biodocker/bin/MSGFPlus/ && \
+    chmod -R 755 /home/biodocker/bin/MSGFPlus/* && \
     rm /tmp/$ZIP
 
 # Setting the Workspace
