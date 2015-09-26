@@ -1,15 +1,42 @@
-BioDocker
+BioDocker - Containers
 =========
 
+[![Join the chat at https://gitter.im/BioDocker/biodocker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/BioDocker/biodocker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ```
-___.   .__           .___             __
+___.   .__           .___             __                 
 \_ |__ |__| ____   __| _/____   ____ |  | __ ___________ 
  | __ \|  |/  _ \ / __ |/  _ \_/ ___\|  |/ // __ \_  __ \
  | \_\ \  (  <_> ) /_/ (  <_> )  \___|    <\  ___/|  | \/
- |___  /__|\____/\____ |\____/ \___  >__|_ \\___  >__|
-     \/               \/           \/     \/    \/
+ |___  /__|\____/\____ |\____/ \___  >__|_ \\___  >__|   
+     \/               \/           \/     \/    \/       
 
  ```
+
+Containers
+--------
+Repository of approved bioinformatics containers
+
+Links:
+-------
+Web Page              : http://biodocker.github.io/
+
+Project Definition    : https://github.com/BioDocker/biodocker
+
+Contribution Rules    : https://github.com/BioDocker/biodocker/blob/master/CONTRIBUTING.md
+
+Wiki of the project   : https://github.com/BioDocker/biodocker/wiki
+
+Containers            : https://github.com/BioDocker/containers
+
+Containers Development: https://github.com/BioDocker/sandbox
+
+Email                 : biodockers@gmail.com
+
+License
+----------
+
+[Apache 2](http://www.apache.org/licenses/LICENSE-2.0)
 
 Contents
 ----------
@@ -86,17 +113,3 @@ Here are some general ideas:
 * Browse our list of containers
 * Propose your own ideas or software
 * Interact with other if you think there is something missing.
-
-### 3.2. Contact
-
-visit the [BioDocker](http://biodocker.github.io/) website.
-
-visit the [GitHub](https://github.com/BioDocker/biodocker) page for the source code.
-
-visit the [Specification](https://github.com/BioDocker/specifications) page to make commenst and requests.
-
-
-3. License
-----------
-
-[Apache 2](http://www.apache.org/licenses/LICENSE-2.0)
