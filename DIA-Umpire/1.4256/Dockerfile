@@ -19,7 +19,7 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y \
-      gnuplot     && \
+    gnuplot && \
     apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -29,8 +29,6 @@ RUN ZIP=tpp-4.8.0.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/TPP/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /usr/local && \
     rm /tmp/$ZIP
-
-USER biodocker
 
 # Installing DIA-Umpire
 #ADD DIA-Umpire.tar.gz /
