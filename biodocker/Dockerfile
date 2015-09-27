@@ -42,8 +42,10 @@ RUN apt-get install -y \
 #        cvs        \
 
 # Add biodocker user with password biodocker
-RUN useradd --create-home --shell /bin/bash --user-group --uid 1001 --groups sudo,fuse biodocker && \
-    echo `echo "biodocker\nbiodocker\n" | passwd biodocker`
+RUN useradd --create-home --shell /bin/bash --user-group --uid 1000 --groups sudo,fuse biodocker && \
+    echo `echo "biodocker\nbiodocker\n" | passwd biodocker` && \
+    chown biodocker:biodocker /data && \
+    chown biodocker:biodocker /config
 
 # Change user
 USER biodocker
