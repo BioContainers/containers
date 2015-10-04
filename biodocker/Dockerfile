@@ -20,17 +20,21 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get clean all && apt-get update && apt-get upgrade -y
 
 # apt install
-RUN apt-get install -y \
-        curl       \
-        fuse       \
-        git        \
-        wget       \
-        zip        \
-        openjdk-7-jre \
+RUN apt-get install -y  \
+        autotools-dev   \
+        automake        \
+        cmake           \
+        curl            \
+        fuse            \
+        git             \
+        wget            \
+        zip             \
+        openjdk-7-jre   \
         build-essential \
-        python \
-	python-dev \
-        python-pip \
+        pkg-config      \
+        python          \
+	python-dev      \
+        python-pip      \
         zlib1g-dev && \
     apt-get clean && \
     apt-get purge && \
