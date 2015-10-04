@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         SearchGUI
 # Software Version: 1.30.1
+# Description:      graphical user interface for proteomics identification search engines
+# Website:          https://code.google.com/p/searchgui/
+# Tags:             Proteomics
+# Provides:         searchgui 1.30.1
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/searchgui 1.30.1/.
 # Pull Cmd:         docker pull biodckr/searchgui

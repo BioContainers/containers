@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         DIA-Umpire
 # Software Version: 1.4256
+# Description:      computational analysis of data independent acquisition (DIA) mass spectrometry-based proteomics data
+# Website:          http://diaumpire.sourceforge.net
+# Tags:             Proteomics
+# Provides:         dia-umpire 1.4256
 # Base Image:       biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/diaumpire 1.4256/.
 # Pull Cmd:         docker pull biodckr/diaumpire

@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         OpenMS
 # Software Version: 1.11.1-3
+# Description:      C++ libraries ans tools for MS/MS data analysis
+# Website:          http://open-ms.sourceforge.net/
+# Tags:             Proteomics
+# Provides:         openms 1.11.1-3
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/openms 1.11.1-3/.
 # Pull Cmd:         docker pull biodckr/openms

@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         MSGF+
 # Software Version: 9949
+# Description:      MS/MS database search tool
+# Website:          http://proteomics.ucsd.edu/Software/MSGFPlus/
+# Tags:             Proteomics
+# Provides:         MSGFPlus 9949
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/msgfp 9949/.
 # Pull Cmd:         docker pull biodckr/msgfp

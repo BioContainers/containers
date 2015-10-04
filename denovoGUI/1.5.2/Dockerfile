@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         denovogui
 # Software Version: 1.5.2
+# Description:      graphical user interface for de novo sequencing of tandem mass spectra
+# Website:          https://code.google.com/p/denovogui/
+# Tags:             Proteomics
+# Provides:         denovogui 1.5.2
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/denovogui 1.5.2/.
 # Pull Cmd:         docker pull biodckr/denovogui

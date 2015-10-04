@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         PepNovo+
 # Software Version: 20120423
+# Description:      de novo sequencing of low precision MS/MS data
+# Website:          http://proteomics.ucsd.edu/Software/PepNovo/
+# Tags:             Proteomics
+# Provides:         PepNov+ 20120423|dos2unix
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/pepnovo 20120423/.
 # Pull Cmd:         docker pull biodckr/pepnovo

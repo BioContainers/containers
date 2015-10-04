@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         emboss
 # Software Version: 6.6.0-1
+# Description:      software analysis package specially developed for the needs of the molecular biology (e.g. EMBnet) user community
+# Website:          http://emboss.sourceforge.net/what/
+# Tags:             Proteomics|Genomics|General
+# Provides:         emboss 6.6.0-1
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/emboss 6.6.0-1/.
 # Pull Cmd:         docker pull biodckr/emboss

@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         Novor
 # Software Version: 1b
+# Description:      real-time peptide de novo sequencing
+# Website:          http://www.rapidnovor.com/
+# Tags:             Proteomics
+# Provides:         novor 1b
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/novor 1b/.
 # Pull Cmd:         docker pull biodckr/novor
