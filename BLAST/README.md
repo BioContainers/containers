@@ -56,6 +56,6 @@ visit the [Docker Hub](https://registry.hub.docker.com/repos/biodckr/) for the a
 
 
 maintainers
------------
+------------
 * Felipe da Veiga leprevost <felipe@leprevost.com.br>
 * Yasset Perez-Riverol <ypriverol@gmail.com>
