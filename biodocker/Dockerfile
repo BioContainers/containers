@@ -16,11 +16,21 @@ FROM ubuntu:14.04.3
 ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ######################
-# apt update
-RUN apt-get clean all && apt-get update && apt-get upgrade -y
 
-# apt install
-RUN apt-get install -y  \
+# add apt mirror
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bkp && \
+    bash -c 'echo -e "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe multiverse\n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main restricted universe multiverse\n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main restricted universe multiverse\n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main restricted universe multiverse\n\n" > /etc/apt/sources.list' && \
+    cat /etc/apt/sources.list.bkp >> /etc/apt/sources.list && \
+    cat /etc/apt/sources.list
+
+# apt update and install global requirements
+RUN apt-get clean all &&\
+    apt-get update &&\ 
+    apt-get upgrade -y && \
+    apt-get install -y  \
         autotools-dev   \
         automake        \
         cmake           \
@@ -38,14 +48,16 @@ RUN apt-get install -y  \
         zlib1g-dev && \
     apt-get clean && \
     apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    mkdir /data /config
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #        subversion \
 #        mercurial  \
 #        cvs        \
 
-# Add biodocker user with password biodocker
+# create shared folders
+RUN mkdir /data /config
+
+# Add user biodocker with password biodocker
 RUN useradd --create-home --shell /bin/bash --user-group --uid 1000 --groups sudo,fuse biodocker && \
     echo `echo "biodocker\nbiodocker\n" | passwd biodocker` && \
     chown biodocker:biodocker /data && \
@@ -66,6 +78,9 @@ VOLUME ["/data", "/config"]
 
 # Overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]
+
+# change workdir
+WORKDIR /data
 
 ##################### INSTALLATION END #####################
 

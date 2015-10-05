@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         Crux
 # Software Version: 2.1
+# Description:      a software toolkit for tandem mass spectrometry analysis
+# Website:          http://cruxtoolkit.sourceforge.net/
+# Tags:             Proteomics
+# Provides:         crux 2.1
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/crux 2.1/.
 # Pull Cmd:         docker pull biodckr/crux

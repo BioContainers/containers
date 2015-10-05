@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         MSAmanda
 # Software Version: 1.0.0.5242
+# Description:      scoring system to identify peptides out of tandem mass spectrometry
+# Website:          http://ms.imp.ac.at/?goto=msamanda
+# Tags:             Proteomics
+# Provides:         MSAmanda 1.0.0.5242
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/msamanda 1.0.0.5242/.
 # Pull Cmd:         docker pull biodckr/msamanda

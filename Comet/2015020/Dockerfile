@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         Comet
 # Software Version: 2015020
+# Description:      basic local alignment search tool
+# Website:          http://comet-ms.sourceforge.net/
+# Tags:             Proteomics
+# Provides:         Comet 2015020
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/comet 2015020/.
 # Pull Cmd:         docker pull biodckr/comet

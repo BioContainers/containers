@@ -4,6 +4,10 @@
 # Version:          1
 # Software:         X!Tandem
 # Software Version: 10-12-01-1
+# Description:      software that can match tandem mass spectra with peptide sequences
+# Website:          http://www.thegpm.org/tandem/
+# Tags:             Proteomics
+# Provides:         tandem 10-12-01-1
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/tandem 10-12-01-1/.
 # Pull Cmd:         docker pull biodckr/tandem

@@ -4,10 +4,14 @@
 # Version:          1
 # Software:         OpenMS
 # Software Version: 1.11.1-3
+# Description:      a graphical workflow editor for the analysis of high-throughput proteomics data
+# Website:          http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/
+# Tags:             Proteomics
+# Provides:         openms 1.11.1-3|topp 1.11.1-3
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/toppas 1.11.1-3/.
 # Pull Cmd:         docker pull biodckr/toppas
-# Run Cmd:          docker run --rm biodckr/toppas
+# Run Cmd:          docker run --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/toppas 
 #################################################################
 
 # Set the base image
@@ -29,6 +33,7 @@ RUN apt-get update && \
 #    mkdir -p /home/developer && \
 #    echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \
 #    echo "developer:x:${uid}:" >> /etc/group && \
+
 RUN echo "biodocker ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/biodocker
 #    chmod 0440 /etc/sudoers.d/biodocker && \
 #    chown ${uid}:${gid} -R /home/biodocker
