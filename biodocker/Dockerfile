@@ -4,7 +4,12 @@
 # Version:          1
 # Software:         BioDocker base Image
 # Software Version: 20150814
-# Base Image:       scratch
+
+# Description:      Basic image for BioDocker
+# Website:          http://biodocker.org/
+# Tags:             Genomics|Proteomics|Transcriptomics|General|Metabolomics
+# Provides:         autotools-dev|automake|cmake|curl|fuse|git|wget|zip|openjdk-7-jre|build-essential|pkg-config|python|python-dev|python-pip|zlib1g-dev
+# Base Image:       ubuntu:14.04.3
 # Build Cmd:        docker build --rm -t biodckr/biodocker .
 # Pull Cmd:         docker pull biodckr/biodocker
 # Run Cmd:          docker run --rm biodckr/biodocker bash
