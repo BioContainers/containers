@@ -4,7 +4,6 @@
 # Version:          1
 # Software:         BioDocker base Image
 # Software Version: 20150814
-
 # Description:      Basic image for BioDocker
 # Website:          http://biodocker.org/
 # Tags:             Genomics|Proteomics|Transcriptomics|General|Metabolomics
