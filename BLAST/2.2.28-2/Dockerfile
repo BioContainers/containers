@@ -6,7 +6,7 @@
 # Software Version: 2.2.28-2
 # Description:      basic local alignment search tool
 # Website:          http://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download
-# Tags:             Genomics|Protemomics|Transcriptomics|General
+# Tags:             Genomics|Proteomics|Transcriptomics|General
 # Provides:         blast 2.2.28-2
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/ncbi-blast 2.2.28-2/.
