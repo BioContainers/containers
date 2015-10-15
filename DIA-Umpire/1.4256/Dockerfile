@@ -8,7 +8,7 @@
 # Website:          http://diaumpire.sourceforge.net
 # Tags:             Proteomics
 # Provides:         dia-umpire 1.4256
-# Base Image:       biodocker:latest
+# Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/diaumpire 1.4256/.
 # Pull Cmd:         docker pull biodckr/diaumpire
 # Run Cmd:          docker run --rm biodckr/diaumpire
