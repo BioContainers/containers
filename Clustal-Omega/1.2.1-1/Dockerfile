@@ -8,7 +8,7 @@
 # Website:          http://www.clustal.org/omega/
 # Tags:             Proteomics
 # Provides:         Clustal-omega 1.2.1-1
-# Base Image:       biodocker:latest
+# Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/clustalo 1.2.1-1/.
 # Pull Cmd:         docker pull biodckr/clustalo
 # Run Cmd:          docker run --rm biodckr/clustalo
