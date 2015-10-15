@@ -5,7 +5,7 @@
 # Software:         Clustal-omega
 # Software Version: 1.2.1-1
 # Description:      general purpose multiple sequence alignment program for proteins
-# Website:          (http://www.clustal.org/omega/
+# Website:          http://www.clustal.org/omega/
 # Tags:             Proteomics
 # Provides:         Clustal-omega 1.2.1-1
 # Base Image:       biodocker:latest
