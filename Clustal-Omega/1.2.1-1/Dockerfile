@@ -24,7 +24,7 @@ USER root
 # Install Clustalo
 RUN apt-get update && \
     apt-get install -y \
-      clustalo && \
+    clustalo && \
     apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

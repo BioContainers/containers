@@ -19,16 +19,21 @@ FROM biodckr/biodocker:latest
 
 ################## BEGIN INSTALLATION ######################
 
+USER root
+
 RUN ZIP=comet_binaries_2015020.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \
-    unzip /tmp/$ZIP -d /home/biodocker/bin && \
-    rm /tmp/$ZIP && \
-    chmod +x /home/biodocker/bin/comet.2015020.linux.exe && \
-    ln -s /home/biodocker/bin/comet.2015020.linux.exe /home/biodocker/bin/comet
+    unzip /tmp/$ZIP -d /home/biodocker/bin/Comet/ && \
+    chmod -R 755 /home/biodocker/bin/Comet/* && \
+    rm /tmp/$ZIP
+
+ENV PATH /home/biodocker/bin/Comet:$PATH
+
+USER biodocker
 
 WORKDIR /data
 
-CMD ["comet"]
+ENTRYPOINT ["/home/biodocker/bin/Comet/comet.2015020.linux.exe"]
 
 ##################### INSTALLATION END #####################
 

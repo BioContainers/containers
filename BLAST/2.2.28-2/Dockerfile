@@ -24,7 +24,7 @@ USER root
 # Install BLAST toolkit
 RUN apt-get update && \
     apt-get install -y \
-      ncbi-blast+=2.2.28-2 && \
+    ncbi-blast+=2.2.28-2 && \
     apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
