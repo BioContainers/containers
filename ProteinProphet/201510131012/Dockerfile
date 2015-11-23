@@ -22,11 +22,11 @@ USER root
 
 RUN ZIP=ProteinProphet.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/ProteinProphet/$ZIP -O /tmp/$ZIP && \
-    unzip /tmp/$ZIP -d /home/biodocker/bin/ProteinProphet/ && \
-    chmod -R 755 /home/biodocker/bin/ProteinProphet/* && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
+    chmod -R 755 /home/biodocker/bin/* && \
     rm /tmp/$ZIP
 
-ENV PATH /home/biodocker/bin/ProteinProphet:$PATH
+ENV PATH /home/biodocker/bin:$PATH
 
 USER biodocker
 

@@ -25,6 +25,8 @@ RUN ZIP=crux-2.1.Linux.x86_64.zip && \
     rm /tmp/$ZIP && \
     ln -sv /home/biodocker/bin/*/bin/* /home/biodocker/bin/
 
+ENV PATH /home/biodocker/bin:$PATH
+
 WORKDIR /data
 
 CMD ["crux"]
