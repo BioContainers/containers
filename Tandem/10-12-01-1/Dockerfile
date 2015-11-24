@@ -26,6 +26,10 @@ RUN ZIP=tandem-linux-10-12-01-1.zip && \
     bash -c 'echo -e "#!/bin/bash\n/home/biodocker/bin/tandem-linux-10-12-01-1/bin/tandem.exe $@"' > /home/biodocker/bin/tandem && \
     chmod 755 /home/biodocker/bin/tandem
 
+ENV PATH /home/biodocker/bin:$PATH
+
+USER biodocker
+
 WORKDIR /data
 
 CMD ["tandem"]
