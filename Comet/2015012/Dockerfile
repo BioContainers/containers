@@ -18,7 +18,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ######################
 
-USER root
+USER biodocker
 
 RUN ZIP=comet_binaries_2015012.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \
@@ -29,8 +29,6 @@ RUN ZIP=comet_binaries_2015012.zip && \
 RUN mv /home/biodocker/bin/Comet/comet.2015012.linux.exe /home/biodocker/bin/Comet/comet
 
 ENV PATH /home/biodocker/bin/Comet:$PATH
-
-USER biodocker
 
 WORKDIR /data
 
