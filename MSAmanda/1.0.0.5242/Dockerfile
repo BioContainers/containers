@@ -23,12 +23,10 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y \
-      mono-complete && \
+    mono-complete && \
     apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-USER biodocker
 
 RUN ZIP=MSAmanda_Standalone_LinuxMac_1.0.0.5243.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/MSAmanda/$ZIP -O /tmp/$ZIP && \
@@ -37,6 +35,10 @@ RUN ZIP=MSAmanda_Standalone_LinuxMac_1.0.0.5243.zip && \
     chmod 755 /home/biodocker/bin/MSAmanda_Standalone_LinuxMac_1.0.0.5243/MSAmanda.exe && \
     bash -c 'echo -e "#!/bin/bash\nmono /home/biodocker/bin/MSAmanda_Standalone_LinuxMac_1.0.0.5243/MSAmanda.exe $@" > /home/biodocker/bin/MSAmanda' && \
     chmod +x /home/biodocker/bin/MSAmanda
+
+ENV PATH /home/biodocker/bin/MSAmanda:$PATH
+
+USER biodocker
 
 WORKDIR /data
 

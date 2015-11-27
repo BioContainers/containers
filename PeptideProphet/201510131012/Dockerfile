@@ -22,13 +22,13 @@ USER root
 
 RUN ZIP=PeptideProphetParser.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/PeptideProphet/$ZIP -O /tmp/$ZIP && \
-    unzip /tmp/$ZIP -d /home/biodocker/bin/PeptideProphet/ && \
-    chmod -R 755 /home/biodocker/bin/PeptideProphet/* && \
+    unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
+    chmod -R 755 /home/biodocker/bin/* && \
     rm /tmp/$ZIP
 
-RUN mv /home/biodocker/bin/PeptideProphet/PeptideProphetParser /home/biodocker/bin/PeptideProphet/PeptideProphet
+RUN mv /home/biodocker/bin/PeptideProphetParser /home/biodocker/bin/PeptideProphet
 
-ENV PATH /home/biodocker/bin/PeptideProphet:$PATH
+ENV PATH /home/biodocker/bin:$PATH
 
 USER biodocker
 

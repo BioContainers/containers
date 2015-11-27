@@ -26,6 +26,10 @@ RUN ZIP=novor_academic_latest.zip && \
     bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/novor_v1b/lib/novor.jar $@" > /home/biodocker/bin/novor' && \
     chmod +x /home/biodocker/bin/novor
 
+ENV PATH /home/biodocker/bin:$PATH
+
+USER biodocker
+
 WORKDIR /data
 
 CMD ["novor"]
