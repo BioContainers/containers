@@ -26,13 +26,13 @@ RUN ZIP=comet_binaries_2015012.zip && \
     chmod -R 755 /home/biodocker/bin/Comet/* && \
     rm /tmp/$ZIP
 
+RUN mv /home/biodocker/bin/Comet/comet.2015012.linux.exe /home/biodocker/bin/Comet/comet
+
 ENV PATH /home/biodocker/bin/Comet:$PATH
 
 USER biodocker
 
 WORKDIR /data
-
-ENTRYPOINT ["/home/biodocker/bin/Comet/comet.2015012.linux.exe"]
 
 ##################### INSTALLATION END #####################
 
