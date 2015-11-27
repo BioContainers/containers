@@ -11,7 +11,7 @@
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build --rm -t biodckr/comet 2015020/.
 # Pull Cmd:         docker pull biodckr/comet
-# Run Cmd:          docker run --rm biodckr/comet
+# Run Cmd:          docker run --rm biodckr/comet comet
 #################################################################
 
 # Set the base image to biodckr/biodocker
