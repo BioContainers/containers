@@ -7,7 +7,7 @@
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build -t biodckr/ProteinProphet 201510131012/.
 # Pull Cmd:         docker pull biodckr/ProteinProphet
-# Run Cmd:          docker run biodckr/ProteinProphet
+# Run Cmd:          docker run biodckr/ProteinProphet ProteinProphet
 #################################################################
 
 # Set the base image to biodckr/biodocker
@@ -18,7 +18,25 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ######################
 
-USER root
+USER root 
+
+RUN apt-get update && \
+    apt-get install -y gnuplot
+
+
+RUN sudo mkdir -p /usr/local/tpp/bin/
+
+RUN ZIP=DatabaseParser.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/DatabaseParser/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /usr/local/tpp/bin/ && \
+    rm /tmp/$ZIP
+
+RUN ZIP=batchcoverage.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/BatchCoverage/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /usr/local/tpp/bin/ && \
+    rm /tmp/$ZIP
+
+USER biodocker
 
 RUN ZIP=ProteinProphet.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/ProteinProphet/$ZIP -O /tmp/$ZIP && \
@@ -28,12 +46,10 @@ RUN ZIP=ProteinProphet.zip && \
 
 ENV PATH /home/biodocker/bin:$PATH
 
-USER biodocker
-
-WORKDIR /data
+WORKDIR /data/
 
 ##################### INSTALLATION END #####################
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
+# Modified by Felipe da Veiga Leprevost 11-27-2015

@@ -20,18 +20,11 @@ FROM biodckr/biodocker:latest
 
 ################## BEGIN INSTALLATION ######################
 
-RUN ZIP=tpp-4.8.0.zip && \
-    wget https://github.com/BioDocker/software-archive/releases/download/TPP/$ZIP -O /tmp/$ZIP && \
-    unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
-    rm /tmp/$ZIP && \
-    ln -vs /home/biodocker/bin/tpp/bin/* /home/biodocker/bin/    
+RUN wget https://github.com/BioDocker/software-archive/releases/download/TPP/tpp-bin-4.8.0.zip
 
-#    bash -c 'echo -e "#!/bin/bash\n/home/biodocker/bin/tpp_src/" > /home/biodocker/bin/tpp' && \
-#    chmod +x /home/biodocker/bin/tpp
+RUN unzip tpp-bin-4.8.0.zip
 
-WORKDIR /data
-
-CMD ["tandem"]
+WORKDIR /tpp-bin-4.8.0/
 
 ##################### INSTALLATION END #####################
 
