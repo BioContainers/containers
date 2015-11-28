@@ -18,6 +18,24 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ################## BEGIN INSTALLATION ######################
 
+USER root 
+
+RUN apt-get update && \
+    apt-get install -y gnuplot
+
+
+RUN sudo mkdir -p /usr/local/tpp/bin/
+
+RUN ZIP=DatabaseParser.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/DatabaseParser/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /usr/local/tpp/bin/ && \
+    rm /tmp/$ZIP
+
+RUN ZIP=batchcoverage.zip && \
+    wget https://github.com/BioDocker/software-archive/releases/download/BatchCoverage/$ZIP -O /tmp/$ZIP && \
+    unzip /tmp/$ZIP -d /usr/local/tpp/bin/ && \
+    rm /tmp/$ZIP
+
 USER biodocker
 
 RUN ZIP=ProteinProphet.zip && \
@@ -28,7 +46,7 @@ RUN ZIP=ProteinProphet.zip && \
 
 ENV PATH /home/biodocker/bin:$PATH
 
-WORKDIR /data
+WORKDIR /data/
 
 ##################### INSTALLATION END #####################
 
