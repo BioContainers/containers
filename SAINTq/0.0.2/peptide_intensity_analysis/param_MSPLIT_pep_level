@@ -1,0 +1,24 @@
+### SAINTq parameter file
+## use # to mark a line as comment
+
+## name of file with intensities
+input_filename=MSPLIT_pep_level.tsv
+
+## type of intensity
+## valid: protein, peptide, fragment
+input_level=peptide
+
+## column names
+protein_colname=Protein
+pep_colname=Peptide
+
+
+## control bait selection rules
+compress_n_ctrl=100
+
+## test bait replicate selection rules
+compress_n_rep=100
+
+## peptide selection rules
+min_n_pep=3
+best_prop_pep=0.5
