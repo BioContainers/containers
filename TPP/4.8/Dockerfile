@@ -18,13 +18,23 @@
 # Set the base image to Ubuntu
 FROM biodckr/biodocker:latest
 
+# Change user to root
+USER root
+
 ################## BEGIN INSTALLATION ######################
 
-RUN wget https://github.com/BioDocker/software-archive/releases/download/TPP/tpp-bin-4.8.0.zip
+WORKDIR /usr/local/
 
-RUN unzip tpp-bin-4.8.0.zip
+RUN wget https://github.com/BioDocker/software-archive/releases/download/TPP/tpp-4.8.0.zip && \
+    unzip tpp-4.8.0.zip
 
-WORKDIR /tpp-bin-4.8.0/
+ENV PATH /usr/local/tpp/bin/:$PATH
+
+# Change user to back to biodocker
+USER biodocker
+
+# CHANGE WORKDIR TO /DATA
+WORKDIR /data
 
 ##################### INSTALLATION END #####################
 
