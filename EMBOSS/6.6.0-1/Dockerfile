@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         emboss
 # Software Version: 6.6.0-1
 # Description:      software analysis package specially developed for the needs of the molecular biology (e.g. EMBnet) user community
@@ -23,20 +23,18 @@ USER root
 
 # Install EMBOSS package
 RUN apt-get update && \
-    apt-get install -y \
-      emboss=6.6.0-1 && \
-    apt-get clean && \
-    apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  apt-get install -y \
+  emboss=6.6.0-1 && \
+  apt-get clean && \
+  apt-get purge && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 USER biodocker
 
-WORKDIR /data
-
-CMD ["embossdata"]
+WORKDIR /data/
 
 ##################### INSTALLATION END ##########################
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
+# Modified by Felipe da Veiga Leprevost 01-26-2016

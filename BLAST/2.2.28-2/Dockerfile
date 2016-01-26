@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         NCBI BLAST+
 # Software Version: 2.2.28-2
 # Description:      basic local alignment search tool
@@ -23,18 +23,18 @@ USER root
 
 # Install BLAST toolkit
 RUN apt-get update && \
-    apt-get install -y \
-    ncbi-blast+=2.2.28-2 && \
-    apt-get clean && \
-    apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  apt-get install -y \
+  ncbi-blast+=2.2.28-2 && \
+  apt-get clean && \
+  apt-get purge && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 USER biodocker
 
-CMD ["blastn", "-help"]
+WORKDIR /data/
 
 ##################### INSTALLATION END #####################
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
+# Modified by Felipe da Veiga Leprevost 01-26-2016

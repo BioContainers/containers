@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         Comet
 # Software Version: 2015020
 # Description:      basic local alignment search tool
@@ -17,7 +17,7 @@
 # Set the base image to biodckr/biodocker
 FROM biodckr/biodocker:latest
 
-################## BEGIN INSTALLATION ######################
+################## BEGIN INSTALLATION ###########################
 
 USER biodocker
 
@@ -31,10 +31,10 @@ RUN mv /home/biodocker/bin/Comet/comet.2015020.linux.exe /home/biodocker/bin/Com
 
 ENV PATH /home/biodocker/bin/Comet:$PATH
 
-WORKDIR /data
+WORKDIR /data/
 
-##################### INSTALLATION END #####################
+##################### INSTALLATION END ##########################
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 11-27-2015
+# Modified by Felipe da Veiga Leprevost 01-26-2016
