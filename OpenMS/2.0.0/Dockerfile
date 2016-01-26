@@ -86,3 +86,7 @@ USER biodocker
 WORKDIR /data
 
 #################### END INSTALLATION #########################
+
+# File Author / Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 01-26-2016
