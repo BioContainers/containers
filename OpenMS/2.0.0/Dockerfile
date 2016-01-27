@@ -74,8 +74,8 @@ RUN mkdir openms-build
 WORKDIR /home/biodocker/openms-build/
 
 RUN cmake -DCMAKE_PREFIX_PATH="/home/biodocker/contrib-build/;/home/biodocker/contrib/;/usr/;/usr/local" -DBOOST_USE_STATIC=OFF -DHAS_XSERVER=Off ../OpenMS && \
-  make && \
-  ctest
+  make
+  #  ctest
 
 ENV PATH /home/biodocker/openms-build/bin/:$PATH
 
