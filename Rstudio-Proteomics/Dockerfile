@@ -27,21 +27,21 @@ USER root
 
 # nuke cache dirs before installing pkgs; tip from Dirk E fixes broken img
 RUN rm -f /var/lib/dpkg/available && rm -rf  /var/cache/apt/* && \
-    apt-get install -y -t unstable --force-yes libfreetype6 && \
-    apt-get update && \
-    apt-get install -y -t unstable \
-    libexpat1-dev \
-    libgmp3-dev \
-    libnetcdf-dev \
-    libopenbabel-dev \
-    libgl1-mesa-dev \
-    libglu1-mesa-dev \
-    libgsl0-dev \
-    libgsl0ldbl \
-    openjdk-8-jdk && \
-    apt-get clean && \
-    apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  apt-get install -y -t unstable --force-yes libfreetype6 && \
+  apt-get update && \
+  apt-get install -y -t unstable \
+  libexpat1-dev \
+  libgmp3-dev \
+  libnetcdf-dev \
+  libopenbabel-dev \
+  libgl1-mesa-dev \
+  libglu1-mesa-dev \
+  libgsl0-dev \
+  libgsl0ldbl \
+  openjdk-8-jdk && \
+  apt-get clean && \
+  apt-get purge && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN R CMD javareconf
 
@@ -55,10 +55,10 @@ ADD installFromBiocViews.R /tmp/
 ADD http://master.bioconductor.org/todays-date /tmp/
 
 RUN cd /tmp && \
-    ./startx.sh && \
-    export DISPLAY=:1.0 && \
-    R -f /tmp/installFromBiocViews.R && \
-    R -e "biocLite(c('rols', 'RforProteomics'))"
+  ./startx.sh && \
+  export DISPLAY=:1.0 && \
+  R -f /tmp/installFromBiocViews.R && \
+  R -e "biocLite(c('rols', 'RforProteomics'))"
 
 USER biodocker
 
@@ -66,4 +66,5 @@ USER biodocker
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 01-26-2016
 # Adapted from the original work of dtenenba@fredhutch.org (rocker-org)

@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         Comet
 # Software Version: 2015012
 # Base Image:       biodckr/biodocker:latest
@@ -30,10 +30,10 @@ RUN mv /home/biodocker/bin/Comet/comet.2015012.linux.exe /home/biodocker/bin/Com
 
 ENV PATH /home/biodocker/bin/Comet:$PATH
 
-WORKDIR /data
+WORKDIR /data/
 
 ##################### INSTALLATION END #####################
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 11-27-2015
+# Modified by Felipe da Veiga Leprevost 01-26-2016

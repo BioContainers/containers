@@ -34,7 +34,7 @@ RUN ZIP=DeNovoGUI-1.5.2.zip && \
 
 WORKDIR /data
 
-CMD ["denovogui"]
+#CMD ["denovogui"]
 
 ##################### INSTALLATION END #####################
 

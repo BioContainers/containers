@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         MSGF+
 # Software Version: 9949
 # Description:      MS/MS database search tool
@@ -20,18 +20,20 @@ FROM biodckr/biodocker:latest
 ################## BEGIN INSTALLATION ###########################
 
 RUN ZIP=MSGFPlus_9949.zip && \
-    wget https://github.com/BioDocker/software-archive/releases/download/MSGFPlus/$ZIP -O /tmp/$ZIP && \
-    unzip /tmp/$ZIP -d /home/biodocker/bin/MSGFPlus_9949/ && \
-    rm /tmp/$ZIP && \
-    bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/MSGFPlus_9949/MSGFPlus.jar $@" > /home/biodocker/bin/MSGFPlus' && \
-    chmod +x /home/biodocker/bin/MSGFPlus
+  wget https://github.com/BioDocker/software-archive/releases/download/MSGFPlus/$ZIP -O /tmp/$ZIP && \
+  unzip /tmp/$ZIP -d /home/biodocker/bin/MSGFPlus_9949/ && \
+  rm /tmp/$ZIP && \
+  bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/MSGFPlus_9949/MSGFPlus.jar $@" > /home/biodocker/bin/MSGFPlus' && \
+  chmod +x /home/biodocker/bin/MSGFPlus
 
-WORKDIR /data
+ENV PATH /home/biodocker/bin/MSGFPlus:$PATH
 
-CMD ["MSGFPlus"]
+USER biodocker
+
+WORKDIR /data/
 
 ##################### INSTALLATION END ##########################
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
+# Modified by Felipe da Veiga Leprevost 01-26-2016

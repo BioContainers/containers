@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         TPP
 # Software Version: 4.8
 # Description:      a collection of integrated tools for MS/MS proteomics
@@ -26,7 +26,7 @@ USER root
 WORKDIR /usr/local/
 
 RUN wget https://github.com/BioDocker/software-archive/releases/download/TPP/tpp-4.8.0.zip && \
-    unzip tpp-4.8.0.zip
+  unzip tpp-4.8.0.zip
 
 ENV PATH /usr/local/tpp/bin/:$PATH
 
