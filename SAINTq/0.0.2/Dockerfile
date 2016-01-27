@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         SAINTq
 # Software Version: 0.0.2
 # Description:      assigning confidence scores to protein-protein interactions based on quantitative proteomics
@@ -22,17 +22,17 @@ FROM biodckr/biodocker:latest
 USER biodocker
 
 RUN ZIP=saintq.zip && \
-    wget https://github.com/BioDocker/software-archive/releases/download/SAINTq/$ZIP -O /tmp/$ZIP && \
-    unzip /tmp/$ZIP -d /home/biodocker/bin/SAINT/ && \
-    chmod -R 755 /home/biodocker/bin/SAINT/* && \
-    rm /tmp/$ZIP
+  wget https://github.com/BioDocker/software-archive/releases/download/SAINTq/$ZIP -O /tmp/$ZIP && \
+  unzip /tmp/$ZIP -d /home/biodocker/bin/SAINT/ && \
+  chmod -R 755 /home/biodocker/bin/SAINT/* && \
+  rm /tmp/$ZIP
 
 ENV PATH /home/biodocker/bin/SAINT:$PATH
 
-WORKDIR /data
+WORKDIR /data/
 
 ##################### INSTALLATION END #####################
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-15-2016
+# Modified by Felipe da Veiga Leprevost 01-26-2016
