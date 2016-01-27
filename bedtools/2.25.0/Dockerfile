@@ -2,16 +2,16 @@
 # Dockerfile
 #
 # Version:          1
-# Software:         Bcftools
-# Software Version: 1.2
-# Description:      Bcftools is a program for variant calling and manipulating VCFs and BCFs
-# Website:          https://github.com/bcftools/bcftools
+# Software:         Bedtools
+# Software Version: 2.25.0
+# Description:      A powerful toolset for genome arithmetic
+# Website:          https://github.com/arq5x/bedtools2
 # Tags:             Genomics
-# Provides:         Bcftools 1.2
+# Provides:         Bedtools 2.25.0
 # Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrdev/bcftools 1.2/.
-# Pull Cmd:         docker pull biodckrdev/bcftools
-# Run Cmd:          docker run biodckrdev/bcftools bcftools
+# Build Cmd:        docker build biodckrdev/bedtools 2.25.0/.
+# Pull Cmd:         docker pull biodckrdev/bedtools
+# Run Cmd:          docker run biodckrdev/bedtools bedtools
 #################################################################
 
 # Set the base image to Ubuntu
@@ -22,9 +22,9 @@ FROM biodckr/biodocker
 # Change user to root
 USER root
 
-ENV ZIP=bcftools-1.2.tar.bz2
-ENV URL=https://github.com/BioDocker/software-archive/releases/download/bcftools
-ENV FOLDER=bcftools-1.2
+ENV ZIP=bedtools-2.25.0.tar.gz
+ENV URL=https://github.com/arq5x/bedtools2/releases/download/v2.25.0
+ENV FOLDER=bedtools2
 ENV DST=/tmp
 
 RUN wget $URL/$ZIP -O $DST/$ZIP && \
