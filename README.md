@@ -58,17 +58,17 @@ Contents
 ### 1.1. What is a container?
 
 Containers are build from existing operating systems. They are different from Virtual machines because they don't posses an entire guet OS inside, instead, containers are build using optimized system
-libraries and use the host OS memmory management and process controls. Containers normally are centralized around a speciic software and you can make them executable by instantiating images from them.
+libraries and use the host OS memory management and process controls. Containers normally are centralized around specific software and you can make them executable by instantiating images from them.
 
 ## 1.2. How to search for a container
 
-The BioDocker containers are listed on this repository. Every software has a especific directory with a recipie inside on how to make the container.
+The BioDocker containers are listed on this repository. Every software has a specific directory with a recipe inside on how to make the container.
 
 ### 1.3. What do I need to use a container?
 
-In order to run a Docker(or BioDocker) container on your computer you will nedd the Dcoker daemon installed.
+In order to run a Docker(or BioDocker) container on your computer you will need the Dcoker daemon installed.
 
-Check [here](https://docs.docker.com/installation/) for the instructions o how to do it.
+Check [here](https://docs.docker.com/installation/) for the instructions on how to do it.
 
 ### 1.4. How do I use a container?
 
@@ -78,10 +78,10 @@ In general the `README.md` of each project should explain you how to interact wi
 
 There are two different ways to run a container.
 
-* Go to the GitHub reposiry with the recipie of the software you want, clone it, and build it yourself on your machine.
+* Go to the GitHub repository with the recipe of the software you want, clone it, and build it yourself on your machine.
 * Use the docker daemon to search for a ready-to-use version of the containerized software you want.
 
-Inside the central repository there is a list of softwares with docker recipies, there you can find more information about how to work with them.
+Inside the central repository there is a list of software with docker recipes, there you can find more information about how to work with them.
 
 
 2. Developing containers
@@ -98,7 +98,7 @@ give access to the software inside.
 
 You can check the [Docker](https://docs.docker.com/reference/builder/) documentation for more information.
 
-Once the contaienr is ready you can get in touch with us so we can make the appropriate arrangements to make your container availabe to everyone in the community by giving an automated build system.
+Once the container is ready you can get in touch with us so we can make the appropriate arrangements to make your container availabe to everyone in the community by giving an automated build system.
 
 
 3. Support
@@ -106,7 +106,7 @@ Once the contaienr is ready you can get in touch with us so we can make the appr
 
 ### 3.1. Get involved
 
-Whether you want to make your own software available to others as a container, to just usem them on your pipelines and analysis or just give opinions, you are most welcome. This is a community-driven project, that means everyone has a voice.
+Whether you want to make your own software available to others as a container, to just use them on your pipelines and analysis or just give opinions, you are most welcome. This is a community-driven project, that means everyone has a voice.
 
 Here are some general ideas:
 
