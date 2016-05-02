@@ -12,7 +12,7 @@
 # Build Cmd:        docker build --rm -t biodckr/pia-web 1.1.0/.
 # Pull Cmd:         docker pull biodckr/pia-web
 # Run Cmd:          docker run  biodckr/pia-web
-# Extra:            This container starts up the web-interface. You should restart the container after the first start to keep projects.
+# Extra:            This container starts up the web-interface (accessible at e.g. http://172.17.0.2:8080/pia, the IP depends on your docker setup). You should restart the container after the first start to keep projects.
 #################################################################
 
 # Set the base image
