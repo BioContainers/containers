@@ -7,12 +7,12 @@
 # Description:      Web server for PIA - Protein Inference Algorithms
 # Website:          https://github.com/mpc-bioinformatics/pia
 # Tags:             Proteomics
-# Provides:         PIA 1.1.0 - Web Interface
+# Provides:         PIA 1.1.0 - Web Interface (through Apache Tomcat)
 # Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/pia-web 1.1.0/.
+# Build Cmd:        docker build --rm -t biodckr/pia-web 1.1.0-SNAPSHOT/.
 # Pull Cmd:         docker pull biodckr/pia-web
 # Run Cmd:          docker run  biodckr/pia-web
-# Extra:            This container starts up the web-interface (accessible at e.g. http://172.17.0.2:8080/pia, the IP depends on your docker setup). You should restart the container after the first start to keep projects.
+# Extra:            This container starts up the web-interface (accessible at e.g. http://172.17.0.2:8080/pia, the IP depends on your docker setup). You should restart the container after the first start to keep projects. Projects will be saved inside /data/ inside the container.
 #################################################################
 
 # Set the base image
@@ -35,7 +35,7 @@ WORKDIR $CATALINA_HOME
 # runtime dependency for Tomcat Native Libraries
 RUN apt-get update \
   && apt-get install -y libapr1 graphviz \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # see https://www.apache.org/dist/tomcat/tomcat-8/KEYS
 RUN set -ex \
@@ -79,8 +79,8 @@ RUN set -x \
    openjdk-7-jdk \
 	" \
 	&& apt-get update \
-  && apt-get install -y --no-install-recommends $nativeBuildDeps && \
-  rm -rf /var/lib/apt/lists/* \
+  && apt-get install -y --no-install-recommends $nativeBuildDeps \
+  && rm -rf /var/lib/apt/lists/* \
 	&& ( \
 		export CATALINA_HOME="$PWD" \
 		&& cd "$nativeBuildDir/jni/native" \
@@ -95,7 +95,8 @@ RUN set -x \
 	) \
 	&& apt-get purge -y --auto-remove $nativeBuildDeps \
 	&& rm -rf "$nativeBuildDir" \
-	&& rm bin/tomcat-native.tar.gz
+	&& rm bin/tomcat-native.tar.gz \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # verify Tomcat Native is working properly
 RUN set -e \
@@ -120,10 +121,10 @@ RUN set -x \
   && startup.sh \
   && /bin/bash -c 'tail -f $CATALINA_HOME/logs/catalina.out | while read LOGLINE; do [[ "${LOGLINE}" == *"INFO: Server startup"* ]] && pkill -P $$ tail; done' \
   && shutdown.sh \
+  && rm $CATALINA_HOME/webapps/pia.war \
   \
-  && mkdir -p /data/pia \
   && echo "nr_threads=0\n\
-data_path=/data/pia\n\
+data_path=/data\n\
 tmp_path=/tmp/\n\
 mascot_server=\n\
 mascot_path=\n\
@@ -131,9 +132,11 @@ psmviewer_rows=50\n\
 peptideviewer_rows=50\n\
 proteinviewer_rows=50" > $CATALINA_HOME/webapps/pia/config/pia.properties
 
-##################### INSTALLATION END ##########################
-
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
 
+##################### INSTALLATION END ##########################
+
+# File Author / Maintainer
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>
+# Modified by Julian Uszkoreit 2016-05-03
