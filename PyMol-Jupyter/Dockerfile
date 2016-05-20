@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          0.1
+# Version:          1
 # Software:         PyMol-Jupyter (BioDocker edition)
 # Software Version: 0.1
 # Description:      a portable way of interacting with PyMol via Jupyter notebook
@@ -15,7 +15,6 @@
 #################################################################
 FROM biodckr/biodocker:latest
 
-MAINTAINER Marco Zocca, zocca.marco gmail 
 
 
 # # # environment variables
@@ -48,6 +47,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 
+################## BEGIN INSTALLATION ###########################
 
 USER root
 
@@ -234,5 +234,11 @@ ENTRYPOINT ["tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser"]
 
 
-# # # run command :
-# # docker run --rm -it -p 8888:8888 ocramz/jupyter-docker-pymol
+
+##################### INSTALLATION END ##########################
+
+# File Author / Maintainer
+MAINTAINER Marco Zocca <zoccaNO.marcoSP@gmailAM.com>
+# Modified by Marco Zocca 20-05-2016
+
+
