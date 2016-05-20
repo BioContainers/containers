@@ -3,7 +3,7 @@
 #
 # Version:          1
 # Software:         PyMol-Jupyter (BioDocker edition)
-# Software Version: 0.1
+# Software Version: 1
 # Description:      a portable way of interacting with PyMol via Jupyter notebook
 # Website:          github.com/ocramz/jupyter-docker-pymol
 # Tags:             Visualization
