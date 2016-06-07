@@ -181,29 +181,21 @@ RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/${PYMOL
     cd pymol && \
     python3 setup.py build install
 
-# RUN which pymol
-
 
 # # # # iPyMol + dependencies
 RUN pip3 install git+https://github.com/ocramz/ipymol.git@python3
 
 
-## check installation
-RUN pip list && pip3 list
 
 
 
-# # Configure container startup
-# EXPOSE 8888
-# # WORKDIR /tmp
-# ENTRYPOINT ["tini", "--"]
-# # CMD ["jupyter", "kernelgateway", "--KernelGatewayApp.ip=0.0.0.0"]
+
 
 
 
 USER root
 
-# Add local files as late as possible to avoid cache busting
+# NB : Add local files as late as possible to avoid cache busting
 # Start notebook server
 COPY jupyter-minimal-notebook/start-notebook.sh /usr/local/bin/
 # Start single-user notebook server for use with JupyterHub
@@ -220,17 +212,19 @@ USER ${USER}
 
 
 
-# Configure container
+# Expose port
 EXPOSE 8888
 
-# # working directory
+# working directory
 WORKDIR /home/${USER}/data
 
+# mount shared volume
 VOLUME /home/${USER}/data
 
 
 ENTRYPOINT ["tini", "--"]
 
+# command to run when Docker image is run
 CMD ["jupyter", "notebook", "--no-browser"]
 
 
