@@ -1,0 +1,48 @@
+---
+# This is a sample file to be used as a reference for populating a list of
+# tools that you wish to install into Galaxy from a Tool Shed via the
+# `install_tool_shed_tools.py` script.
+#
+# For each tool you want to install, you must provide the following keys:
+#  * name: this is is the name of the tool to install
+#  * owner: owner of the Tool Shed repository from where the tools is being
+#           installed
+# Further, you need to provide **one** of the following two keys:
+#  * tool_panel_section_id: ID of the tool panel section where you want the
+#                           tool to be installed. The section ID can be found
+#                           in Galaxy's `shed_tool_conf.xml` config file. Note
+#                           that the specified section must exist in this file.
+#                           Otherwise, the tool will be installed outside any
+#                           section.
+#  * tool_panel_section_label: Display label of a tool panel section where
+#                              you want the tool to be installed. If it does not
+#                              exist, this section will be created on the target
+#                              Galaxy instance (note that this is different than
+#                              when using the ID).
+#                              Multi-word labels need to be placed in quotes.
+#                              Each label will have a corresponding ID created;
+#                              the ID will be an all lowercase version of the
+#                              label, with multiple words joined with
+#                              underscores (e.g., 'BED tools' -> 'bed_tools').
+#
+# Tou can also specify the following optional keys to further define the
+# installation properties:
+#  * tool_shed_url: the URL of the Tool Shed from where the tool should be
+#                   installed. (default: https://toolshed.g2.bx.psu.edu)
+#  * revisions: a list of revisions of the tool, all of which will attempt to
+#               be installed. (default: latest)
+#  * install_tool_dependencies: True or False - whether to install tool
+#                               dependencies or not. (default: True)
+#  * install_repository_dependencies: True or False - whether to install repo
+#                               dependencies or not. (default: True)
+
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+- name: asms_tutorial_2016
+  owner: galaxyp
+  tool_panel_section_label: "ASMS 2016"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+
+

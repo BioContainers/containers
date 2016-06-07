@@ -1,0 +1,10 @@
+libraries:
+    - name: test1
+      files:
+        - https://raw.githubusercontent.com/bgruening/galaxytools/master/tools/augustus/test-data/human_augustus.fa
+        - https://raw.githubusercontent.com/bgruening/galaxytools/master/tools/augustus/test-data/human_augustus.fa
+    - name: test2
+      files:
+        - https://raw.githubusercontent.com/bgruening/galaxytools/master/tools/augustus/test-data/human_augustus_utr-on.gtf
+        - https://raw.githubusercontent.com/bgruening/galaxytools/master/tools/augustus/test-data/human_augustus_utr-on.gtf
+        - https://raw.githubusercontent.com/bgruening/galaxytools/master/tools/augustus/test-data/human_augustus_utr-on.gtf

@@ -1,0 +1,174 @@
+---
+# This is a sample file to be used as a reference for populating a list of
+# tools that you wish to install into Galaxy from a Tool Shed via the
+# `install_tool_shed_tools.py` script.
+#
+# For each tool you want to install, you must provide the following keys:
+#  * name: this is is the name of the tool to install
+#  * owner: owner of the Tool Shed repository from where the tools is being
+#           installed
+# Further, you need to provide **one** of the following two keys:
+#  * tool_panel_section_id: ID of the tool panel section where you want the
+#                           tool to be installed. The section ID can be found
+#                           in Galaxy's `shed_tool_conf.xml` config file. Note
+#                           that the specified section must exist in this file.
+#                           Otherwise, the tool will be installed outside any
+#                           section.
+#  * tool_panel_section_label: Display label of a tool panel section where
+#                              you want the tool to be installed. If it does not
+#                              exist, this section will be created on the target
+#                              Galaxy instance (note that this is different than
+#                              when using the ID).
+#                              Multi-word labels need to be placed in quotes.
+#                              Each label will have a corresponding ID created;
+#                              the ID will be an all lowercase version of the
+#                              label, with multiple words joined with
+#                              underscores (e.g., 'BED tools' -> 'bed_tools').
+#
+# Tou can also specify the following optional keys to further define the
+# installation properties:
+#  * tool_shed_url: the URL of the Tool Shed from where the tool should be
+#                   installed. (default: https://toolshed.g2.bx.psu.edu)
+#  * revisions: a list of revisions of the tool, all of which will attempt to
+#               be installed. (default: latest)
+#  * install_tool_dependencies: True or False - whether to install tool
+#                               dependencies or not. (default: True)
+#  * install_repository_dependencies: True or False - whether to install repo
+#                               dependencies or not. (default: True)
+
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+- name: fasta_compute_length
+  owner: devteam
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: fasta_merge_files_and_filter_unique_sequences
+  owner: galaxyp
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: seq_filter_by_id
+  owner: peterjc
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: seq_rename
+  owner: peterjc
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: seq_select_by_id
+  owner: peterjc
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: fasta_formatter
+  owner: devteam
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: fasta_nucleotide_changer
+  owner: devteam
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: fasta_to_tabular
+  owner: devteam
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: find_subsequences
+  owner: bgruening
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: tabular_to_fasta
+  owner: devteam
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: fasta_filter_by_length
+  owner: devteam
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  revisions:
+    - c8cd0a03db49
+
+- name: decoyfasta
+  owner: galaxyp
+  tool_panel_section_label: "FASTA Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+
+
+- name: text_processing
+  owner: bgruening
+  tool_panel_section_id: textutil
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: column_maker
+  owner: devteam
+  tool_panel_section_id: textutil
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  revisions:
+    - 626658afe4cb
+
+- name: regex_find_replace
+  owner: jjohnson
+  tool_panel_section_id: textutil
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  revisions:
+    - 9ea374bb0350
+
+
+
+- name: bedtools
+  owner: iuc
+  tool_panel_section_label: "BED Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: translate_bed_sequences
+  owner: jjohnson
+  tool_panel_section_label: "BED Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: filter_bed_on_splice_junctions
+  owner: jjohnson
+  tool_panel_section_label: "BED Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+
+
+- name: peptideshaker
+  owner: galaxyp
+  tool_panel_section_label: "PeptideShaker"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: dbbuilder
+  owner: galaxyp
+  tool_panel_section_id: getext
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+
+- name: blastxml_to_tabular_selectable
+  owner: galaxyp
+  tool_panel_section_label: "BLAST"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  revisions:
+    - 5da5dcc5e13a
+
+- name: blast_plus_remote_blastp
+  owner: galaxyp
+  tool_panel_section_label: "BLAST"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  revisions:
+    - a51980bc0ffe
+
+- name: mgf_formatter
+  owner: galaxyp
+  tool_panel_section_id: convert
+  tool_shed_url: https://toolshed.g2.bx.psu.edu
+  revisions:
+    - 29e7496f3907
+
