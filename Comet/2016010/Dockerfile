@@ -24,10 +24,10 @@ USER biodocker
 RUN ZIP=comet_binaries_2016010.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /home/biodocker/bin/Comet/ && \
-    chmod -R 755 /home/biodocker/bin/Comet/* && \
+    chmod -R 755 /home/biodocker/bin/Comet/comet_binaries_2016010/* && \
     rm /tmp/$ZIP
 
-RUN mv /home/biodocker/bin/Comet/comet.2016010.linux.exe /home/biodocker/bin/Comet/comet
+RUN mv /home/biodocker/bin/Comet/comet_binaries_2016010/comet.2016010.linux.exe /home/biodocker/bin/Comet/comet
 
 ENV PATH /home/biodocker/bin/Comet:$PATH
 
