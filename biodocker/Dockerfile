@@ -31,8 +31,8 @@ deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main restricted uni
     cat /etc/apt/sources.list
 
 # apt update and install global requirements
-RUN apt-get clean all &&\
-    apt-get update &&\ 
+RUN apt-get clean all && \
+    apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y  \
         autotools-dev   \
@@ -47,16 +47,33 @@ RUN apt-get clean all &&\
         build-essential \
         pkg-config      \
         python          \
-	python-dev      \
+	      python-dev      \
         python-pip      \
-        zlib1g-dev && \
-    apt-get clean && \
-    apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+        bzip2           \
+        ca-certificates \
+        libglib2.0-0    \
+        libxext6        \
+        libsm6          \
+        libxrender1     \
+        git             \
+        mercurial       \
+        subversion      \
+        zlib1g-dev &&   \
+        apt-get clean && \
+        apt-get purge && \
+        rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-#        subversion \
-#        mercurial  \
-#        cvs        \
+RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
+    wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.0.5-Linux-x86_64.sh -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/conda && \
+    rm ~/miniconda.sh
+
+RUN apt-get install -y curl grep sed dpkg && \
+    TINI_VERSION=`curl https://github.com/krallin/tini/releases/latest | grep -o "/v.*\"" | sed 's:^..\(.*\).$:\1:'` && \
+    curl -L "https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini_${TINI_VERSION}.deb" > tini.deb && \
+    dpkg -i tini.deb && \
+    rm tini.deb && \
+    apt-get clean
 
 # create shared folders
 RUN mkdir /data /config
@@ -70,12 +87,17 @@ RUN useradd --create-home --shell /bin/bash --user-group --uid 1000 --groups sud
 # Change user
 USER biodocker
 
+# Add $HOME/bin to path
+ENV PATH=$PATH:/opt/conda/bin
+ENV PATH=$PATH:/home/biodocker/bin
+ENV HOME=/home/biodocker
+
 # Create $HOME/bin folder
 RUN mkdir /home/biodocker/bin
 
-# Add $HOME/bin to path
-ENV PATH=$PATH:/home/biodocker/bin
-ENV HOME=/home/biodocker
+# Add R and bioconda channel
+RUN conda config --add channels r
+RUN conda config --add channels bioconda
 
 # Share default volumes
 VOLUME ["/data", "/config"]
