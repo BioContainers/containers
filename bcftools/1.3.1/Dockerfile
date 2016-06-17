@@ -1,17 +1,17 @@
 #################################################################
 # Dockerfile
 #
-# Version:          2
-# Software:         Bedtools
-# Software Version: 2.25.0
-# Description:      A powerful toolset for genome arithmetic
-# Website:          https://github.com/arq5x/bedtools2
+# Version:          1
+# Software:         Bcftools
+# Software Version: 1.3.1
+# Description:      Bcftools is a program for variant calling and manipulating VCFs and BCFs
+# Website:          https://github.com/bcftools/bcftools
 # Tags:             Genomics
-# Provides:         Bedtools 2.25.0
+# Provides:         Bcftools 1.3.1
 # Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrv/bedtools 2.25.0/.
-# Pull Cmd:         docker pull biodckr/bedtools
-# Run Cmd:          docker run biodckr/bedtools
+# Build Cmd:        docker build biodckr/bcftools 1.3.1/.
+# Pull Cmd:         docker pull biodckr/bcftools
+# Run Cmd:          docker run biodckr/bcftools
 #################################################################
 
 # Source Image
@@ -20,13 +20,13 @@ FROM biodckr/biodocker
 ################## BEGIN INSTALLATION ###########################
 
 # install
-RUN conda install bedtools=2.25.0
+RUN conda install bcftools=1.3.1
 
 # Change workdir to /data/
 WORKDIR /data/
 
 # Define default command
-CMD ["bedtools"]
+CMD ["bcftools"]
 
 ##################### INSTALLATION END ##########################
 

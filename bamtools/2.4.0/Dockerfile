@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         bamtools
 # Software Version: 2.4.0
 # Description:      C++ API & command-line toolkit for working with BAM data
@@ -9,44 +9,27 @@
 # Tags:             Genomics
 # Provides:         bamtools 2.4.0
 # Base Image:       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/bamtools 2.4.0/.
+# Build Cmd:        docker build biodckrdev/bamtools 2.4.0/.
 # Pull Cmd:         docker pull biodckrdev/bamtools
-# Run Cmd:          docker run --rm -it biodckrdev/bamtools <options> <files>
+# Run Cmd:          docker run --rm -it biodckrdev/bamtools
 #################################################################
 
-# Set the base image to Ubuntu
+# Set the base image to biodckr/biodocker
 FROM biodckr/biodocker
 
-################## BEGIN INSTALLATION ######################
+################## BEGIN INSTALLATION ###########################
 
-# Change user to root
-USER root
+# install software
+RUN conda install bamtools=2.4.0
 
-ENV ZIP=v2.4.0.tar.gz
-ENV URL=https://github.com/pezmaster31/bamtools/archive/
-ENV FOLDER=bamtools-2.4.0
-ENV DST=/tmp
+# set workdir
+WORKDIR /data/
 
-RUN wget $URL/$ZIP -O $DST/$ZIP && \
-  tar xvf $DST/$ZIP -C $DST && \
-  rm $DST/$ZIP && \
-  cd $DST/$FOLDER && \
-  mkdir build && \
-  cd build && \
-  cmake .. && \
-  make && \
-  make install && \
-  cp $DST/$FOLDER/lib/* /lib/ && \
-  rm -rf $DST/$FOLDER
+# define default command
+CMD ["bamtools"]
 
-# Change user to back to biodocker
-USER biodocker
-
-# CHANGE WORKDIR TO /DATA
-WORKDIR /data
-
-##################### INSTALLATION END #####################
+##################### INSTALLATION END ##########################
 
 # File Author / Maintainer
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
+# Modified by Felipe da Veiga Leprevost 06-17-2016

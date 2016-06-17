@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         picard
 # Software Version: 1.139
 # Description:      A set of Java command line tools for manipulating high-throughput sequencing (HTS) data and formats.
@@ -11,37 +11,22 @@
 # Base Image:       biodckr/biodocker
 # Build Cmd:        docker build biodckrdev/picard 1.139/.
 # Pull Cmd:         docker pull biodckrdev/picard
-# Run Cmd:          docker run biodckrdev/picard picard
+# Run Cmd:          docker run biodckrdev/picard <program>
 #################################################################
 
-# Set the base image to Ubuntu
+# Source Image
 FROM biodckr/biodocker
 
-################## BEGIN INSTALLATION ######################
+################## BEGIN INSTALLATION ###########################
 
-ENV ZIP=picard-tools-1.139.zip
-ENV URL=https://github.com/broadinstitute/picard/releases/download/1.139/
-ENV FOLDER=picard-tools-1.139
-ENV DST=/home/biodocker/bin/
+# install
+RUN conda install picard=1.139
 
-RUN wget $URL/$ZIP -O $DST/$ZIP && \
-  unzip $DST/$ZIP -d $DST && \
-  rm $DST/$ZIP && \
-  cd $DST/$FOLDER && \
-  mv * .. && \
-  cd / && \
-  bash -c 'echo -e "#!/bin/bash\njava -jar '$DST'/picard.jar \$@" > '$DST'/picard' && \
-  chmod +x $DST/picard && \
-  rm -rf $DST/$FOLDER
-
-# Change user to back to biodocker
-USER biodocker
-
-# CHANGE WORKDIR TO /DATA
+# Change workdir to /data/
 WORKDIR /data/
 
-##################### INSTALLATION END #####################
+##################### INSTALLATION END ##########################
 
 # File Author / Maintainer
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
+# Modified by Felipe da Veiga Leprevost 07-17-2016

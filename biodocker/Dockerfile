@@ -1,18 +1,19 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          3
 # Software:         BioDocker base Image
-# Software Version: 20150814
+# Software Version: 06172016
 # Description:      Basic image for BioDocker
 # Website:          http://biodocker.org/
 # Tags:             Genomics|Proteomics|Transcriptomics|General|Metabolomics
 # Provides:         autotools-dev|automake|cmake|curl|fuse|git|wget|zip|openjdk-7-jre|build-essential|pkg-config|python|python-dev|python-pip|zlib1g-dev
 # Base Image:       ubuntu:14.04.3
-# Build Cmd:        docker build --rm -t biodckr/biodocker .
+# Build Cmd:        docker build biodckr/biodocker .
 # Pull Cmd:         docker pull biodckr/biodocker
-# Run Cmd:          docker run --rm biodckr/biodocker bash
+# Run Cmd:          docker run biodckr/biodocker
 #################################################################
+
 # Source Image
 FROM ubuntu:14.04.3
 
@@ -39,6 +40,9 @@ RUN apt-get clean all && \
         automake        \
         cmake           \
         curl            \
+        grep            \
+        sed             \
+        dpkg            \
         fuse            \
         git             \
         wget            \
@@ -68,8 +72,7 @@ RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh
 
-RUN apt-get install -y curl grep sed dpkg && \
-    TINI_VERSION=`curl https://github.com/krallin/tini/releases/latest | grep -o "/v.*\"" | sed 's:^..\(.*\).$:\1:'` && \
+RUN TINI_VERSION=`curl https://github.com/krallin/tini/releases/latest | grep -o "/v.*\"" | sed 's:^..\(.*\).$:\1:'` && \
     curl -L "https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini_${TINI_VERSION}.deb" > tini.deb && \
     dpkg -i tini.deb && \
     rm tini.deb && \
@@ -83,6 +86,9 @@ RUN useradd --create-home --shell /bin/bash --user-group --uid 1000 --groups sud
     echo `echo "biodocker\nbiodocker\n" | passwd biodocker` && \
     chown biodocker:biodocker /data && \
     chown biodocker:biodocker /config
+
+# give write permissions to conda folder
+RUN chmod 777 -R /opt/conda/
 
 # Change user
 USER biodocker
@@ -112,3 +118,4 @@ WORKDIR /data
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 06-17-2016
