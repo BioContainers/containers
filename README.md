@@ -66,7 +66,7 @@ The BioDocker containers are listed on this repository. Every software has a spe
 
 ### 1.3. What do I need to use a container?
 
-In order to run a Docker(or BioDocker) container on your computer you will need the Dcoker daemon installed.
+In order to run a Docker(or BioDocker) container on your computer you will need the Docker daemon installed.
 
 Check [here](https://docs.docker.com/installation/) for the instructions on how to do it.
 
