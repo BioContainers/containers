@@ -1,38 +1,35 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         bwa
 # Software Version: 0.7.12
 # Description:      Burrow-Wheeler Aligner for pairwise alignment between DNA sequences
 # Website:          https://github.com/lh3/bwa|http://bio-bwa.sourceforge.net/
 # Tags:             Genomics
-# Provides:         bwa kit 0.7.12
+# Provides:         bwa 0.7.12
 # Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrdev/bwa 0.7.12/.
-# Pull Cmd:         docker pull biodckrdev/bwa
-# Run Cmd:          docker run biodckrdev/bwa bwa
+# Build Cmd:        docker build biodckr/bwa 0.7.12/.
+# Pull Cmd:         docker pull biodckr/bwa
+# Run Cmd:          docker run biodckr/bwa
 #################################################################
 
-# Set the base image to Ubuntu
+# Source Image
 FROM biodckr/biodocker
 
-################## BEGIN INSTALLATION ######################
+################## BEGIN INSTALLATION ###########################
 
-ENV ZIP=bwakit-0.7.12_x64-linux.tar.bz2
-ENV URL=https://github.com/BioDocker/software-archive/releases/download/bwa
-ENV FOLDER=bwa.kit
-ENV DST=/home/biodocker/bin
+# install
+RUN conda install bwa=0.7.12
 
-RUN wget $URL/$ZIP -O $DST/$ZIP && \
-  tar xvf $DST/$ZIP --strip-components=1 -C $DST && \
-  rm $DST/$ZIP
-
-# CHANGE WORKDIR TO /DATA
+# Change workdir to /data/
 WORKDIR /data/
 
-##################### INSTALLATION END #####################
+# Define default command
+CMD ["bwa"]
+
+##################### INSTALLATION END ##########################
 
 # File Author / Maintainer
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
+# Modified by Felipe da Veiga Leprevost 06-17-2016

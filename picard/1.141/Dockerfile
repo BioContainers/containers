@@ -2,16 +2,16 @@
 # Dockerfile
 #
 # Version:          2
-# Software:         Bedtools
-# Software Version: 2.25.0
-# Description:      A powerful toolset for genome arithmetic
-# Website:          https://github.com/arq5x/bedtools2
+# Software:         picard
+# Software Version: 1.141
+# Description:      A set of Java command line tools for manipulating high-throughput sequencing (HTS) data and formats.
+# Website:          https://github.com/picard/picard
 # Tags:             Genomics
-# Provides:         Bedtools 2.25.0
+# Provides:         picard 1.141
 # Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrv/bedtools 2.25.0/.
-# Pull Cmd:         docker pull biodckr/bedtools
-# Run Cmd:          docker run biodckr/bedtools
+# Build Cmd:        docker build biodckrdev/picard 1.141/.
+# Pull Cmd:         docker pull biodckrdev/picard
+# Run Cmd:          docker run biodckrdev/picard <program>
 #################################################################
 
 # Source Image
@@ -20,16 +20,13 @@ FROM biodckr/biodocker
 ################## BEGIN INSTALLATION ###########################
 
 # install
-RUN conda install bedtools=2.25.0
+RUN conda install picard=1.141
 
 # Change workdir to /data/
 WORKDIR /data/
-
-# Define default command
-CMD ["bedtools"]
 
 ##################### INSTALLATION END ##########################
 
 # File Author / Maintainer
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 06-17-2016
+# Modified by Felipe da Veiga Leprevost 07-17-2016

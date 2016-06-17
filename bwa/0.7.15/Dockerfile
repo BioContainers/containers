@@ -2,16 +2,16 @@
 # Dockerfile
 #
 # Version:          2
-# Software:         Bedtools
-# Software Version: 2.25.0
-# Description:      A powerful toolset for genome arithmetic
-# Website:          https://github.com/arq5x/bedtools2
+# Software:         bwa
+# Software Version: 0.7.15
+# Description:      Burrow-Wheeler Aligner for pairwise alignment between DNA sequences
+# Website:          https://github.com/lh3/bwa|http://bio-bwa.sourceforge.net/
 # Tags:             Genomics
-# Provides:         Bedtools 2.25.0
+# Provides:         bwa 0.7.15
 # Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrv/bedtools 2.25.0/.
-# Pull Cmd:         docker pull biodckr/bedtools
-# Run Cmd:          docker run biodckr/bedtools
+# Build Cmd:        docker build biodckr/bwa 0.7.15/.
+# Pull Cmd:         docker pull biodckr/bwa
+# Run Cmd:          docker run biodckr/bwa
 #################################################################
 
 # Source Image
@@ -20,13 +20,13 @@ FROM biodckr/biodocker
 ################## BEGIN INSTALLATION ###########################
 
 # install
-RUN conda install bedtools=2.25.0
+RUN conda install bwa=0.7.15
 
 # Change workdir to /data/
 WORKDIR /data/
 
 # Define default command
-CMD ["bedtools"]
+CMD ["bwa"]
 
 ##################### INSTALLATION END ##########################
 
