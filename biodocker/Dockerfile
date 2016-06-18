@@ -105,6 +105,8 @@ RUN mkdir /home/biodocker/bin
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
 
+RUN conda upgrade conda
+
 # Share default volumes
 VOLUME ["/data", "/config"]
 
