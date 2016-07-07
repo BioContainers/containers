@@ -11,7 +11,7 @@
 # Base Image:       biodckr/biodocker:latest
 # Build Cmd:        docker build biodckr/blast 2.2.31/.
 # Pull Cmd:         docker pull biodckr/blast
-# Run Cmd:          docker run biodckr/blatst <program>
+# Run Cmd:          docker run biodckr/blast <program>
 #################################################################
 
 # Source Image
