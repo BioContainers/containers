@@ -24,10 +24,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # add apt mirror
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bkp && \
-    bash -c 'echo -e "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe multiverse\n\
-deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main restricted universe multiverse\n\
-deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main restricted universe multiverse\n\
-deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main restricted universe multiverse\n\n" > /etc/apt/sources.list' && \
+    bash -c 'echo -e "deb mirror://mirrors.ubuntu.com/mirrors.txt xenial main restricted universe multiverse\n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial-updates main restricted universe multiverse\n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial-backports main restricted universe multiverse\n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial-security main restricted universe multiverse\n\n" > /etc/apt/sources.list' && \
     cat /etc/apt/sources.list.bkp >> /etc/apt/sources.list && \
     cat /etc/apt/sources.list
 
@@ -47,11 +47,11 @@ RUN apt-get clean all && \
         git             \
         wget            \
         zip             \
-        openjdk-7-jre   \
+        openjdk-8-jre   \
         build-essential \
         pkg-config      \
         python          \
-	      python-dev      \
+	python-dev      \
         python-pip      \
         bzip2           \
         ca-certificates \
@@ -82,7 +82,8 @@ RUN TINI_VERSION=`curl https://github.com/krallin/tini/releases/latest | grep -o
 RUN mkdir /data /config
 
 # Add user biodocker with password biodocker
-RUN useradd --create-home --shell /bin/bash --user-group --uid 1000 --groups sudo,fuse biodocker && \
+RUN groupadd fuse && \
+    useradd --create-home --shell /bin/bash --user-group --uid 1000 --groups sudo,fuse biodocker && \
     echo `echo "biodocker\nbiodocker\n" | passwd biodocker` && \
     chown biodocker:biodocker /data && \
     chown biodocker:biodocker /config
