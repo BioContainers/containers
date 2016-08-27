@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         Comet
 # Software Version: 2015025
 # Description:      basic local alignment search tool
@@ -27,7 +27,7 @@ RUN ZIP=comet_binaries_2015025.zip && \
     chmod -R 755 /home/biodocker/bin/Comet/comet_binaries_2015025/* && \
     rm /tmp/$ZIP
 
-RUN mv /home/biodocker/bin/Comet/comet_binaries_2016012/comet.2015025.linux.exe /home/biodocker/bin/Comet/comet
+RUN mv /home/biodocker/bin/Comet/comet_binaries_2015025/comet.2015025.linux.exe /home/biodocker/bin/Comet/comet
 
 ENV PATH /home/biodocker/bin/Comet:$PATH
 
@@ -37,3 +37,4 @@ WORKDIR /data/
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2016
