@@ -1,7 +1,7 @@
 #################################################################
 # Dockerfile
 #
-# Version:          1
+# Version:          2
 # Software:         Comet
 # Software Version: 2015025
 # Description:      basic local alignment search tool
@@ -37,3 +37,4 @@ WORKDIR /data/
 
 # File Author / Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+# Modified by Felipe da Veiga Leprevost 08-27-2016
