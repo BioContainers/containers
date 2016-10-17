@@ -1,35 +1,22 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         bowtie
-# Software Version: 1.1.2
-# Description:      An ultrafast memory-efficient short read aligner
-# Website:          http://bowtie-bio.sourceforge.net/index.shtml|https://github.com/BenLangmead/bowtie
-# Tags:             Genomics
-# Provides:         bowtie 1.1.2
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrdev/bowtie 1.1.2/.
-# Pull Cmd:         docker pull biodckrdev/bowtie
-# Run Cmd:          docker run biodckrdev/bowtie
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Source Image
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="bowtie"
+LABEL software.version="1.1.2"
+LABEL description="an ultrafast memory-efficient short read aligner"
+LABEL website="http://bowtie-bio.sourceforge.net/index.shtml"
+LABEL documentation="http://bowtie-bio.sourceforge.net/manual.shtml"
+LABEL license="http://bowtie-bio.sourceforge.net/index.shtml"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-# install
 RUN conda install bowtie=1.1.2
 
-# Change workdir to /data/
 WORKDIR /data/
 
-# Define default command
 CMD ["bowtie"]
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 06-17-2016
