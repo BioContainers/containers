@@ -1,35 +1,22 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         Bcftools
-# Software Version: 1.2
-# Description:      Bcftools is a program for variant calling and manipulating VCFs and BCFs
-# Website:          https://github.com/bcftools/bcftools
-# Tags:             Genomics
-# Provides:         Bcftools 1.2
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckr/bcftools 1.2/.
-# Pull Cmd:         docker pull biodckr/bcftools
-# Run Cmd:          docker run biodckr/bcftools
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Source Image
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="bcftools"
+LABEL software.version="1.2"
+LABEL description="Bcftools is a program for variant calling and manipulating VCFs and BCFs"
+LABEL website="https://samtools.github.io/bcftools/"
+LABEL documentation="https://samtools.github.io/bcftools/"
+LABEL license="https://samtools.github.io/bcftools/"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-# install
 RUN conda install bcftools=1.2
 
-# Change workdir to /data/
 WORKDIR /data/
 
-# Define default command
 CMD ["bcftools"]
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 06-17-2016
