@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         X!Tandem
-# Software Version: 10-12-01-1
-# Description:      software that can match tandem mass spectra with peptide sequences
-# Website:          http://www.thegpm.org/tandem/
-# Tags:             Proteomics
-# Provides:         tandem 10-12-01-1
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/tandem 10-12-01-1/.
-# Pull Cmd:         docker pull biodckr/tandem
-# Run Cmd:          docker run --rm biodckr/tandem tandem
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="X!Tandem"
+LABEL software.version="10-12-01-1"
+LABEL description="software that can match tandem mass spectra with peptide sequences"
+LABEL website="http://www.thegpm.org/tandem/"
+LABEL documentation="http://www.thegpm.org/tandem/"
+LABEL license="http://www.thegpm.org/tandem/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=tandem-linux-10-12-01-1.zip && \
   wget https://github.com/BioDocker/software-archive/releases/download/X!Tandem/$ZIP -O /tmp/$ZIP && \
@@ -31,9 +27,3 @@ ENV PATH /home/biodocker/bin:$PATH
 USER biodocker
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
