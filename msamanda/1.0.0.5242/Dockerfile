@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         MSAmanda
-# Software Version: 1.0.0.5242
-# Description:      scoring system to identify peptides out of tandem mass spectrometry
-# Website:          http://ms.imp.ac.at/?goto=msamanda
-# Tags:             Proteomics
-# Provides:         MSAmanda 1.0.0.5242
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/msamanda 1.0.0.5242/.
-# Pull Cmd:         docker pull biodckr/msamanda
-# Run Cmd:          docker run --rm biodckr/msamanda MSAmanda
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="MSAmanda"
+LABEL software.version="1.0.0.5242"
+LABEL description="scoring system to identify peptides out of tandem mass spectrometry"
+LABEL website="http://ms.imp.ac.at/?goto=msamanda"
+LABEL documentation="http://ms.imp.ac.at/?goto=msamanda"
+LABEL license="http://ms.imp.ac.at/?goto=msamanda"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root
 
@@ -41,9 +37,3 @@ ENV PATH /home/biodocker/bin/MSAmanda:$PATH
 USER biodocker
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
