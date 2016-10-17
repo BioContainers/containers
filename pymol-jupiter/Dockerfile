@@ -1,23 +1,21 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         PyMol-Jupyter (BioDocker edition)
-# Software Version: 1
-# Description:      a portable way of interacting with PyMol via Jupyter notebook
-# Website:          github.com/ocramz/jupyter-docker-pymol
-# Tags:             Visualization
-# Provides:         pymol 1.8.2|jupyter
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build -t biodckr/pymol-jupyter . 
-# Pull Cmd:         docker pull biodckr/pymol-jupyter
-# Run Cmd:          docker run --rm -it -p 8888:8888 biodckr/pymol-jupyter 
-#################################################################
-FROM biodckr/biodocker:latest
+# Base Image
+FROM biocontainers/biocontainers:latest
 
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="PyMol-Jupyter"
+LABEL software.version="1"
+LABEL description="a portable way of interacting with PyMol via Jupyter notebook"
+LABEL website="http://github.com/ocramz/jupyter-docker-pymol"
+LABEL documentation="http://github.com/ocramz/jupyter-docker-pymol"
+LABEL license="http://github.com/ocramz/jupyter-docker-pymol"
+LABEL tags="Proteomics"
 
+# Maintainer
+MAINTAINER Marco Zocca <zoccaNO.marcoSP@gmailAM.com>
 
-# # # environment variables
+# Environment variables
 ENV PYMOL_VERSION_G 1.8
 ENV PYMOL_VERSION 1.8.2.0
 ENV PYMOL_SHA 6181024fe3f0107f57fcd02914b96747881272ade4fd0f3419784c972debce66
@@ -46,9 +44,6 @@ ENV LC_CTYPE en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
-
-################## BEGIN INSTALLATION ###########################
-
 USER root
 
 # Setup `biodocker` home directory
@@ -68,7 +63,7 @@ RUN mkdir -p ${CONDA_DIR}                && \
     chown ${USER} /home/${USER}/.curlrc
 
 
-# # add example notebook
+# Add example notebook
 ADD ipymol/ ${IPYNBS_DIR}
 
 
@@ -132,13 +127,13 @@ RUN apt-get update && \
     \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# # # use bash rather than sh
+# Use bash rather than sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
 WORKDIR ${DL_DIR}
 
-# # # Install Tini (Jupyter dep.)
+# Install Tini (Jupyter dep.)
 RUN wget --quiet https://github.com/krallin/tini/releases/download/${TINI_VER}/tini && \
     echo "${TINI_SHA} *tini" | sha256sum -c - && \
     mv tini /usr/local/bin/tini && \
@@ -173,7 +168,7 @@ RUN pip install --upgrade pip && pip install "jupyterhub==${JUPYTERHUB_VER}"
 
 
 
-# # # # PyMol
+# PyMol
 RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/${PYMOL_VERSION_G}/pymol-v${PYMOL_VERSION}.tar.bz2 && \
     echo "${PYMOL_SHA} pymol-v${PYMOL_VERSION}.tar.bz2" | sha256sum -c - && \
     tar jxf pymol-v${PYMOL_VERSION}.tar.bz2 && \
@@ -182,16 +177,8 @@ RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/${PYMOL
     python3 setup.py build install
 
 
-# # # # iPyMol + dependencies
+# iPyMol + dependencies
 RUN pip3 install git+https://github.com/ocramz/ipymol.git@python3
-
-
-
-
-
-
-
-
 
 USER root
 
@@ -226,13 +213,3 @@ ENTRYPOINT ["tini", "--"]
 
 # command to run when Docker image is run
 CMD ["jupyter", "notebook", "--no-browser"]
-
-
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Marco Zocca <zoccaNO.marcoSP@gmailAM.com>
-# Modified by Marco Zocca 20-05-2016
-
-
