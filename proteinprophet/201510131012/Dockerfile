@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         ProteinProphet
-# Software Version: 201510131012
-# Description:      Protein inference for MS/MS analysis
-# Website:          http://proteinprophet.sourceforge.net/
-# Tags:             Proteomics
-# Provides:         ProteinProphet 201510131012
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build -t biodckr/ProteinProphet 201510131012/.
-# Pull Cmd:         docker pull biodckr/ProteinProphet
-# Run Cmd:          docker run biodckr/ProteinProphet ProteinProphet
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to biodckr/biodocker
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="ProteinProphet"
+LABEL software.version="201510131012"
+LABEL description="Protein inference for MS/MS analysis"
+LABEL website="http://proteinprophet.sourceforge.net/"
+LABEL documentation="http://proteinprophet.sourceforge.net/"
+LABEL license="http://proteinprophet.sourceforge.net/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ######################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root
 
@@ -47,8 +43,4 @@ ENV PATH /home/biodocker/bin:$PATH
 
 WORKDIR /data/
 
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
+CMD ["ProteinProphet"]
