@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         SAINTq
-# Software Version: 0.0.2
-# Description:      assigning confidence scores to protein-protein interactions based on quantitative proteomics
-# Website:          http://saint-apms.sourceforge.net/Main.html
-# Tags:             Proteomics
-# Provides:         SAINTq 0.0.2
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/saintq 0.0.2/.
-# Pull Cmd:         docker pull biodckr/saintq
-# Run Cmd:          docker run --rm biodckr/saintq saintq
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to biodckr/biodocker
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="SAINTq"
+LABEL software.version="0.0.2"
+LABEL description="assigning confidence scores to protein-protein interactions based on quantitative proteomics"
+LABEL website="http://saint-apms.sourceforge.net/Main.html"
+LABEL documentation="http://saint-apms.sourceforge.net/Main.html"
+LABEL license="http://saint-apms.sourceforge.net/Main.html"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ######################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER biodocker
 
@@ -30,9 +26,3 @@ RUN ZIP=saintq.zip && \
 ENV PATH /home/biodocker/bin/SAINT:$PATH
 
 WORKDIR /data/
-
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
