@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         TOPPAS
-# Software Version: 1.11.1-3
-# Description:      a graphical workflow editor for the analysis of high-throughput proteomics data
-# Website:          http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/
-# Tags:             Proteomics
-# Provides:         openms 1.11.1-3|topp 1.11.1-3
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/toppas 1.11.1-3/.
-# Pull Cmd:         docker pull biodckr/toppas
-# Run Cmd:          docker run --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/toppas TOPPAS
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="TOPPAS"
+LABEL software.version="2016012"
+LABEL description="a graphical workflow editor for the analysis of high-throughput proteomics data"
+LABEL website="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
+LABEL documentation="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
+LABEL license="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root
 
@@ -35,9 +31,3 @@ USER biodocker
 ENV QT_X11_NO_MITSHM 1
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 06-02-2016
