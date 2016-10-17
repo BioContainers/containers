@@ -1,35 +1,22 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         bwa
-# Software Version: 0.7.12
-# Description:      Burrow-Wheeler Aligner for pairwise alignment between DNA sequences
-# Website:          https://github.com/lh3/bwa|http://bio-bwa.sourceforge.net/
-# Tags:             Genomics
-# Provides:         bwa 0.7.12
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckr/bwa 0.7.12/.
-# Pull Cmd:         docker pull biodckr/bwa
-# Run Cmd:          docker run biodckr/bwa
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Source Image
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="bwa"
+LABEL software.version="0.7.12"
+LABEL description="Burrow-Wheeler Aligner for pairwise alignment between DNA sequences"
+LABEL website="http://bio-bwa.sourceforge.net/"
+LABEL documentation="http://bio-bwa.sourceforge.net/"
+LABEL license="http://bio-bwa.sourceforge.net/"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-# install
 RUN conda install bwa=0.7.12
 
-# Change workdir to /data/
 WORKDIR /data/
 
-# Define default command
 CMD ["bwa"]
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 06-17-2016
