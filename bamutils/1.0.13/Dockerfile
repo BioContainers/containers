@@ -1,25 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         bamutils
-# Software Version: 1.0.13
-# Description:      repository that contains several programs that perform operations on SAM/BAM files
-# Website:          http://genome.sph.umich.edu/wiki/BamUtil|https://github.com/statgen/bamUtil
-# Tags:             Genomics
-# Provides:         bamutils 1.0.13
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrdev/bamutils 1.0.13/.
-# Pull Cmd:         docker pull biodckrdev/bamutils
-# Run Cmd:          docker run biodckrdev/bamutils bam
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="bamutils"
+LABEL software.version="1.0.13"
+LABEL description="repository that contains several programs that perform operations on SAM/BAM files"
+LABEL website="http://genome.sph.umich.edu/wiki/BamUtil"
+LABEL documentation="http://genome.sph.umich.edu/wiki/BamUtil:_FAQ"
+LABEL license="https://github.com/statgen/bamUtil/tree/master/copyrights"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ######################
+# File Author / Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-# Change user to root
 USER root
 
 ENV ZIP=BamUtilLibStatGen.1.0.13.tgz
@@ -36,14 +31,6 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
   cd / && \
   rm -rf $DST/$FOLDER
 
-# Change user to back to biodocker
 USER biodocker
 
-# CHANGE WORKDIR TO /DATA
 WORKDIR /data/
-
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
