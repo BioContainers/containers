@@ -1,35 +1,22 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         Bedtools
-# Software Version: 2.25.0
-# Description:      A powerful toolset for genome arithmetic
-# Website:          https://github.com/arq5x/bedtools2
-# Tags:             Genomics
-# Provides:         Bedtools 2.25.0
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrv/bedtools 2.25.0/.
-# Pull Cmd:         docker pull biodckr/bedtools
-# Run Cmd:          docker run biodckr/bedtools
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Source Image
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="bedtools"
+LABEL software.version="2.25.0"
+LABEL description="a powerful toolset for genome arithmetic"
+LABEL website="http://bedtools.readthedocs.io/en/latest/"
+LABEL documentation="http://quinlanlab.org/tutorials/bedtools/bedtools.html"
+LABEL license="https://github.com/arq5x/bedtools2/blob/master/LICENSE"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-# install
 RUN conda install bedtools=2.25.0
 
-# Change workdir to /data/
 WORKDIR /data/
 
-# Define default command
 CMD ["bedtools"]
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 06-17-2016
