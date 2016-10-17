@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         PeptideShaker
-# Software Version: 1.10.3
-# Description:      terpretation of proteomics identification results
-# Website:          http://compomics.github.io/projects/peptide-shaker.html
-# Tags:             Proteomics
-# Provides:         peptideshaker 1.10.3
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/peptideshaker 1.10.3/.
-# Pull Cmd:         docker pull biodckr/peptideshaker
-# Run Cmd:          docker run -ti -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/peptideshaker java -jar /home/biodocker/bin/PeptideShaker-1.10.3/PeptideShaker-1.10.3.jar
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="PeptideShaker"
+LABEL software.version="1.10.3"
+LABEL description="interpretation of proteomics identification results"
+LABEL website="http://compomics.github.io/projects/peptide-shaker.html"
+LABEL documentation="http://compomics.github.io/projects/peptide-shaker.html"
+LABEL license="http://compomics.github.io/projects/peptide-shaker.html"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=PeptideShaker-1.10.3.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/PeptideShaker/$ZIP -O /tmp/$ZIP && \
@@ -29,8 +25,3 @@ RUN ZIP=PeptideShaker-1.10.3.zip && \
 ENV PATH /home/biodocker/bin/PeptideShaker:$PATH
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
