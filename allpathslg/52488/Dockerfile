@@ -1,25 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         AllPathsLG
-# Software Version: 52488
-# Description:      whole‐genome shotgun assembler that can generate high‐quality genome assemblies using short reads
-# Website:          http://www.broadinstitute.org/software/allpaths-lg/blog/
-# Tags:             Genomics
-# Provides:         allpathslg 52488
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/allpathslg 52488/.
-# Pull Cmd:         docker pull biodckrdev/allpathslg
-# Run Cmd:          docker run --rm -it biodckrdev/allpathslg <options> <files>
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="AllPathsLG"
+LABEL software.version="52488"
+LABEL description="whole‐genome shotgun assembler that can generate high‐quality genome assemblies using short reads"
+LABEL website=" http://www.broadinstitute.org/software/allpaths-lg/blog/"
+LABEL documentation="http://software.broadinstitute.org/allpaths-lg/blog/?page_id=12"
+LABEL license="http://software.broadinstitute.org/allpaths-lg/blog/?page_id=12"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ######################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-# Change user to root
 USER root
 
 ENV ZIP=allpathslg-52488.tar.gz
@@ -37,14 +32,7 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
   cd / && \
   rm -rf $DST/$FOLDER
 
-# Change user to back to biodocker
 USER biodocker
 
-# CHANGE WORKDIR TO /DATA
+
 WORKDIR /data/
-
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
