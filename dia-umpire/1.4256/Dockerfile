@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         DIA-Umpire
-# Software Version: 1.4256
-# Description:      computational analysis of data independent acquisition (DIA) mass spectrometry-based proteomics data
-# Website:          http://diaumpire.sourceforge.net
-# Tags:             Proteomics
-# Provides:         dia-umpire 1.4256
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/diaumpire 1.4256/.
-# Pull Cmd:         docker pull biodckr/diaumpire
-# Run Cmd:          docker run --rm biodckr/diaumpire [options]
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="DIA-Umpire"
+LABEL software.version="1.4256"
+LABEL description="computational analysis of data independent acquisition (DIA) mass spectrometry-based proteomics data"
+LABEL website="http://diaumpire.sourceforge.net"
+LABEL documentation="http://diaumpire.sourceforge.net"
+LABEL license="http://diaumpire.sourceforge.net"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root
 
@@ -68,9 +64,3 @@ ENV PATH /home/biodocker/bin/MSGFPlus/:$PATH
 USER biodocker
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
