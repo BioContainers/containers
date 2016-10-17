@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         MSGF+
-# Software Version: 9949
-# Description:      MS/MS database search tool
-# Website:          http://proteomics.ucsd.edu/Software/MSGFPlus/
-# Tags:             Proteomics
-# Provides:         MSGFPlus 9949
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/msgfp 9949/.
-# Pull Cmd:         docker pull biodckr/msgfp
-# Run Cmd:          docker run --rm biodckr/msgfp
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="MSGF+"
+LABEL software.version="9949"
+LABEL description="MS/MS database search tool"
+LABEL website="http://proteomics.ucsd.edu/Software/MSGFPlus/"
+LABEL documentation="http://proteomics.ucsd.edu/Software/MSGFPlus/"
+LABEL license="http://proteomics.ucsd.edu/Software/MSGFPlus/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=MSGFPlus_9949.zip && \
   wget https://github.com/BioDocker/software-archive/releases/download/MSGFPlus/$ZIP -O /tmp/$ZIP && \
@@ -31,9 +27,3 @@ ENV PATH /home/biodocker/bin/MSGFPlus:$PATH
 USER biodocker
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
