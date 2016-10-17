@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         soapdenovo
-# Software Version: 240
-# Description:      a novel short-read assembly method that can build a de novo draft assembly for the human-sized genomes
-# Website:          http://soap.genomics.org.cn/soapdenovo.html
-# Tags:             Genomics
-# Provides:         soapdenovo 240
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrdev/soapdenovo 240/.
-# Pull Cmd:         docker pull biodckrdev/soapdenovo
-# Run Cmd:          docker run biodckrdev/soapdenovo SOAPdenovo-63mer
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="soapdenovo"
+LABEL software.version="240"
+LABEL description="a novel short-read assembly method that can build a de novo draft assembly for the human-sized genomes"
+LABEL website="http://soap.genomics.org.cn/soapdenovo.html"
+LABEL documentation="http://soap.genomics.org.cn/soapdenovo.html"
+LABEL license="http://soap.genomics.org.cn/soapdenovo.html"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
 ENV ZIP=SOAPdenovo2-bin-LINUX-generic-r240.tgz
 ENV URL=https://github.com/BioDocker/software-archive/releases/download/soapdenovo
@@ -32,11 +28,4 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
   cd / && \
   rm -rf $DST/$FOLDER
 
-# CHANGE WORKDIR TO /DATA
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 08-27-2015
