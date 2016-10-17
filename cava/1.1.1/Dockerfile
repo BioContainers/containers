@@ -1,30 +1,24 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         cava
-# Software Version: 1.1.1
-# Description:      CAVA (Clinical Annotation of Variants) is a lightweight, fast and flexible Next Generation Sequencing (NGS) variant annotation tool
-# Website:          http://www.well.ox.ac.uk/cava
-# Tags:             Genomics
-# Provides:         cava full 1.1.1|pysan 0.8.3
-# Base Image:       biodckrdev/biodocker
-# Build Cmd:        docker build biodckrdev/cava 1.1.1/.
-# Pull Cmd:         docker pull biodckrdev/cava
-# Run Cmd:          docker run biodckrdev/cava cava
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="cava"
+LABEL software.version="1.1.1"
+LABEL description="lightweight, fast and flexible NGS variant annotation tool"
+LABEL website="http://www.well.ox.ac.uk/cava"
+LABEL documentation="http://www.well.ox.ac.uk/cava"
+LABEL license="http://www.well.ox.ac.uk/cava"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ######################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-# Change user to root
 USER root
 
 RUN pip install pysam==0.8.3
 
-# Change user to back to biodocker
 USER biodocker
 
 ENV ZIP=cava-full-v1.1.1.tgz
@@ -40,11 +34,4 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
 
 ENV PATH=$PATH:/home/biodocker/bin/cava-v1.1.1/
 
-# CHANGE WORKDIR TO /DATA
 WORKDIR /data/
-
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
