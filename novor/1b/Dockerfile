@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         Novor
-# Software Version: 1b
-# Description:      real-time peptide de novo sequencing
-# Website:          http://www.rapidnovor.com/
-# Tags:             Proteomics
-# Provides:         novor 1b
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/novor 1b/.
-# Pull Cmd:         docker pull biodckr/novor
-# Run Cmd:          docker run --rm  biodckr/novor novor
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="Novor"
+LABEL software.version="1b"
+LABEL description="real-time peptide de novo sequencing"
+LABEL website="http://www.rapidnovor.com/"
+LABEL documentation="http://www.rapidnovor.com/"
+LABEL license="http://www.rapidnovor.com/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=novor_academic_latest.zip && \
   wget https://github.com/BioDocker/software-archive/releases/download/NovoR/$ZIP -O /tmp/$ZIP && \
@@ -31,9 +27,3 @@ ENV PATH /home/biodocker/bin:$PATH
 USER biodocker
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016
