@@ -9,6 +9,8 @@ The latest information about BioContainers is available via [https://BioContaine
 
 Containers
 --------
+
+[![Join the chat at https://gitter.im/biocontainers/containers](https://badges.gitter.im/biocontainers/containers.svg)](https://gitter.im/biocontainers/containers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Repository of approved bioinformatics containers
 
 Links:
