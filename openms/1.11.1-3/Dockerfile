@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         OpenMS
-# Software Version: 1.11.1-3
-# Description:      C++ libraries ans tools for MS/MS data analysis
-# Website:          http://open-ms.sourceforge.net/
-# Tags:             Proteomics
-# Provides:         openms 1.11.1-3
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/openms 1.11.1-3/.
-# Pull Cmd:         docker pull biodckr/openms
-# Run Cmd:          docker run --rm biodckr/openms
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="OpenMS"
+LABEL software.version="1.11.1-3"
+LABEL description="C++ libraries ans tools for MS/MS data analysis"
+LABEL website="http://open-ms.sourceforge.net/"
+LABEL documentation="http://open-ms.sourceforge.net/"
+LABEL license="http://open-ms.sourceforge.net/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root
 
@@ -36,9 +32,3 @@ USER biodocker
 ENV QT_X11_NO_MITSHM 1
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016

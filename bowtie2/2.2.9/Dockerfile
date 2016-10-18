@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         bowtie2
-# Software Version: 2.2.9
-# Description:      An ultrafast memory-efficient short read aligner
-# Website:          http://bowtie-bio.sourceforge.net/bowtie2/index.shtml
-# Tags:             Genomics
-# Provides:         bowtie2 2.2.9
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/bowtie2 2.2.9/.
-# Pull Cmd:         docker pull biodckr/bowtie2
-# Run Cmd:          docker run --rm -it biodckr/bowtie2 <options> <files>
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="bowtie2"
+LABEL software.version="2.2.9"
+LABEL description="an ultrafast memory-efficient short read aligner"
+LABEL website="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
+LABEL documentation="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
+LABEL license="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ######################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
 ENV ZIP=bowtie2-2.2.9-linux-x86_64.zip
 ENV URL=https://github.com/BenLangmead/bowtie2/releases/download/v2.2.9/
@@ -30,15 +26,6 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
     mv $DST/$FOLDER/* $DST && \
     rmdir $DST/$FOLDER
 
-# CHANGE WORKDIR TO /DATA
 WORKDIR /data
 
-# DEFINE DEFAULT COMMAND
 CMD ["bowtie2"]
-
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>
-
-

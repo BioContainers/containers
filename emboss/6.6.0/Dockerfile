@@ -1,40 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          3
-# Software:         emboss
-# Software Version: 6.6.0
-# Description:      software analysis package specially developed for the needs of the molecular biology (e.g. EMBnet) user community
-# Website:          http://emboss.sourceforge.net/what/
-# Tags:             Proteomics|Genomics|General
-# Provides:         emboss 6.6.0
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/emboss 6.6.0/.
-# Pull Cmd:         docker pull biodckr/emboss
-# Run Cmd:          docker run --rm biodckr/emboss
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to biodckr/biodocker
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="emboss"
+LABEL software.version="6.6.0"
+LABEL description="software analysis package"
+LABEL website="http://emboss.sourceforge.net/what/"
+LABEL documentation="http://emboss.sourceforge.net/docs/"
+LABEL license="http://emboss.sourceforge.net/licence/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
-USER root
-
-# Install EMBOSS package
-RUN apt-get update && \
-  apt-get install -y \
-  emboss=6.6.0+dfsg-3build1 && \
-  apt-get clean && \
-  apt-get purge && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-USER biodocker
+RUN conda install emboss=6.6.0
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 08-27-2016

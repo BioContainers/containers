@@ -1,33 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         NCBI BLAST+
-# Software Version: 2.2.31
-# Description:      basic local alignment search tool
-# Website:          http://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download
-# Tags:             Genomics|Proteomics|Transcriptomics|General
-# Provides:         blast 2.2.31
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build biodckr/blast 2.2.31/.
-# Pull Cmd:         docker pull biodckr/blast
-# Run Cmd:          docker run biodckr/blast <program>
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Source Image
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="NCBI BLAST+"
+LABEL software.version="2.2.31"
+LABEL description="basic local alignment search tool"
+LABEL website="http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastHome"
+LABEL documentation="http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastHome"
+LABEL license="http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastHome"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-# install
 RUN conda install blast=2.2.31
 
-# Change workdir to /data/
 WORKDIR /data/
-
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 06-17-2016

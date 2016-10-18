@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         ProteoWizard
-# Software Version: 3_0_9740
-# Description:      tools and software libraries that facilitate proteomics data analysis.
-# Website:          http://proteowizard.sourceforge.net/
-# Tags:             Proteomics
-# Provides:         ProteoWizard 3_0_9740
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/pwiz 3_0_9740/.
-# Pull Cmd:         docker pull biodckr/pwiz
-# Run Cmd:          docker run --rm biodckr/pwiz
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to biodckr/biodocker
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="ProteoWizard"
+LABEL software.version="3_0_9740"
+LABEL description="tools and software libraries that facilitate proteomics data analysis"
+LABEL website="http://proteowizard.sourceforge.net/"
+LABEL documentation="http://proteowizard.sourceforge.net/"
+LABEL license="http://proteowizard.sourceforge.net/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER biodocker
 
@@ -30,8 +26,3 @@ RUN ZIP=pwiz-bin-linux-x86_64-gcc48-release-3_0_9740.zip && \
 ENV PATH /home/biodocker/bin/pwiz/pwiz-bin-linux-x86_64-gcc48-release-3_0_9740:$PATH
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

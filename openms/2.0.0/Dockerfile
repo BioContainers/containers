@@ -1,25 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         OpenMS
-# Software Version: 2.0.0
-# Description:      OpenS tool suite
-# Website:          http://open-ms.sourceforge.net/
-# Tags:             Proteomics
-# Provides:         OpenMS 2.0.0
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/openms2/.
-# Pull Cmd:         docker pull biodckr/openms2
-# Run Cmd:          docker run --rm biodckr/openms2
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="OpenMS"
+LABEL software.version="2.0.0"
+LABEL description="C++ libraries ans tools for MS/MS data analysis"
+LABEL website="http://open-ms.sourceforge.net/"
+LABEL documentation="http://open-ms.sourceforge.net/"
+LABEL license="http://open-ms.sourceforge.net/"
+LABEL tags="Proteomics"
 
-################### BEGIN INSTALLATION ########################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
-# Change user to root
 USER root
 
 # Installing dependencies
@@ -84,9 +79,3 @@ USER biodocker
 
 # CHANGE WORKDIR TO /DATA
 WORKDIR /data/
-
-#################### END INSTALLATION #########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016

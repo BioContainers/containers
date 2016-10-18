@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         denovogui
-# Software Version: 1.5.2
-# Description:      graphical user interface for de novo sequencing of tandem mass spectra
-# Website:          https://code.google.com/p/denovogui/
-# Tags:             Proteomics
-# Provides:         denovogui 1.5.2
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/denovogui 1.5.2/.
-# Pull Cmd:         docker pull biodckr/denovogui
-# Run Cmd:          docker run -ti -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/denovogui java -jar /home/biodocker/bin/DeNovoGUI-1.5.2/DeNovoGUI-1.5.2.jar
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to biodckr/biodocker
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="denovogui"
+LABEL software.version="1.5.2"
+LABEL description="graphical user interface for de novo sequencing of tandem mass spectra"
+LABEL website="https://github.com/compomics/denovogui"
+LABEL documentation="https://github.com/compomics/denovogui"
+LABEL license="https://github.com/compomics/denovogui"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ######################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER biodocker
 
@@ -33,9 +29,3 @@ RUN ZIP=DeNovoGUI-1.5.2.zip && \
 ENV PATH /home/biodocker/bin/denovogui:$PATH
 
 WORKDIR /data/
-
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 06-02-2016

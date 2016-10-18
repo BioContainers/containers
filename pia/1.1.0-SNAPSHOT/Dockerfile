@@ -1,24 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         PIA - Protein Inference Algorithms
-# Software Version: 1.1.0-SNAPSHOT
-# Description:      Compile PIA XML files and run pipelines with this image
-# Website:          https://github.com/mpc-bioinformatics/pia
-# Tags:             Proteomics
-# Provides:         PIA-1.1.0-SNAPSHOT
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/pia 1.1.0-SNAPSHOT/.
-# Pull Cmd:         docker pull biodckr/pia
-# Run Cmd:          docker run --rm -v /mnt/data:/data biodckr/pia [compiler, pia]
-# Extra:            Make sure to mount the volume with your data you want to compile or run the pipeline on.
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="PIA - Protein Inference Algorithms"
+LABEL software.version="1.1.0-SNAPSHOT"
+LABEL description="Compile PIA XML files and run pipelines with this image"
+LABEL website="https://github.com/mpc-bioinformatics/pia"
+LABEL documentation="https://github.com/mpc-bioinformatics/pia"
+LABEL license="https://github.com/mpc-bioinformatics/pia"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>
+
 ENV ZIP_FILE pia-1.1.0-SNAPSHOT.zip
 ENV URL https://github.com/mpc-bioinformatics/pia/releases/download/1.1.0-SNAPSHOT
 ENV USER_HOME /home/biodocker
@@ -32,12 +28,6 @@ RUN set -x \
 
 COPY ./runpia.sh /
 
-# CHANGE WORKDIR TO /DATA
 WORKDIR /data/
 
-##################### INSTALLATION END ##########################
-
 ENTRYPOINT ["/runpia.sh"]
-
-# File Author / Maintainer
-MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>

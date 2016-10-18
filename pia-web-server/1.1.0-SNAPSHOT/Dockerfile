@@ -1,24 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         PIA-web-server
-# Software Version: 1.1.0-SNAPSHOT
-# Description:      Web server for PIA - Protein Inference Algorithms
-# Website:          https://github.com/mpc-bioinformatics/pia
-# Tags:             Proteomics
-# Provides:         PIA 1.1.0 - Web Interface (through Apache Tomcat)
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/pia-web 1.1.0-SNAPSHOT/.
-# Pull Cmd:         docker pull biodckr/pia-web
-# Run Cmd:          docker run  biodckr/pia-web
-# Extra:            This container starts up the web-interface (accessible at e.g. http://172.17.0.2:8080/pia, the IP depends on your docker setup). You should restart the container after the first start to keep projects. Projects will be saved inside /data/ inside the container.
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="PIA-web-server"
+LABEL software.version="1.1.0-SNAPSHOT"
+LABEL description="Web server for PIA - Protein Inference Algorithms"
+LABEL website="https://github.com/mpc-bioinformatics/pia"
+LABEL documentation="https://github.com/mpc-bioinformatics/pia"
+LABEL license="https://github.com/mpc-bioinformatics/pia"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>
+
 USER root
 
 # ubuntu 14.04 desktop has issues with the installation of
@@ -133,10 +129,5 @@ peptideviewer_rows=50\n\
 proteinviewer_rows=50" > $CATALINA_HOME/webapps/pia/config/pia.properties
 
 EXPOSE 8080
+
 CMD ["catalina.sh", "run"]
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>
-# Modified by Julian Uszkoreit 2016-05-03

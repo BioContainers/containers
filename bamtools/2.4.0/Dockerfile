@@ -1,35 +1,22 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         bamtools
-# Software Version: 2.4.0
-# Description:      C++ API & command-line toolkit for working with BAM data
-# Website:          https://github.com/pezmaster31/bamtools
-# Tags:             Genomics
-# Provides:         bamtools 2.4.0
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build biodckrdev/bamtools 2.4.0/.
-# Pull Cmd:         docker pull biodckrdev/bamtools
-# Run Cmd:          docker run --rm -it biodckrdev/bamtools
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to biodckr/biodocker
-FROM biodckr/biodocker
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="bamtools"
+LABEL software.version="2.4.0"
+LABEL description="C++ API & command-line toolkit for working with BAM data"
+LABEL website="https://github.com/pezmaster31/bamtools"
+LABEL documentation="https://github.com/pezmaster31/bamtools/wiki"
+LABEL license="https://github.com/pezmaster31/bamtools/blob/master/LICENSE"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ###########################
+# Maintainer
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-# install software
 RUN conda install bamtools=2.4.0
 
-# set workdir
 WORKDIR /data/
 
-# define default command
 CMD ["bamtools"]
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
-# Modified by Felipe da Veiga Leprevost 06-17-2016

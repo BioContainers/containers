@@ -1,27 +1,22 @@
-#################################################################
-# Dockerfile
-#
-# Version:          2
-# Software:         Clustal-omega
-# Software Version: 1.2.1-1
-# Description:      general purpose multiple sequence alignment program for proteins
-# Website:          http://www.clustal.org/omega/
-# Tags:             Proteomics
-# Provides:         Clustal-omega 1.2.1-1
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/clustalo 1.2.1-1/.
-# Pull Cmd:         docker pull biodckr/clustalo
-# Run Cmd:          docker run --rm biodckr/clustalo clustalo
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to biodckr/biodocker
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="3"
+LABEL software="clustal-omega"
+LABEL software.version="1.2.1-1"
+LABEL description="general purpose multiple sequence alignment program for proteins"
+LABEL website="http://www.clustal.org/omega/"
+LABEL documentation="http://www.clustal.org/omega/#Documentation"
+LABEL license="http://www.clustal.org/omega/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ######################
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root
 
-# Install Clustalo
 RUN apt-get update && \
   apt-get install -y \
   clustalo && \
@@ -32,9 +27,3 @@ RUN apt-get update && \
 USER biodocker
 
 WORKDIR /data/
-
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Felipe da Veiga Leprevost 01-26-2016

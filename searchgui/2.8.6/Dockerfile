@@ -1,27 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         SearchGUI
-# Software Version: 2.8.6
-# Description:      graphical user interface for proteomics identification search engines
-# Website:          https://code.google.com/p/searchgui/
-# Tags:             Proteomics
-# Provides:         searchgui 2.8.6
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/searchgui 2.8.6/.
-# Pull Cmd:         docker pull biodckr/searchgui
-# Run Cmd:          docker run -ti -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix biodckr/searchgui java -jar /home/biodocker/bin/SearchGUI-2.8.6/SearchGUI-2.8.6.jar
-#################################################################
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker:latest
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="SearchGUI"
+LABEL software.version="2.8.6"
+LABEL description="graphical user interface for proteomics identification search engines"
+LABEL website="https://code.google.com/p/searchgui/"
+LABEL documentation="https://code.google.com/p/searchgui/"
+LABEL license="https://code.google.com/p/searchgui/"
+LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ###########################
-
-USER biodocker
-
-ENV DISPLAY :0
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=SearchGUI-2.8.6.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/SearchGUI/$ZIP -O /tmp/$ZIP && \
@@ -33,8 +25,3 @@ RUN ZIP=SearchGUI-2.8.6.zip && \
 ENV PATH /home/biodocker/bin/SearchGUI:$PATH
 
 WORKDIR /data/
-
-##################### INSTALLATION END ##########################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
