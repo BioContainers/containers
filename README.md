@@ -90,7 +90,7 @@ documentation and software development.
 Containers are build from existing operating systems. They are different from Virtual machines because they don't posses an entire guest OS inside, instead, containers are build using optimized system
 libraries and use the host OS memory management and process controls. Containers normally are centralized around a specific software and you can make them executable by instantiating images from them.
 
-![What is Container](imgs/container.png)
+![What is Container](https://github.com/BioContainers/specs/blob/master/imgs/container.png)
 
 ### 2.2. What do I need to use a container?
 
@@ -110,7 +110,7 @@ A full documentation about how to use BioContainers to perform bioinformatics an
 BioContainers is a community-driven project that allows bioinformatics to request, build and deploy bioinformatics tools using containers. The following figure present the 
 general BioContainers workflow: 
 
-![What is Container](imgs/workflow.png)
+![What is Container](https://github.com/BioContainers/specs/blob/master/imgs//workflow.png)
 
 The next sections explain in details the presented workflow: 
  
