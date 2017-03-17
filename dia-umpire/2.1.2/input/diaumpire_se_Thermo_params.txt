@@ -1,0 +1,79 @@
+#Number of threads
+# set to the number of cores available 
+Thread = 4
+
+#Precursor-fragments grouping parameters
+RPmax = 25
+RFmax = 300
+CorrThreshold = 0.2
+DeltaApex = 0.6
+RTOverlap = 0.3
+
+#Fragment intensity adjustments
+# change BoostComplementaryIon if later using database search results to build libraries for Skyline/OpenSWATH
+AdjustFragIntensity = true
+BoostComplementaryIon = true
+
+#Export detected MS1 features (output feature file can be loaded and mapped to RAW data in BatMass)
+ExportPrecursorPeak = false
+
+#Signal extraction: mass accuracy and resolution
+# resolution parameter matters only for data generated in profile mode
+SE.MS1PPM = 15
+SE.MS2PPM = 25
+SE.Resolution = 60000
+
+#Signal extraction: signal to noise filter
+SE.SN = 1.1
+SE.MS2SN = 1.1
+
+#Signal extraction: minimum signal intensity filter
+# for Thermo data, filtering is usually not necessary. Set SE.EstimateBG to false and SE.MinMSIntensity and SE.MinMSMSIntensity to a low value, e.g. 1
+# for older Q Exactive data, or when too many MS1 features are extracted, set SE.EstimateBG to yes (or apply SE.MinMSIntensity and SE.MinMSMSIntensity values based on BatMass visualization)
+SE.EstimateBG = false
+SE.MinMSIntensity = 1
+SE.MinMSMSIntensity = 1
+
+#Signal extraction: peak curve detection and isotope grouping
+# for older Q Exactive data, or when too many MS1 features are extracted, set SE.NoMissedScan to 1
+SE.NoMissedScan = 2
+SE.MaxCurveRTRange = 2
+SE.RemoveGroupedPeaks = true
+SE.RemoveGroupedPeaksRTOverlap = 0.3
+SE.RemoveGroupedPeaksCorr = 0.3
+SE.MinNoPeakCluster = 2
+SE.MaxNoPeakCluster = 4
+
+#Signal extraction: filtering of MS1 features 
+# if interested in modified peptides, increase MassDefectOffset parameter, or set SE.MassDefectFilter to false
+SE.IsoPattern = 0.3
+SE.MassDefectFilter = true
+SE.MassDefectOffset = 0.1
+
+#Signal extraction: other 
+SE.StartCharge = 1
+SE.EndCharge = 5
+SE.MS2StartCharge = 2
+SE.MS2EndCharge = 5
+SE.MinFrag=10
+SE.StartRT = 0
+SE.EndRT = 9999
+SE.MinMZ = 200
+SE.MinPrecursorMass = 600
+SE.MaxPrecursorMass = 5000
+
+
+#Isolation window setting
+#The current version supports the following window type: SWATH (fixed window size), V_SWATH (variable SWATH window), MSX, MSE, pSMART
+WindowType=SWATH
+
+#Fix window size (For SWATH)
+# for Thermo data, this will be determined from raw data automatically
+WindowSize=10
+
+#Variable SWATH window setting (start m/z, end m/z, separated by Tab)
+# for Thermo data, this will be determined from raw data automatically
+
+==window setting begin
+
+==window setting end

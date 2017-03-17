@@ -1,0 +1,64 @@
+
+#DIA-Umpire (version v2.1)
+
+#Number of threads
+Thread = 4
+
+#Working folder path: the program will process all mzXML files in the working folder (please make sure the corresponding pepXML files are in the same folder with mzXML file)
+
+Path = /data/diaumpire/
+
+#Or you can specify all DIA mzXML files you want to analyze here (the working folder is still required for storing output files)
+==File list begin
+
+==File list end
+
+#Internal spectral library file, output csv files will be stored in the working folder.
+
+#Fasta file path
+Fasta = /data/fasta/uniprot-human_20150619_rev.fasta
+
+#Decoy prefix
+DecoyPrefix = rev_
+
+Combined_Prot = /data/diaumpire/interact.prot.xml
+
+#FDR threshold
+PeptideFDR = 0.01
+ProteinFDR = 0.01
+DataSetLevelPepFDR=true
+
+#UserMod path
+UserMod=
+
+#### Peptide-centric targeted extraction (internal library:
+InternalLibSearch = true
+
+#Retention time window (plus/minus, in minutes)
+# -1 : determined by variance calculated at local RT regions
+RTWindow_Int = -1
+
+# Probability threshold
+ProbThreshold = 0.9
+
+#### Peptide-centric targeted extraction (external library)
+ExternalLibSearch = false
+ExternalLibPath = /data/fasta/phl004_canonical_s64_osw_decoys.TraML
+RTWindow_Ext = -1
+ExternalLibDecoyTag = DECOY
+ExtProbThreshold = 0.99
+
+#All files in the working folder will be considered for targeted re-extraction
+
+#Peptide filtering
+# Use either peptide group weight (GW) or peptide weight (PepW) to filter non-   
+# unique peptide (computed by ProteinProphet.
+# Peptides with weight lower than threshold will be removed
+FilterWeight = GW
+MinWeight = 0.9
+
+#Peptide/Fragment selection for MS2-based quantitation
+TopNFrag = 6
+TopNPep = 6
+Freq = 0.5
+MinFragMZ = 300
