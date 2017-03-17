@@ -23,7 +23,7 @@ RUN ZIP=comet_binaries_2015025.zip && \
   chmod -R 755 /home/biodocker/bin/Comet/* && \
   rm /tmp/$ZIP
 
-RUN mv /home/biodocker/bin/Comet/comet.2015025.linux.exe /home/biodocker/bin/Comet/comet
+RUN mv /home/biodocker/bin/Comet/comet_binaries_2015025/comet.2015025.linux.exe /home/biodocker/bin/Comet/comet
 
 ENV PATH /home/biodocker/bin/Comet:$PATH
 
