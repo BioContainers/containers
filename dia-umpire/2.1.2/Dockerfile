@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:latest
 
 # Metadata
 LABEL base.image="biocontainers:latest"
-LABEL version="1"
+LABEL version="2"
 LABEL software="DIA-Umpire"
 LABEL software.version="2.1.2"
 LABEL description="computational analysis of data independent acquisition (DIA) mass spectrometry-based proteomics data"
@@ -25,7 +25,7 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Installing TPP
-RUN ZIP=tpp-4.8.0.zip && \
+RUN ZIP=tpp-5.0.zip && \
   mkdir -p /usr/local && \
   wget https://github.com/BioDocker/software-archive/releases/download/TPP/$ZIP -O /tmp/$ZIP && \
   unzip /tmp/$ZIP -d /usr/local && \
