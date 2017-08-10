@@ -1,0 +1,259 @@
+<tool id="sniplay_vcf2fastaandhapmap" name="VCF to Hapmap" version="1.1.0">
+    
+    <!-- [REQUIRED] Tool description displayed after the tool name -->
+    <description> Convert VCF to Hapmap  </description>
+    
+    <!-- [OPTIONAL] 3rd party tools, binaries, modules... required for the tool to work -->
+    <requirements>
+        <requirement type="binary">perl</requirement>
+    </requirements>
+    
+    <!-- [STRONGLY RECOMMANDED] Exit code rules -->
+    <stdio>
+        <!-- [HELP] If no exit code rule is defined, the tool will stop if anything is written to STDERR -->
+        <exit_code range="1:" level="fatal" />
+    </stdio>
+
+    <!-- [OPTIONAL] Command to be executed to get the tool's version string -->
+    <version_command>
+<!--
+        tool_binary -v
+-->
+    </version_command>
+    
+    <!-- [REQUIRED] The command to execute -->
+    <command interpreter="bash">
+	vcf2FastaAndHapmap.sh $filein $fileout $optional.file_opt 
+	#if str( $optional.file_opt ) != "none":
+		$fileout_seq $fileout_fa1 $filefasta 
+		#if str( $optional.file_opt ) == "fasta_gff":
+		$filegff
+		#end if
+	#end if
+    </command>
+     
+    <!-- [REQUIRED] Input files and tool parameters -->
+    <inputs>
+	<param name="filein" type="data" format="vcf" optional="false" label="VCF input" />
+	<param name="fileout_label" type="text" value="input" optional="false" label="Output file basename"/>
+	<conditional name="optional" >
+	    <param name="file_opt" type="select" label="Optional files" >
+	    	<option value="none" selected="true">No</option>
+	    	<option value="fasta">Fasta</option>
+            	<option value="fasta_gff">Fasta and GFF</option>
+            </param>
+	    <when value="none" />
+            <when value="fasta">
+		<param name="filefasta" type="data" format="fasta" optional="false" label="Fasta file input" />
+            </when>
+	    <when value="fasta_gff">
+		<param name="filefasta" type="data" format="fasta" optional="false" label="Fasta file input" />
+		<param name="filegff" type="data" format="gff" optional="false" label="GFF file input" help="VCF file must be annotated" />
+            </when>
+        </conditional>
+    </inputs>
+    
+    <!-- [REQUIRED] Output files -->
+    <outputs>
+	<data name="fileout" format="txt" label="${fileout_label}.hapmap" />
+	<data name="fileout_seq" format="txt" label="${fileout_label}.flanking.txt">
+		<filter>(optional['file_opt'] != 'none')</filter>
+	</data>
+	<data name="fileout_fa1" format="fasta" label="${fileout_label}.gene_alignment.fas">
+		<filter>(optional['file_opt'] == 'fasta_gff')</filter>
+	</data>
+    </outputs>
+    
+    <!-- [OPTIONAL] Tests to be run manually by the Galaxy admin -->
+    <tests>
+        <!-- [HELP] Test files have to be in the ~/test-data directory -->
+        <test>
+         <param name="filein" value="vcf2fastaAndHapmap-sample.vcf" />
+         <param name="file_opt" value="none" />
+         <output name="fileout" file="vcf2fastaAndHapmap-result1.hapmap" />
+        </test>
+	<test>
+         <param name="filein" value="vcf2fastaAndHapmap-sample.vcf" />
+	 <param name="file_opt" value="fasta" />
+         <param name="filefasta" value="vcf2fastaAndHapmap-reference.fa" />
+         <output name="fileout" file="vcf2fastaAndHapmap-result2.hapmap" />
+         <output name="fileout_seq" file="vcf2fastaAndHapmap-result2.flanking.txt" />
+        </test>
+	<test>
+         <param name="filein" value="vcf2fastaAndHapmap-sample.vcf" />
+	 <param name="file_opt" value="fasta_gff" />
+         <param name="filefasta" value="vcf2fastaAndHapmap-reference.fa" />
+         <param name="filegff" value="vcf2fastaAndHapmap-reference.gff" />
+         <output name="fileout" file="vcf2fastaAndHapmap-result3.hapmap" />
+         <output name="fileout_seq" file="vcf2fastaAndHapmap-result3.flanking.txt" />
+         <output name="fileout_fa1" file="vcf2fastaAndHapmap-result3.gene_alignment.fas" />
+        </test>
+    </tests>
+    
+    <!-- [OPTIONAL] Help displayed in Galaxy -->
+    <help>
+
+
+.. class:: infomark
+
+**Authors** Dereeper Alexis (alexis.dereeper@ird.fr), IRD, South Green platform
+
+ | **Please cite** "SNiPlay3: a web-based application for exploration and large scale analyses of genomic variations", **Dereeper A. et al.**, Nucl. Acids Res. (1 july 2015) 43 (W1).
+
+.. class:: infomark
+
+**Galaxy integration** Andres Gwendoline, Institut Français de Bioinformatique. 
+
+.. class:: infomark
+
+**Support** For any questions, please send an e-mail to support.abims@sb-roscoff.fr 
+
+---------------------------------------------------
+
+=======================
+VCF to Hapmap
+=======================
+
+-----------
+Description
+-----------
+
+  | Convert VCF to Hapmap. Additionnaly it creates flanking sequences of variants if fasta reference is provided.
+  | Furthermore it also creates fasta alignment of genes if GFF annotation is provided 
+
+-----------------
+Workflow position
+-----------------
+
+**Upstream tool**
+
+=============== ========================== =======
+Name            output file(s)             format 
+=============== ========================== =======
+VCFtools Filter VCF file		   VCF
+=============== ========================== =======
+
+
+**Downstream tool**
+
+=============== ========================== ===========
+Name            input file(s)              format 
+=============== ========================== ===========
+SNP density	Hapmap file 	 	   tabular
+=============== ========================== ===========
+
+
+----------
+Input file
+----------
+
+VCF file
+	VCF file with all SNPs
+
+----------
+Parameters
+----------
+
+Output file basename
+	Prefix for the output VCF file
+
+Optional files
+        To add additional files fasta file and GFF file.
+
+------------
+Output files
+------------
+
+Hapmap file 
+	Hapmap converted file
+
+Additional files 
+	If you add fasta and/or GFF file as reference, you obtain 3 more files : One with flanking sequence and a fasta file
+
+---------------------------------------------------
+
+---------------
+Working example
+---------------
+
+Input files
+===========
+
+VCF file
+---------
+
+::
+
+	#fileformat=VCFv4.1
+	#FILTER=&lt;ID=LowQual,Description="Low quality">
+	#FORMAT=&lt;ID=AD,Number=.,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+	[...]
+	CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	CATB1
+	chr1	2209	.	G	T	213.84	.	AC=2;AF=1.00;AN=2;DP=7;Dels=0.00;FS=0.000;HaplotypeScore=0.0000;MLEAC=2;MLEAF=1.00;MQ=41.50;MQ0=0;QD=30.55;EFF=DOWNSTREAM(MODIFIER||||Cc01g00020|mRNA||GSCOCT00012438001|),UPSTREAM(MODIFIER||||Cc01g00010|mRNA||GSCOCT00012439001|)	GT:AD:DP:GQ:PL	1/1:0,7:7:18:242,18,0
+
+Fasta file
+----------
+
+
+::
+
+	>chr1
+	CAGTAAAGTTTGCAAAGAGATTCTGGCAAAGTT
+
+Parameters
+==========
+
+Output name -> input
+
+Optional files -> Fasta
+
+
+Output files
+============
+
+input.hapmap
+------------
+
+::
+
+        rs#	alleles	chrom	pos	strand	assembly#	center	protLSID	assayLSID	panelLSID	QCcode	CATB1
+	chr1:2209	G/T	chr1	2209	+	NA	NA	NA	NA	NA	NA	GG	TT
+	chr1:2232	A/C	chr1	2232	+	NA	NA	NA	NA	NA	NA	AA	CC
+
+input.flanking.txt
+------------------
+
+::
+
+	chr1-2209,GTCGCATCTGCAGCATATAGCCAACCTTCAACTTGCAGCTAAAACTCATCATCTCTTTCT[G/T]ACTGGCTTAACGATATTGTAAGMTGACTCAGAGGCCCACTTTTTTTTTAAAAATYAGCCT,0,0,0,Project_name,0,diploid,Other,Forward
+	chr1-2232,ACCTTCAACTTGCAGCTAAAACTCATCATCTCTTTCTKACTGGCTTAACGATATTGTAAG[A/C]TGACTCAGAGGCCCACTTTTTTTTTAAAAATYAGCCTGTCCCCAGCCGTGCTGACTGGGC,0,0,0,Project_name,0,diploid,Other,Forward
+
+input.gene_alignment.fas
+------------------------
+
+::
+
+	>chr1_CATB1_1
+	TCCTCAAACTTTCTTCAGCGCCTATGAATACAGCGTGCTATAGTTACGTGGGGCGTTT
+
+	
+    </help>
+
+    <citations>
+        <!-- [HELP] As DOI or BibTex entry -->
+    	<citation type="bibtex">@article{Dereeper03062015,
+author = {Dereeper, Alexis and Homa, Felix and Andres, Gwendoline and Sempere, Guilhem and Sarah, Gautier and Hueber, Yann and Dufayard, Jean-François and Ruiz, Manuel}, 
+title = {SNiPlay3: a web-based application for exploration and large scale analyses of genomic variations},
+year = {2015}, 
+doi = {10.1093/nar/gkv351}, 
+abstract ={SNiPlay is a web-based tool for detection, management and analysis of genetic variants including both single nucleotide polymorphisms (SNPs) and InDels. Version 3 now extends functionalities in order to easily manage and exploit SNPs derived from next generation sequencing technologies, such as GBS (genotyping by sequencing), WGRS (whole gre-sequencing) and RNA-Seq technologies. Based on the standard VCF (variant call format) format, the application offers an intuitive interface for filtering and comparing polymorphisms using user-defined sets of individuals and then establishing a reliable genotyping data matrix for further analyses. Namely, in addition to the various scaled-up analyses allowed by the application (genomic annotation of SNP, diversity analysis, haplotype reconstruction and network, linkage disequilibrium), SNiPlay3 proposes new modules for GWAS (genome-wide association studies), population stratification, distance tree analysis and visualization of SNP density. Additionally, we developed a suite of Galaxy wrappers for each step of the SNiPlay3 process, so that the complete pipeline can also be deployed on a Galaxy instance using the Galaxy ToolShed procedure and then be computed as a Galaxy workflow. SNiPlay is accessible at http://sniplay.southgreen.fr.}, 
+URL = {http://nar.oxfordjournals.org/content/early/2015/06/03/nar.gkv351.abstract}, 
+eprint = {http://nar.oxfordjournals.org/content/early/2015/06/03/nar.gkv351.full.pdf+html}, 
+journal = {Nucleic Acids Research} 
+}
+
+    	}</citation>
+
+    </citations>
+    
+</tool>
