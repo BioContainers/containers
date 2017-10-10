@@ -3,13 +3,13 @@ FROM biocontainers/biocontainers:latest
 
 # Metadata
 LABEL base.image="biocontainers:latest"
-LABEL version="2"
+LABEL version="3"
 LABEL software="Novor"
 LABEL software.version="1b"
 LABEL description="real-time peptide de novo sequencing"
 LABEL website="http://www.rapidnovor.com/"
 LABEL documentation="http://www.rapidnovor.com/"
-LABEL license="http://www.rapidnovor.com/"
+LABEL license="Academic only: https://www.rapidnovor.com/rndl/novor_aca_eula.txt"
 LABEL tags="Proteomics"
 
 # Maintainer
