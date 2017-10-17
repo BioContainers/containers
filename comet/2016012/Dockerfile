@@ -10,10 +10,12 @@ LABEL description="an open source tandem mass spectrometry sequence database sea
 LABEL website="http://comet-ms.sourceforge.net/"
 LABEL documentation="http://comet-ms.sourceforge.net/parameters/parameters_2016010/"
 LABEL license="http://comet-ms.sourceforge.net/"
+LABEL BIOTOOLS="https://bio.tools/comet"
 LABEL tags="Proteomics"
 
 # Maintainer
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+
 
 USER biodocker
 
