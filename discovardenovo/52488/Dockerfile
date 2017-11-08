@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         discovardenovo
-# Software Version: 52488
-# Description:      Genome variant discovery through assembly
-# Website:          http://www.broadinstitute.org/software/discovar/blog/?page_id=19
-# Tags:             Genomics
-# Provides:         discovardenovo 52488
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/discovardenovo 52488/.
-# Pull Cmd:         docker pull biodckrdev/discovardenovo
-# Run Cmd:          docker run --rm -it biodckrdev/discovardenovo <options> <files>
-#################################################################
+################## BASE IMAGE ######################
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+################## METADATA ######################
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="discovardenovo"
+LABEL software.version="52488"
+LABEL description="Genome variant discovery through assembly"
+LABEL website="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL documentation="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL license="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ######################
+
+################## INSTALLATION ######################
 
 # Change user to root
 USER root
