@@ -1,21 +1,18 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1.2.1
-# Software:         Stacks
-# Software Version: 1.41
-# Description:      Stacks was developed to work with restriction enzyme-based data, such as RAD-seq, for the purpose of building genetic maps and conducting population...
-# Website:          http://catchenlab.life.illinois.edu/stacks/
-# Tags:             Genomics
-# Provides:         Stacks 1.41
-# Base Image:       biodckr/biodocker:latest
-# Build Cmd:        docker build --rm -t biodckr/stacks 1.41/.
-# Pull Cmd:         docker pull biodckr/stacks
-# Run Cmd:          docker run --rm biodckr/stacks <tool> <options>
-#################################################################
 
-# Set the base image to biodckr/biodocker
-FROM biodckr/biodocker:latest
+# Base Image
+FROM biocontainers/biocontainers:latest
+
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1.2.1"
+LABEL software="Stacks"
+LABEL software.version="1.41"
+LABEL description="Stacks was developed to work with restriction enzyme-based data, such as RAD-seq, for the purpose of building genetic maps and conducting population"
+LABEL website="http://catchenlab.life.illinois.edu/stacks/"
+LABEL documentation="http://catchenlab.life.illinois.edu/stacks/"
+LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL tags="Genomics"
+
 
 ################## BEGIN INSTALLATION ###########################
 ENV STACKVERSION 1.41
@@ -51,5 +48,4 @@ WORKDIR /data/
 
 ##################### INSTALLATION END ##########################
 
-# File Author / Maintainer
 MAINTAINER Michael Bekaert <michael.bekaert@stir.ac.uk>
