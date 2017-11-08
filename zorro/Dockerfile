@@ -1,7 +1,8 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
+
 LABEL base.image="biocontainers:latest"
 LABEL version="1.0"
 LABEL software="Zorro"
@@ -12,7 +13,7 @@ LABEL documentation="https://sourceforge.net/projects/probmask/files/"
 LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
 LABEL tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Emre YILMAZ <emre@eres.tech>
 
 USER biodocker

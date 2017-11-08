@@ -1,7 +1,8 @@
-# Base Image
+################## BASE IMAGE ######################
+
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="3"
 LABEL software="abyss"
@@ -12,8 +13,11 @@ LABEL documentation="https://github.com/bcgsc/abyss#abyss"
 LABEL license="https://github.com/bcgsc/abyss/blob/master/LICENSE"
 LABEL tags="Genomics"
 
-# File Author / Maintainer
+################## MAINTAINER ######################
+
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
+
+################## INSTALLATION ######################
 
 RUN conda install abyss=1.9.0
 

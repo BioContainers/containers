@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="TOPPAS"
@@ -12,7 +12,7 @@ LABEL documentation="http://open-ms.sourceforge.net/workflow-integration/toppasw
 LABEL license="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root

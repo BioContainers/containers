@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="Picard"
@@ -12,7 +12,7 @@ LABEL documentation="https://github.com/picard/picard"
 LABEL license="https://github.com/picard/picard"
 LABEL tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
 RUN conda install picard=1.139

@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="spectra-cluster-cli"
@@ -12,7 +12,7 @@ LABEL documentation="https://github.com/spectra-cluster/spectra-cluster-cli"
 LABEL license="https://github.com/spectra-cluster/spectra-cluster-cli"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Yasset Perez-Riverol <yperez@ebi.ac.uk>
 
 RUN ZIP=spectra-cluster-cli-1.0-SNAPSHOT-bin.zip && \

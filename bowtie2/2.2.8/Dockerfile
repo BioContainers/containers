@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="bowtie2"
@@ -12,8 +12,10 @@ LABEL documentation="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
 LABEL license="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
 LABEL tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
+
+################## INSTALLATION ######################
 
 RUN conda install bowtie2=2.2.8
 

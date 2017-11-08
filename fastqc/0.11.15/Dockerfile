@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="FASTQC"
@@ -13,9 +13,10 @@ LABEL license="https://www.gnu.org/copyleft/gpl.html"
 LABEL tags="General"
 
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Alicia Mastretta-Yanes <amastretta@conabio.gob.mx>
 
+################## INSTALLATION ######################
 USER root
 
 ENV DST=/tmp

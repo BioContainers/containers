@@ -1,7 +1,8 @@
-# Base Image
+################## BASE IMAGE ######################
+
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="NCBI BLAST+"
@@ -12,8 +13,11 @@ LABEL documentation="http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=B
 LABEL license="http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastHome"
 LABEL tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
+
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
+
+################## INSTALLATION ######################
 
 RUN conda install blast=2.2.31
 

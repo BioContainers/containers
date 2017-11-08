@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="MSGF+"
@@ -12,7 +12,7 @@ LABEL documentation="http://proteomics.ucsd.edu/Software/MSGFPlus/"
 LABEL license="http://proteomics.ucsd.edu/Software/MSGFPlus/"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=MSGFPlus_9949.zip && \

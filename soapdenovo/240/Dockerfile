@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="soapdenovo"
@@ -12,7 +12,7 @@ LABEL documentation="http://soap.genomics.org.cn/soapdenovo.html"
 LABEL license="http://soap.genomics.org.cn/soapdenovo.html"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
 ENV ZIP=SOAPdenovo2-bin-LINUX-generic-r240.tgz

@@ -1,0 +1,42 @@
+## path to all the tools and references to run workflow
+
+
+WORKFLOW_PATH="/Data/trunk/scripts"
+BIOR_ANNOTATE_DIR="/Data/trunk"
+### annotation
+BIOR="/bior_2.1.1/bin/"
+BIOR_CATALOGS="/Data/catalog_file"
+BIOR_DRILLS="/Data/drill_file"
+BIOR_PROFILE="/bior_2.1.1/PKG_PROFILE"
+CAVA="/cava-v1.0.0/cava.py"
+CAVA_CONFIG="/cava-v1.0.0/config.txt"
+SNPEFF="/snpEff"
+SNPEFF_DB="GRCh37.74"
+
+### executables
+#SGE="/home/oge/ge2011.11/bin/linux-x64/qsub"
+PERL="/usr/bin/perl"
+JAVA7="/usr/bin"
+PYTHON="/usr/bin/"
+BASH="/bin/bash"
+GUNZIP="/usr/bin/gunzip"
+GZIP="/usr/bin/gzip"
+MAIL="/bin/mailx"
+TAR="/bin/tar"
+FIND="/usr/bin/find"
+FINGER="/usr/bin/finger"
+
+#### misc tools
+BEDTOOLS="/bedtools2/bin"
+SAMTOOLS="/samtools/"
+TABIX="/usr/local/bin/"
+
+
+### queue paramters
+QUEUE="NA"
+NOTIFICATION_OPTION="a"
+SGE_STACK="10M"
+
+### annotation tool
+SNPEFF_params=" -noStats -canon -hgvs -lof -noLog "
+

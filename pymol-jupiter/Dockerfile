@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PyMol-Jupyter"
@@ -12,7 +12,8 @@ LABEL documentation="http://github.com/ocramz/jupyter-docker-pymol"
 LABEL license="http://github.com/ocramz/jupyter-docker-pymol"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
+
 MAINTAINER Marco Zocca <zoccaNO.marcoSP@gmailAM.com>
 
 # Environment variables

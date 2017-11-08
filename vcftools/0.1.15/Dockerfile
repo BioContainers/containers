@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="vcftools"
@@ -12,7 +12,7 @@ LABEL documentation="https://github.com/vcftools/vcftools|https://vcftools.githu
 LABEL license="https://github.com/vcftools/vcftools|https://vcftools.github.io/index.html"
 LABEL tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
 USER root

@@ -1,0 +1,6 @@
+Clinvar	ClinicalSignificance,RCVaccession,PhenotypeIDs,Guidelines,ReviewStatus
+ExAC	INFO.AC,INFO.AN,INFO.AF,INFO.AC_NFE
+hgmd_2014.2	CLASS,PHEN,OMIM_ID,PubMed
+dbSNP139	ID
+BlatED50	ED
+dbNSFPv2.8	Vest3Score,MetalrPred,MetalrScore,MetasvmPred,MetasvmScore

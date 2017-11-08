@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="PepNovo+"
@@ -12,7 +12,7 @@ LABEL documentation="http://proteomics.ucsd.edu/Software/PepNovo/"
 LABEL license="http://proteomics.ucsd.edu/Software/PepNovo/"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root

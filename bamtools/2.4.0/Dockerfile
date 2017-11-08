@@ -1,7 +1,8 @@
-# Base Image
+################## BASE IMAGE ######################
+
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="bamtools"
@@ -12,7 +13,8 @@ LABEL documentation="https://github.com/pezmaster31/bamtools/wiki"
 LABEL license="https://github.com/pezmaster31/bamtools/blob/master/LICENSE"
 LABEL tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
+
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
 RUN conda install bamtools=2.4.0

@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="3"
 LABEL software="Novor"
@@ -12,7 +12,7 @@ LABEL documentation="http://www.rapidnovor.com/"
 LABEL license="Academic only: https://www.rapidnovor.com/rndl/novor_aca_eula.txt"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=novor_academic_latest.zip && \

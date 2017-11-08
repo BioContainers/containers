@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PeptideShaker"
@@ -12,7 +12,7 @@ LABEL documentation="http://compomics.github.io/projects/peptide-shaker.html"
 LABEL license="http://compomics.github.io/projects/peptide-shaker.html"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=PeptideShaker-1.10.3.zip && \

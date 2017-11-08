@@ -1,7 +1,9 @@
-# Base Image
+################## BASE IMAGE ######################
+
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
+
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="Aliscore"
@@ -12,8 +14,11 @@ LABEL documentation="https://www.zfmk.de/dateien/atoms/files/aliscore_v.2.0_manu
 LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
 LABEL tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
+
 MAINTAINER Emre YILMAZ <emre@eres.tech>
+
+################## INSTALLATION ######################
 
 USER biodocker
 

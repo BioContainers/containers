@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="cava"
@@ -12,8 +12,11 @@ LABEL documentation="http://www.well.ox.ac.uk/cava"
 LABEL license="http://www.well.ox.ac.uk/cava"
 LABEL tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
+
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
+
+################## INSTALLATION ######################
 
 USER root
 
