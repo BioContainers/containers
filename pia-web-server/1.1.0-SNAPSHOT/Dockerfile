@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PIA-web-server"
@@ -12,7 +12,7 @@ LABEL documentation="https://github.com/mpc-bioinformatics/pia"
 LABEL license="https://github.com/mpc-bioinformatics/pia"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>
 
 USER root

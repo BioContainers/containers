@@ -8,7 +8,7 @@
 # Website:          http://soap.genomics.org.cn/gapcloser.html
 # Tags:             Genomics
 # Provides:         gapcloser 1.12-r6
-# Base Image:       biodckr/biodocker
+################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/gapcloser v1.12-r6/.
 # Pull Cmd:         docker pull biodckrdev/gapcloser
 # Run Cmd:          docker run --rm -it biodckrdev/gapcloser <options> <files>

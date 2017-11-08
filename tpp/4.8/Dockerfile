@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="TPP"
@@ -12,7 +12,7 @@ LABEL documentation="http://tools.proteomecenter.org/wiki/index.php?title=Softwa
 LABEL license="http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root

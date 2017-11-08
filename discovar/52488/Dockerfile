@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         discovar
-# Software Version: 52488
-# Description:      DISCOVAR is a new variant caller
-# Website:          http://www.broadinstitute.org/software/discovar/blog/?page_id=19
-# Tags:             Genomics
-# Provides:         discovar 52488
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/discovar 52488/.
-# Pull Cmd:         docker pull biodckrdev/discovar
-# Run Cmd:          docker run --rm -it biodckrdev/discovar <options> <files>
-#################################################################
+################## BASE IMAGE ######################
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+################## METADATA ######################
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="discovar"
+LABEL software.version="52488"
+LABEL description="DISCOVAR is a new variant caller"
+LABEL website="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL documentation="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL license="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL tags="Genomics"
 
-################## BEGIN INSTALLATION ######################
+
+################## INSTALLATION ######################
 
 # Change user to root
 USER root

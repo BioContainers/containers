@@ -8,7 +8,7 @@
 # Website:          http://sourceforge.net/projects/snpeff/|http://snpeff.sourceforge.net/
 # Tags:             Genomics
 # Provides:         snpeff 4.1k
-# Base Image:       biodckr/biodocker
+################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/snpeff 4.1k/.
 # Pull Cmd:         docker pull biodckrdev/snpeff
 # Run Cmd:          docker run --rm -it biodckrdev/snpeff <options> <files>

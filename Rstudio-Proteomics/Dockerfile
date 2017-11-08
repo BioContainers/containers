@@ -8,7 +8,7 @@
 # Website:          https://github.com/rocker-org
 # Tags:             Genomics|Proteomics|Transcriptomics|Metabolomics|General
 # Provides:         Rstudio
-# Base Image:       bioconductor/release_core
+################## BASE IMAGE ###################### :       bioconductor/release_core
 # Build Cmd:        docker build --rm -t biodckr/rstudio .
 # Pull Cmd:         docker pull biodckr/rstudio
 # Run Cmd:          docker run --rm  -p 8787:8787 biodckr/rstudio

@@ -8,7 +8,7 @@
 # Website:          https://github.com/jts/sga
 # Tags:             Genomics
 # Provides:         sga 0.10.13|bamtools 2.4.0|sparsehash 2.0.2|jemalloc 4.0.2|pysam 0.8.3|ruffus 2.6.3
-# Base Image:       biodckr/biodocker
+################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/sga 0.10.13/.
 # Pull Cmd:         docker pull biodckrdev/sga
 # Run Cmd:          docker run --rm -it biodckrdev/sga <options> <files>

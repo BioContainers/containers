@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="3"
 LABEL software="entrez-direct"
@@ -12,7 +12,7 @@ LABEL documentation="https://ncbi.github.io/magicblast/"
 LABEL License_file = /home/biodocker/bin/LICENSE
 LABEL tags="BLAST"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>
 
 USER root

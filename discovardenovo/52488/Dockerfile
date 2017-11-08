@@ -8,7 +8,7 @@
 # Website:          http://www.broadinstitute.org/software/discovar/blog/?page_id=19
 # Tags:             Genomics
 # Provides:         discovardenovo 52488
-# Base Image:       biodckr/biodocker
+################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/discovardenovo 52488/.
 # Pull Cmd:         docker pull biodckrdev/discovardenovo
 # Run Cmd:          docker run --rm -it biodckrdev/discovardenovo <options> <files>

@@ -1,6 +1,6 @@
 FROM biocontainers/"biocontainers:latest
 
-################## METADATA ######################
+################################### METADATA ######################  ######################
 
 LABEL base.image="biocontainers:latest"
 LABEL version="1"

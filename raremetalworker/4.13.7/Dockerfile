@@ -8,7 +8,7 @@
 # Website:          http://genome.sph.umich.edu/wiki/RAREMETALWORKER
 # Tags:             Genomics
 # Provides:         raremetalworker 4.13.7
-# Base Image:       biodckr/biodocker
+################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/raremetalworker 4.13.7/.
 # Pull Cmd:         docker pull biodckrdev/raremetalworker
 # Run Cmd:          docker run --rm -it biodckrdev/raremetalworker <options> <files>

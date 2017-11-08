@@ -8,7 +8,7 @@
 # Website:          http://jbrowse.org/
 # Tags:             Genomics
 # Provides:         jbrowse 1.11.6
-# Base Image:       biodckr/biodocker
+################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/jbrowse 1.11.6/.
 # Pull Cmd:         docker pull biodckrdev/jbrowse
 # Run Cmd:          docker run --rm -p 8000:8000 biodckrdev/jbrowse

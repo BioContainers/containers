@@ -1,8 +1,6 @@
-
-
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="spades"
@@ -13,8 +11,6 @@ LABEL documentation="http://bioinf.spbau.ru/spades"
 LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
 LABEL tags="Genomics"
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
 
 ################## BEGIN INSTALLATION ######################
 

@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/bamtools:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="bamtools:latest"
 LABEL version="3"
 LABEL software="DiffExpIR"
@@ -9,11 +9,13 @@ LABEL software.version="0.0.1"
 LABEL description="Differentially expressed intron retention"
 LABEL website="https://github.com/r78v10a07/DiffExpIR"
 LABEL documentation="https://github.com/r78v10a07/DiffExpIR"
-LABEL license="http://www.gnu.org/licenses/"
+LABEL license="https://github.com/r78v10a07/DiffExpIR"
 LABEL tags="RNA-seq"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>
+
+################## INSTALLATION ######################
 
 USER biodocker
 

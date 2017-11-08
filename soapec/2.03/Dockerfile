@@ -1,21 +1,16 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         soapec
-# Software Version: 2.03
-# Description:      a correction tool for SOAPdenovo
-# Website:          http://soap.genomics.org.cn/soapdenovo.html
-# Tags:             Genomics
-# Provides:         soapec 2.03
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/soapec 2.03/.
-# Pull Cmd:         docker pull biodckrdev/soapec
-# Run Cmd:          docker run --rm -it biodckrdev/soapec <options> <files>
-#################################################################
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+################## METADATA ######################
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="soapec"
+LABEL software.version="2.03"
+LABEL description="A correction tool for SOAPdenovo"
+LABEL website="http://soap.genomics.org.cn/soapdenovo.html"
+LABEL documentation="http://soap.genomics.org.cn/soapdenovo.html"
+LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL tags="Genomics"
+
 
 ################## BEGIN INSTALLATION ######################
 

@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="SearchGUI"
@@ -12,7 +12,7 @@ LABEL documentation="https://code.google.com/p/searchgui/"
 LABEL license="https://code.google.com/p/searchgui/"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=SearchGUI-2.6.0.zip && \

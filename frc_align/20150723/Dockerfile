@@ -8,7 +8,7 @@
 # Website:          https://github.com/jts/frc_courve
 # Tags:             Genomics
 # Provides:         frc_align 20150723
-# Base Image:       biodckr/biodocker
+################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/frc_align 20150723/.
 # Pull Cmd:         docker pull biodckrdev/frc_align
 # Run Cmd:          docker run --rm -it biodckrdev/frc_align <options> <files>

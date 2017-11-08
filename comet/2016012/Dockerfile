@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="3"
 LABEL software="Comet"
@@ -13,9 +13,10 @@ LABEL license="http://comet-ms.sourceforge.net/"
 LABEL BIOTOOLS="https://bio.tools/comet"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
+################## INSTALLATION ######################
 
 USER biodocker
 

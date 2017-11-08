@@ -8,7 +8,7 @@
 # Website:          https://github.com/samtools/htslib
 # Provides:         htslib 1.2.1
 # Tags:             Genomics
-# Base Image:       biodckr/biodocker
+################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/htslib 1.2.1/.
 # Pull Cmd:         docker pull biodckrdev/htslib
 # Run Cmd:          docker run --rm -it biodckrdev/htslib <options> <files>

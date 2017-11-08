@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="FASTX-Toolkit"
@@ -12,7 +12,7 @@ LABEL documentation="http://hannonlab.cshl.edu/fastx_toolkit/commandline.html"
 LABEL license="http://hannonlab.cshl.edu/fastx_toolkit/license.html"
 LABEL tags="General"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Alicia Mastretta-Yanes <amastretta@conabio.gob.mx>
 
 USER root

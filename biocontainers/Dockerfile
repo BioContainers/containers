@@ -1,7 +1,7 @@
 # Base image
 FROM ubuntu:16.04
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="ubuntu:16.04"
 LABEL version="4"
 LABEL software="Biocontainers base Image"
@@ -12,7 +12,7 @@ LABEL documentation="https://github.com/BioContainers/specs/wiki"
 LABEL license="https://github.com/BioContainers/containers/blob/master/LICENSE"
 LABEL tags="Genomics,Proteomics,Transcriptomics,General,Metabolomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 ENV DEBIAN_FRONTEND noninteractive

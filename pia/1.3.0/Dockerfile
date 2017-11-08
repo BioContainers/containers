@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PIA - Protein Inference Algorithms"
@@ -12,7 +12,7 @@ LABEL documentation="https://github.com/julianu/pia-tutorial"
 LABEL license="https://github.com/mpc-bioinformatics/pia"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>
 
 ENV ZIP_FILE pia-1.3.0.zip

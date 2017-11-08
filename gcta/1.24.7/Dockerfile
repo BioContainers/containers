@@ -8,7 +8,7 @@
 # Website:          http://cnsgenomics.com/software/gcta/index.html
 # Tags:             Genomics
 # Provides:         gcta 1.24.7
-# Base Image:       biodckr/biodocker
+################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/gcta 1.24.7/.
 # Pull Cmd:         docker pull biodckrdev/gcta
 # Run Cmd:          docker run --rm -it biodckrdev/gcta <options> <files>

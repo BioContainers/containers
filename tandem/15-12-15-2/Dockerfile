@@ -1,8 +1,8 @@
 
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="X!Tandem"
@@ -13,7 +13,7 @@ LABEL documentation="http://www.thegpm.org/tandem/"
 LABEL license="http://www.thegpm.org/tandem/"
 LABEL tags="Proteomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=tandem-linux-15-12-15-2.zip && \

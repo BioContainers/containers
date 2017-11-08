@@ -1,7 +1,7 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/bamtools:latest
 
-# Metadata
+################## METADATA ######################
 LABEL base.image="bamtools:latest"
 LABEL version="3"
 LABEL software="TPMCalculator"
@@ -12,7 +12,7 @@ LABEL documentation="https://github.com/r78v10a07/TPMCalculator"
 LABEL license="http://www.gnu.org/licenses/"
 LABEL tags="RNA-seq"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>
 
 USER biodocker

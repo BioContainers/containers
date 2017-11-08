@@ -1,7 +1,9 @@
-# Base Image
+################## BASE IMAGE ######################
+
 FROM biocontainers/biocontainers:latest
 
-# Metadata
+################## METADATA ######################
+
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="bcftools"
@@ -12,8 +14,11 @@ LABEL documentation="https://samtools.github.io/bcftools/"
 LABEL license="https://samtools.github.io/bcftools/"
 LABEL tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
+
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
+
+################## INSTALLATION ######################
 
 RUN conda install bcftools=1.5
 

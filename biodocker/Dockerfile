@@ -8,7 +8,7 @@
 # Website:          http://biodocker.org/
 # Tags:             Genomics|Proteomics|Transcriptomics|General|Metabolomics
 # Provides:         autotools-dev|automake|cmake|curl|fuse|git|wget|zip|openjdk-7-jre|build-essential|pkg-config|python|python-dev|python-pip|zlib1g-dev
-# Base Image:       ubuntu:16.04
+################## BASE IMAGE ###################### :       ubuntu:16.04
 # Build Cmd:        docker build biodckr/biodocker .
 # Pull Cmd:         docker pull biodckr/biodocker
 # Run Cmd:          docker run biodckr/biodocker
