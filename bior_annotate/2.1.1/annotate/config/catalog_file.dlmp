@@ -1,0 +1,10 @@
+Clinvar	bior_same_variant	/dlmp/misc-data/reference/bior-catalogues/ClinVar/Clinvar.tsv.bgz
+ExAC	bior_same_variant	/dlmp/misc-data/reference/bior-catalogues/ExAc/2014_10_22/ExAC.r0.1.catalog.gz
+hgmd_2014.2	bior_same_variant	/dlmp/misc-data/reference/bior-catalogues/HGMD/2014_07_16/hgmd_pro.tsv.gz
+cosmic68	bior_same_variant	/dlmp/misc-data/reference/bior-catalogues/cosmic/v68/CosmicCompleteExport_GRCh37.tsv.bgz
+dbSNP139	bior_same_variant	/dlmp/misc-data/reference/bior-catalogues/dbSNP/139/00-All_GRCh37.tsv.bgz
+dbNSFPv2.8	bior_same_variant	/dlmp/misc-data/reference/bior-catalogues/dbNSFP/2014_11_24/dbNSFP.all.catalog.gz
+ExperienceDB	bior_same_variant	/dlmp/misc-data/reference/bior-catalogues/misc/ExperienceDB.tsv.bgz
+OMIM	bior_overlap	/dlmp/misc-data/reference/bior-catalogues/OMIM/OMIM_phenotypes.tsv.bgz
+PGx_variants	bior_overlap	/dlmp/misc-data/reference/bior-catalogues/misc/PGX.targets.tsv.bgz
+ACMG_genes	bior_overlap	/dlmp/misc-data/reference/bior-catalogues/misc/ACMG.tsv.bgz

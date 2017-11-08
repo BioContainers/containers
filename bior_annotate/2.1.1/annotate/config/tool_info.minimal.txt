@@ -1,0 +1,55 @@
+## path to all the tools and references to run workflow
+
+### annotation
+BIOR="/usr/local/biotools/bior_scripts/2.4.0/bior_pipeline-2.4.0/bin/"
+BIOR_CATALOGS="/projects/bsi/bictools/scripts/dnaseq/GENOME_GPS/tags/3.0/annotation/catalog_file"
+BIOR_DRILLS="/projects/bsi/bictools/scripts/dnaseq/GENOME_GPS/tags/3.0/annotation/drill_file"
+BIOR_PROFILE="/usr/local/biotools/bior_scripts/2.4.0/PKG_PROFILE"
+SAVANT="/data5/bsi/bictools/annotation/SAVANT/1.1.0/savant.py"
+SAVANT_CONFIG="/data5/bsi/bictools/annotation/SAVANT/1.1.0/config.txt"
+SNPEFF="/projects/bsi/bictools/apps/annotation/snpeff/3.5h"
+SNPEFF_DB="GRCh37.74"
+
+### executables
+SGE="/home/oge/ge2011.11/bin/linux-x64/qsub"
+PERL="/usr/bin/perl"
+JAVA6="/usr/local/biotools/java/jre1.6.0_20/bin"
+JAVA7="/usr/local/biotools/java/jdk1.7.0_03/bin"
+PYTHON="/usr/local/biotools/python/2.7/bin"
+BASH="/bin/bash"
+GUNZIP="/usr/bin/gunzip"
+GZIP="/usr/bin/gzip"
+MAIL="/bin/mailx"
+TAR="/bin/tar"
+FIND="/usr/bin/find"
+FINGER="/usr/bin/finger"
+
+#### misc tools
+BEDTOOLS="/data5/bsi/bictools/alignment/bedtools/2.20.1/bin"
+SAMTOOLS="/data5/bsi/bictools/alignment/samtools/1.0"
+TABIX="/projects/bsi/bictools/apps/misc/tabix/0.2.5"
+
+### libraries
+PYTHONLIB="/data2/bsi/RandD/pacbio/smrtanalysis-1.2.1/analysis/lib/python2.5:/projects/bsi/bictools/apps/metadata/genomedata/arch/Linux-x86_64/lib/python2.5:/projects/bsi/bictools/apps/metadata/genomedata/arch/Linux-x86_64/lib/python2.7:/data5/bsi/bictools/lib/python2.7/:/home/m087494/usr/local/biotools/python/2.7/lib/python2.7/site-packages:/projects/bsi/bictools/apps/language/pysam/0.6/"
+PERLLIB="/projects/bsi/bictools/apps/sv/crest/bin:/projects/bsi/bictools/apps/sv/crest/bin/modules/lib/5.10.0:/projects/bsi/bictools/lib/perl/usr/local/biotools/perl/5.8.8-64/lib/site_perl/5.8.8/lib/perl5:/projects/bsi/bictools/apps/sv/SoftSearch/2.2/lib/perl5:/usr/local/biotools/perl/5.10.0/lib/site_perl/5.10.0/x86_64-linux/"
+
+### queue paramters
+QUEUE="ngs-sec -l medp=TRUE"
+NOTIFICATION_OPTION="a"
+SGE_STACK="10M"
+
+###########
+############################################
+## flags
+##################
+### DEBUG MODE (YES, keeps all the intermediate files)
+DEBUG_MODE="NO"
+###########
+############################################
+
+### annotation tool
+SNPEFF_params=" -noStats -canon -hgvs -lof -noLog "
+bior_annotate_params="-s -t"
+
+### WORKFLOW PATH ###
+WORKFLOW_PATH="/projects/bsi/bictools/scripts/dnaseq/GENOME_GPS/tags/3.0"

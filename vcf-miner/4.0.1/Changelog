@@ -1,0 +1,4 @@
+Changelog
+ August 14, 2015
+ 	Varun Ramraj added a feature to modify the LDAP environment.  THe correct deployment should now be:
+ 	     docker run -e NO_LDAP=1 -d -p 8888:8080 stevenhart/vcf-miner:latest /home/start.sh  

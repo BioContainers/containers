@@ -1,0 +1,8 @@
+########################
+##### annotation
+#######################
+annotate_mem="6G"
+annotate_ba_mem="14G"
+annotate_ba_merge="1G"
+bior_annotate_mem="1G"
+
