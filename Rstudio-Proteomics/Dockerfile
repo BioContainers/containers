@@ -1,27 +1,21 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         Rstudio
-# Software Version: ?
-# Description:      Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.
-# Website:          https://github.com/rocker-org
-# Tags:             Genomics|Proteomics|Transcriptomics|Metabolomics|General
-# Provides:         Rstudio
-################## BASE IMAGE ###################### :       bioconductor/release_core
-# Build Cmd:        docker build --rm -t biodckr/rstudio .
-# Pull Cmd:         docker pull biodckr/rstudio
-# Run Cmd:          docker run --rm  -p 8787:8787 biodckr/rstudio
-# Extra:            The Rstudio will be available via browser at:
-# Extra:            http://localhost:8787
-# Extra:            user: rstudio
-# Extra:            pass: rstudio
-#################################################################
 
-# Set the base image
+################## BASE IMAGE ######################
+
 FROM bioconductor/release_core
 
-################## BEGIN INSTALLATION ###########################
+################## METADATA ######################
+
+LABEL base.image="bioconductor/release_core"
+LABEL version="1"
+LABEL software="RProteomics"
+LABEL software.version="1"
+LABEL description="Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis."
+LABEL website="https://github.com/rocker-org"
+LABEL documentation="https://github.com/rocker-org"
+LABEL license="https://github.com/rocker-org"
+LABEL tags="Genomics, Proteomics, Transcriptomics, Metabolomics, General"
+
+################## INSTALLATION ###########################
 
 USER root
 

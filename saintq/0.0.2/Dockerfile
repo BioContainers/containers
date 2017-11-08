@@ -13,6 +13,7 @@ LABEL license="http://saint-apms.sourceforge.net/Main.html"
 LABEL tags="Proteomics"
 
 ################## MAINTAINER ######################
+
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER biodocker

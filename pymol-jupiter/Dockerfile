@@ -13,6 +13,7 @@ LABEL license="http://github.com/ocramz/jupyter-docker-pymol"
 LABEL tags="Proteomics"
 
 ################## MAINTAINER ######################
+
 MAINTAINER Marco Zocca <zoccaNO.marcoSP@gmailAM.com>
 
 # Environment variables

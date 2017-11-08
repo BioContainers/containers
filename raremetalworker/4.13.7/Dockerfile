@@ -1,21 +1,17 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         raremetalworker
-# Software Version: 4.13.7
-# Description:      single variant analysis, generating summary statistics for gene level meta analyses
-# Website:          http://genome.sph.umich.edu/wiki/RAREMETALWORKER
-# Tags:             Genomics
-# Provides:         raremetalworker 4.13.7
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/raremetalworker 4.13.7/.
-# Pull Cmd:         docker pull biodckrdev/raremetalworker
-# Run Cmd:          docker run --rm -it biodckrdev/raremetalworker <options> <files>
-#################################################################
+################## BASE IMAGE ######################
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+################## METADATA ######################
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="raremetalworker"
+LABEL software.version="4.13.7"
+LABEL description="single variant analysis, generating summary statistics for gene level meta analyses"
+LABEL website="http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
+LABEL documentation=" http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
+LABEL license=" http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
+LABEL tags="Genomics"
+
 
 ################## BEGIN INSTALLATION ######################
 
@@ -39,8 +35,7 @@ WORKDIR /data
 # DEFINE DEFAULT COMMAND
 CMD ["raremetal"]
 
-##################### INSTALLATION END #####################
+################## MAINTAINER ######################
 
-# File Author / Maintainer
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
