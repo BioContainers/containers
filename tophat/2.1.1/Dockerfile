@@ -1,21 +1,16 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         tophat
-# Software Version: 2.1.1
-# Description:      TopHat is a fast splice junction mapper for RNA-Seq reads
-# Website:          https://ccb.jhu.edu/software/tophat/index.shtml
-# Tags:             Genomics
-# Provides:         tophat 2.2.1
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/tophat 2.1.1/.
-# Pull Cmd:         docker pull biodckrdev/tophat
-# Run Cmd:          docker run --rm -it biodckrdev/tophat <options> <files>
-#################################################################
+FROM biocontainers/"biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+################## METADATA ######################
+
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="tophat"
+LABEL software.version="2.1.1"
+LABEL description="TopHat is a fast splice junction mapper for RNA-Seq reads"
+LABEL website="https://ccb.jhu.edu/software/tophat/index.shtml"
+LABEL documentation="https://ccb.jhu.edu/software/tophat/index.shtml"
+LABEL license="https://opensource.org/licenses/Artistic-2.0"
+LABEL tags="Genomics, Transcriptomics"
 
 ################## BEGIN INSTALLATION ######################
 

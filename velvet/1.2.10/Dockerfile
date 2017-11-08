@@ -1,8 +1,6 @@
 
 FROM biocontainers/biocontainers:latest
 
-################## BEGIN INSTALLATION ######################
-
 # Metadata
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
