@@ -1,25 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         frc_align
-# Software Version: 20150723
-# Description:      Computes FRC from SAM/BAM file and not from afg files
-# Website:          https://github.com/jts/frc_courve
-# Tags:             Genomics
-# Provides:         frc_align 20150723
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/frc_align 20150723/.
-# Pull Cmd:         docker pull biodckrdev/frc_align
-# Run Cmd:          docker run --rm -it biodckrdev/frc_align <options> <files>
-#################################################################
+################## BASE IMAGE ######################
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+FROM biocontainers/biocontainers:latest
 
-################## BEGIN INSTALLATION ######################
+################## METADATA ######################
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="frc_align"
+LABEL software.version="20150723"
+LABEL description="Computes FRC from SAM/BAM file and not from afg files"
+LABEL website="https://github.com/jts/frc_courve"
+LABEL documentation="https://github.com/jts/frc_courve"
+LABEL license="https://github.com/jts/frc_courve"
+LABEL tags="Genomics"
 
-# Change user to root
+################## INSTALLATION ######################
+
 USER root
 
 RUN apt-get update && \

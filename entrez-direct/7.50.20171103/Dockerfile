@@ -9,12 +9,13 @@ LABEL software.version="7.50.20171103"
 LABEL description="Entrez Direct (EDirect) is an advanced method for accessing the NCBI's set of interconnected Entrez databases"
 LABEL website="https://github.com/ncbi/magicblast"
 LABEL documentation="https://ncbi.github.io/magicblast/"
-LABEL License_file = /home/biodocker/bin/LICENSE
+LABEL License_file = "https://ncbi.github.io/magicblast/"
 LABEL tags="BLAST"
 
 ################## MAINTAINER ######################
 MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>
 
+################## INSTALLATION ######################
 USER root
 
 ENV ZIP=edirect-7.50.20171103.tar.gz

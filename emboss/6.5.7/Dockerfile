@@ -15,6 +15,8 @@ LABEL tags="Proteomics"
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
+################## INSTALLATION ######################
+
 RUN conda install emboss=6.5.7
 
 WORKDIR /data/

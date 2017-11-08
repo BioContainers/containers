@@ -15,6 +15,7 @@ LABEL tags="General"
 ################## MAINTAINER ######################
 MAINTAINER Alicia Mastretta-Yanes <amastretta@conabio.gob.mx>
 
+################## INSTALLATION ######################
 USER root
 
 ENV DST=/tmp
