@@ -1,23 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         snpeff
-# Software Version: 4.1k
-# Description:      Genetic variant annotation and effect prediction toolbox
-# Website:          http://sourceforge.net/projects/snpeff/|http://snpeff.sourceforge.net/
-# Tags:             Genomics
-# Provides:         snpeff 4.1k
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/snpeff 4.1k/.
-# Pull Cmd:         docker pull biodckrdev/snpeff
-# Run Cmd:          docker run --rm -it biodckrdev/snpeff <options> <files>
-#################################################################
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+################## METADATA ######################
 
-################## BEGIN INSTALLATION ######################
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="snpeff"
+LABEL software.version="4.1"
+LABEL description="Genetic variant annotation and effect prediction toolbox"
+LABEL website="http://snpeff.sourceforge.net/"
+LABEL documentation="http://snpeff.sourceforge.net/"
+LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL tags="Genomics"
+
+
+################## INSTALLATION ######################
 
 ENV ZIP=snpEff_v4_1k_core.zip
 ENV URL=https://github.com/BioDocker/software-archive/releases/download/snpEff

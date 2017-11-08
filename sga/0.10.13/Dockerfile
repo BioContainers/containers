@@ -1,23 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         sga
-# Software Version: 0.10.13
-# Description:      de novo sequence assembler using string graphs
-# Website:          https://github.com/jts/sga
-# Tags:             Genomics
-# Provides:         sga 0.10.13|bamtools 2.4.0|sparsehash 2.0.2|jemalloc 4.0.2|pysam 0.8.3|ruffus 2.6.3
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/sga 0.10.13/.
-# Pull Cmd:         docker pull biodckrdev/sga
-# Run Cmd:          docker run --rm -it biodckrdev/sga <options> <files>
-#################################################################
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+FROM biocontainers/biocontainers:latest
 
-################## BEGIN INSTALLATION ######################
+################## METADATA ######################
+
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="sga"
+LABEL software.version="0.10.13"
+LABEL description="De novo sequence assembler using string graphs"
+LABEL website="https://github.com/jts/sga"
+LABEL documentation="https://github.com/jts/sga/wiki"
+LABEL license="https://github.com/jts/sga"
+LABEL tags="Genomics"
+
+
+################## INSTALLATION ######################
 
 # Change user to root
 USER root

@@ -1,22 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         gapcloser
-# Software Version: 1.12-r6
-# Description:      a novel short-read assembly method that can build a de novo draft assembly for the human-sized genomes
-# Website:          http://soap.genomics.org.cn/gapcloser.html
-# Tags:             Genomics
-# Provides:         gapcloser 1.12-r6
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/gapcloser v1.12-r6/.
-# Pull Cmd:         docker pull biodckrdev/gapcloser
-# Run Cmd:          docker run --rm -it biodckrdev/gapcloser <options> <files>
-#################################################################
+################## BASE IMAGE ######################
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+FROM biocontainers/biocontainers:latest
 
+################## METADATA ######################
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="gapcloser"
+LABEL software.version="1.12-r6"
+LABEL description="A novel short-read assembly method that can build a de novo draft assembly for the human-sized genomes"
+LABEL website="http://soap.genomics.org.cn/gapcloser.html"
+LABEL documentation="http://soap.genomics.org.cn/gapcloser.html"
+LABEL license="http://soap.genomics.org.cn/gapcloser.html"
+LABEL tags="Genomics"
+
+################## INSTALLATION ######################
 ################## BEGIN INSTALLATION ######################
 
 ENV ZIP=GapCloser-bin-v1.12-r6.tgz
