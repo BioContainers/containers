@@ -1,23 +1,18 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         velvet
-# Software Version: 1.2.10
-# Description:      Short read de novo assembler using de Bruijn graphs
-# Website:          http://www.ebi.ac.uk/~zerbino/velvet/|https://github.com/dzerbino/velvet
-# Tags:             Genomics
-# Provides:         velvet 1.2.10
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/velvet 1.2.10/.
-# Pull Cmd:         docker pull biodckrdev/velvet
-# Run Cmd:          docker run --rm -it biodckrdev/velvet <options> <files>
-#################################################################
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+FROM biocontainers/biocontainers:latest
 
 ################## BEGIN INSTALLATION ######################
+
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="velvet"
+LABEL software.version="1.2.10"
+LABEL description="Short read de novo assembler using de Bruijn graphs"
+LABEL website="http://www.ebi.ac.uk/~zerbino/velvet/ | https://github.com/dzerbino/velvet"
+LABEL documentation="https://www.zfmk.de/dateien/atoms/files/aliscore_v.2.0_manual_0.pdf"
+LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
+LABEL tags="Genomics"
 
 ENV ZIP=velvet_1.2.10.tgz
 ENV URL=https://github.com/BioDocker/software-archive/releases/download/velvet/
