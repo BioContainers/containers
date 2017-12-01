@@ -46,10 +46,7 @@ RUN      apt-get -y update && \
          apt-get purge && \
          rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# RUN zip openms2.2.0.zip /usr/local/lib/lib* /usr/local/share/OpenMS/* /usr/local/bin/*
-
 WORKDIR /usr/local/
-# COPY openms2.2.0.zip .
 RUN wget https://github.com/Roestlab/containers/releases/download/openms2.2.0/openms2.2.0.zip && unzip openms2.2.0.zip && rm openms2.2.0.zip
 
 ENV PATH /usr/local/bin/:$PATH
