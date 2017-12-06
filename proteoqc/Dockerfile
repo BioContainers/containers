@@ -2,8 +2,8 @@
 FROM biocontainers/biocontainers:latest
 
 LABEL base.image="biocontainers:latest"
-LABEL version=3
-LABEL software.version=1.0
+LABEL version=1
+LABEL software.version=1
 LABEL software=proteoqc
 LABEL website="http://bioconductor.org/packages/release/bioc/html/proteoQC.html"
 LABEL tags="Proteomics"
