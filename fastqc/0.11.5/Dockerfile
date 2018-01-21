@@ -1,11 +1,11 @@
-################## BASE IMAGE ######################
+################# BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="FASTQC"
-LABEL software.version="0.11.15"
+LABEL software.version="0.11.5"
 LABEL description="A quality control tool for high throughput sequence data."
 LABEL website="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
 LABEL documentation="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/"
