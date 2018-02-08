@@ -21,6 +21,7 @@ USER root
 
 RUN mkdir -p /mnt/biocontainers/test-ci
 RUN echo "test ok" > /mnt/biocontainers/test-ci/test-ci.txt
+RUN echo "test pull request"
 
 USER biodocker
 
