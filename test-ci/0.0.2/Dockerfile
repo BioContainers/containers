@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
 LABEL base.image="biocontainers:latest"
-LABEL version="1"
+LABEL version="2"
 LABEL software="testci"
 LABEL software.version="0.0.2"
 LABEL description="A test container for internal testing"
