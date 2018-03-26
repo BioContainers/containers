@@ -9,7 +9,7 @@ LABEL software.version="1.11.1-3"
 LABEL about.summary="C++ libraries ans tools for MS/MS data analysis"
 LABEL about.home="http://open-ms.sourceforge.net/"
 LABEL about.documentation="http://open-ms.sourceforge.net/"
-LABEL license="http://open-ms.sourceforge.net/"
+LABEL about.license_file="http://open-ms.sourceforge.net/"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

@@ -9,7 +9,7 @@ LABEL software.version="v1.0-beta"
 LABEL about.summary="PRIDE Cluster algorithm to cluster heterogeneous mass spectra"
 LABEL about.home="https://github.com/spectra-cluster/spectra-cluster-cli"
 LABEL about.documentation="https://github.com/spectra-cluster/spectra-cluster-cli"
-LABEL license="https://github.com/spectra-cluster/spectra-cluster-cli"
+LABEL about.license_file="https://github.com/spectra-cluster/spectra-cluster-cli/LICENSE"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

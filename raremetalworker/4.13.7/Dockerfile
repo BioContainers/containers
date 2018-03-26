@@ -9,7 +9,7 @@ LABEL software.version="4.13.7"
 LABEL about.summary="single variant analysis, generating summary statistics for gene level meta analyses"
 LABEL about.home="http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
 LABEL about.documentation=" http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
-LABEL license=" http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
+LABEL about.license_file=" http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
 LABEL about.tags="Genomics"
 
 

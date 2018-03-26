@@ -7,7 +7,7 @@ LABEL software.version="0.1"
 LABEL about.summary="multiple whole-genome alignment package"
 LABEL about.home="https://github.com/glennhickey/progressiveCactus"
 LABEL about.documentation="https://github.com/glennhickey/progressiveCactus"
-LABEL license="GPL-3.0"
+LABEL about.license_file="GPL-3.0"
 LABEL license_file="https://github.com/glennhickey/progressiveCactus/blob/master/LICENSE"
 LABEL about.tags="genomics"
 

@@ -9,7 +9,7 @@ LABEL software.version="2.6.0"
 LABEL about.summary="graphical user interface for proteomics identification search engines"
 LABEL about.home="https://code.google.com/p/searchgui/"
 LABEL about.documentation="https://code.google.com/p/searchgui/"
-LABEL license="https://code.google.com/p/searchgui/"
+LABEL about.license_file="https://code.google.com/p/searchgui/"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

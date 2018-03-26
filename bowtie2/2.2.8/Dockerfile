@@ -9,7 +9,7 @@ LABEL software.version="2.2.8"
 LABEL about.summary="an ultrafast memory-efficient short read aligner"
 LABEL about.home="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
 LABEL about.documentation="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
-LABEL license="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
+LABEL about.license_file="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

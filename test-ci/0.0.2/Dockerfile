@@ -9,7 +9,7 @@ LABEL software.version="0.0.2"
 LABEL about.summary="A test container for internal testing"
 
 LABEL about.home="http://193.62.52.74/jenkins/"
-LABEL license="gpl3+"
+LABEL about.license_file="gpl3+"
 LABEL about.tags="test"
 
 

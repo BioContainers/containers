@@ -8,7 +8,7 @@ LABEL software.version="3.6.0"
 LABEL about.summary="Tools (written in C using htslib) for manipulating next-generation sequencing data"
 LABEL about.home="http://bioinf.spbau.ru/spades"
 LABEL about.documentation="http://bioinf.spbau.ru/spades"
-LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
 LABEL about.tags="Genomics"
 
 

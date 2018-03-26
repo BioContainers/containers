@@ -10,7 +10,7 @@ LABEL software.version="1.0"
 LABEL about.summary="A probabilistic alignment masking program"
 LABEL about.home="https://phylogenomics.blogspot.com.tr/2012/02/new-openaccess-paper-from-my-lab-on.html"
 LABEL about.documentation="https://sourceforge.net/projects/probmask/files/"
-LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
+LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

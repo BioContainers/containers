@@ -9,7 +9,7 @@ LABEL software.version="08252016"
 LABEL about.summary="Base image for BioDocker"
 LABEL about.home="http://biocontainers.pro"
 LABEL about.documentation="https://github.com/BioContainers/specs/wiki"
-LABEL license="https://github.com/BioContainers/containers/blob/master/LICENSE"
+LABEL about.license_file="https://github.com/BioContainers/containers/blob/master/LICENSE"
 LABEL about.tags="Genomics,Proteomics,Transcriptomics,General,Metabolomics"
 
 ################## MAINTAINER ######################

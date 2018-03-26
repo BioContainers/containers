@@ -9,7 +9,7 @@ LABEL software.version="4.1"
 LABEL about.summary="Genetic variant annotation and effect prediction toolbox"
 LABEL about.home="http://snpeff.sourceforge.net/"
 LABEL about.documentation="http://snpeff.sourceforge.net/"
-LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
 LABEL about.tags="Genomics"
 
 

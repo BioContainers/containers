@@ -9,7 +9,7 @@ LABEL software.version="201510131012"
 LABEL about.summary="Protein inference for MS/MS analysis"
 LABEL about.home="http://proteinprophet.sourceforge.net/"
 LABEL about.documentation="http://proteinprophet.sourceforge.net/"
-LABEL license="http://proteinprophet.sourceforge.net/"
+LABEL about.license_file="http://proteinprophet.sourceforge.net/"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

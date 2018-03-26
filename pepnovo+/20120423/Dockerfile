@@ -9,7 +9,7 @@ LABEL software.version="20120423"
 LABEL about.summary="de novo sequencing of low precision MS/MS data"
 LABEL about.home="http://proteomics.ucsd.edu/Software/PepNovo/"
 LABEL about.documentation="http://proteomics.ucsd.edu/Software/PepNovo/"
-LABEL license="http://proteomics.ucsd.edu/Software/PepNovo/"
+LABEL about.license_file="http://proteomics.ucsd.edu/Software/PepNovo/"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

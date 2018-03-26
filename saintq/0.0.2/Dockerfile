@@ -9,7 +9,7 @@ LABEL software.version="0.0.2"
 LABEL about.summary="assigning confidence scores to protein-protein interactions based on quantitative proteomics"
 LABEL about.home="http://saint-apms.sourceforge.net/Main.html"
 LABEL about.documentation="http://saint-apms.sourceforge.net/Main.html"
-LABEL license="http://saint-apms.sourceforge.net/Main.html"
+LABEL about.license_file="http://saint-apms.sourceforge.net/Main.html"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

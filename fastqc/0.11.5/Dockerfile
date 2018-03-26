@@ -9,7 +9,7 @@ LABEL software.version="0.11.5"
 LABEL about.summary="A quality control tool for high throughput sequence data."
 LABEL about.home="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
 LABEL about.documentation="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/"
-LABEL license="https://www.gnu.org/copyleft/gpl.html"
+LABEL about.license_file="https://www.gnu.org/copyleft/gpl.html"
 LABEL about.tags="General"
 
 

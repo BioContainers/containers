@@ -10,7 +10,7 @@ LABEL software.version="15-12-15-2"
 LABEL about.summary="software that can match tandem mass spectra with peptide sequences"
 LABEL about.home="http://www.thegpm.org/tandem/"
 LABEL about.documentation="http://www.thegpm.org/tandem/"
-LABEL license="http://www.thegpm.org/tandem/"
+LABEL about.license_file="http://www.thegpm.org/tandem/"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

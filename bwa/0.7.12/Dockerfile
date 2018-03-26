@@ -9,7 +9,7 @@ LABEL software.version="0.7.12"
 LABEL about.summary="Burrow-Wheeler Aligner for pairwise alignment between DNA sequences"
 LABEL about.home="http://bio-bwa.sourceforge.net/"
 LABEL about.documentation="http://bio-bwa.sourceforge.net/"
-LABEL license="http://bio-bwa.sourceforge.net/"
+LABEL about.license_file="http://bio-bwa.sourceforge.net/"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

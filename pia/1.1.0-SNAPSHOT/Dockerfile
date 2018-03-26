@@ -9,7 +9,7 @@ LABEL software.version="1.1.0-SNAPSHOT"
 LABEL about.summary="Compile PIA XML files and run pipelines with this image"
 LABEL about.home="https://github.com/mpc-bioinformatics/pia"
 LABEL about.documentation="https://github.com/mpc-bioinformatics/pia"
-LABEL license="https://github.com/mpc-bioinformatics/pia"
+LABEL about.license_file="https://github.com/mpc-bioinformatics/pia"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

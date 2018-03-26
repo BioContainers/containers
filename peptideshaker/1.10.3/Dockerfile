@@ -9,7 +9,7 @@ LABEL software.version="1.10.3"
 LABEL about.summary="interpretation of proteomics identification results"
 LABEL about.home="http://compomics.github.io/projects/peptide-shaker.html"
 LABEL about.documentation="http://compomics.github.io/projects/peptide-shaker.html"
-LABEL license="http://compomics.github.io/projects/peptide-shaker.html"
+LABEL about.license_file="http://compomics.github.io/projects/peptide-shaker.html"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

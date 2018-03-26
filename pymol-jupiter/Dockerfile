@@ -9,7 +9,7 @@ LABEL software.version="1"
 LABEL about.summary="a portable way of interacting with PyMol via Jupyter notebook"
 LABEL about.home="http://github.com/ocramz/jupyter-docker-pymol"
 LABEL about.documentation="http://github.com/ocramz/jupyter-docker-pymol"
-LABEL license="http://github.com/ocramz/jupyter-docker-pymol"
+LABEL about.license_file="http://github.com/ocramz/jupyter-docker-pymol"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

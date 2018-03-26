@@ -10,7 +10,7 @@ LABEL software.version="2.2"
 LABEL about.summary="C++ libraries ans tools for MS/MS data analysis"
 LABEL about.home="http://www.openms.org/"
 LABEL about.documentation="http://ftp.mi.fu-berlin.de/pub/OpenMS/release2.2.0-about.documentation/html/index.html"
-LABEL license="http://www.openms.org/"
+LABEL about.license_file="http://www.openms.org/"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

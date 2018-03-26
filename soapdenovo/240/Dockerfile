@@ -9,7 +9,7 @@ LABEL software.version="240"
 LABEL about.summary="a novel short-read assembly method that can build a de novo draft assembly for the human-sized genomes"
 LABEL about.home="http://soap.genomics.org.cn/soapdenovo.html"
 LABEL about.documentation="http://soap.genomics.org.cn/soapdenovo.html"
-LABEL license="http://soap.genomics.org.cn/soapdenovo.html"
+LABEL about.license_file="http://soap.genomics.org.cn/soapdenovo.html"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

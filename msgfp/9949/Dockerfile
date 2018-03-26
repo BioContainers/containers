@@ -9,7 +9,7 @@ LABEL software.version="9949"
 LABEL about.summary="MS/MS database search tool"
 LABEL about.home="http://proteomics.ucsd.edu/Software/MSGFPlus/"
 LABEL about.documentation="http://proteomics.ucsd.edu/Software/MSGFPlus/"
-LABEL license="http://proteomics.ucsd.edu/Software/MSGFPlus/"
+LABEL about.license_file="http://proteomics.ucsd.edu/Software/MSGFPlus/"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

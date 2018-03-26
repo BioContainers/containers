@@ -9,7 +9,7 @@ LABEL software.version="2.1.1"
 LABEL about.summary="TopHat is a fast splice junction mapper for RNA-Seq reads"
 LABEL about.home="https://ccb.jhu.edu/software/tophat/index.shtml"
 LABEL about.documentation="https://ccb.jhu.edu/software/tophat/index.shtml"
-LABEL license="https://opensource.org/licenses/Artistic-2.0"
+LABEL about.license_file="https://opensource.org/licenses/Artistic-2.0"
 LABEL about.tags="Genomics, Transcriptomics"
 
 ################## BEGIN INSTALLATION ######################

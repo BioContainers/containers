@@ -9,7 +9,7 @@ LABEL software.version="1.141"
 LABEL about.summary="A set of Java command line tools for manipulating high-throughput sequencing (HTS) data and formats."
 LABEL about.home="https://github.com/picard/picard"
 LABEL about.documentation="https://github.com/picard/picard"
-LABEL license="https://github.com/picard/picard"
+LABEL about.license_file="https://github.com/picard/picard"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

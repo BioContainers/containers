@@ -9,7 +9,7 @@ LABEL software.version="1.5.2"
 LABEL about.summary="graphical user interface for de novo sequencing of tandem mass spectra"
 LABEL about.home="https://github.com/compomics/denovogui"
 LABEL about.documentation="https://github.com/compomics/denovogui"
-LABEL license="https://github.com/compomics/denovogui"
+LABEL about.license_file="https://github.com/compomics/denovogui"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

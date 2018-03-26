@@ -10,7 +10,7 @@ LABEL software.version="1.12-r6"
 LABEL about.summary="A novel short-read assembly method that can build a de novo draft assembly for the human-sized genomes"
 LABEL about.home="http://soap.genomics.org.cn/gapcloser.html"
 LABEL about.documentation="http://soap.genomics.org.cn/gapcloser.html"
-LABEL license="http://soap.genomics.org.cn/gapcloser.html"
+LABEL about.license_file="http://soap.genomics.org.cn/gapcloser.html"
 LABEL about.tags="Genomics"
 
 ################## INSTALLATION ######################

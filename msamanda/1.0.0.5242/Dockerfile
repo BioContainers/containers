@@ -9,7 +9,7 @@ LABEL software.version="1.0.0.5242"
 LABEL about.summary="scoring system to identify peptides out of tandem mass spectrometry"
 LABEL about.home="http://ms.imp.ac.at/?goto=msamanda"
 LABEL about.documentation="http://ms.imp.ac.at/?goto=msamanda"
-LABEL license="http://ms.imp.ac.at/?goto=msamanda"
+LABEL about.license_file="http://ms.imp.ac.at/?goto=msamanda"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
