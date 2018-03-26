@@ -8,11 +8,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="SearchGUI"
 LABEL software.version="2.8.6"
-LABEL description="graphical user interface for proteomics identification search engines"
-LABEL website="https://code.google.com/p/searchgui/"
-LABEL documentation="https://code.google.com/p/searchgui/"
+LABEL about.summary="graphical user interface for proteomics identification search engines"
+LABEL about.home="https://code.google.com/p/searchgui/"
+LABEL about.documentation="https://code.google.com/p/searchgui/"
 LABEL license="https://code.google.com/p/searchgui/"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 

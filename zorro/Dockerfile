@@ -7,11 +7,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1.0"
 LABEL software="Zorro"
 LABEL software.version="1.0"
-LABEL description="A probabilistic alignment masking program"
-LABEL website="https://phylogenomics.blogspot.com.tr/2012/02/new-openaccess-paper-from-my-lab-on.html"
-LABEL documentation="https://sourceforge.net/projects/probmask/files/"
+LABEL about.summary="A probabilistic alignment masking program"
+LABEL about.home="https://phylogenomics.blogspot.com.tr/2012/02/new-openaccess-paper-from-my-lab-on.html"
+LABEL about.documentation="https://sourceforge.net/projects/probmask/files/"
 LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
-LABEL tags="Genomics"
+LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Emre YILMAZ <emre@eres.tech>

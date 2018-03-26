@@ -8,11 +8,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="bcftools"
 LABEL software.version="1.5"
-LABEL description="Bcftools is a program for variant calling and manipulating VCFs and BCFs"
-LABEL website="https://samtools.github.io/bcftools/"
-LABEL documentation="https://samtools.github.io/bcftools/"
+LABEL about.summary="Bcftools is a program for variant calling and manipulating VCFs and BCFs"
+LABEL about.home="https://samtools.github.io/bcftools/"
+LABEL about.documentation="https://samtools.github.io/bcftools/"
 LABEL license="https://samtools.github.io/bcftools/"
-LABEL tags="Genomics"
+LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
 

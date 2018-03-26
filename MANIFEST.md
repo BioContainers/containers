@@ -10,7 +10,7 @@
  - Version:          1
  - Software:         NCBI BLAST+
  - Software Version: 2.2.28-2
- - Description:      basic local alignment search tool
+ - about.summary:      basic local alignment search tool
  - Website:          http://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download
  - Tags:             Genomics|Protemomics|Transcriptomics|General
  - Provides:         blast 2.2.28-2
@@ -22,7 +22,7 @@
  - Version:          1
  - Software:         Clustal-omega
  - Software Version: 1.2.1-1
- - Description:      general purpose multiple sequence alignment program for proteins
+ - about.summary:      general purpose multiple sequence alignment program for proteins
  - Website:          (http://www.clustal.org/omega/
  - Tags:             Proteomics
  - Provides:         Clustal-omega 1.2.1-1
@@ -50,7 +50,7 @@
  - Version:          1
  - Software:         Comet
  - Software Version: 2015020
- - Description:      basic local alignment search tool
+ - about.summary:      basic local alignment search tool
  - Website:          http://comet-ms.sourceforge.net/
  - Tags:             Proteomics
  - Provides:         Comet 2015020
@@ -62,7 +62,7 @@
  - Version:          1
  - Software:         Crux
  - Software Version: 2.1
- - Description:      a software toolkit for tandem mass spectrometry analysis
+ - about.summary:      a software toolkit for tandem mass spectrometry analysis
  - Website:          http://cruxtoolkit.sourceforge.net/
  - Tags:             Proteomics
  - Provides:         crux 2.1
@@ -74,7 +74,7 @@
  - Version:          1
  - Software:         denovogui
  - Software Version: 1.5.2
- - Description:      graphical user interface for de novo sequencing of tandem mass spectra
+ - about.summary:      graphical user interface for de novo sequencing of tandem mass spectra
  - Website:          https://code.google.com/p/denovogui/
  - Tags:             Proteomics
  - Provides:         denovogui 1.5.2
@@ -86,7 +86,7 @@
  - Version:          1
  - Software:         DIA-Umpire
  - Software Version: 1.4256
- - Description:      computational analysis of data independent acquisition (DIA) mass spectrometry-based proteomics data
+ - about.summary:      computational analysis of data independent acquisition (DIA) mass spectrometry-based proteomics data
  - Website:          http://diaumpire.sourceforge.net
  - Tags:             Proteomics
  - Provides:         dia-umpire 1.4256
@@ -98,7 +98,7 @@
  - Version:          1
  - Software:         emboss
  - Software Version: 6.6.0-1
- - Description:      software analysis package specially developed for the needs of the molecular biology (e.g. EMBnet) user community
+ - about.summary:      software analysis package specially developed for the needs of the molecular biology (e.g. EMBnet) user community
  - Website:          http://emboss.sourceforge.net/what/
  - Tags:             Proteomics|Genomics|General
  - Provides:         emboss 6.6.0-1
@@ -110,7 +110,7 @@
  - Version:          1
  - Software:         MSAmanda
  - Software Version: 1.0.0.5242
- - Description:      scoring system to identify peptides out of tandem mass spectrometry
+ - about.summary:      scoring system to identify peptides out of tandem mass spectrometry
  - Website:          http://ms.imp.ac.at/?goto=msamanda
  - Tags:             Proteomics
  - Provides:         MSAmanda 1.0.0.5242
@@ -122,7 +122,7 @@
  - Version:          1
  - Software:         MSGF+
  - Software Version: 9949
- - Description:      MS/MS database search tool
+ - about.summary:      MS/MS database search tool
  - Website:          http://proteomics.ucsd.edu/Software/MSGFPlus/
  - Tags:             Proteomics
  - Provides:         MSGFPlus 9949
@@ -134,7 +134,7 @@
  - Version:          1
  - Software:         Novor
  - Software Version: 1b
- - Description:      real-time peptide de novo sequencing
+ - about.summary:      real-time peptide de novo sequencing
  - Website:          http://www.rapidnovor.com/
  - Tags:             Proteomics
  - Provides:         novor 1b
@@ -146,7 +146,7 @@
  - Version:          1
  - Software:         OpenMS
  - Software Version: 1.11.1-3
- - Description:      C++ libraries ans tools for MS/MS data analysis
+ - about.summary:      C++ libraries ans tools for MS/MS data analysis
  - Website:          http://open-ms.sourceforge.net/
  - Tags:             Proteomics
  - Provides:         openms 1.11.1-3
@@ -158,7 +158,7 @@
  - Version:          1
  - Software:         PepNovo+
  - Software Version: 20120423
- - Description:      de novo sequencing of low precision MS/MS data
+ - about.summary:      de novo sequencing of low precision MS/MS data
  - Website:          http://proteomics.ucsd.edu/Software/PepNovo/
  - Tags:             Proteomics
  - Provides:         PepNov+ 20120423|dos2unix
@@ -170,7 +170,7 @@
  - Version:          1
  - Software:         Rstudio
  - Software Version: ?
- - Description:      Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.
+ - about.summary:      Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.
  - Website:          https://github.com/rocker-org
  - Tags:             Genomics|Proteomics|Transcriptomics|Metabolomics|General
  - Provides:         Rstudio
@@ -186,7 +186,7 @@
  - Version:          1
  - Software:         SearchGUI
  - Software Version: 1.30.1
- - Description:      graphical user interface for proteomics identification search engines
+ - about.summary:      graphical user interface for proteomics identification search engines
  - Website:          https://code.google.com/p/searchgui/
  - Tags:             Proteomics
  - Provides:         searchgui 1.30.1
@@ -198,7 +198,7 @@
  - Version:          1
  - Software:         X!Tandem
  - Software Version: 10-12-01-1
- - Description:      software that can match tandem mass spectra with peptide sequences
+ - about.summary:      software that can match tandem mass spectra with peptide sequences
  - Website:          http://www.thegpm.org/tandem/
  - Tags:             Proteomics
  - Provides:         tandem 10-12-01-1
@@ -210,7 +210,7 @@
  - Version:          1
  - Software:         OpenMS
  - Software Version: 1.11.1-3
- - Description:      a graphical workflow editor for the analysis of high-throughput proteomics data
+ - about.summary:      a graphical workflow editor for the analysis of high-throughput proteomics data
  - Website:          http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/
  - Tags:             Proteomics
  - Provides:         openms 1.11.1-3|topp 1.11.1-3
@@ -222,7 +222,7 @@
  - Version:          1
  - Software:         TPP
  - Software Version: 4.8
- - Description:      a collection of integrated tools for MS/MS proteomics
+ - about.summary:      a collection of integrated tools for MS/MS proteomics
  - Website:          http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP
  - Tags:             Proteomics
  - Provides:         tpp 4.8.0

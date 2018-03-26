@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="discovar"
 LABEL software.version="52488"
-LABEL description="DISCOVAR is a new variant caller"
-LABEL website="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
-LABEL documentation="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL about.summary="DISCOVAR is a new variant caller"
+LABEL about.home="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL about.documentation="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
 LABEL license="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
-LABEL tags="Genomics"
+LABEL about.tags="Genomics"
 
 
 ################## INSTALLATION ######################

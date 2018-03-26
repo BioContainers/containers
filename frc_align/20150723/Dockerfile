@@ -7,11 +7,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="frc_align"
 LABEL software.version="20150723"
-LABEL description="Computes FRC from SAM/BAM file and not from afg files"
-LABEL website="https://github.com/jts/frc_courve"
-LABEL documentation="https://github.com/jts/frc_courve"
+LABEL about.summary="Computes FRC from SAM/BAM file and not from afg files"
+LABEL about.home="https://github.com/jts/frc_courve"
+LABEL about.documentation="https://github.com/jts/frc_courve"
 LABEL license="https://github.com/jts/frc_courve"
-LABEL tags="Genomics"
+LABEL about.tags="Genomics"
 
 ################## INSTALLATION ######################
 

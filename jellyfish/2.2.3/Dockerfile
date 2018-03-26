@@ -4,9 +4,9 @@
 # Version:          1
 # Software:         jellyfish
 # Software Version: 2.2.3
-# Description:      A fast multi-threaded k-mer counter
-# Website:          https://github.com/gmarcais/Jellyfish
-# Tags:             Genomics
+# about.summary:      A fast multi-threaded k-mer counter
+# about.home:          https://github.com/gmarcais/Jellyfish
+# about.tags:             Genomics
 # Provides:         jellyfish 2.2.3
 ################## BASE IMAGE ###################### :       biodckr/biodocker
 # Build Cmd:        docker build --rm -t biodckrdev/jellyfish 2.2.3/.

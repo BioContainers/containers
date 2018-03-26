@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PeptideProphet"
 LABEL software.version="201510131012"
-LABEL description="Peptide assignment statistics and validation"
-LABEL website="http://peptideprophet.sourceforge.net/"
-LABEL documentation="http://peptideprophet.sourceforge.net/"
+LABEL about.summary="Peptide assignment statistics and validation"
+LABEL about.home="http://peptideprophet.sourceforge.net/"
+LABEL about.documentation="http://peptideprophet.sourceforge.net/"
 LABEL license="http://peptideprophet.sourceforge.net/"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

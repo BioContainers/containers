@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="bwa"
 LABEL software.version="0.7.13"
-LABEL description="Burrow-Wheeler Aligner for pairwise alignment between DNA sequences"
-LABEL website="http://bio-bwa.sourceforge.net/"
-LABEL documentation="http://bio-bwa.sourceforge.net/"
+LABEL about.summary="Burrow-Wheeler Aligner for pairwise alignment between DNA sequences"
+LABEL about.home="http://bio-bwa.sourceforge.net/"
+LABEL about.documentation="http://bio-bwa.sourceforge.net/"
 LABEL license="http://bio-bwa.sourceforge.net/"
-LABEL tags="Genomics"
+LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
 

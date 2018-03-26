@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="MSGF+"
 LABEL software.version="9949"
-LABEL description="MS/MS database search tool"
-LABEL website="http://proteomics.ucsd.edu/Software/MSGFPlus/"
-LABEL documentation="http://proteomics.ucsd.edu/Software/MSGFPlus/"
+LABEL about.summary="MS/MS database search tool"
+LABEL about.home="http://proteomics.ucsd.edu/Software/MSGFPlus/"
+LABEL about.documentation="http://proteomics.ucsd.edu/Software/MSGFPlus/"
 LABEL license="http://proteomics.ucsd.edu/Software/MSGFPlus/"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="ProteoWizard"
 LABEL software.version="3_0_9740"
-LABEL description="tools and software libraries that facilitate proteomics data analysis"
-LABEL website="http://proteowizard.sourceforge.net/"
-LABEL documentation="http://proteowizard.sourceforge.net/"
+LABEL about.summary="tools and software libraries that facilitate proteomics data analysis"
+LABEL about.home="http://proteowizard.sourceforge.net/"
+LABEL about.documentation="http://proteowizard.sourceforge.net/"
 LABEL license="http://proteowizard.sourceforge.net/"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

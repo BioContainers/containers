@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="crux"
 LABEL software.version="2.1"
-LABEL description="a software toolkit for tandem mass spectrometry analysis"
-LABEL website="http://cruxtoolkit.sourceforge.net/"
-LABEL documentation="http://cruxtoolkit.sourceforge.net/"
+LABEL about.summary="a software toolkit for tandem mass spectrometry analysis"
+LABEL about.home="http://cruxtoolkit.sourceforge.net/"
+LABEL about.documentation="http://cruxtoolkit.sourceforge.net/"
 LABEL license="http://cruxtoolkit.sourceforge.net/"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

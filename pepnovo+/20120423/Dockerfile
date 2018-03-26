@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="PepNovo+"
 LABEL software.version="20120423"
-LABEL description="de novo sequencing of low precision MS/MS data"
-LABEL website="http://proteomics.ucsd.edu/Software/PepNovo/"
-LABEL documentation="http://proteomics.ucsd.edu/Software/PepNovo/"
+LABEL about.summary="de novo sequencing of low precision MS/MS data"
+LABEL about.home="http://proteomics.ucsd.edu/Software/PepNovo/"
+LABEL about.documentation="http://proteomics.ucsd.edu/Software/PepNovo/"
 LABEL license="http://proteomics.ucsd.edu/Software/PepNovo/"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

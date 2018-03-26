@@ -5,11 +5,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="spades"
 LABEL software.version="3.6.0"
-LABEL description="Tools (written in C using htslib) for manipulating next-generation sequencing data"
-LABEL website="http://bioinf.spbau.ru/spades"
-LABEL documentation="http://bioinf.spbau.ru/spades"
+LABEL about.summary="Tools (written in C using htslib) for manipulating next-generation sequencing data"
+LABEL about.home="http://bioinf.spbau.ru/spades"
+LABEL about.documentation="http://bioinf.spbau.ru/spades"
 LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
-LABEL tags="Genomics"
+LABEL about.tags="Genomics"
 
 
 ################## BEGIN INSTALLATION ######################

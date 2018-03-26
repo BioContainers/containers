@@ -6,11 +6,11 @@ LABEL base.image="bamtools:latest"
 LABEL version="3"
 LABEL software="TPMCalculator"
 LABEL software.version="0.0.1"
-LABEL description="This program calculates the TPM (Transcript per Millions) values for the exons and introns from NGS RNA-Seq aligned reads (BAM files)"
-LABEL website="https://github.com/r78v10a07/TPMCalculator"
-LABEL documentation="https://github.com/r78v10a07/TPMCalculator"
+LABEL about.summary="This program calculates the TPM (Transcript per Millions) values for the exons and introns from NGS RNA-Seq aligned reads (BAM files)"
+LABEL about.home="https://github.com/r78v10a07/TPMCalculator"
+LABEL about.documentation="https://github.com/r78v10a07/TPMCalculator"
 LABEL license="http://www.gnu.org/licenses/"
-LABEL tags="RNA-seq"
+LABEL about.tags="RNA-seq"
 
 ################## MAINTAINER ######################
 MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>

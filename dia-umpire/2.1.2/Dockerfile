@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="3"
 LABEL software="DIA-Umpire"
 LABEL software.version="2.1.2"
-LABEL description="computational analysis of data independent acquisition (DIA) mass spectrometry-based proteomics data"
-LABEL website="http://diaumpire.sourceforge.net"
-LABEL documentation="http://diaumpire.sourceforge.net"
+LABEL about.summary="computational analysis of data independent acquisition (DIA) mass spectrometry-based proteomics data"
+LABEL about.home="http://diaumpire.sourceforge.net"
+LABEL about.documentation="http://diaumpire.sourceforge.net"
 LABEL license="http://diaumpire.sourceforge.net"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

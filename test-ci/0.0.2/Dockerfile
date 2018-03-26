@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="testci"
 LABEL software.version="0.0.2"
-LABEL description="A test container for internal testing"
+LABEL about.summary="A test container for internal testing"
 
-LABEL website="http://193.62.52.74/jenkins/"
+LABEL about.home="http://193.62.52.74/jenkins/"
 LABEL license="gpl3+"
-LABEL tags="test"
+LABEL about.tags="test"
 
 
 ################## MAINTAINER ######################

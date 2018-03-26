@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="MSAmanda"
 LABEL software.version="1.0.0.5242"
-LABEL description="scoring system to identify peptides out of tandem mass spectrometry"
-LABEL website="http://ms.imp.ac.at/?goto=msamanda"
-LABEL documentation="http://ms.imp.ac.at/?goto=msamanda"
+LABEL about.summary="scoring system to identify peptides out of tandem mass spectrometry"
+LABEL about.home="http://ms.imp.ac.at/?goto=msamanda"
+LABEL about.documentation="http://ms.imp.ac.at/?goto=msamanda"
 LABEL license="http://ms.imp.ac.at/?goto=msamanda"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

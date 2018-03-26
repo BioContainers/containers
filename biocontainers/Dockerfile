@@ -6,11 +6,11 @@ LABEL base.image="ubuntu:16.04"
 LABEL version="4"
 LABEL software="Biocontainers base Image"
 LABEL software.version="08252016"
-LABEL description="Base image for BioDocker"
-LABEL website="http://biocontainers.pro"
-LABEL documentation="https://github.com/BioContainers/specs/wiki"
+LABEL about.summary="Base image for BioDocker"
+LABEL about.home="http://biocontainers.pro"
+LABEL about.documentation="https://github.com/BioContainers/specs/wiki"
 LABEL license="https://github.com/BioContainers/containers/blob/master/LICENSE"
-LABEL tags="Genomics,Proteomics,Transcriptomics,General,Metabolomics"
+LABEL about.tags="Genomics,Proteomics,Transcriptomics,General,Metabolomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

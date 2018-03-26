@@ -4,9 +4,9 @@
 # Version:          1
 # Software:         GATK
 # Software Version: 3.4
-# Description:      The Genome Analysis Toolkit or GATK is a software package developed at the Broad Institute to analyze high-throughput sequencing data.
-# Website:          https://www.broadinstitute.org/gatk/|https://github.com/broadgsa/gatk-protected/
-# Tags:             Genomics
+# about.summary:      The Genome Analysis Toolkit or GATK is a software package developed at the Broad Institute to analyze high-throughput sequencing data.
+# about.home:          https://www.broadinstitute.org/gatk/|https://github.com/broadgsa/gatk-protected/
+# about.tags:             Genomics
 # Provides:         gatk 3.4|samtools 1.2|bwakit 0.7.12|picard tools 1.139
 ################## BASE IMAGE ###################### :       java:7
 # Build Cmd:        docker build --rm -t biodckrdev/gatk 3.4/.

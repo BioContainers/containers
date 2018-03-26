@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="denovogui"
 LABEL software.version="1.5.2"
-LABEL description="graphical user interface for de novo sequencing of tandem mass spectra"
-LABEL website="https://github.com/compomics/denovogui"
-LABEL documentation="https://github.com/compomics/denovogui"
+LABEL about.summary="graphical user interface for de novo sequencing of tandem mass spectra"
+LABEL about.home="https://github.com/compomics/denovogui"
+LABEL about.documentation="https://github.com/compomics/denovogui"
 LABEL license="https://github.com/compomics/denovogui"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

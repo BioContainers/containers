@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="FASTX-Toolkit"
 LABEL software.version="0.0.14"
-LABEL description="a collection of command line tools for Short-Reads FASTA/FASTQ files preprocessing"
-LABEL website="http://hannonlab.cshl.edu/fastx_toolkit/"
-LABEL documentation="http://hannonlab.cshl.edu/fastx_toolkit/commandline.html"
+LABEL about.summary="a collection of command line tools for Short-Reads FASTA/FASTQ files preprocessing"
+LABEL about.home="http://hannonlab.cshl.edu/fastx_toolkit/"
+LABEL about.documentation="http://hannonlab.cshl.edu/fastx_toolkit/commandline.html"
 LABEL license="http://hannonlab.cshl.edu/fastx_toolkit/license.html"
-LABEL tags="General"
+LABEL about.tags="General"
 
 ################## MAINTAINER ######################
 MAINTAINER Alicia Mastretta-Yanes <amastretta@conabio.gob.mx>

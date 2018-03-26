@@ -7,11 +7,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="sga"
 LABEL software.version="0.10.13"
-LABEL description="De novo sequence assembler using string graphs"
-LABEL website="https://github.com/jts/sga"
-LABEL documentation="https://github.com/jts/sga/wiki"
+LABEL about.summary="De novo sequence assembler using string graphs"
+LABEL about.home="https://github.com/jts/sga"
+LABEL about.documentation="https://github.com/jts/sga/wiki"
 LABEL license="https://github.com/jts/sga"
-LABEL tags="Genomics"
+LABEL about.tags="Genomics"
 
 
 ################## INSTALLATION ######################

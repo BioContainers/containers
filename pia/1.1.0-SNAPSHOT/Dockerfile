@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PIA - Protein Inference Algorithms"
 LABEL software.version="1.1.0-SNAPSHOT"
-LABEL description="Compile PIA XML files and run pipelines with this image"
-LABEL website="https://github.com/mpc-bioinformatics/pia"
-LABEL documentation="https://github.com/mpc-bioinformatics/pia"
+LABEL about.summary="Compile PIA XML files and run pipelines with this image"
+LABEL about.home="https://github.com/mpc-bioinformatics/pia"
+LABEL about.documentation="https://github.com/mpc-bioinformatics/pia"
 LABEL license="https://github.com/mpc-bioinformatics/pia"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>

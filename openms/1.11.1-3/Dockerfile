@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="OpenMS"
 LABEL software.version="1.11.1-3"
-LABEL description="C++ libraries ans tools for MS/MS data analysis"
-LABEL website="http://open-ms.sourceforge.net/"
-LABEL documentation="http://open-ms.sourceforge.net/"
+LABEL about.summary="C++ libraries ans tools for MS/MS data analysis"
+LABEL about.home="http://open-ms.sourceforge.net/"
+LABEL about.documentation="http://open-ms.sourceforge.net/"
 LABEL license="http://open-ms.sourceforge.net/"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

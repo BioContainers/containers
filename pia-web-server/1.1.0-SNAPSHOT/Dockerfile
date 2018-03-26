@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PIA-web-server"
 LABEL software.version="1.1.0-SNAPSHOT"
-LABEL description="Web server for PIA - Protein Inference Algorithms"
-LABEL website="https://github.com/mpc-bioinformatics/pia"
-LABEL documentation="https://github.com/mpc-bioinformatics/pia"
+LABEL about.summary="Web server for PIA - Protein Inference Algorithms"
+LABEL about.home="https://github.com/mpc-bioinformatics/pia"
+LABEL about.documentation="https://github.com/mpc-bioinformatics/pia"
 LABEL license="https://github.com/mpc-bioinformatics/pia"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>

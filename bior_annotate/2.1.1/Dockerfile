@@ -4,9 +4,9 @@
 # Version:          1
 # Software:         BioR annotate
 # Software Version: 2.1.1
-# Description:      BIOR (Biological Reference Repository) is a rapid, flexible system for genomic annotation. 
-# Website:          http://www.well.ox.ac.uk/cava|https://github.com/Steven-N-Hart/bior_annotate|http://bioinformaticstools.mayo.edu/research/bior/|https://github.com/BioinformaticsToolsAtMayo|https://github.com/Steven-N-Hart/bior_annotate
-# Tags:             Genomics
+# about.summary:      BIOR (Biological Reference Repository) is a rapid, flexible system for genomic annotation.
+# about.home:          http://www.well.ox.ac.uk/cava|https://github.com/Steven-N-Hart/bior_annotate|http://bioinformaticstools.mayo.edu/research/bior/|https://github.com/BioinformaticsToolsAtMayo|https://github.com/Steven-N-Hart/bior_annotate
+# about.tags:             Genomics
 # Provides:         BioR 2.1.1|htslib 1.2.1|samtools 1.2|bedtools 2.25.0|pysam 0.8.3|cava full 1.1.1|snpEff 4.1k
 ################## BASE IMAGE ###################### :       biodckrdev/bior_annotate
 # Build Cmd:        docker build --rm -t biodckrdev/bior_annotate 2.1.1/.

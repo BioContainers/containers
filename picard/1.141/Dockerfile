@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="Picard"
 LABEL software.version="1.141"
-LABEL description="A set of Java command line tools for manipulating high-throughput sequencing (HTS) data and formats."
-LABEL website="https://github.com/picard/picard"
-LABEL documentation="https://github.com/picard/picard"
+LABEL about.summary="A set of Java command line tools for manipulating high-throughput sequencing (HTS) data and formats."
+LABEL about.home="https://github.com/picard/picard"
+LABEL about.documentation="https://github.com/picard/picard"
 LABEL license="https://github.com/picard/picard"
-LABEL tags="Genomics"
+LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>

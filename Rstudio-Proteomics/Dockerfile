@@ -9,11 +9,11 @@ LABEL base.image="bioconductor/release_core"
 LABEL version="1"
 LABEL software="RProteomics"
 LABEL software.version="1"
-LABEL description="Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis."
-LABEL website="https://github.com/rocker-org"
-LABEL documentation="https://github.com/rocker-org"
+LABEL about.summary="Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis.Rstudio-Proteomics is an adaptation from the original images provided by the Rocker-org. The container provided here contains a Rstudio server configurated with several packages dedicated to Proteomcis data analysis."
+LABEL about.home="https://github.com/rocker-org"
+LABEL about.documentation="https://github.com/rocker-org"
 LABEL license="https://github.com/rocker-org"
-LABEL tags="Genomics, Proteomics, Transcriptomics, Metabolomics, General"
+LABEL about.tags="Genomics, Proteomics, Transcriptomics, Metabolomics, General"
 
 ################## INSTALLATION ###########################
 

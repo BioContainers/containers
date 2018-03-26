@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PeptideShaker"
 LABEL software.version="1.16.16"
-LABEL description="interpretation of proteomics identification results"
-LABEL website="http://compomics.github.io/projects/peptide-shaker.html"
-LABEL documentation="http://compomics.github.io/projects/peptide-shaker.html"
+LABEL about.summary="interpretation of proteomics identification results"
+LABEL about.home="http://compomics.github.io/projects/peptide-shaker.html"
+LABEL about.documentation="http://compomics.github.io/projects/peptide-shaker.html"
 LABEL license="http://compomics.github.io/projects/peptide-shaker.html"
-LABEL tags="Proteomics"
+LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

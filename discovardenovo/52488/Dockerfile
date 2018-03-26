@@ -6,11 +6,11 @@ LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="discovardenovo"
 LABEL software.version="52488"
-LABEL description="Genome variant discovery through assembly"
-LABEL website="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
-LABEL documentation="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL about.summary="Genome variant discovery through assembly"
+LABEL about.home="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL about.documentation="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
 LABEL license="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
-LABEL tags="Genomics"
+LABEL about.tags="Genomics"
 
 
 ################## INSTALLATION ######################
