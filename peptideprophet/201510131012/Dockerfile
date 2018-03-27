@@ -11,7 +11,7 @@ LABEL about.summary="Peptide assignment statistics and validation"
 LABEL about.home="http://peptideprophet.sourceforge.net/"
 LABEL about.documentation="http://peptideprophet.sourceforge.net/"
 LABEL about.license_file="http://peptideprophet.sourceforge.net/"
-LABEL about.license="SPDX:	GPL-2.0-only"
+LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

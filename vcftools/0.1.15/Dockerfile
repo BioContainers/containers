@@ -10,6 +10,7 @@ LABEL about.summary="A set of tools written in Perl and C++ for working with VCF
 LABEL about.home="https://github.com/vcftools/vcftools|https://vcftools.github.io/index.html"
 LABEL about.documentation="https://github.com/vcftools/vcftools|https://vcftools.github.io/index.html"
 LABEL about.license_file="https://github.com/vcftools/vcftools|https://vcftools.github.io/index.html"
+LABEL about.license="SPDX:LGPL-3.0-only"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

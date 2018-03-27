@@ -10,6 +10,7 @@ LABEL about.summary="tools and software libraries that facilitate proteomics dat
 LABEL about.home="http://proteowizard.sourceforge.net/"
 LABEL about.documentation="http://proteowizard.sourceforge.net/"
 LABEL about.license_file="http://proteowizard.sourceforge.net/"
+LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

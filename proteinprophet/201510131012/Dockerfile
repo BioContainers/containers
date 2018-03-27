@@ -10,6 +10,7 @@ LABEL about.summary="Protein inference for MS/MS analysis"
 LABEL about.home="http://proteinprophet.sourceforge.net/"
 LABEL about.documentation="http://proteinprophet.sourceforge.net/"
 LABEL about.license_file="http://proteinprophet.sourceforge.net/"
+LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

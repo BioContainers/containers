@@ -9,6 +9,7 @@ LABEL about.summary="A correction tool for SOAPdenovo"
 LABEL about.home="http://soap.genomics.org.cn/soapdenovo.html"
 LABEL about.documentation="http://soap.genomics.org.cn/soapdenovo.html"
 LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
 
 

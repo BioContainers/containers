@@ -10,6 +10,7 @@ LABEL about.summary="a collection of integrated tools for MS/MS proteomics"
 LABEL about.home="http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP"
 LABEL about.documentation="http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP"
 LABEL about.license_file="http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP"
+LABEL about.license="SPDX:GPL-3.0-only"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

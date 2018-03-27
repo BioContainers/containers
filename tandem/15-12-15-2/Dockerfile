@@ -11,6 +11,7 @@ LABEL about.summary="software that can match tandem mass spectra with peptide se
 LABEL about.home="http://www.thegpm.org/tandem/"
 LABEL about.documentation="http://www.thegpm.org/tandem/"
 LABEL about.license_file="http://www.thegpm.org/tandem/"
+LABEL about.license="SPDX:Artistic-2.0"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

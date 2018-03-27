@@ -13,6 +13,7 @@ LABEL about.summary="Rstudio-Proteomics is an adaptation from the original image
 LABEL about.home="https://github.com/rocker-org"
 LABEL about.documentation="https://github.com/rocker-org"
 LABEL about.license_file="https://github.com/rocker-org"
+LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Genomics, Proteomics, Transcriptomics, Metabolomics, General"
 
 ################## INSTALLATION ###########################

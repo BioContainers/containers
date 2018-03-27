@@ -10,6 +10,7 @@ LABEL about.summary="a graphical workflow editor for the analysis of high-throug
 LABEL about.home="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
 LABEL about.documentation="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
 LABEL about.license_file="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
+LABEL about.license="SPDX:BSD-2-Clause"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
