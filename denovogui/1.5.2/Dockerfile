@@ -10,6 +10,7 @@ LABEL about.summary="graphical user interface for de novo sequencing of tandem m
 LABEL about.home="https://github.com/compomics/denovogui"
 LABEL about.documentation="https://github.com/compomics/denovogui"
 LABEL about.license_file="https://github.com/compomics/denovogui"
+LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

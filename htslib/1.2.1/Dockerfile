@@ -1,21 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         htslib
-# Software Version: 1.2.1
-# about.summary:      C library for high-throughput sequencing data formats
-# about.home:          https://github.com/samtools/htslib
-# Provides:         htslib 1.2.1
-# about.tags:             Genomics
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/htslib 1.2.1/.
-# Pull Cmd:         docker pull biodckrdev/htslib
-# Run Cmd:          docker run --rm -it biodckrdev/htslib <options> <files>
-#################################################################
+############################### Dockerfile ##################################
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+FROM biocontainers/biocontainers:latest
+
+################################# METADATA ###################################
+
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="htslib"
+LABEL software.version="1.2.1"
+LABEL about.summary="C library for high-throughput sequencing data formats"
+LABEL about.home="https://github.com/samtools/htslib"
+LABEL about.provides="htslib 1.2.1"
+LABEL about.license_file="https://github.com/samtools/htslib/blob/develop/LICENSE"
+LABEL about.license="SPDX:MIT"
+LABEL about.tags="Genomics"
 
 ################## BEGIN INSTALLATION ######################
 

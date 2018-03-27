@@ -11,6 +11,7 @@ LABEL about.summary="A novel short-read assembly method that can build a de novo
 LABEL about.home="http://soap.genomics.org.cn/gapcloser.html"
 LABEL about.documentation="http://soap.genomics.org.cn/gapcloser.html"
 LABEL about.license_file="http://soap.genomics.org.cn/gapcloser.html"
+LABEL about.license="SPDX:GPL-3.0-only"
 LABEL about.tags="Genomics"
 
 ################## INSTALLATION ######################

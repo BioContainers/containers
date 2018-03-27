@@ -10,6 +10,7 @@ LABEL about.summary="computational analysis of data independent acquisition (DIA
 LABEL about.home="http://diaumpire.sourceforge.net"
 LABEL about.documentation="http://diaumpire.sourceforge.net"
 LABEL about.license_file="http://diaumpire.sourceforge.net"
+LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

@@ -10,6 +10,7 @@ LABEL about.summary="Differentially expressed intron retention"
 LABEL about.home="https://github.com/r78v10a07/DiffExpIR"
 LABEL about.documentation="https://github.com/r78v10a07/DiffExpIR"
 LABEL about.license_file="https://github.com/r78v10a07/DiffExpIR"
+LABEL about.license="SPDX:MIT"
 LABEL about.tags="RNA-seq"
 
 ################## MAINTAINER ######################
