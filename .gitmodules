@@ -1,0 +1,3 @@
+[submodule "container-isatab2json"]
+	path = container-isatab2json
+	url = https://github.com/phnmnl/container-isatab2json
