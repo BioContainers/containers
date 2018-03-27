@@ -12,6 +12,7 @@ LABEL about.documentation="http://soap.genomics.org.cn/soapdenovo.html"
 LABEL about.license_file="http://soap.genomics.org.cn/soapdenovo.html"
 LABEL about.license="SPDX:GPL-3.0-only"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="soapdenovo"
 
 ################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>

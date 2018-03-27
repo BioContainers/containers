@@ -14,6 +14,7 @@ LABEL about.tags= "Genomics"
 LABEL about.license_file="http://jbrowse.org/code/JBrowse-1.13.0/LICENSE"
 LABEL about.license="SPDX:LGPL-3.0-only"
 LABEL about.provides="jbrowse 1.11.6"
+LABEL extra.identifiers.biotools="jbrowse"
 
 ################## BEGIN INSTALLATION ######################
 

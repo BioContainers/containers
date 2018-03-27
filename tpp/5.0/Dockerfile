@@ -12,6 +12,7 @@ LABEL about.documentation="http://tools.proteomecenter.org/wiki/index.php?title=
 LABEL about.license_file="https://www.gnu.org/licenses/lgpl-3.0.en.html"
 LABEL about.license="SPDX:GPL-3.0-only"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="tpp"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

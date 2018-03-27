@@ -12,6 +12,7 @@ LABEL about.documentation="https://ccb.jhu.edu/software/tophat/index.shtml"
 LABEL about.license_file="https://opensource.org/licenses/Artistic-2.0"
 LABEL about.license="SPDX:Artistic-2.0"
 LABEL about.tags="Genomics, Transcriptomics"
+LABEL extra.identifiers.biotools="tophat"
 
 ################## BEGIN INSTALLATION ######################
 

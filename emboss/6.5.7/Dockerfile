@@ -12,6 +12,7 @@ LABEL about.documentation="http://emboss.sourceforge.net/docs/"
 LABEL about.license_file="http://emboss.sourceforge.net/licence/"
 LABEL about.license="SPDX:GPL-3.0"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="EMBOSS"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

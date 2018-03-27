@@ -11,6 +11,7 @@ LABEL about.home="http://bio-bwa.sourceforge.net/"
 LABEL about.documentation="http://bio-bwa.sourceforge.net/"
 LABEL about.license_file="http://bio-bwa.sourceforge.net/"
 LABEL about.license="SPDX:GPL-3.0"
+LABEL extra.identifiers.biotools="bwa"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

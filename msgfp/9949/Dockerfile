@@ -13,6 +13,7 @@ LABEL about.documentation="http://proteomics.ucsd.edu/Software/MSGFPlus/"
 LABEL about.license_file="https://github.com/MSGFPlus/msgfplus/blob/master/LICENSE.txt"
 LABEL about.license="SPDX:CC-BY-NC-4.0"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="msgfplus"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

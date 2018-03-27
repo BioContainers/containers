@@ -12,6 +12,7 @@ LABEL about.documentation="https://github.com/compomics/searchgui/"
 LABEL about.license_file="https://github.com/compomics/searchgui/blob/master/README.txt"
 LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="searchgui"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

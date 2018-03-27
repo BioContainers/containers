@@ -13,6 +13,7 @@ LABEL about.documentation="http://ftp.mi.fu-berlin.de/pub/OpenMS/release2.2.0-ab
 LABEL about.license_file="https://github.com/OpenMS/OpenMS/blob/develop/LICENSE"
 LABEL about.license="SPDX:BSD-1-Clause"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="openms"
 
 ################## MAINTAINER ######################
 MAINTAINER Hannes Rost <hannes.rost@utoronto.ca>

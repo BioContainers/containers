@@ -13,7 +13,7 @@ LABEL about.documentation="https://github.com/jts/sga/wiki"
 LABEL about.license_file="https://github.com/jts/sga/blob/master/src/COPYING"
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
-
+LABEL extra.identifiers.biotools="sga"
 
 ################## INSTALLATION ######################
 

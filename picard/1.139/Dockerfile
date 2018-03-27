@@ -11,6 +11,7 @@ LABEL about.home="https://github.com/broadinstitute/picard"
 LABEL about.documentation="https://github.com/broadinstitute/picard"
 LABEL about.license_file="https://github.com/broadinstitute/picard/blob/master/LICENSE.txt"
 LABEL about.license="SPDX:MIT"
+LABEL extra.identifiers.biotools="picard_tools"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

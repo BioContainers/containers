@@ -12,6 +12,7 @@ LABEL about.documentation="http://compomics.github.io/projects/peptide-shaker.ht
 LABEL about.license_file="https://github.com/compomics/peptide-shaker/blob/master/README.txt"
 LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="peptideshaker"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

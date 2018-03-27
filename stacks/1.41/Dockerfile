@@ -13,6 +13,7 @@ LABEL about.documentation="http://catchenlab.life.illinois.edu/stacks/"
 LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="Stacks"
 
 
 ################## BEGIN INSTALLATION ###########################

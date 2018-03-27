@@ -12,6 +12,7 @@ LABEL about.documentation="https://github.com/vcftools/vcftools|https://vcftools
 LABEL about.license_file="https://github.com/vcftools/vcftools/blob/master/LICENSE"
 LABEL about.license="SPDX:LGPL-3.0-only"
 LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="vcftools"
 
 ################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>

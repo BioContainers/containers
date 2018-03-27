@@ -12,6 +12,7 @@ LABEL about.documentation="https://github.com/julianu/pia-tutorial"
 LABEL about.license_file="https://github.com/mpc-bioinformatics/pia"
 LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="pia"
 
 ################## MAINTAINER ######################
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>

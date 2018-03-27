@@ -12,6 +12,7 @@ LABEL about.documentation="http://open-ms.sourceforge.net/workflow-integration/t
 LABEL about.license_file="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
 LABEL about.license="SPDX:BSD-2-Clause"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="openms"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

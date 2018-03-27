@@ -12,6 +12,7 @@ LABEL about.home="https://github.com/pezmaster31/bamtools"
 LABEL about.documentation="https://github.com/pezmaster31/bamtools/wiki"
 LABEL about.license_file="https://github.com/pezmaster31/bamtools/blob/master/LICENSE"
 LABEL about.license="SPDX:MIT"
+LABEL extra.identifiers.biotools="bamtools"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

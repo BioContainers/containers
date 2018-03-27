@@ -11,6 +11,7 @@ LABEL about.home="http://saint-apms.sourceforge.net/Main.html"
 LABEL about.documentation="http://saint-apms.sourceforge.net/Main.html"
 LABEL about.license_file="http://saint-apms.sourceforge.net/Main.html"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="SAINT"
 
 ################## MAINTAINER ######################
 

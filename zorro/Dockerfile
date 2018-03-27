@@ -13,6 +13,7 @@ LABEL about.documentation="https://sourceforge.net/projects/probmask/files/"
 LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="zorro"
 
 ################## MAINTAINER ######################
 MAINTAINER Emre YILMAZ <emre@eres.tech>

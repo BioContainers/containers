@@ -13,6 +13,7 @@ LABEL about.home="https://samtools.github.io/bcftools/"
 LABEL about.documentation="https://samtools.github.io/bcftools/"
 LABEL about.license_file="https://github.com/samtools/bcftools/blob/develop/LICENSE"
 LABEL about.license="SPDX:MIT"
+LABEL extra.identifiers.biotools="bcftools"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

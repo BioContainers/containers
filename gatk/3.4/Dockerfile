@@ -13,6 +13,7 @@ LABEL about.home="https://www.broadinstitute.org/gatk/|https://github.com/broadg
 LABEL about.license_file="https://github.com/broadgsa/gatk-protected/blob/master/licensing/protected_license.txt"
 LABEL about.license="SPDX:BSD-3-Clause"
 LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="gatk"
 
 LABEL about.provides="gatk 3.4|samtools 1.2|bwakit 0.7.12|picard tools 1.139"
 

@@ -1,49 +1,24 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         BioR annotate
-# Software Version: 2.1.1
-# about.summary:      BIOR (Biological Reference Repository) is a rapid, flexible system for genomic annotation.
-# about.home:          http://www.well.ox.ac.uk/cava|https://github.com/Steven-N-Hart/bior_annotate|http://bioinformaticstools.mayo.edu/research/bior/|https://github.com/BioinformaticsToolsAtMayo|https://github.com/Steven-N-Hart/bior_annotate
-# about.tags:             Genomics
-# Provides:         BioR 2.1.1|htslib 1.2.1|samtools 1.2|bedtools 2.25.0|pysam 0.8.3|cava full 1.1.1|snpEff 4.1k
-################## BASE IMAGE ###################### :       biodckrdev/bior_annotate
-# Build Cmd:        docker build --rm -t biodckrdev/bior_annotate 2.1.1/.
-# Pull Cmd:         docker pull biodckrdev/bior_annotate
-# Run Cmd:          docker run --rm -it biodckrdev/bior_annotate bash
-# Extra:            mkdir data
-# Extra:            cd data
-# Extra:            mkdir references
-# Extra:            curl -o references/hg19.fa.gz ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.fa.gz
-# Extra:            gunzip references/hg19.fa.gz > references/hg19.fa
-# Extra:            docker run -it --rm -v $PWD:/Data biodckrdev/bior_annotate bash
-# Extra:            cd /data
-# Extra:            samtools faidx references/hg19.fa
-# Extra:            sh trunk/bior_annotate.sh -v HG00098.vcf.gz -c catalogFile.docker -d drillFile.docker -T tool_info.minimal.txt -o TEST  -M trunk/config/memory_info.txt -l
-# Extra:            Note for windows, you will need to use
-# Extra:            docker run -it --rm -v //c/UserS/m087494/Desktop/bior_annotate:/Data stevenhart/bior_annotate:latest
-# Extra:            For this demo, make sure `pwd` contains the following elements
-# Extra:            Data/
-# Extra:              references/
-# Extra:                hg19.fa.gz
-# Extra:                hg19.fa.gz.fai
-# Extra:            catalogs/
-# Extra:              2015_05_18/
-# Extra:                noTCGA_ExAc.datasource.properties
-# Extra:                noTCGA_ExAc.columns.tsv
-# Extra:                noTCGA_ExAc.tsv.bgz.tbi
-# Extra:                noTCGA_ExAc.tsv.bgz
-#################################################################
+############################## Dockerfile ###################################
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker:latest
+FROM biocontainers/biocontainers:latest
+
+############################# METADATA ######################################
+
+LABEL version="1"
+LABEL software="BioR annotate"
+LABEL software.version="2.1.1"
+LABEL about.summary="BIOR (Biological Reference Repository) is a rapid, flexible system for genomic annotation"
+LABEL about.home="http://www.well.ox.ac.uk/cava|https://github.com/Steven-N-Hart/bior_annotate|http://bioinformaticstools.mayo.edu/research/bior/|https://github.com/BioinformaticsToolsAtMayo|https://github.com/Steven-N-Hart/bior_annotate"
+LABEL about.tags="Genomics"
+LABEL about.provides="BioR 2.1.1|htslib 1.2.1|samtools 1.2|bedtools 2.25.0|pysam 0.8.3|cava full 1.1.1|snpEff"
+LABEL extra.identifiers.biotools="BIOR"
 
 ################## BEGIN INSTALLATION ######################
 
 #####################################################
 # Install system wide libraries
 #####################################################
+
 USER root
 
 RUN apt-get update && \

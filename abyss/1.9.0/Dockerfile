@@ -12,6 +12,7 @@ LABEL about.home="http://www.bcgsc.ca/platform/bioinfo/software/abyss/releases/1
 LABEL about.documentation="https://github.com/bcgsc/abyss#abyss"
 LABEL about.license_file="https://github.com/bcgsc/abyss/blob/master/LICENSE"
 LABEL about.license="SPDX:GPL-3.0-only"
+LABEL extra.identifiers.biotools="abyss"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

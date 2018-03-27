@@ -12,7 +12,6 @@ LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.h
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
 
-
 ################## BEGIN INSTALLATION ######################
 
 ENV ZIP=SOAPec_bin_v2.03.tgz

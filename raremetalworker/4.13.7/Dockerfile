@@ -11,6 +11,7 @@ LABEL about.home="http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
 LABEL about.documentation="http://genome.sph.umich.edu/wiki/RAREMETALWORKER|https://github.com/statgen/Raremetal"
 LABEL about.license_file="http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
 LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="RAREMETAL"
 
 
 ################## BEGIN INSTALLATION ######################

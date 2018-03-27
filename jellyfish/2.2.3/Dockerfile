@@ -13,6 +13,7 @@ LABEL about.tags="Genomics"
 LABEL about.license_file="https://github.com/gmarcais/Jellyfish/blob/master/LICENSE"
 LABEL about.license="SPDX:LGPL-3.0-only"
 LABEL about.provides="jellyfish 2.2.3"
+LABEL extra.identifiers.biotools="jellyfish"
 
 ################## BEGIN INSTALLATION ######################
 

@@ -14,6 +14,7 @@ LABEL about.provides="htslib 1.2.1"
 LABEL about.license_file="https://github.com/samtools/htslib/blob/develop/LICENSE"
 LABEL about.license="SPDX:MIT"
 LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="HTSlib"
 
 ################## BEGIN INSTALLATION ######################
 
