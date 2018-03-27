@@ -11,6 +11,7 @@ LABEL about.summary="C++ API & command-line toolkit for working with BAM data"
 LABEL about.home="https://github.com/pezmaster31/bamtools"
 LABEL about.documentation="https://github.com/pezmaster31/bamtools/wiki"
 LABEL about.license_file="https://github.com/pezmaster31/bamtools/blob/master/LICENSE"
+LABEL about.license="SPDX:MIT"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

@@ -11,6 +11,7 @@ LABEL about.summary="basic local alignment search tool"
 LABEL about.home="http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastHome"
 LABEL about.documentation="http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastHome"
 LABEL about.license_file="https://www.ncbi.nlm.nih.gov/IEB/ToolBox/CPP_DOC/lxr/source/scripts/projects/blast/LICENSE"
+LABEL about.license="SPDX:MIT"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

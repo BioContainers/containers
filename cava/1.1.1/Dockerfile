@@ -10,6 +10,7 @@ LABEL about.summary="lightweight, fast and flexible NGS variant annotation tool"
 LABEL about.home="http://www.well.ox.ac.uk/cava"
 LABEL about.documentation="http://www.well.ox.ac.uk/cava"
 LABEL about.license_file="http://www.well.ox.ac.uk/cava"
+LABEL about.license="SPDX:GPL-3.0"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################

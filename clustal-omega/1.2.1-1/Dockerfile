@@ -10,6 +10,7 @@ LABEL about.summary="general purpose multiple sequence alignment program for pro
 LABEL about.home="http://www.clustal.org/omega/"
 LABEL about.documentation="http://www.clustal.org/omega/#about.documentation"
 LABEL about.license_file="http://www.clustal.org/omega/"
+LABEL about.license="SPDX:GPL-2.0"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

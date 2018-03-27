@@ -11,6 +11,7 @@ LABEL about.summary="an ultrafast memory-efficient short read aligner"
 LABEL about.home="http://bowtie-bio.sourceforge.net/index.shtml"
 LABEL about.documentation="http://bowtie-bio.sourceforge.net/manual.shtml"
 LABEL about.license_file="http://bowtie-bio.sourceforge.net/index.shtml"
+LABEL about.license="SPDX:Artistic-2.0"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
