@@ -1,7 +1,9 @@
 ################## BASE IMAGE ######################
+
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
+
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="MSAmanda"
@@ -10,6 +12,7 @@ LABEL about.summary="scoring system to identify peptides out of tandem mass spec
 LABEL about.home="http://ms.imp.ac.at/?goto=msamanda"
 LABEL about.documentation="http://ms.imp.ac.at/?goto=msamanda"
 LABEL about.license_file="http://ms.imp.ac.at/?goto=msamanda"
+LABEL about.license="SPDX:LGPL-3.0-only"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

@@ -10,6 +10,7 @@ LABEL about.summary="Web server for PIA - Protein Inference Algorithms"
 LABEL about.home="https://github.com/mpc-bioinformatics/pia"
 LABEL about.documentation="https://github.com/mpc-bioinformatics/pia"
 LABEL about.license_file="https://github.com/mpc-bioinformatics/pia"
+LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
