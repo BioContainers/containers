@@ -1,0 +1,22 @@
+################## BASE IMAGE ######################
+FROM biocontainers/biocontainers:latest
+
+################## METADATA ######################
+LABEL base.image="biocontainers:latest"
+LABEL version="2"
+LABEL software="Samtools"
+LABEL software.version="1.7"
+LABEL description="Tools for manipulating next-generation sequencing data"
+LABEL website="https://github.com/samtools/samtools"
+LABEL documentation="https://github.com/samtools/samtools"
+LABEL license="https://github.com/samtools/samtools"
+LABEL tags="Genomics"
+
+################## MAINTAINER ######################
+MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
+
+RUN conda install samtools=1.7
+
+WORKDIR /data/
+
+CMD ["samtools"]
