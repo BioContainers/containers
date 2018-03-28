@@ -1,4 +1,4 @@
-FROM biocontainers/"biocontainers:latest
+FROM biocontainers/biocontainers:latest
 
 ################################### METADATA ######################  ######################
 
