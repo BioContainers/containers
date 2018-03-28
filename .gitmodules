@@ -1,50 +1,50 @@
 [submodule "container-isatab2json"]
-	path = container-isatab2json
+	path = isatab2json
 	url = https://github.com/phnmnl/container-isatab2json
 [submodule "container-ipo"]
-	path = container-ipo
+	path = ipo
 	url = https://github.com/phnmnl/container-ipo
 [submodule "container-mtblisa"]
-	path = container-mtblisa
+	path = mtblisa
 	url = https://github.com/phnmnl/container-mtblisa
 [submodule "container-batch_correction"]
 	path = batch_correction
 	url = https://github.com/phnmnl/container-batch_correction
 [submodule "container-csifingerid"]
-	path = container-csifingerid
+	path = csifingerid
 	url = https://github.com/phnmnl/container-csifingerid
 [submodule "container-bruker2batman"]
-	path = container-bruker2batman
+	path = bruker2batman
 	url = https://github.com/phnmnl/container-bruker2batman
 [submodule "container-isatab-create"]
-	path = container-isatab-create
+	path = isatab-create
 	url = https://github.com/phnmnl/container-isatab-create
 [submodule "container-metfrag-cli-batch"]
 	path = container-metfrag-cli-batch
 	url = https://github.com/c-ruttkies/container-metfrag-cli-batch
 [submodule "container-isatab-validator"]
-	path = container-isatab-validator
+	path = isatab-validator
 	url = https://github.com/phnmnl/container-isatab-validator
 [submodule "container-mtbls-dwnld"]
 	path = container-mtbls-dwnld
 	url = https://github.com/phnmnl/container-mtbls-dwnld
 [submodule "container-nmrml2isa"]
-	path = container-nmrml2isa
+	path = nmrml2isa
 	url = https://github.com/phnmnl/container-nmrml2isa
 [submodule "container-dimspy"]
-	path = container-dimspy
+	path = dimspy
 	url = https://github.com/phnmnl/container-dimspy
 [submodule "container-mzml2isa"]
 	path = container-mzml2isa
 	url = https://github.com/phnmnl/container-mzml2isa
 [submodule "container-iso2flux"]
-	path = container-iso2flux
+	path = iso2flux
 	url = https://github.com/phnmnl/container-iso2flux
 [submodule "container-escher-fluxomics"]
-	path = container-escher-fluxomics
+	path = escher-fluxomics
 	url = https://github.com/phnmnl/container-escher-fluxomics
 [submodule "container-isaslicer"]
-	path = container-isaslicer
+	path = isaslicer
 	url = https://github.com/phnmnl/container-isaslicer
 [submodule "container-batman"]
 	path = batman
@@ -53,7 +53,7 @@
 	path = qualitymetrics
 	url = https://github.com/phnmnl/container-qualitymetrics
 [submodule "container-pathwayEnrichment"]
-	path = container-pathwayEnrichment
+	path = pathwayEnrichment
 	url = https://github.com/phnmnl/container-pathwayEnrichment
 [submodule "nmrprocflow-ie"]
 	path = nmrprocflow-ie
@@ -62,10 +62,10 @@
 	path = stocsy
 	url = https://github.com/phnmnl/container-stocsy
 [submodule "container-rdolphin"]
-	path = container-rdolphin
+	path = rdolphin
 	url = https://github.com/phnmnl/container-rdolphin
 [submodule "container-biosigner"]
-	path = container-biosigner
+	path = biosigner
 	url = https://github.com/phnmnl/container-biosigner
 [submodule "container-rnmr1d"]
 	path = rnmr1d
@@ -83,16 +83,16 @@
 	path = container-metfrag-vis
 	url = https://github.com/phnmnl/container-metfrag-vis
 [submodule "container-passatutto"]
-	path = container-passatutto
+	path = passatutto
 	url = https://github.com/phnmnl/container-passatutto
 [submodule "container-camera"]
-	path = container-camera
+	path = camera
 	url = https://github.com/phnmnl/container-camera
 [submodule "container-msnbase"]
-	path = container-msnbase
+	path = msnbase
 	url = https://github.com/phnmnl/container-msnbase
 [submodule "container-isajson-validator"]
-	path = container-isajson-validator
+	path = isajson-validator
 	url = https://github.com/phnmnl/container-isajson-validator
 [submodule "container-scp-aspera"]
 	path = scp-aspera
@@ -104,25 +104,25 @@
 	path = tool-generic_filter
 	url = https://github.com/phnmnl/container-tool-generic_filter
 [submodule "container-ms-vfetc"]
-	path = container-ms-vfetc
+	path = ms-vfetc
 	url = https://github.com/phnmnl/container-ms-vfetc
 [submodule "container-lcmsmatching"]
 	path = container-lcmsmatching
 	url = https://github.com/phnmnl/container-lcmsmatching
 [submodule "container-isa2w4m"]
-	path = container-isa2w4m
+	path = isa2w4m
 	url = https://github.com/phnmnl/container-isa2w4m
 [submodule "container-metabolab"]
 	path = container-metabolab
 	url = https://github.com/phnmnl/container-metabolab
 [submodule "container-cdf2mid"]
-	path = container-cdf2mid
+	path = cdf2mid
 	url = https://github.com/seliv55/container-cdf2mid
 [submodule "container-nmrML2BATMAN"]
 	path = container-nmrML2BATMAN
 	url = https://github.com/phnmnl/container-nmrML2BATMAN
 [submodule "container-nmrglue"]
-	path = container-nmrglue
+	path = nmrglue
 	url = https://github.com/phnmnl/container-nmrglue
 [submodule "container-soap-nmr"]
 	path = soap-nmr
@@ -131,16 +131,16 @@
 	path = rnmr
 	url = https://github.com/phnmnl/container-rnmr
 [submodule "container-ramid"]
-	path = container-ramid
+	path = ramid
 	url = https://github.com/phnmnl/container-ramid
 [submodule "container-metfrag-cli"]
 	path = container-metfrag-cli
 	url = https://github.com/phnmnl/container-metfrag-cli
 [submodule "container-papy"]
-	path = container-papy
+	path = papy
 	url = https://github.com/phnmnl/container-papy
 [submodule "container-metaMS"]
-	path = container-metaMS
+	path = metaMS
 	url = https://github.com/phnmnl/container-metaMS
 [submodule "container-xcms-w4m"]
 	path = xcms-w4m
@@ -149,7 +149,7 @@
 	path = container-nmrprocflow
 	url = https://github.com/phnmnl/container-nmrprocflow
 [submodule "container-nmrpro"]
-	path = container-nmrpro
+	path = nmrpro
 	url = https://github.com/phnmnl/container-nmrpro
 [submodule "container-metfamily"]
 	path = container-metfamily
