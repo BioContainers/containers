@@ -8,7 +8,7 @@
 	path = container-mtblisa
 	url = https://github.com/phnmnl/container-mtblisa
 [submodule "container-batch_correction"]
-	path = container-batch_correction
+	path = batch_correction
 	url = https://github.com/phnmnl/container-batch_correction
 [submodule "container-csifingerid"]
 	path = container-csifingerid
@@ -47,10 +47,10 @@
 	path = container-isaslicer
 	url = https://github.com/phnmnl/container-isaslicer
 [submodule "container-batman"]
-	path = container-batman
+	path = batman
 	url = https://github.com/phnmnl/container-batman
 [submodule "container-qualitymetrics"]
-	path = container-qualitymetrics
+	path = qualitymetrics
 	url = https://github.com/phnmnl/container-qualitymetrics
 [submodule "container-pathwayEnrichment"]
 	path = container-pathwayEnrichment
@@ -59,7 +59,7 @@
 	path = nmrprocflow-ie
 	url = https://github.com/phnmnl/nmrprocflow-ie
 [submodule "container-stocsy"]
-	path = container-stocsy
+	path = stocsy
 	url = https://github.com/phnmnl/container-stocsy
 [submodule "container-rdolphin"]
 	path = container-rdolphin
@@ -68,16 +68,16 @@
 	path = container-biosigner
 	url = https://github.com/phnmnl/container-biosigner
 [submodule "container-rnmr1d"]
-	path = container-rnmr1d
+	path = rnmr1d
 	url = https://github.com/phnmnl/container-rnmr1d
 [submodule "container-speaq"]
-	path = container-speaq
+	path = speaq
 	url = https://github.com/phnmnl/container-speaq
 [submodule "container-nmrmlconv"]
 	path = container-nmrmlconv
 	url = https://github.com/phnmnl/container-nmrmlconv
 [submodule "container-xcms-1.x"]
-	path = container-xcms-1.x
+	path = xcms-1.x
 	url = https://github.com/phnmnl/container-xcms-1.x
 [submodule "container-metfrag-vis"]
 	path = container-metfrag-vis
@@ -95,13 +95,13 @@
 	path = container-isajson-validator
 	url = https://github.com/phnmnl/container-isajson-validator
 [submodule "container-scp-aspera"]
-	path = container-scp-aspera
+	path = scp-aspera
 	url = https://github.com/phnmnl/container-scp-aspera
 [submodule "container-univariate"]
-	path = container-univariate
+	path = univariate
 	url = https://github.com/phnmnl/container-univariate
 [submodule "container-tool-generic_filter"]
-	path = container-tool-generic_filter
+	path = tool-generic_filter
 	url = https://github.com/phnmnl/container-tool-generic_filter
 [submodule "container-ms-vfetc"]
 	path = container-ms-vfetc
@@ -125,10 +125,10 @@
 	path = container-nmrglue
 	url = https://github.com/phnmnl/container-nmrglue
 [submodule "container-soap-nmr"]
-	path = container-soap-nmr
+	path = soap-nmr
 	url = https://github.com/phnmnl/container-soap-nmr
 [submodule "container-rnmr"]
-	path = container-rnmr
+	path = rnmr
 	url = https://github.com/phnmnl/container-rnmr
 [submodule "container-ramid"]
 	path = container-ramid
@@ -143,7 +143,7 @@
 	path = container-metaMS
 	url = https://github.com/phnmnl/container-metaMS
 [submodule "container-xcms-w4m"]
-	path = container-xcms-w4m
+	path = xcms-w4m
 	url = https://github.com/phnmnl/container-xcms-w4m
 [submodule "container-nmrprocflow"]
 	path = container-nmrprocflow

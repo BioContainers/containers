@@ -5,7 +5,7 @@ FROM ubuntu:16.04
 LABEL base.image="ubuntu:16.04"
 LABEL version="4"
 LABEL software="Biocontainers base Image"
-LABEL software.version="08252016"
+LABEL software.version="1.0.0"
 LABEL about.summary="Base image for BioDocker"
 LABEL about.home="http://biocontainers.pro"
 LABEL about.documentation="https://github.com/BioContainers/specs/wiki"
