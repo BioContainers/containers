@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:latest
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="snpeff"
-LABEL software.version="4.1"
+LABEL software.version="4.1k"
 LABEL about.summary="Genetic variant annotation and effect prediction toolbox"
 LABEL about.home="http://snpeff.sourceforge.net/"
 LABEL about.documentation="http://snpeff.sourceforge.net/"
