@@ -20,13 +20,13 @@
 	path = isatab-create
 	url = https://github.com/phnmnl/container-isatab-create
 [submodule "container-metfrag-cli-batch"]
-	path = container-metfrag-cli-batch
+	path = metfrag-cli-batch
 	url = https://github.com/c-ruttkies/container-metfrag-cli-batch
 [submodule "container-isatab-validator"]
 	path = isatab-validator
 	url = https://github.com/phnmnl/container-isatab-validator
 [submodule "container-mtbls-dwnld"]
-	path = container-mtbls-dwnld
+	path = mtbls-dwnld
 	url = https://github.com/phnmnl/container-mtbls-dwnld
 [submodule "container-nmrml2isa"]
 	path = nmrml2isa
@@ -35,7 +35,7 @@
 	path = dimspy
 	url = https://github.com/phnmnl/container-dimspy
 [submodule "container-mzml2isa"]
-	path = container-mzml2isa
+	path = mzml2isa
 	url = https://github.com/phnmnl/container-mzml2isa
 [submodule "container-iso2flux"]
 	path = iso2flux
@@ -74,13 +74,13 @@
 	path = speaq
 	url = https://github.com/phnmnl/container-speaq
 [submodule "container-nmrmlconv"]
-	path = container-nmrmlconv
+	path = nmrmlconv
 	url = https://github.com/phnmnl/container-nmrmlconv
 [submodule "container-xcms-1.x"]
 	path = xcms-1.x
 	url = https://github.com/phnmnl/container-xcms-1.x
 [submodule "container-metfrag-vis"]
-	path = container-metfrag-vis
+	path = metfrag-vis
 	url = https://github.com/phnmnl/container-metfrag-vis
 [submodule "container-passatutto"]
 	path = passatutto
@@ -107,19 +107,19 @@
 	path = ms-vfetc
 	url = https://github.com/phnmnl/container-ms-vfetc
 [submodule "container-lcmsmatching"]
-	path = container-lcmsmatching
+	path = lcmsmatching
 	url = https://github.com/phnmnl/container-lcmsmatching
 [submodule "container-isa2w4m"]
 	path = isa2w4m
 	url = https://github.com/phnmnl/container-isa2w4m
 [submodule "container-metabolab"]
-	path = container-metabolab
+	path = metabolab
 	url = https://github.com/phnmnl/container-metabolab
 [submodule "container-cdf2mid"]
 	path = cdf2mid
 	url = https://github.com/seliv55/container-cdf2mid
 [submodule "container-nmrML2BATMAN"]
-	path = container-nmrML2BATMAN
+	path = nmrML2BATMAN
 	url = https://github.com/phnmnl/container-nmrML2BATMAN
 [submodule "container-nmrglue"]
 	path = nmrglue
@@ -134,7 +134,7 @@
 	path = ramid
 	url = https://github.com/phnmnl/container-ramid
 [submodule "container-metfrag-cli"]
-	path = container-metfrag-cli
+	path = metfrag-cli
 	url = https://github.com/phnmnl/container-metfrag-cli
 [submodule "container-papy"]
 	path = papy
@@ -146,11 +146,11 @@
 	path = xcms-w4m
 	url = https://github.com/phnmnl/container-xcms-w4m
 [submodule "container-nmrprocflow"]
-	path = container-nmrprocflow
+	path = nmrprocflow
 	url = https://github.com/phnmnl/container-nmrprocflow
 [submodule "container-nmrpro"]
 	path = nmrpro
 	url = https://github.com/phnmnl/container-nmrpro
 [submodule "container-metfamily"]
-	path = container-metfamily
+	path = metfamily
 	url = https://github.com/phnmnl/container-metfamily
