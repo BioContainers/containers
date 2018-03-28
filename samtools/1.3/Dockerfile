@@ -9,8 +9,10 @@ LABEL software.version="1.3"
 LABEL about.summary="Tools for manipulating next-generation sequencing data"
 LABEL about.home="https://github.com/samtools/samtools"
 LABEL about.documentation="https://github.com/samtools/samtools"
-LABEL license="https://github.com/samtools/samtools"
+LABEL about.license_file="https://github.com/samtools/samtools/blob/develop/LICENSE"
+LABEL about.license="SPDX:MIT"
 LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="SAM"
 
 ################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>

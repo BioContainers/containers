@@ -7,9 +7,9 @@ LABEL version="3"
 LABEL software="TPMCalculator"
 LABEL software.version="0.0.1"
 LABEL about.summary="This program calculates the TPM (Transcript per Millions) values for the exons and introns from NGS RNA-Seq aligned reads (BAM files)"
-LABEL about.home="https://github.com/r78v10a07/TPMCalculator"
-LABEL about.documentation="https://github.com/r78v10a07/TPMCalculator"
-LABEL license="http://www.gnu.org/licenses/"
+LABEL about.home="https://github.com/ncbi/TPMCalculator"
+LABEL about.documentation="https://github.com/ncbi/TPMCalculator"
+LABEL about.license_file="https://github.com/ncbi/TPMCalculator/blob/master/LICENSE"
 LABEL about.tags="RNA-seq"
 
 ################## MAINTAINER ######################

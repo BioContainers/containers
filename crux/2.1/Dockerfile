@@ -9,7 +9,9 @@ LABEL software.version="2.1"
 LABEL about.summary="a software toolkit for tandem mass spectrometry analysis"
 LABEL about.home="http://cruxtoolkit.sourceforge.net/"
 LABEL about.documentation="http://cruxtoolkit.sourceforge.net/"
-LABEL license="http://cruxtoolkit.sourceforge.net/"
+LABEL about.license_file="http://cruxtoolkit.sourceforge.net/"
+LABEL about.license="SPDX:Apache-2.0"
+LABEL extra.identifiers.biotools="crux"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

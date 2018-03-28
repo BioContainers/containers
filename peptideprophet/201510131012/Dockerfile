@@ -2,6 +2,7 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
+
 LABEL base.image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PeptideProphet"
@@ -9,8 +10,10 @@ LABEL software.version="201510131012"
 LABEL about.summary="Peptide assignment statistics and validation"
 LABEL about.home="http://peptideprophet.sourceforge.net/"
 LABEL about.documentation="http://peptideprophet.sourceforge.net/"
-LABEL license="http://peptideprophet.sourceforge.net/"
+LABEL about.license_file="http://peptideprophet.sourceforge.net/"
+LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="peptideprophet"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

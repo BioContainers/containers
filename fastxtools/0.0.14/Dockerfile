@@ -9,8 +9,10 @@ LABEL software.version="0.0.14"
 LABEL about.summary="a collection of command line tools for Short-Reads FASTA/FASTQ files preprocessing"
 LABEL about.home="http://hannonlab.cshl.edu/fastx_toolkit/"
 LABEL about.documentation="http://hannonlab.cshl.edu/fastx_toolkit/commandline.html"
-LABEL license="http://hannonlab.cshl.edu/fastx_toolkit/license.html"
-LABEL about.tags="General"
+LABEL about.license_file="http://hannonlab.cshl.edu/fastx_toolkit/license.html"
+LABEL about.license="SPDX:AGPL-3.0-only"
+LABEL extra.identifiers.biotools="fastx-toolkit"
+LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
 MAINTAINER Alicia Mastretta-Yanes <amastretta@conabio.gob.mx>

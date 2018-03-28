@@ -9,7 +9,9 @@ LABEL software.version="2015020"
 LABEL about.summary="an open source tandem mass spectrometry sequence database search tool"
 LABEL about.home="http://comet-ms.sourceforge.net/"
 LABEL about.documentation="http://comet-ms.sourceforge.net/parameters/parameters_201601/"
-LABEL license="http://comet-ms.sourceforge.net/"
+LABEL about.license_file="http://comet-ms.sourceforge.net/"
+LABEL about.license="SPDX:Apache-2.0"
+LABEL extra.identifiers.biotools="comet"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

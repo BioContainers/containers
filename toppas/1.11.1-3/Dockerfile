@@ -9,8 +9,10 @@ LABEL software.version="2016012"
 LABEL about.summary="a graphical workflow editor for the analysis of high-throughput proteomics data"
 LABEL about.home="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
 LABEL about.documentation="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
-LABEL license="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
+LABEL about.license_file="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
+LABEL about.license="SPDX:BSD-2-Clause"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="openms"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

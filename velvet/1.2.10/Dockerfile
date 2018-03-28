@@ -9,8 +9,10 @@ LABEL software.version="1.2.10"
 LABEL about.summary="Short read de novo assembler using de Bruijn graphs"
 LABEL about.home="http://www.ebi.ac.uk/~zerbino/velvet/ | https://github.com/dzerbino/velvet"
 LABEL about.documentation="https://www.zfmk.de/dateien/atoms/files/aliscore_v.2.0_manual_0.pdf"
-LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
+LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
+LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="velvet"
 
 ENV ZIP=velvet_1.2.10.tgz
 ENV URL=https://github.com/BioDocker/software-archive/releases/download/velvet/

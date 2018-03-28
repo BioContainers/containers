@@ -1,21 +1,20 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         jbrowse
-# Software Version: 1.11.6
-# about.summary:      JBrowse is a fast, embeddable genome browser built completely with JavaScript and HTML5, with optional run-once data formatting tools written in Perl.
-# about.home:          http://jbrowse.org/
-# about.tags:             Genomics
-# Provides:         jbrowse 1.11.6
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/jbrowse 1.11.6/.
-# Pull Cmd:         docker pull biodckrdev/jbrowse
-# Run Cmd:          docker run --rm -p 8000:8000 biodckrdev/jbrowse
-#################################################################
+############################### Dockerfile ##################################
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+FROM biocontainers/biocontainers:latest
+
+################################### Metadata ################################
+
+LABEL base.image="biocontainers:latest"
+LABEL version="1"
+LABEL software="jbrowse"
+LABEL software.version="1.11.6"
+LABEL about.summary="JBrowse is a fast, embeddable genome browser built completely with JavaScript and HTML5, with optional run-once data formatting tools written in Perl."
+LABEL about.home="http://jbrowse.org/"
+LABEL about.tags= "Genomics"
+LABEL about.license_file="http://jbrowse.org/code/JBrowse-1.13.0/LICENSE"
+LABEL about.license="SPDX:LGPL-3.0-only"
+LABEL about.provides="jbrowse 1.11.6"
+LABEL extra.identifiers.biotools="jbrowse"
 
 ################## BEGIN INSTALLATION ######################
 

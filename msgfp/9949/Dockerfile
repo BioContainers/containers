@@ -2,6 +2,7 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
+
 LABEL base.image="biocontainers:latest"
 LABEL version="2"
 LABEL software="MSGF+"
@@ -9,8 +10,10 @@ LABEL software.version="9949"
 LABEL about.summary="MS/MS database search tool"
 LABEL about.home="http://proteomics.ucsd.edu/Software/MSGFPlus/"
 LABEL about.documentation="http://proteomics.ucsd.edu/Software/MSGFPlus/"
-LABEL license="http://proteomics.ucsd.edu/Software/MSGFPlus/"
+LABEL about.license_file="https://github.com/MSGFPlus/msgfplus/blob/master/LICENSE.txt"
+LABEL about.license="SPDX:CC-BY-NC-4.0"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="msgfplus"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

@@ -10,6 +10,7 @@ LABEL about.summary="Entrez Direct (EDirect) is an advanced method for accessing
 LABEL about.home="https://github.com/ncbi/magicblast"
 LABEL about.documentation="https://ncbi.github.io/magicblast/"
 LABEL License_file = "https://ncbi.github.io/magicblast/"
+LABEL extra.identifiers.biotools="entrez"
 LABEL about.tags="BLAST"
 
 ################## MAINTAINER ######################

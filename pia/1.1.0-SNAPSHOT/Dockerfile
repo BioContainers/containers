@@ -9,8 +9,10 @@ LABEL software.version="1.1.0-SNAPSHOT"
 LABEL about.summary="Compile PIA XML files and run pipelines with this image"
 LABEL about.home="https://github.com/mpc-bioinformatics/pia"
 LABEL about.documentation="https://github.com/mpc-bioinformatics/pia"
-LABEL license="https://github.com/mpc-bioinformatics/pia"
+LABEL about.license_file="https://github.com/mpc-bioinformatics/pia"
+LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="pia"
 
 ################## MAINTAINER ######################
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>

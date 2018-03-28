@@ -10,9 +10,10 @@ LABEL software.version="0.10.13"
 LABEL about.summary="De novo sequence assembler using string graphs"
 LABEL about.home="https://github.com/jts/sga"
 LABEL about.documentation="https://github.com/jts/sga/wiki"
-LABEL license="https://github.com/jts/sga"
+LABEL about.license_file="https://github.com/jts/sga/blob/master/src/COPYING"
+LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
-
+LABEL extra.identifiers.biotools="sga"
 
 ################## INSTALLATION ######################
 

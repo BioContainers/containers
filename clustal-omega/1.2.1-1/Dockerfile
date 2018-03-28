@@ -9,7 +9,9 @@ LABEL software.version="1.2.1-1"
 LABEL about.summary="general purpose multiple sequence alignment program for proteins"
 LABEL about.home="http://www.clustal.org/omega/"
 LABEL about.documentation="http://www.clustal.org/omega/#about.documentation"
-LABEL license="http://www.clustal.org/omega/"
+LABEL about.license_file="http://www.clustal.org/omega/"
+LABEL about.license="SPDX:GPL-2.0"
+LABEL extra.identifiers.biotools="clustal_omega_ebi"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################

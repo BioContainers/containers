@@ -9,8 +9,10 @@ LABEL software.version="3.0"
 LABEL about.summary="Semi-supervised learning for peptide identification from shotgun proteomics datasets"
 LABEL about.home="http://percolator.ms/"
 LABEL about.documentation="http://percolator.ms/"
-LABEL license="http://percolator.ms/"
+LABEL about.license_file="https://github.com/percolator/percolator/blob/master/license.txt"
+LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="percolator"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

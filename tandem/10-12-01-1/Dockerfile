@@ -9,8 +9,10 @@ LABEL software.version="10-12-01-1"
 LABEL about.summary="software that can match tandem mass spectra with peptide sequences"
 LABEL about.home="http://www.thegpm.org/tandem/"
 LABEL about.documentation="http://www.thegpm.org/tandem/"
-LABEL license="http://www.thegpm.org/tandem/"
+LABEL about.license_file="https://opensource.org/licenses/artistic-license-1.0"
+LABEL about.license="SPDX:Artistic-2.0"
 LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="xtandem"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

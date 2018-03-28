@@ -9,7 +9,8 @@ LABEL software.version="52488"
 LABEL about.summary="DISCOVAR is a new variant caller"
 LABEL about.home="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
 LABEL about.documentation="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
-LABEL license="http://www.broadinstitute.org/software/discovar/blog/?page_id=19"
+LABEL about.license_file="ftp://ftp.broadinstitute.org/pub/crd/Discovar/LICENSE"
+LABEL extra.identifiers.biotools="discovar"
 LABEL about.tags="Genomics"
 
 

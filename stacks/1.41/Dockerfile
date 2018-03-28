@@ -10,8 +10,10 @@ LABEL software.version="1.41"
 LABEL about.summary="Stacks was developed to work with restriction enzyme-based data, such as RAD-seq, for the purpose of building genetic maps and conducting population"
 LABEL about.home="http://catchenlab.life.illinois.edu/stacks/"
 LABEL about.documentation="http://catchenlab.life.illinois.edu/stacks/"
-LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="Stacks"
 
 
 ################## BEGIN INSTALLATION ###########################

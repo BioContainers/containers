@@ -1,21 +1,19 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         jellyfish
-# Software Version: 2.2.3
-# about.summary:      A fast multi-threaded k-mer counter
-# about.home:          https://github.com/gmarcais/Jellyfish
-# about.tags:             Genomics
-# Provides:         jellyfish 2.2.3
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/jellyfish 2.2.3/.
-# Pull Cmd:         docker pull biodckrdev/jellyfish
-# Run Cmd:          docker run --rm -it biodckrdev/jellyfish <options> <files>
-#################################################################
+############################# Dockerfile ####################################
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+FROM biocontainers/biocontainers:latest
+
+############################# METADATA ######################################
+
+LABEL base.image="biocontainers:latest"Version:          1
+LABEL software="jellyfish"
+LABEL software.version="2.2.3"
+LABEL about.summary="A fast multi-threaded k-mer counter"
+LABEL about.home="https://github.com/gmarcais/Jellyfish"
+LABEL about.tags="Genomics"
+LABEL about.license_file="https://github.com/gmarcais/Jellyfish/blob/master/LICENSE"
+LABEL about.license="SPDX:LGPL-3.0-only"
+LABEL about.provides="jellyfish 2.2.3"
+LABEL extra.identifiers.biotools="jellyfish"
 
 ################## BEGIN INSTALLATION ######################
 
