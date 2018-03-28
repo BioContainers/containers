@@ -1,0 +1,3 @@
+[submodule "metfrag-cli-batch/2.4.3"]
+	path = metfrag-cli-batch/2.4.3
+	url = https://github.com/phnmnl/container-metfrag-cli-batch/
