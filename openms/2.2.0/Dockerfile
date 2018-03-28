@@ -6,7 +6,7 @@ FROM biocontainers/biocontainers:latest
 LABEL base.image="biocontainers:latest"
 LABEL version="2.2"
 LABEL software="OpenMS"
-LABEL software.version="2.2"
+LABEL software.version="2.2.0"
 LABEL about.summary="C++ libraries ans tools for MS/MS data analysis"
 LABEL about.home="http://www.openms.org/"
 LABEL about.documentation="http://ftp.mi.fu-berlin.de/pub/OpenMS/release2.2.0-about.documentation/html/index.html"
