@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
 
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="SearchGUI"
 LABEL software.version="2.8.6"

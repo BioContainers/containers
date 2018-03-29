@@ -2,7 +2,7 @@
 FROM biocontainers/bamtools:latest
 
 ################## METADATA ######################
-LABEL base.image="bamtools:latest"
+LABEL base_image="bamtools:latest"
 LABEL version="3"
 LABEL software="TPMCalculator"
 LABEL software.version="0.0.1"

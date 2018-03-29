@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
 
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1.0"
 LABEL software="Zorro"
 LABEL software.version="1.0.0"

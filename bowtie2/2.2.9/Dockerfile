@@ -3,7 +3,8 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="bowtie2"
 LABEL software.version="2.2.9"

@@ -3,7 +3,7 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="X!Tandem"
 LABEL software.version="15-12-15-2"

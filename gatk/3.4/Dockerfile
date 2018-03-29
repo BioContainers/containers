@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:latest
 
 ###################################### METADATA ##############################
 
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="gatk"
 LABEL software.version="3.4"

@@ -2,7 +2,7 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="shotmap"
 LABEL software.version="1.0.0"
@@ -10,7 +10,7 @@ LABEL about.summary="A Shotgun Metagenome Annotation Pipeline"
 LABEL about.home="https://github.com/sharpton/shotmap"
 LABEL about.documentation="https://github.com/sharpton/shotmap"
 LABEL about.license_file="https://github.com/sharpton/shotmap/blob/master/LICENSE"
-LABEL about.license="SPDX:GPL-3"
+LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Metagenomics"
 
 ################## MAINTAINER ######################

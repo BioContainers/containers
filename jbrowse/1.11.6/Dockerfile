@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:latest
 
 ################################### Metadata ################################
 
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="jbrowse"
 LABEL software.version="1.11.6"
