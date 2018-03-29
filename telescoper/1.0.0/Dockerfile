@@ -11,6 +11,7 @@ LABEL about.home="https://sourceforge.net/projects/telescoper/"
 LABEL about.documentation="https://sourceforge.net/projects/telescoper/files/MANUAL.txt"
 LABEL about.license_file="https://sourceforge.net/projects/telescoper/files/LICENSE.txt"
 LABEL extra.identifiers.biotools="Telescoper"
+LABEL about.license="SPDX:Custom"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
