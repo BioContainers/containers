@@ -7,3 +7,6 @@
 [submodule "isatab-create/0.9.5"]
 	path = isatab-create/0.9.5
 	url = https://github.com/phnmnl/container-isatab-create/
+[submodule "simid/1.0.0"]
+	path = simid/1.0.0
+	url = https://github.com/phnmnl/container-simid/
