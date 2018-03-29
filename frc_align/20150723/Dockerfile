@@ -3,7 +3,7 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="frc_align"
 LABEL software.version="20150723"

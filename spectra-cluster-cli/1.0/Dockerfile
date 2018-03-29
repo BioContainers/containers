@@ -2,7 +2,7 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="spectra-cluster-cli"
 LABEL software.version="v1.0-beta"

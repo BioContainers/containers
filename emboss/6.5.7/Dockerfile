@@ -2,7 +2,7 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="emboss"
 LABEL software.version="6.5.7"

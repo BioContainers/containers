@@ -5,7 +5,7 @@ FROM bioconductor/release_core
 
 ################## METADATA ######################
 
-LABEL base.image="bioconductor/release_core"
+LABEL base_image="bioconductor/release_core"
 LABEL version="1"
 LABEL software="RProteomics"
 LABEL software.version="1"

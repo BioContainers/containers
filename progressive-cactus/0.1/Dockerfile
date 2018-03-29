@@ -1,6 +1,6 @@
 FROM biocontainers/biocontainers:08252016-4
 
-LABEL base.image="biocontainers:08252016-4"
+LABEL base_image="biocontainers:08252016-4"
 LABEL version="1"
 LABEL software="progressiveCactus"
 LABEL software.version="0.1"

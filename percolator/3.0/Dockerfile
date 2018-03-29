@@ -2,7 +2,7 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="3"
 LABEL software="Percolator"
 LABEL software.version="3.0"
