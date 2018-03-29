@@ -38,4 +38,4 @@ RUN cd $DST && \
 
 WORKDIR /data/
 
-CMD ["diffexpip"]
+CMD ["diffexpIR"]
