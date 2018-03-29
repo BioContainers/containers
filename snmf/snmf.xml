@@ -1,0 +1,50 @@
+<tool id="snmf" name="sNMF" version="1.2">
+	<description>a population structure from large SNP genotype datasets</description>
+	<requirements>
+		<container type="docker">avengerpb/snmf3</container>
+	</requirements>
+	<command> /tool/snmf.sh $vcf $outputs $logs $best_k_output $best_k_logfile $kmin $kmax $best_k_groups $threshold_group </command>
+	<inputs>
+		<param format="vcf" name="vcf" type="data" label="VCF file" help="VCF file"/>
+		<param type="text" name="kmin" label="K min" value="2"/>
+		<param type="text" name="kmax" label="K max" value="5"/>
+		<param type="text" name="threshold_group" label="Minimum admixture proportion percentage for group assignation" value="50"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="best_k_output" label="Best K Output"/>
+		<data format="txt" name="best_k_groups" label="Best K Groups"/>
+		<data format="txt" name="best_k_logfile" label="Best K Logfile"/>
+		<data format="txt" name="outputs" label="All Outputs"/>
+		<data format="txt" name="logs" label="All Logs"/>
+	</outputs>
+
+	<help>
+	
+
+.. class:: infomark
+
+**Program encapsulated in Galaxy by Southgreen**
+
+.. class:: infomark
+
+**sNMF version 1.2**
+
+-----
+
+===========
+ Overview:
+===========
+
+Fast and efficient program for estimating individual admixture coefficients based on sparse non-negative matrix factorization and population genetics. 
+
+-----
+
+For further informations, please visite the sNMF_ website.
+
+
+.. _sNMF: http://membres-timc.imag.fr/Olivier.Francois/snmf/index.htm
+	</help>
+<citations>
+<citation type="doi" >10.1534/genetics.113.160572</citation>
+</citations>
+</tool>
