@@ -1,7 +1,9 @@
 ################## BASE IMAGE ######################
+
 FROM biocontainers/bamtools:latest
 
 ################## METADATA ######################
+
 LABEL base_image="bamtools:latest"
 LABEL version="3"
 LABEL software="DiffExpIR"
