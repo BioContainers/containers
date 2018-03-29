@@ -4,3 +4,6 @@
 [submodule "ipo/1.7.5"]
 	path = ipo/1.7.5
 	url = https://github.com/phnmnl/container-ipo
+[submodule "isatab-create/0.9.5"]
+	path = isatab-create/0.9.5
+	url = https://github.com/phnmnl/container-isatab-create/
