@@ -19,3 +19,6 @@
 [submodule "csifingerid/4.0"]
 	path = csifingerid/4.0
 	url = https://github.com/phnmnl/container-csifingerid
+[submodule "bruker2batman/1.0"]
+	path = bruker2batman/1.0
+	url = https://github.com/phnmnl/container-bruker2batman/
