@@ -6,7 +6,7 @@ FROM biocontainers/bamtools:latest
 
 LABEL base_image="bamtools:latest"
 LABEL version="3"
-LABEL software="DiffExpIR"
+LABEL software="diffexpir"
 LABEL software.version="0.0.1"
 LABEL about.summary="Differentially expressed intron retention"
 LABEL about.home="https://github.com/r78v10a07/DiffExpIR"
