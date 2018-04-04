@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:latest
 ################## METADATA ######################
 LABEL base_image="biocontainers:latest"
 LABEL version="2"
-LABEL software="PepNovo+"
+LABEL software="PepNovo"
 LABEL software.version="20120423"
 LABEL about.summary="de novo sequencing of low precision MS/MS data"
 LABEL about.home="http://proteomics.ucsd.edu/Software/PepNovo/"
