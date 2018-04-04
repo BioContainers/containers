@@ -7,7 +7,7 @@ FROM biocontainers/biocontainers:latest
 LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="Aliscore"
-LABEL software.version="v.2.0"
+LABEL software.version="2.0"
 LABEL about.summary="Aliscore is designed to filter alignment ambiguous or randomly similar sites in multiple sequence alignments (MSA)."
 LABEL about.home="https://www.zfmk.de/en/research/research-centres-and-groups/aliscore"
 LABEL about.documentation="https://www.zfmk.de/dateien/atoms/files/aliscore_v.2.0_manual_0.pdf"
