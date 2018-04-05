@@ -6,7 +6,7 @@ FROM biocontainers/biocontainers:latest
 LABEL base_image="biocontainers:latest"
 LABEL version="3"
 LABEL software="MentaLiST"
-LABEL software.version="0.2.2"
+LABEL software.version="0.1.3"
 LABEL about.summary="The MLST pipeline developed by the PathOGiST research group."
 LABEL about.home="https://github.com/WGS-TB/MentaLiST"
 LABEL about.documentation="https://github.com/WGS-TB/MentaLiST"
@@ -20,7 +20,7 @@ MAINTAINER Pedro Feijão <pedrofeijao1975@gmail.com>
 MAINTAINER Dan Fornika <dfornika@gmail.com>
 
 RUN conda config --system --add channels conda-forge
-RUN conda install mentalist=0.2.2
+RUN conda install mentalist=0.1.3
 
 WORKDIR /data/
 
