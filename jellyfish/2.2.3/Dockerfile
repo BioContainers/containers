@@ -4,7 +4,8 @@ FROM biocontainers/biocontainers:latest
 
 ############################# METADATA ######################################
 
-LABEL base_image="biocontainers:latest"Version:          1
+LABEL base_image="biocontainers:latest"
+LABEL version="1"
 LABEL software="jellyfish"
 LABEL software.version="2.2.3"
 LABEL about.summary="A fast multi-threaded k-mer counter"

@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:latest
 LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="TOPPAS"
-LABEL software.version="2016012"
+LABEL software.version="1.11.1-3"
 LABEL about.summary="a graphical workflow editor for the analysis of high-throughput proteomics data"
 LABEL about.home="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
 LABEL about.documentation="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
