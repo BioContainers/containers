@@ -15,6 +15,10 @@ LABEL maintainer="Samuel Minot, Ph.D. sminot@fredhutch.org"
 
 USER root
 
+# Install BATS
+RUN apt update && \
+    apt install -y bats
+
 # Set the default langage to C
 ENV LC_ALL C
 
@@ -44,3 +48,8 @@ RUN cd /usr/local/bin && \
 
 # Install FAMLI
 RUN pip install famli==1.0
+
+# Run tests
+RUN mkdir /share/tests
+ADD tests.bats /share/tests/
+RUN bats /share/tests/ && rm -r /share/tests
