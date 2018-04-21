@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:latest
 # Metadata
 LABEL base.image="biocontainers:latest"
 LABEL version="0"
-LABEL software="FAMLI"
+LABEL software="famli"
 LABEL software.version="v1.0"
 LABEL description="Functional Analysis of Metagenomes by Likelihood Inference"
 LABEL website="https://github.com/FredHutch/FAMLI"
