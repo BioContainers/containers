@@ -9,7 +9,7 @@ LABEL software.version="v1.0"
 LABEL description="Functional Analysis of Metagenomes by Likelihood Inference"
 LABEL website="https://github.com/FredHutch/FAMLI"
 LABEL documentation="https://github.com/FredHutch/FAMLI"
-LABEL license="https://opensource.org/licenses/MIT"
+LABEL license="https://github.com/FredHutch/FAMLI/blob/master/LICENSE.txt"
 LABEL tags="Metagenomics"
 LABEL maintainer="Samuel Minot, Ph.D. sminot@fredhutch.org"
 
