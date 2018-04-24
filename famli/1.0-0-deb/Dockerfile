@@ -8,8 +8,8 @@ LABEL software="famli"
 LABEL software.version="v1.0"
 LABEL about.summary="Functional Analysis of Metagenomes by Likelihood Inference"
 LABEL about.home="https://github.com/FredHutch/FAMLI"
-LABEL license="MIT License"
-LABEL license.file="https://github.com/FredHutch/FAMLI/blob/master/LICENSE.txt"
+LABEL about.license="MIT License"
+LABEL about.license_file="https://github.com/FredHutch/FAMLI/blob/master/LICENSE.txt"
 LABEL about.tags="Metagenomics"
 
 MAINTAINER Samuel Minot, Ph.D. sminot@fredhutch.org
