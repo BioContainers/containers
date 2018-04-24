@@ -2,16 +2,17 @@
 FROM biocontainers/biocontainers:latest
 
 # Metadata
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="0"
 LABEL software="famli"
 LABEL software.version="v1.0"
-LABEL description="Functional Analysis of Metagenomes by Likelihood Inference"
-LABEL website="https://github.com/FredHutch/FAMLI"
-LABEL documentation="https://github.com/FredHutch/FAMLI"
-LABEL license="https://github.com/FredHutch/FAMLI/blob/master/LICENSE.txt"
-LABEL tags="Metagenomics"
-LABEL maintainer="Samuel Minot, Ph.D. sminot@fredhutch.org"
+LABEL about.summary="Functional Analysis of Metagenomes by Likelihood Inference"
+LABEL about.home="https://github.com/FredHutch/FAMLI"
+LABEL license="MIT License"
+LABEL license.file="https://github.com/FredHutch/FAMLI/blob/master/LICENSE.txt"
+LABEL about.tags="Metagenomics"
+
+MAINTAINER Samuel Minot, Ph.D. sminot@fredhutch.org
 
 USER root
 
