@@ -3,12 +3,11 @@ FROM biocontainers/biocontainers:latest
 
 # Metadata
 LABEL base_image="biocontainers:latest"
-LABEL version="0"
 LABEL software="famli"
-LABEL software.version="v1.0"
+LABEL software.version="1.0"
 LABEL about.summary="Functional Analysis of Metagenomes by Likelihood Inference"
 LABEL about.home="https://github.com/FredHutch/FAMLI"
-LABEL about.license="MIT License"
+LABEL about.license="MIT"
 LABEL about.license_file="https://github.com/FredHutch/FAMLI/blob/master/LICENSE.txt"
 LABEL about.tags="Metagenomics"
 
