@@ -53,3 +53,4 @@ RUN pip install famli==1.0
 RUN mkdir /share/tests
 ADD tests.bats /share/tests/
 RUN bats /share/tests/ && rm -r /share/tests
+
