@@ -1,5 +1,19 @@
 FROM ubuntu:xenial
 
+# Metadata
+LABEL base_image="biocontainers:latest"
+LABEL software.version="2"
+LABEL software="danpos"
+LABEL software.version="2.2.2"
+LABEL about.summary="A toolkit for Dynamic Analysis of Nucleosome and Protein Occupancy by Sequencing"
+LABEL about.home="https://sites.google.com/site/danposdoc/news"
+LABEL about.documentation="https://sites.google.com/site/danposdoc/home"
+LABEL about.license="GNU GPL v3"
+LABEL extra.identifiers.biotools="https://bio.tools/danpos"
+LABEL about.tags="nucleosome"
+
+MAINTAINER Nicholas Samuel Hill <nicholas.samuel.hill@gmail.com>
+
 WORKDIR /root
 
 RUN apt-get update && \
