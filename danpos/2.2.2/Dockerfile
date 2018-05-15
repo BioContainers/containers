@@ -3,7 +3,7 @@ FROM ubuntu:xenial
 
 # Metadata
 LABEL base_image="ubuntu:xenial" \
-    software.version="2" \
+    version="1" \
     software="danpos" \
     software.version="2.2.2" \
     about.summary="A toolkit for Dynamic Analysis of Nucleosome and Protein Occupancy by Sequencing" \
