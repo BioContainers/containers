@@ -1,9 +1,8 @@
 ################## BASE IMAGE ######################
-
-FROM biocontainers/biocontainers:latest
+FROM ubuntu:xenial
 
 # Metadata
-LABEL base_image="biocontainers:latest" \
+LABEL base_image="ubuntu:xenial" \
     software.version="2" \
     software="danpos" \
     software.version="2.2.2" \
