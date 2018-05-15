@@ -1,17 +1,17 @@
 FROM ubuntu:xenial
 
 # Metadata
-LABEL base_image="biocontainers:latest"
-LABEL software.version="2"
-LABEL software="danpos"
-LABEL software.version="2.2.2"
-LABEL about.summary="A toolkit for Dynamic Analysis of Nucleosome and Protein Occupancy by Sequencing"
-LABEL about.home="https://sites.google.com/site/danposdoc/news"
-LABEL about.documentation="https://sites.google.com/site/danposdoc/home"
-LABEL about.license="GPL-3.0"
-LABEL about.license_file="http://www.gnu.org/licenses/gpl-3.0.txt"
-LABEL extra.identifiers.biotools="https://bio.tools/danpos"
-LABEL about.tags="nucleosome"
+LABEL base_image="biocontainers:latest" \
+    software.version="2" \
+    software="danpos" \
+    software.version="2.2.2" \
+    about.summary="A toolkit for Dynamic Analysis of Nucleosome and Protein Occupancy by Sequencing" \
+    about.home="https://sites.google.com/site/danposdoc/news" \
+    about.documentation="https://sites.google.com/site/danposdoc/home" \
+    about.license="GPL-3.0" \
+    about.license_file="http://www.gnu.org/licenses/gpl-3.0.txt" \
+    extra.identifier.biotools="https://bio.tools/danpos" \
+    about.tags="nucleosome"
 
 MAINTAINER Nicholas Samuel Hill <nicholas.samuel.hill@gmail.com>
 
