@@ -1,4 +1,6 @@
-FROM ubuntu:xenial
+################## BASE IMAGE ######################
+
+FROM biocontainers/biocontainers:latest
 
 # Metadata
 LABEL base_image="biocontainers:latest" \
