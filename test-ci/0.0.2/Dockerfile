@@ -10,6 +10,7 @@ LABEL about.summary="A test container for internal testing"
 
 LABEL about.home="http://193.62.52.74/jenkins/"
 LABEL about.license="SPDX:GPL-3.0+"
+LABEL about.license_file="https://opensource.org/licenses/GPL-3.0"
 LABEL about.tags="test"
 
 
