@@ -1,0 +1,4 @@
+/bin/bash -c ls -l
+/bin/ls /biocontainers
+/bin/cat /biocontainers/testdata/mounttest.txt
+

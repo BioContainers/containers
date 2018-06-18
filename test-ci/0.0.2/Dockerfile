@@ -9,7 +9,8 @@ LABEL software.version="0.0.2"
 LABEL about.summary="A test container for internal testing"
 
 LABEL about.home="http://193.62.52.74/jenkins/"
-LABEL about.license_file="gpl3+"
+LABEL about.license="SPDX:GPL-3.0+"
+LABEL about.license_file="https://opensource.org/licenses/GPL-3.0"
 LABEL about.tags="test"
 
 
@@ -20,9 +21,11 @@ MAINTAINER Olivier Sallou <olivier.sallou@irisa.fr>
 USER root
 
 RUN mkdir -p /mnt/biocontainers/test-ci
-RUN echo "test ok" > /mnt/biocontainers/test-ci/test-ci.txt
+RUN echo "Test is working" > /mnt/biocontainers/test-ci/test-ci.txt
 
 USER biodocker
 
 
 WORKDIR /data/
+
+###Fake pull request for testing purposes

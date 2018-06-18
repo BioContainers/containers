@@ -1,0 +1,1 @@
+I should be read by the container as part of the testing process.
