@@ -18,7 +18,7 @@ LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
 
-MAINTAINER Fábio Madeira <fabiomadeira@me.com>
+MAINTAINER Fabio Madeira <fabiomadeira@me.com>
 
 ################## INSTALLATION ######################
 
