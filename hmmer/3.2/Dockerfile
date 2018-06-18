@@ -13,7 +13,7 @@ LABEL about.home="http://hmmer.org/"
 LABEL about.documentation="http://hmmer.org/documentation.html"
 LABEL about.license="BSD-3-clause"
 LABEL extra.identifiers.biotools="hmmer3"
-LABEL about.tags="biology::format:aln, biology::peptidic, field::biology,:biology:bioinformatics, implemented-in::c,:commandline, role::program, scope::utility, use::searching,:plaintext, works-with::db"
+LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
 
