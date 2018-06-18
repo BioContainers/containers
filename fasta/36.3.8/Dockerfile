@@ -14,7 +14,7 @@ LABEL about.documentation="http://faculty.virginia.edu/wrpearson/fasta/fasta_gui
 LABEL about.license_file="http://faculty.virginia.edu/wrpearson/fasta/readme.COPYRIGHT"
 LABEL about.license="SPDX:Apache-2.0"
 LABEL extra.identifiers.biotools="FASTA3"
-LABEL about.tags="Genomics"
+LABEL about.tags="biology::format:aln, biology::peptidic, field::biology,:biology:bioinformatics, implemented-in::c,:commandline, role::program, scope::utility, use::searching,:plaintext, works-with::db"
 
 ################## MAINTAINER ######################
 
