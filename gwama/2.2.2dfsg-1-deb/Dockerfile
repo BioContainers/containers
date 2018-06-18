@@ -6,6 +6,7 @@ LABEL    software="gwama" \
     about.home="http://www.geenivaramu.ee/en/tools/gwama" \ 
     software.version="2.2.2dfsg-1-deb" \ 
     version="1" \ 
+    extra.identifiers.biotools="gwama" \ 
     about.copyright="2009-2010 Reedik Mgi, Andrew P Morris <amorris at well.ox.ac.uk>." \ 
     about.license="BSD-3-clause" \ 
     about.license_file="/usr/share/doc/gwama/copyright" \ 
