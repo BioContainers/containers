@@ -13,7 +13,7 @@ LABEL about.home="http://faculty.virginia.edu/wrpearson/fasta"
 LABEL about.documentation="http://faculty.virginia.edu/wrpearson/fasta/fasta_guide.pdf"
 LABEL about.license_file="http://faculty.virginia.edu/wrpearson/fasta/readme.COPYRIGHT"
 LABEL about.license="SPDX:Apache-2.0"
-LABEL extra.identifiers.biotools="FASTA3"
+LABEL extra.identifiers.biotools="FASTA"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
