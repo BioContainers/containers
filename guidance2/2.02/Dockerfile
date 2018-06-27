@@ -7,9 +7,10 @@ LABEL \
     about.home="http://guidance.tau.ac.il/ver2/" \ 
     software.version="2.02" \ 
     version="1" \ 
-    extra.identifiers.biotools="guidance2" \ 
+    extra.identifier.biotools="https://bio.tools/guidance2" \ 
     about.copyright="2015-2018, Tal Pupko <talp@post.tau.ac.il>" \ 
-    about.license="N/A" \
+    about.license="GPL-3+" \
+    about.license_file="/license" \
     about.tags="alignment"
 
 ENV DEBIAN_FRONTEND noninteractive
