@@ -7,7 +7,7 @@ LABEL    software="ebi-webservice" \
     about.documentation="https://www.ebi.ac.uk/seqdb/confluence/display/JDSAT/Job+Dispatcher+Sequence+Analysis+Tools+Home" \
     software.version="1.0.0" \
     version="1" \
-    about.copyright="Copyright © EMBL-EBI 2018" \
+    about.copyright="Copyright EMBL-EBI 2018" \
     about.license="Apache-2.0" \
     about.tags="ebi"
 
