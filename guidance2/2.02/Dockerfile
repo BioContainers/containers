@@ -9,7 +9,7 @@ LABEL \
     version="1" \ 
     extra.identifier.biotools="https://bio.tools/guidance2" \ 
     about.copyright="2015-2018, Tal Pupko <talp@post.tau.ac.il>" \ 
-    about.license="GPL-3+" \
+    about.license="GPL-3.0" \
     about.license_file="/license" \
     about.tags="alignment"
 
