@@ -1,3 +1,0 @@
-LWP
-XML::Simple
-YAML::Syck
