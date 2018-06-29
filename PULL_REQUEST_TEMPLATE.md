@@ -13,6 +13,7 @@
  
  2. [Metadata](#check-biocontainers-dockerfile-metadata)  
  - [ ] LABEL base_image  
+ - [ ] LABEL version
  - [ ] LABEL software.version  
  - [ ] LABEL about.summary  
  - [ ] LABEL about.home  
