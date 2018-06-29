@@ -1,6 +1,7 @@
 FROM biocontainers/biocontainers:debian-stretch-backports
 MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL \ 
+    base_image="biocontainers/biocontainers:debian-stretch-backports" \
     software="guidance2" \ 
     container="guidance2" \ 
     about.summary="server for alignment confidence score." \ 
