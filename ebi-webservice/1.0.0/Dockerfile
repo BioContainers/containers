@@ -9,13 +9,14 @@ LABEL    base_image="ebi-wp:EBI Web Service" \
     software.version="1.0.0" \
     version="1" \
     about.copyright="Copyright EMBL-EBI 2018" \
-    about.license="GPL-3+" \     
-    about.license_file="/usr/src/ebi-webservice-clients/LICENSE" \ 
-    about.tags="ebi"
+    about.license="Apache-2.0" \
+    about.license_file="/usr/src/ebi-webservice-clients/LICENSE" \
+    about.tags="ebi" \
+    extra.identifier.biotools="ebi_tools"
 
 # Dependencies
 RUN apk update && \
-    apk add expat-dev 
+    apk add expat-dev
 
 RUN cpanm Bundle::LWP REST::Client XML::Simple YAML::Syck JSON::XS
 
@@ -30,7 +31,7 @@ RUN ZIP=master.zip && \
   chmod -R 755 $CLIENT_PATH/* && \
   rm /tmp/$ZIP
 
-RUN mkdir $CLIENT_PATH/perl 
-RUN cp $SRC_PATH/perl/lwp/*.pl $CLIENT_PATH/perl/  
-RUN cp $SRC_PATH/LICENSE $CLIENT_PATH/  
+RUN mkdir $CLIENT_PATH/perl
+RUN cp $SRC_PATH/perl/lwp/*.pl $CLIENT_PATH/perl/
+RUN cp $SRC_PATH/LICENSE $CLIENT_PATH/
 RUN chmod +x $CLIENT_PATH/perl/*.*
