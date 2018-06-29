@@ -8,7 +8,7 @@ LABEL \
     about.home="http://guidance.tau.ac.il/ver2/" \ 
     software.version="2.02" \ 
     version="1" \ 
-    extra.identifier.biotools="https://bio.tools/guidance2" \ 
+    extra.identifier.biotools="guidance2" \ 
     about.copyright="2015-2018, Tal Pupko <talp@post.tau.ac.il>" \ 
     about.license="GPL-3.0" \
     about.license_file="/license" \
