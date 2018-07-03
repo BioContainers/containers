@@ -9,6 +9,7 @@ LABEL autogen="no" \
 	base_image="ubuntu:16.04" \
     about.home="https://github.com/gem-pasteur/Integron_Finder" \
     about.license="SPDX:GPL-3.0-only" \
+    extra.identifier.biotools="integron_finder" \ 
     ANNOT.Name="Integron_Finder" \
     ANNOT.Version="1.5.1" \
     ANNOT.Description="Integron Finder aims at detecting integrons in DNA sequences." \
