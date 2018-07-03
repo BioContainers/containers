@@ -9,6 +9,7 @@ LABEL version="1" \
     about.documentation="https://github.com/GATB/MindTheGap" \ 
     about.license="SPDX:AGPL-3.0-only" \ 
     about.license_file="http://www.gnu.org/licenses/agpl-3.0.en.html" \ 
+    extra.identifier.biotools="mindthegap" \ 
     base_image="debian:wheezy"
 
 MAINTAINER Claire Lemaitre claire.lemaitre@inria.fr
