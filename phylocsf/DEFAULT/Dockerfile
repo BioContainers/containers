@@ -19,7 +19,7 @@ RUN add-apt-repository ppa:avsm/ppa
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install --no-install-suggests --no-install-recommends -y ocaml camlp4 camlp4-extra opam libgsl0-dev m4 pkg-config
 RUN opam init
-RUN opam install -y batteries gsl ocaml+twt forkwork ounit should
+RUN opam install -y batteries gsl ocaml-twt forkwork ounit should
 RUN git clone --depth=1 git://github.com/mlin/PhyloCSF.git
 WORKDIR /PhyloCSF
 RUN eval $(opam config env) && make FORKWORK=1 && make -C src FORKWORK=1 testexe
