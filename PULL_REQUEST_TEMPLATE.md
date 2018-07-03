@@ -1,8 +1,6 @@
- # Requesting a Container  
- Follow the procedure [here](https://github.com/BioContainers/containers#241-how-to-request-a-container)
- 
- # Submitting a Container  
  # Submitting a Container
+ 
+ (If you're requesting for a new container, please check the procedure described [here](https://github.com/BioContainers/containers#241-how-to-request-a-container).  
  
  ## Check BioContainers' Dockerfile [specifications](https://github.com/BioContainers/specs)  
  ## Checklist
@@ -17,12 +15,15 @@
  - [ ] LABEL software.version  
  - [ ] LABEL about.summary  
  - [ ] LABEL about.home  
- - [ ] LABEL about.license  
- - [ ] LABEL extra.identifier  
+ - [ ] LABEL about.license   
  - [ ] MAINTAINER  
  
- 3. Extra
-  - [ ] I have written tests in test-cmds.txt
+ 3. Extra (optionals)
+  - [ ] I have written tests in test-cmds.txt  
+  - [ ] LABEL extra.identifier    
+  - [ ] LABEL about.documentation   
+  - [ ] LABEL about.license_file
+  - [ ] LABEL about.tags   
  
  
  ## Check [BioContainers'](https://github.com/BioContainers/specs) Dockerfile metadata  
