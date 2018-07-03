@@ -3,7 +3,7 @@ FROM centos:centos7
 #####BIOCONTAINERS LABELS#####
 LABEL version="1" \ 
 	software="peptimapper" \ 
-	software.version="DEFAULT" \ 
+	software.version="2.0.0" \ 
     about.summary="Also called EctoLine, Peptimapper is composed of a subset of PepLine (2.0.1), ad redistribution of PepNovo+ (3.1 beta) and glue scripts to run a Pepline/EctoLine analysis." \ 
     about.home="https://github.com/laeticlo/Ectoline" \ 
     about.license="SPDX:GPL-3.0-only" \ 
