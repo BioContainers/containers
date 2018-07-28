@@ -55,6 +55,16 @@ RUN tar -pxvzf interproscan-bin-$IPRSCAN.tar.gz \
     && rm -f interproscan-bin-$IPRSCAN.tar.gz interproscan-bin-$IPRSCAN.tar.gz.md5
 
 
+# Workaround bin/blast/ncbi-blast-2.6.0+/rpsblast: error while loading shared
+# libraries: libgnutls.so.28: cannot open shared object file: No such file or 
+# directory
+RUN wget -O /opt/ncbi-blast-2.6.0+-x64-linux.tar.gz ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.6.0/ncbi-blast-2.6.0+-x64-linux.tar.gz
+RUN tar xvf ncbi-blast-2.6.0+-x64-linux.tar.gz
+# copy the new version to the binary folder
+RUN cp /opt/ncbi-blast-2.6.0+/bin/rpsblast /opt/interproscan/bin/blast/ncbi-blast-2.6.0+/rpsblast
+
+
+
 ################## BASE IMAGE ######################
 
 FROM ubuntu:16.04
@@ -79,9 +89,9 @@ RUN apt-get update && \
         openjdk-8-jre   \
         build-essential \
         pkg-config      \
-        python3          \
+        python3         \
         bzip2           \
-        ca-certificates   && \
+        ca-certificates && \
     apt-get clean && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/*
