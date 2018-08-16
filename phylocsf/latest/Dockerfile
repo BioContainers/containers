@@ -7,10 +7,14 @@ FROM ubuntu:trusty
 
 #####AUTO GENERATED LABELS#####
 LABEL autogen="yes" \ 
-	software="phylocsf" \ 
-	software.version="DEFAULT" \ 
+    version="1" \ 
+	software="PhyloCSF" \ 
+	software.version="latest" \ 
 	about.home="https://github.com/mlin/PhyloCSF/wiki" \ 
-	base_image="ubuntu:trusty"
+    about.summary="PhyloCSF is a method to determine whether a multi-species nucleotide sequence alignment is likely to represent a protein-coding region." \ 
+	about.license="SPDX:AGPL-3.0-only" \ 
+    about.license_file="https://github.com/mlin/PhyloCSF/blob/master/LICENSE" \ 
+    base_image="ubuntu:trusty"
 #####END OF INSERTION#####
 MAINTAINER Mike Lin <mlin@mlin.net>
 RUN apt-get update
