@@ -8,7 +8,7 @@ FROM ubuntu:trusty
 #####AUTO GENERATED LABELS#####
 LABEL autogen="yes" \ 
     version="1" \ 
-	software="PhyloCSF" \ 
+	software="phylocsf" \ 
 	software.version="latest" \ 
 	about.home="https://github.com/mlin/PhyloCSF/wiki" \ 
     about.summary="PhyloCSF is a method to determine whether a multi-species nucleotide sequence alignment is likely to represent a protein-coding region." \ 
