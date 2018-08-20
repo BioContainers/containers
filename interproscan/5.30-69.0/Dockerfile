@@ -46,7 +46,7 @@ MAINTAINER Ola Tarkowska (EMBL-EBI) <olat@ebi.ac.uk>
 LABEL  base_image="ubuntu:16.04" \
        software="interproscan" \
        software.version="5.30-69.0" \
-       version="1" \
+       version="2" \
        about.summary="Scan sequences against the InterPro protein signature databases." \
        about.home="https://www.ebi.ac.uk/interpro/interproscan.html" \
        about.license="Apache-2.0" \
