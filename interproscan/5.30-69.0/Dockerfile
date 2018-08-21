@@ -28,33 +28,6 @@ RUN  tar -pxvzf interproscan-core-$IPRSCAN.tar.gz \
     && rm -f interproscan-core-$IPRSCAN.tar.gz interproscan-core-$IPRSCAN.tar.gz.md5
 
 
-################## Bin ######################
-
-FROM busybox AS buildbin
-
-MAINTAINER Ola Tarkowska (EMBL-EBI) <olat@ebi.ac.uk>
-
-ARG IPR=5
-ENV IPR $IPR
-ARG IPRSCAN=5.30-69.0
-ENV IPRSCAN $IPRSCAN
-
-RUN mkdir -p /opt
-
-RUN wget -O /opt/interproscan-bin-$IPRSCAN.tar.gz ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-bin-$IPRSCAN.tar.gz
-RUN wget -O /opt/interproscan-bin-$IPRSCAN.tar.gz.md5 ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/$IPR/$IPRSCAN/alt/interproscan-bin-$IPRSCAN.tar.gz.md5
-
-WORKDIR /opt
-
-RUN md5sum -c interproscan-bin-$IPRSCAN.tar.gz.md5
-
-RUN mkdir -p /opt/interproscan
-
-RUN tar -pxvzf interproscan-bin-$IPRSCAN.tar.gz \
-    -C /opt/interproscan --strip-components=1 \
-    && rm -f interproscan-bin-$IPRSCAN.tar.gz interproscan-bin-$IPRSCAN.tar.gz.md5
-
-
 # Workaround bin/blast/ncbi-blast-2.6.0+/rpsblast: error while loading shared
 # libraries: libgnutls.so.28: cannot open shared object file: No such file or 
 # directory
@@ -73,7 +46,7 @@ MAINTAINER Ola Tarkowska (EMBL-EBI) <olat@ebi.ac.uk>
 LABEL  base_image="ubuntu:16.04" \
        software="interproscan" \
        software.version="5.30-69.0" \
-       version="1" \
+       version="2" \
        about.summary="Scan sequences against the InterPro protein signature databases." \
        about.home="https://www.ebi.ac.uk/interpro/interproscan.html" \
        about.license="Apache-2.0" \
@@ -97,7 +70,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
 COPY --from=buildcore /opt/interproscan /opt/interproscan
-COPY --from=buildbin /opt/interproscan/bin /opt/interproscan/bin
 
 WORKDIR /opt/interproscan
 
