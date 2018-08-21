@@ -1,9 +1,10 @@
 FROM biocontainers/biocontainers:latest
 
 LABEL base.image="biocontainers:latest"
-LABEL version="1"
+LABEL version="1.0"
 LABEL software="seq_crumbs"
 LABEL software.version="0.1.9"
+LABEL container.version="1.0"
 LABEL description="A selection of tools used to process 'small sequences'" 
 LABEL website="https://bioinf.comav.upv.es/seq_crumbs/"
 LABEL documentation="https://github.com/JoseBlanca/seq_crumbs"
@@ -48,6 +49,6 @@ CMD ["sff_extract"]
 # https://bioinf.comav.upv.es/seq_crumbs/install.html
 # https://docs.docker.com
 # Stack Overflow: https://stackoverflow.com/questions/1078524/how-to-specify-the-location-with-wget     
-# Léo Léopold Hertz 준영: https://stackoverflow.com/users/54964/l%c3%a9o-l%c3%a9opold-hertz-%ec%a4%80%ec%98%81
+# Léo Léopold Hertz: https://stackoverflow.com/users/54964/l%c3%a9o-l%c3%a9opold-hertz-%ec%a4%80%ec%98%81
 # RichieHindle: https://stackoverflow.com/users/21886/richiehindle
 
