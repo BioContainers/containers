@@ -48,7 +48,7 @@ CMD ["sff_extract"]
 # biocontainers.pro/docs/developer-manual/biocontainers-dockerfile/
 # https://bioinf.comav.upv.es/seq_crumbs/install.html
 # https://docs.docker.com
-# Stack Overflow: https://stackoverflow.com/questions/1078524/how-to-specify-the-location-with-wget     
+# Stack Overflow: https://stackoverflow.com/questions/1078524/how-to-specify-the-location-with-wget 
 # Léo Léopold Hertz: https://stackoverflow.com/users/54964/l%c3%a9o-l%c3%a9opold-hertz-%ec%a4%80%ec%98%81
 # RichieHindle: https://stackoverflow.com/users/21886/richiehindle
 
