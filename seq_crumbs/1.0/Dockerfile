@@ -1,6 +1,6 @@
 FROM biocontainers/biocontainers:latest
 
-LABEL base_mage="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="seq_crumbs"
 LABEL software.version="0.1.9"
