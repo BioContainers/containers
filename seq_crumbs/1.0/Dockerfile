@@ -1,15 +1,13 @@
 FROM biocontainers/biocontainers:latest
 
-LABEL base.image="biocontainers:latest"
+LABEL base_mage="biocontainers:latest"
 LABEL version="1"
 LABEL software="seq_crumbs"
 LABEL software.version="0.1.9"
-LABEL container.version="1.0"
-LABEL description="A selection of tools used to process 'small sequences'" 
-LABEL website="https://bioinf.comav.upv.es/seq_crumbs/"
-LABEL documentation="https://github.com/JoseBlanca/seq_crumbs"
+LABEL about.summary="A selection of tools used to process 'small sequences'" 
+LABEL about.home="https://bioinf.comav.upv.es/seq_crumbs/"
 LABEL about.license="GPL"
-LABEL tags="Sequence Processing"
+
 
 MAINTAINER David Sharkey <davidsharkey95@gmail.com>
 
