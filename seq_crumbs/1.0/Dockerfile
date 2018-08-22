@@ -8,7 +8,7 @@ LABEL container.version="1.0"
 LABEL description="A selection of tools used to process 'small sequences'" 
 LABEL website="https://bioinf.comav.upv.es/seq_crumbs/"
 LABEL documentation="https://github.com/JoseBlanca/seq_crumbs"
-LABEL license="https://github.com/JoseBlanca/seq_crumbs/blob/master/LICENSE.txt"
+LABEL about.license="https://github.com/JoseBlanca/seq_crumbs/blob/master/LICENSE.txt"
 LABEL tags="Sequence Processing"
 
 MAINTAINER David Sharkey <davidsharkey95@gmail.com>
