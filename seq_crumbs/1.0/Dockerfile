@@ -6,7 +6,7 @@ LABEL software="seq_crumbs"
 LABEL software.version="0.1.9"
 LABEL about.summary="A selection of tools used to process 'small sequences'" 
 LABEL about.home="https://bioinf.comav.upv.es/seq_crumbs/"
-LABEL about.license="GPL"
+LABEL about.license="SPDX:GPL-3.0-only"
 
 
 MAINTAINER David Sharkey <davidsharkey95@gmail.com>
