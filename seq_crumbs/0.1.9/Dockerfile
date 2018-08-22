@@ -41,6 +41,11 @@ WORKDIR /data
 
 CMD ["sff_extract"]
 
-
+# References: 
+# biocontainers.pro/docs/developer-manual/biocontainers-dockerfile/
+# https://bioinf.comav.upv.es/seq_crumbs/install.html
+# https://docs.docker.com
+# Stack Overflow: https://stackoverflow.com/questions/1078524/how-to-specify-the-location-with-wget 
+# RichieHindle: https://stackoverflow.com/users/21886/richiehindle
 
 
