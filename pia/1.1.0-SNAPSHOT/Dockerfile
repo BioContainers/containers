@@ -1,18 +1,20 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
-LABEL base.image="biocontainers:latest"
+################## METADATA ######################
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PIA - Protein Inference Algorithms"
 LABEL software.version="1.1.0-SNAPSHOT"
-LABEL description="Compile PIA XML files and run pipelines with this image"
-LABEL website="https://github.com/mpc-bioinformatics/pia"
-LABEL documentation="https://github.com/mpc-bioinformatics/pia"
-LABEL license="https://github.com/mpc-bioinformatics/pia"
-LABEL tags="Proteomics"
+LABEL about.summary="Compile PIA XML files and run pipelines with this image"
+LABEL about.home="https://github.com/mpc-bioinformatics/pia"
+LABEL about.documentation="https://github.com/mpc-bioinformatics/pia"
+LABEL about.license_file="https://github.com/mpc-bioinformatics/pia"
+LABEL about.license="SPDX:Apache-2.0"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="pia"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>
 
 ENV ZIP_FILE pia-1.1.0-SNAPSHOT.zip

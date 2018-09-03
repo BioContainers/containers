@@ -1,18 +1,20 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
-LABEL base.image="biocontainers:latest"
+################## METADATA ######################
+LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="X!Tandem"
 LABEL software.version="10-12-01-1"
-LABEL description="software that can match tandem mass spectra with peptide sequences"
-LABEL website="http://www.thegpm.org/tandem/"
-LABEL documentation="http://www.thegpm.org/tandem/"
-LABEL license="http://www.thegpm.org/tandem/"
-LABEL tags="Proteomics"
+LABEL about.summary="software that can match tandem mass spectra with peptide sequences"
+LABEL about.home="http://www.thegpm.org/tandem/"
+LABEL about.documentation="http://www.thegpm.org/tandem/"
+LABEL about.license_file="https://opensource.org/licenses/artistic-license-1.0"
+LABEL about.license="SPDX:Artistic-2.0"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="xtandem"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 RUN ZIP=tandem-linux-10-12-01-1.zip && \

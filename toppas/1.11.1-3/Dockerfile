@@ -1,18 +1,20 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
-LABEL base.image="biocontainers:latest"
+################## METADATA ######################
+LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="TOPPAS"
-LABEL software.version="2016012"
-LABEL description="a graphical workflow editor for the analysis of high-throughput proteomics data"
-LABEL website="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
-LABEL documentation="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
-LABEL license="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
-LABEL tags="Proteomics"
+LABEL software.version="1.11.1-3"
+LABEL about.summary="a graphical workflow editor for the analysis of high-throughput proteomics data"
+LABEL about.home="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
+LABEL about.documentation="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
+LABEL about.license_file="http://open-ms.sourceforge.net/workflow-integration/toppasworkflows/"
+LABEL about.license="SPDX:BSD-2-Clause"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="openms"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER root

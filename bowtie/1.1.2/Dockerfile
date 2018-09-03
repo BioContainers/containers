@@ -1,19 +1,25 @@
-# Base Image
+################## BASE IMAGE ######################
+
 FROM biocontainers/biocontainers:latest
 
-# Metadata
-LABEL base.image="biocontainers:latest"
+################## METADATA ######################
+
+LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="bowtie"
 LABEL software.version="1.1.2"
-LABEL description="an ultrafast memory-efficient short read aligner"
-LABEL website="http://bowtie-bio.sourceforge.net/index.shtml"
-LABEL documentation="http://bowtie-bio.sourceforge.net/manual.shtml"
-LABEL license="http://bowtie-bio.sourceforge.net/index.shtml"
-LABEL tags="Genomics"
+LABEL about.summary="an ultrafast memory-efficient short read aligner"
+LABEL about.home="http://bowtie-bio.sourceforge.net/index.shtml"
+LABEL about.documentation="http://bowtie-bio.sourceforge.net/manual.shtml"
+LABEL about.license_file="http://bowtie-bio.sourceforge.net/index.shtml"
+LABEL about.license="SPDX:Artistic-2.0"
+LABEL extra.identifiers.biotools="bowtie"
+LABEL about.tags="Genomics"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
+
+################## INSTALLATION ######################
 
 RUN conda install bowtie=1.1.2
 

@@ -1,18 +1,21 @@
-# Base Image
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-# Metadata
-LABEL base.image="biocontainers:latest"
+################## METADATA ######################
+
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PeptideProphet"
 LABEL software.version="201510131012"
-LABEL description="Peptide assignment statistics and validation"
-LABEL website="http://peptideprophet.sourceforge.net/"
-LABEL documentation="http://peptideprophet.sourceforge.net/"
-LABEL license="http://peptideprophet.sourceforge.net/"
-LABEL tags="Proteomics"
+LABEL about.summary="Peptide assignment statistics and validation"
+LABEL about.home="http://peptideprophet.sourceforge.net/"
+LABEL about.documentation="http://peptideprophet.sourceforge.net/"
+LABEL about.license_file="http://peptideprophet.sourceforge.net/"
+LABEL about.license="SPDX:GPL-2.0-only"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="peptideprophet"
 
-# Maintainer
+################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER biodocker
