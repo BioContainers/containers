@@ -2,7 +2,7 @@
 FROM biocontainers/biocontainers:latest
 
 # Metadata
-LABEL base.image="biocontainers:latest"
+LABEL base.image="biocontainers:08252016-4"
 LABEL version="1"
 LABEL software="PIA - Protein Inference Algorithms"
 LABEL software.version="1.3.0"
