@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:latest
 ################## METADATA ######################
 LABEL base_image="biocontainers:latest"
 LABEL version="2"
-LABEL software="FastQ"
+LABEL software="FastQC"
 LABEL software.version="0.11.7"
 LABEL about.summary="A quality control tool for high throughput sequence data."
 LABEL about.home="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
