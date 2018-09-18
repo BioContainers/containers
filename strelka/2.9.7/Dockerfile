@@ -13,6 +13,7 @@ LABEL about.home="https://github.com/Illumina/strelka"
 LABEL about.documentation="https://github.com/Illumina/strelka/blob/master/docs/userGuide/README.md"
 LABEL about.license_file="https://github.com/Illumina/strelka/blob/master/LICENSE.txt"
 LABEL about.license="SPDX:GPL-3.0"
+LABEL extra.identifiers.biotools="Strelka"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
