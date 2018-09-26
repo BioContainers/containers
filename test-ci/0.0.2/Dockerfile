@@ -20,7 +20,7 @@ MAINTAINER Olivier Sallou <olivier.sallou@irisa.fr>
 USER root
 
 RUN mkdir -p /mnt/biocontainers/test-ci
-RUN echo "testing again" > /mnt/biocontainers/test-ci/test-ci.txt
+RUN echo "test is ok" > /mnt/biocontainers/test-ci/test-ci.txt
 
 USER biodocker
 
