@@ -8,6 +8,7 @@ LABEL    software="freebayes" \
     software.version="1.2.0-1bpo91-deb" \ 
     version="1" \ 
     extra.identifiers.biotools="freebayes" \ 
+    about.license="custom, see /usr/share/doc/freebayes/copyright" \
     about.license_file="/usr/share/doc/freebayes/copyright" \ 
     extra.binaries="/usr/bin/bamleftalign,/usr/bin/freebayes" \ 
     about.tags=""
