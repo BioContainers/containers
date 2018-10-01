@@ -2,6 +2,7 @@ FROM biocontainers/biocontainers:debian-stretch-backports
 MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL    software="fast5" \ 
     container="fast5" \ 
+    base_image="biocontainers/biocontainers:debian-stretch-backports" \
     about.summary="utilities for manipulating Oxford Nanopore Fast5 files" \ 
     about.home="https://github.com/mateidavid/fast5" \ 
     software.version="0.6.5-1bpo91-deb" \ 
