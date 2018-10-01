@@ -7,6 +7,7 @@ LABEL    software="elastix" \
     about.home="http://elastix.isi.uu.nl/" \ 
     software.version="4.8-10b1-deb" \ 
     version="1" \ 
+    about.copyright="custom, see /usr/share/doc/elastix/copyright" \
     about.license_file="/usr/share/doc/elastix/copyright" \ 
     extra.binaries="/usr/bin/elastix,/usr/bin/transformix" \ 
     about.tags="role::program" 
