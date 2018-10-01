@@ -1,6 +1,7 @@
 FROM biocontainers/biocontainers:debian-stretch-backports
 MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL    software="freebayes" \ 
+    base_image="biocontainers/biocontainers:debian-stretch-backports" \
     container="freebayes" \ 
     about.summary="Bayesian haplotype-based polymorphism discovery and genotyping" \ 
     about.home="https://github.com/ekg/freebayes" \ 
