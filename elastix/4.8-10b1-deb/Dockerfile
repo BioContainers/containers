@@ -2,6 +2,7 @@ FROM biocontainers/biocontainers:debian-stretch-backports
 MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL    software="elastix" \ 
     container="elastix" \ 
+    base_image="biocontainers/biocontainers:debian-stretch-backports" \
     about.summary="toolbox for rigid and nonrigid registration of images" \ 
     about.home="http://elastix.isi.uu.nl/" \ 
     software.version="4.8-10b1-deb" \ 
