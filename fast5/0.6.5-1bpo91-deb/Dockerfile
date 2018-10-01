@@ -7,7 +7,6 @@ LABEL    software="fast5" \
     about.home="https://github.com/mateidavid/fast5" \ 
     software.version="0.6.5-1bpo91-deb" \ 
     version="1" \ 
-    about.copyright="custom, see /usr/share/doc/fast5/copyright" \ 
     about.license="MIT" \ 
     about.license_file="/usr/share/doc/fast5/copyright" \ 
     extra.binaries="/usr/bin/f5ls,/usr/bin/f5pack" \ 
