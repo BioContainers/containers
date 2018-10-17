@@ -12,6 +12,7 @@ LABEL about.home="http://193.62.52.74/jenkins/"
 LABEL about.license_file="gpl3+"
 LABEL about.tags="test"
 
+
 ################## MAINTAINER ######################
 MAINTAINER Olivier Sallou <olivier.sallou@irisa.fr>
 
