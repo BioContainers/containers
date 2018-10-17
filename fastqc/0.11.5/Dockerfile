@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:latest"
-LABEL version="1"
+LABEL version="2"
 LABEL software="FASTQC"
 LABEL software.version="0.11.5"
 LABEL about.summary="A quality control tool for high throughput sequence data."
@@ -21,7 +21,7 @@ MAINTAINER Alicia Mastretta-Yanes <amastretta@conabio.gob.mx>
 ################## INSTALLATION ######################
 USER root
 
-ENV DST=/tmp
+ENV DST=/opt
 ENV URL=https://github.com/agordon/libgtextutils/releases/download/0.7/
 
 RUN wget $URL/libgtextutils-0.7.tar.gz -O $DST/libgtextutils-0.7.tar.gz && \
