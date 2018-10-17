@@ -2,15 +2,16 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="3"
 LABEL software="Novor"
 LABEL software.version="1b"
-LABEL description="real-time peptide de novo sequencing"
-LABEL website="http://www.rapidnovor.com/"
-LABEL documentation="http://www.rapidnovor.com/"
-LABEL license="Academic only: https://www.rapidnovor.com/rndl/novor_aca_eula.txt"
-LABEL tags="Proteomics"
+LABEL about.summary="real-time peptide de novo sequencing"
+LABEL about.home="http://www.rapidnovor.com/"
+LABEL about.documentation="http://www.rapidnovor.com/"
+LABEL about.license_file="https://www.rapidnovor.com/rndl/novor_aca_eula.txt"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="novor"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

@@ -1,21 +1,18 @@
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         gcta
-# Software Version: 1.24.7
-# Description:      a tool for Genome-wide Complex Trait Analysis
-# Website:          http://cnsgenomics.com/software/gcta/index.html
-# Tags:             Genomics
-# Provides:         gcta 1.24.7
-################## BASE IMAGE ###################### :       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/gcta 1.24.7/.
-# Pull Cmd:         docker pull biodckrdev/gcta
-# Run Cmd:          docker run --rm -it biodckrdev/gcta <options> <files>
-#################################################################
+############################# Dockerfile ####################################
+FROM biocontainers/biocontainers:latest
 
-# Set the base image to Ubuntu
-FROM biodckr/biodocker
+######################## METADATA ###########################################
+
+LABEL base_image="biocontainers:latest"
+LABEL version="1"
+LABEL software="gcta"
+LABEL software.version="1.24.7"
+LABEL about.summary="A tool for Genome-wide Complex Trait Analysis"
+LABEL about.home="http://cnsgenomics.com/software/gcta/index.html"
+LABEL about.license_file="https://opensource.org/licenses/MIT"
+LABEL about.license="SPDX:MIT"
+LABEL about.tags="Genomics"
+LABEL about.provides="gcta 1.24.7"
 
 ################## BEGIN INSTALLATION ######################
 

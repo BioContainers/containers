@@ -3,15 +3,17 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="X!Tandem"
 LABEL software.version="15-12-15-2"
-LABEL description="software that can match tandem mass spectra with peptide sequences"
-LABEL website="http://www.thegpm.org/tandem/"
-LABEL documentation="http://www.thegpm.org/tandem/"
-LABEL license="http://www.thegpm.org/tandem/"
-LABEL tags="Proteomics"
+LABEL about.summary="software that can match tandem mass spectra with peptide sequences"
+LABEL about.home="http://www.thegpm.org/tandem/"
+LABEL about.documentation="http://www.thegpm.org/tandem/"
+LABEL about.license_file="http://www.thegpm.org/tandem/"
+LABEL about.license="SPDX:Artistic-2.0"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="xtandem"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

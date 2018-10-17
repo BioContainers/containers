@@ -2,15 +2,16 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="SAINTq"
 LABEL software.version="0.0.2"
-LABEL description="assigning confidence scores to protein-protein interactions based on quantitative proteomics"
-LABEL website="http://saint-apms.sourceforge.net/Main.html"
-LABEL documentation="http://saint-apms.sourceforge.net/Main.html"
-LABEL license="http://saint-apms.sourceforge.net/Main.html"
-LABEL tags="Proteomics"
+LABEL about.summary="assigning confidence scores to protein-protein interactions based on quantitative proteomics"
+LABEL about.home="http://saint-apms.sourceforge.net/Main.html"
+LABEL about.documentation="http://saint-apms.sourceforge.net/Main.html"
+LABEL about.license_file="http://saint-apms.sourceforge.net/Main.html"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="SAINT"
 
 ################## MAINTAINER ######################
 

@@ -2,15 +2,17 @@ FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
 
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="snpeff"
-LABEL software.version="4.1"
-LABEL description="Genetic variant annotation and effect prediction toolbox"
-LABEL website="http://snpeff.sourceforge.net/"
-LABEL documentation="http://snpeff.sourceforge.net/"
-LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
-LABEL tags="Genomics"
+LABEL software.version="4.1k"
+LABEL about.summary="Genetic variant annotation and effect prediction toolbox"
+LABEL about.home="http://snpeff.sourceforge.net/"
+LABEL about.documentation="http://snpeff.sourceforge.net/"
+LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL about.license="SPDX:GPL-2.0-only"
+LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="snpeff"
 
 
 ################## INSTALLATION ######################

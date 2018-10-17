@@ -2,15 +2,17 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="emboss"
 LABEL software.version="6.5.7"
-LABEL description="software analysis package"
-LABEL website="http://emboss.sourceforge.net/what/"
-LABEL documentation="http://emboss.sourceforge.net/docs/"
-LABEL license="http://emboss.sourceforge.net/licence/"
-LABEL tags="Proteomics"
+LABEL about.summary="software analysis package"
+LABEL about.home="http://emboss.sourceforge.net/what/"
+LABEL about.documentation="http://emboss.sourceforge.net/docs/"
+LABEL about.license_file="http://emboss.sourceforge.net/licence/"
+LABEL about.license="SPDX:GPL-3.0"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="EMBOSS"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

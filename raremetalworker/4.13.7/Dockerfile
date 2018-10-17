@@ -2,15 +2,16 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="raremetalworker"
 LABEL software.version="4.13.7"
-LABEL description="single variant analysis, generating summary statistics for gene level meta analyses"
-LABEL website="http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
-LABEL documentation=" http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
-LABEL license=" http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
-LABEL tags="Genomics"
+LABEL about.summary="single variant analysis, generating summary statistics for gene level meta analyses"
+LABEL about.home="http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
+LABEL about.documentation="http://genome.sph.umich.edu/wiki/RAREMETALWORKER|https://github.com/statgen/Raremetal"
+LABEL about.license_file="http://genome.sph.umich.edu/wiki/RAREMETALWORKER"
+LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="RAREMETAL"
 
 
 ################## BEGIN INSTALLATION ######################

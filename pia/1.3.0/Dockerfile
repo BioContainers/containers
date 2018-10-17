@@ -2,15 +2,17 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PIA - Protein Inference Algorithms"
 LABEL software.version="1.3.0"
-LABEL description="Compile PIA XML files and run analysis pipelines for protein inference with this image"
-LABEL website="https://github.com/mpc-bioinformatics/pia"
-LABEL documentation="https://github.com/julianu/pia-tutorial"
-LABEL license="https://github.com/mpc-bioinformatics/pia"
-LABEL tags="Proteomics"
+LABEL about.summary="Compile PIA XML files and run analysis pipelines for protein inference with this image"
+LABEL about.home="https://github.com/mpc-bioinformatics/pia"
+LABEL about.documentation="https://github.com/julianu/pia-tutorial"
+LABEL about.license_file="https://github.com/mpc-bioinformatics/pia"
+LABEL about.license="SPDX:Apache-2.0"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="pia"
 
 ################## MAINTAINER ######################
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>

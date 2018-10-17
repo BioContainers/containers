@@ -2,15 +2,17 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="PeptideShaker"
 LABEL software.version="1.10.3"
-LABEL description="interpretation of proteomics identification results"
-LABEL website="http://compomics.github.io/projects/peptide-shaker.html"
-LABEL documentation="http://compomics.github.io/projects/peptide-shaker.html"
-LABEL license="http://compomics.github.io/projects/peptide-shaker.html"
-LABEL tags="Proteomics"
+LABEL about.summary="interpretation of proteomics identification results"
+LABEL about.home="http://compomics.github.io/projects/peptide-shaker.html"
+LABEL about.documentation="http://compomics.github.io/projects/peptide-shaker.html"
+LABEL about.license_file="https://github.com/compomics/peptide-shaker/blob/master/README.txt"
+LABEL about.license="SPDX:Apache-2.0"
+LABEL about.tags="Proteomics"
+LABEL extra.identifiers.biotools="peptideshaker"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>

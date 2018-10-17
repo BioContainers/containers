@@ -4,15 +4,16 @@ FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
 
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="Aliscore"
-LABEL software.version="v.2.0"
-LABEL description="Aliscore is designed to filter alignment ambiguous or randomly similar sites in multiple sequence alignments (MSA)."
-LABEL website="https://www.zfmk.de/en/research/research-centres-and-groups/aliscore"
-LABEL documentation="https://www.zfmk.de/dateien/atoms/files/aliscore_v.2.0_manual_0.pdf"
-LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
-LABEL tags="Genomics"
+LABEL software.version="2.0"
+LABEL about.summary="Aliscore is designed to filter alignment ambiguous or randomly similar sites in multiple sequence alignments (MSA)."
+LABEL about.home="https://www.zfmk.de/en/research/research-centres-and-groups/aliscore"
+LABEL about.documentation="https://www.zfmk.de/dateien/atoms/files/aliscore_v.2.0_manual_0.pdf"
+LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
+LABEL about.license="SPDX:GPL-2.0-only"
+LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
 

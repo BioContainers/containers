@@ -3,15 +3,16 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="frc_align"
 LABEL software.version="20150723"
-LABEL description="Computes FRC from SAM/BAM file and not from afg files"
-LABEL website="https://github.com/jts/frc_courve"
-LABEL documentation="https://github.com/jts/frc_courve"
-LABEL license="https://github.com/jts/frc_courve"
-LABEL tags="Genomics"
+LABEL about.summary="Computes FRC from SAM/BAM file and not from afg files"
+LABEL about.home="https://github.com/vezzi/FRC_align"
+LABEL about.documentation="https://github.com/vezzi/FRC_align"
+LABEL about.license_file="https://github.com/vezzi/FRC_align/blob/master/COPYING"
+LABEL about.license="SPDX:GPL-3.0-only"
+LABEL about.tags="Genomics"
 
 ################## INSTALLATION ######################
 

@@ -1,16 +1,16 @@
 FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
-LABEL base.image="biocontainers:latest"
+LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="soapec"
 LABEL software.version="2.03"
-LABEL description="A correction tool for SOAPdenovo"
-LABEL website="http://soap.genomics.org.cn/soapdenovo.html"
-LABEL documentation="http://soap.genomics.org.cn/soapdenovo.html"
-LABEL license="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
-LABEL tags="Genomics"
-
+LABEL about.summary="A correction tool for SOAPdenovo"
+LABEL about.home="http://soap.genomics.org.cn/soapdenovo.html"
+LABEL about.documentation="http://soap.genomics.org.cn/soapdenovo.html"
+LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
+LABEL about.license="SPDX:GPL-2.0-only"
+LABEL about.tags="Genomics"
 
 ################## BEGIN INSTALLATION ######################
 

@@ -1,0 +1,5 @@
+[ifb]
+localhost
+
+[ifb:vars]
+CGB_CONFIG_PATH=/etc/coregenebuilder/
