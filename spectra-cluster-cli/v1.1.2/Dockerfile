@@ -21,7 +21,7 @@ RUN VERSION=1.1.2 && \
     wget https://github.com/spectra-cluster/spectra-cluster-cli/releases/download/spectra-cluster-cli-${VERSION}/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
     rm /tmp/$ZIP && \
-    bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/spectra-cluster-cli-1.1.2.jar $@" > /home/biodocker/bin/spectra-cluster-cli' && \
+    echo -e '#!/bin/bash\njava -jar /home/biodocker/bin/spectra-cluster-cli-1.1.2.jar $@' > /home/biodocker/bin/spectra-cluster-cli && \
     chmod +x /home/biodocker/bin/spectra-cluster-cli
 
 ENV PATH /home/biodocker/bin/spectra-cluster-cli:$PATH
