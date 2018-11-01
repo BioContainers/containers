@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:latest
 
 ################## METADATA ######################
 
-ARG software_version=1.6.0
+ARG software_version=1.7.0
 LABEL base_image="biocontainers:latest"
 LABEL version="2"
 LABEL software="Samtools"
@@ -21,7 +21,7 @@ LABEL extra.identifiers.biotools="SAM"
 ################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
 
-RUN conda install samtools=$software_version
+RUN conda install ncurses samtools=$software_version
 
 WORKDIR /data/
 
