@@ -7,7 +7,7 @@ FROM biocontainers/biocontainers:latest
 ARG software_version=1.7.0
 LABEL base_image="biocontainers:latest"
 LABEL version="2"
-LABEL software="Samtools"
+LABEL software="samtools"
 LABEL software.version="$software_version"
 LABEL about.summary="Tools for manipulating next-generation sequencing data"
 LABEL about.home="https://github.com/samtools/samtools"
