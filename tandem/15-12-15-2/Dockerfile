@@ -1,10 +1,10 @@
 
 ################## BASE IMAGE ######################
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:latest"
-LABEL version="2"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="3"
 LABEL software="X!Tandem"
 LABEL software.version="15-12-15-2"
 LABEL about.summary="software that can match tandem mass spectra with peptide sequences"
