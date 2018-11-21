@@ -1,10 +1,10 @@
 
 ################## BASE IMAGE ######################
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:latest"
-LABEL version="1.2.1"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="1.2.2"
 LABEL software="Stacks"
 LABEL software.version="1.41"
 LABEL about.summary="Stacks was developed to work with restriction enzyme-based data, such as RAD-seq, for the purpose of building genetic maps and conducting population"
