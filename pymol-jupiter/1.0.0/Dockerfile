@@ -113,7 +113,7 @@ RUN apt-get update && \
     libjpeg8-dev \
     libpng3 libpng12-dev \
     libpng-dev \
-    libtiff4-dev \
+    libtiff5-dev \
     libwebp-dev \
     libxml2-dev \
     pmw \
