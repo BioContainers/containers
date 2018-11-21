@@ -1,11 +1,11 @@
 ################## BASE IMAGE ######################
 
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 
-LABEL base_image="biocontainers:latest"
-LABEL version="2"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="3"
 LABEL software="MSAmanda"
 LABEL software.version="1.0.0.5242"
 LABEL about.summary="scoring system to identify peptides out of tandem mass spectrometry"
