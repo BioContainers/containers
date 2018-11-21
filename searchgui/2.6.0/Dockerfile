@@ -1,9 +1,9 @@
 ################## BASE IMAGE ######################
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:latest"
-LABEL version="1"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="2"
 LABEL software="SearchGUI"
 LABEL software.version="2.6.0"
 LABEL about.summary="graphical user interface for proteomics identification search engines"
