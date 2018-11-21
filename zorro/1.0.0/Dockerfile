@@ -21,7 +21,7 @@ MAINTAINER Emre YILMAZ <emre@eres.tech>
 USER biodocker
 
 WORKDIR /home/biodocker/bin
-RUN wget  -O zorro https://10gbps-io.dl.sourceforge.net/project/probmask/zorro_linux_x86_64 \ 
+RUN wget  -O zorro http://downloads.sourceforge.net/project/probmask/zorro_linux_x86_64 \ 
   && chmod 755 /home/biodocker/bin/zorro \
   && wget -O FastTree http://www.microbesonline.org/fasttree/FastTree \
   && chmod 755 /home/biodocker/bin/FastTree
