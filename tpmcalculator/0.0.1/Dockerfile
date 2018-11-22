@@ -1,9 +1,9 @@
 ################## BASE IMAGE ######################
-FROM biocontainers/bamtools:latest
+FROM biocontainers/bamtools:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="bamtools:latest"
-LABEL version="3"
+LABEL base_image="bamtools:v1.0.0_cv4"
+LABEL version="4"
 LABEL software="TPMCalculator"
 LABEL software.version="0.0.1"
 LABEL about.summary="This program calculates the TPM (Transcript per Millions) values for the exons and introns from NGS RNA-Seq aligned reads (BAM files)"
