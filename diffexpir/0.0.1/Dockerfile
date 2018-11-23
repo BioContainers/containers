@@ -1,11 +1,11 @@
 ################## BASE IMAGE ######################
 
-FROM biocontainers/bamtools:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 
-LABEL base_image="bamtools:latest"
-LABEL version="3"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="4"
 LABEL software="diffexpir"
 LABEL software.version="0.0.1"
 LABEL about.summary="Differentially expressed intron retention"
@@ -22,19 +22,29 @@ MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>
 
 USER biodocker
 
-ENV URL=https://github.com/r78v10a07/DiffExpIR
-ENV FOLDER=DiffExpIR
-ENV DST=/tmp
-ENV BAMTOOLS_DIR=/home/biodocker
-ENV CPPFLAGS="-I $BAMTOOLS_DIR/include/bamtools"
-ENV LDFLAGS="-L $BAMTOOLS_DIR/lib/bamtools -Wl,-rpath,$BAMTOOLS_DIR/lib/bamtools"
+ENV BAMTOOLS_DIR="$HOME/bamtoolslib"
 
-RUN cd $DST && \
-	git clone $URL && \
-	cd $FOLDER && \
+RUN cd $HOME && \
+	git clone https://github.com/pezmaster31/bamtools.git bamtools && \
+	cd bamtools && \
+	mkdir build && \
+	cd build && \
+	mkdir $BAMTOOLS_DIR && \
+	cmake -DCMAKE_INSTALL_PREFIX=$BAMTOOLS_DIR .. && \
+	make install && \
+	cd $HOME && \
+	rm -rf $HOME/bamtools
+
+ENV CPPFLAGS="-I $BAMTOOLS_DIR/include/bamtools"
+ENV LDFLAGS="-L $BAMTOOLS_DIR/lib -Wl,-rpath,$BAMTOOLS_DIR/lib"
+
+ENV URL="https://github.com/r78v10a07/DiffExpIR.git"
+
+RUN cd $HOME && \
+	git clone $URL diffexpir && \
+	cd diffexpir && \
 	make && \
-	mv $DST/$FOLDER/bin/* /home/biodocker/bin/ && \
-	rm -rf $DST/$FOLDER
+	ln -s $HOME/diffexpir/bin/diffexpIR $HOME/bin/
 
 WORKDIR /data/
 
