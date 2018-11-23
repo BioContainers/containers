@@ -1,8 +1,8 @@
 ################## BASE IMAGE ######################
-FROM biocontainers/bamtools:v1.0.0_cv4
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="bamtools:v1.0.0_cv4"
+LABEL base_image="biocontainers:v1.0.0_cv4"
 LABEL version="4"
 LABEL software="TPMCalculator"
 LABEL software.version="0.0.1"
@@ -17,12 +17,25 @@ MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>
 
 USER biodocker
 
-ENV URL=https://github.com/r78v10a07/TPMCalculator
+ENV BAMTOOLS_URL=https://github.com/pezmaster31/bamtools.git
+ENV URL=https://github.com/ncbi/TPMCalculator
 ENV FOLDER=TPMCalculator
 ENV DST=/tmp
-ENV BAMTOOLS_DIR=/home/biodocker
+ENV BAMTOOLS_DIR=$HOME/bamtoolslib
+
+RUN cd $HOME && \
+	git clone $BAMTOOLS_URL bamtools && \
+	cd bamtools && \
+	mkdir build && \
+	cd build && \
+	mkdir $BAMTOOLS_DIR && \
+	cmake -DCMAKE_INSTALL_PREFIX=$BAMTOOLS_DIR .. && \
+	make install && \
+	cd $HOME && \
+	rm -rf $HOME/bamtools
+
 ENV CPPFLAGS="-I $BAMTOOLS_DIR/include/bamtools"
-ENV LDFLAGS="-L $BAMTOOLS_DIR/lib/bamtools -Wl,-rpath,$BAMTOOLS_DIR/lib/bamtools"
+ENV LDFLAGS="-L $BAMTOOLS_DIR/lib -Wl,-rpath,$BAMTOOLS_DIR/lib"
 
 RUN cd $DST && \
 	git clone $URL && \
