@@ -1,8 +1,8 @@
 ################## BASE IMAGE ######################
-FROM biocontainers/biocontainers:v1.0.0_cv4
+FROM ubuntu:trusty
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL base_image="ubuntu:trusty"
 LABEL version="2"
 LABEL software="OpenMS"
 LABEL software.version="1.11.1-3"
@@ -25,10 +25,6 @@ RUN apt-get update && apt-get install -y \
   apt-get clean && \
   apt-get purge && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-#RUN echo "biodocker ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/biodocker
-
-USER biodocker
 
 # some QT-Apps/Gazebo don't not show controls without this
 ENV QT_X11_NO_MITSHM 1
