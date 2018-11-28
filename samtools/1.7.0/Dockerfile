@@ -1,12 +1,12 @@
 ################## BASE IMAGE ######################
 
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 
 ARG software_version=1.7.0
-LABEL base_image="biocontainers:latest"
-LABEL version="2"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="3"
 LABEL software="samtools"
 LABEL software.version="$software_version"
 LABEL about.summary="Tools for manipulating next-generation sequencing data"
