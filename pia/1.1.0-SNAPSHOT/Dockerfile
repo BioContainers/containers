@@ -17,8 +17,8 @@ LABEL extra.identifiers.biotools="pia"
 ################## MAINTAINER ######################
 MAINTAINER Julian Uszkoreit <julian.uszkoreit@rub.de>
 
-ENV ZIP_FILE pia-1.1.0-SNAPSHOT.zip
-ENV URL https://github.com/mpc-bioinformatics/pia/releases/download/1.1.0-SNAPSHOT
+ENV ZIP_FILE 1.1.0-SNAPSHOT.zip
+ENV URL https://github.com/mpc-bioinformatics/pia/archive
 ENV USER_HOME /home/biodocker
 ENV PIA_PATH /home/biodocker/pia
 ENV PIA_JAR $PIA_PATH/pia-1.1.0-SNAPSHOT.jar
@@ -28,8 +28,10 @@ RUN set -x \
   && unzip $USER_HOME/$ZIP_FILE -d $PIA_PATH \
   && rm $USER_HOME/$ZIP_FILE
 
-COPY ./runpia.sh /
+USER biodocker
+
+COPY --chown=biodocker ./runpia.sh $HOME/bin
 
 WORKDIR /data/
 
-ENTRYPOINT ["/runpia.sh"]
+ENTRYPOINT ["runpia.sh"]
