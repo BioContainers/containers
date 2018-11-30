@@ -30,7 +30,7 @@ RUN set -x \
 
 USER biodocker
 
-COPY --chown=biodocker ./runpia.sh $HOME/bin
+COPY ./runpia.sh $HOME/bin
 
 WORKDIR /data/
 
