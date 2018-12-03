@@ -1,11 +1,11 @@
 ################## BASE IMAGE ######################
 
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 
-LABEL base_image="biocontainers:latest"
-LABEL version="2"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="3"
 LABEL software="bedtools"
 LABEL software.version="2.25.0"
 LABEL about.summary="a powerful toolset for genome arithmetic"
