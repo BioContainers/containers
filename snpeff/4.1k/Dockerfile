@@ -1,9 +1,9 @@
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 
-LABEL base_image="biocontainers:latest"
-LABEL version="1"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="2"
 LABEL software="snpeff"
 LABEL software.version="4.1k"
 LABEL about.summary="Genetic variant annotation and effect prediction toolbox"
