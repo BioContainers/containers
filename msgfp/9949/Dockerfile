@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################## METADATA ######################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="3"
+LABEL version="4"
 LABEL software="MSGF+"
 LABEL software.version="9949"
 LABEL about.summary="MS/MS database search tool"
@@ -22,7 +22,7 @@ RUN ZIP=MSGFPlus_9949.zip && \
   wget https://github.com/BioDocker/software-archive/releases/download/MSGFPlus/$ZIP -O /tmp/$ZIP && \
   unzip /tmp/$ZIP -d /home/biodocker/bin/MSGFPlus_9949/ && \
   rm /tmp/$ZIP && \
-  bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/MSGFPlus_9949/MSGFPlus.jar $@" > /home/biodocker/bin/MSGFPlus' && \
+  bash -c "echo -e '#!/bin/bash\njava -jar /home/biodocker/bin/MSGFPlus_9949/MSGFPlus.jar \$@' > /home/biodocker/bin/MSGFPlus" && \
   chmod +x /home/biodocker/bin/MSGFPlus
 
 ENV PATH /home/biodocker/bin/MSGFPlus:$PATH
