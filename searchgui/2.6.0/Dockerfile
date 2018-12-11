@@ -21,7 +21,7 @@ RUN ZIP=SearchGUI-2.6.0.zip && \
     wget https://github.com/BioDocker/software-archive/releases/download/SearchGUI/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
     rm /tmp/$ZIP && \
-    bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/SearchGUI-2.6.0/SearchGUI-2.6.0.jar $@"' > /home/biodocker/bin/SearchGUI && \
+    bash -c "echo -e '#!/bin/bash\njava -jar /home/biodocker/bin/SearchGUI-2.6.0/SearchGUI-2.6.0.jar \$@'" > /home/biodocker/bin/SearchGUI && \
     chmod +x /home/biodocker/bin/SearchGUI
 
 ENV PATH /home/biodocker/bin/SearchGUI:$PATH
