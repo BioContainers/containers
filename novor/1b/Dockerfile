@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="4"
+LABEL version="5"
 LABEL software="Novor"
 LABEL software.version="1b"
 LABEL about.summary="real-time peptide de novo sequencing"
@@ -20,7 +20,7 @@ RUN ZIP=novor_academic_latest.zip && \
   wget https://github.com/BioDocker/software-archive/releases/download/NovoR/$ZIP -O /tmp/$ZIP && \
   unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
   rm /tmp/$ZIP && \
-  bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/novor_v1b/lib/novor.jar $@" > /home/biodocker/bin/novor' && \
+  bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/novor_v1b/lib/novor.jar \$@" > /home/biodocker/bin/novor' && \
   chmod +x /home/biodocker/bin/novor
 
 ENV PATH /home/biodocker/bin:$PATH
