@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="PeptideShaker"
 LABEL software.version="1.16.16"
 LABEL about.summary="interpretation of proteomics identification results"
@@ -21,7 +21,7 @@ RUN ZIP=PeptideShaker-1.16.16.zip && \
     wget http://genesis.ugent.be/maven2/eu/isas/peptideshaker/PeptideShaker/1.16.16/$ZIP -O /tmp/$ZIP && \
     unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
     rm /tmp/$ZIP && \
-    bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/PeptideShaker-1.16.16/PeptideShaker-1.16.16.jar $@"' > /home/biodocker/bin/PeptideShaker && \
+    bash -c 'echo -e "#!/bin/bash\njava -jar /home/biodocker/bin/PeptideShaker-1.16.16/PeptideShaker-1.16.16.jar \$@"' > /home/biodocker/bin/PeptideShaker && \
     chmod +x /home/biodocker/bin/PeptideShaker
 
 ENV PATH /home/biodocker/bin/PeptideShaker:$PATH
