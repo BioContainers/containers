@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
 LABEL version="4"
-LABEL software="X!Tandem"
+LABEL software="tandem"
 LABEL software.version="17-02-01-4"
 LABEL about.summary="software that can match tandem mass spectra with peptide sequences"
 LABEL about.home="http://www.thegpm.org/tandem/"
