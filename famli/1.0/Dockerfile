@@ -1,11 +1,11 @@
 # Base Image
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 # Metadata
-LABEL base_image="biocontainers:latest"
+LABEL base_image="biocontainers:v1.0.0_cv4"
 LABEL software="famli"
 LABEL software.version="1.0"
-LABEL version="1"
+LABEL version="2"
 LABEL about.summary="Functional Analysis of Metagenomes by Likelihood Inference"
 LABEL about.home="https://github.com/FredHutch/FAMLI"
 LABEL about.license="MIT"

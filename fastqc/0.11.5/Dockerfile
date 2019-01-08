@@ -1,9 +1,9 @@
 ################# BASE IMAGE ######################
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:latest"
-LABEL version="2"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="3"
 LABEL software="fastqc"
 LABEL software.version="0.11.5"
 LABEL about.summary="A quality control tool for high throughput sequence data."

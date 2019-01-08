@@ -1,9 +1,10 @@
 ############################## Dockerfile ###################################
 
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ############################# METADATA ######################################
 
+LABEL base_image="biocontainers:v1.0.0_cv4"
 LABEL version="1"
 LABEL software="BioR annotate"
 LABEL software.version="2.1.1"
