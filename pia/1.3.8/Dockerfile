@@ -24,8 +24,8 @@ ENV ZIP_FILE=pia-1.3.8.zip \
   PIA_PATH=/home/biodocker/pia \
   PIA_JAR=/home/biodocker/pia/pia-1.3.8.jar
 
+USER root
 COPY ./runpia.sh $USER_HOME/bin/
-
 RUN chmod +x $USER_HOME/bin/runpia.sh
 
 USER biodocker
