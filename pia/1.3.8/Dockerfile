@@ -33,6 +33,8 @@ RUN set -x \
 
 COPY ./runpia.sh $USER_HOME/bin/
 
+RUN chmod +x $USER_HOME/bin/runpia.sh
+
 WORKDIR /data/
 
 ENTRYPOINT ["runpia.sh"]
