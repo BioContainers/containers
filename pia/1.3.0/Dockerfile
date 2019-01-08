@@ -23,14 +23,16 @@ ENV USER_HOME /home/biodocker
 ENV PIA_PATH /home/biodocker/pia
 ENV PIA_JAR $PIA_PATH/pia-1.3.0.jar
 
+USER root
+COPY ./runpia.sh $USER_HOME/bin/
+RUN chmod +x $USER_HOME/bin/runpia.sh
+
 USER biodocker
 
 RUN set -x \
   && wget $URL/$ZIP_FILE -O $USER_HOME/$ZIP_FILE \
   && unzip $USER_HOME/$ZIP_FILE -d $PIA_PATH \
   && rm $USER_HOME/$ZIP_FILE
-
-COPY ./runpia.sh $USER_HOME/bin/
 
 WORKDIR /data/
 
