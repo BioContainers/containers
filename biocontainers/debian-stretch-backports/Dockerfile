@@ -1,7 +1,7 @@
 FROM debian:stable-backports
 
 LABEL base.image="debian:stable-backports"
-LABEL version=1
+LABEL version=2
 LABEL software="Biocontainers debian based image"
 LABEL software.version="debian-stretch-backports"
 LABEL about.home="http://biocontainers.pro"
@@ -16,36 +16,10 @@ RUN mkdir /data /config
 RUN apt-get clean all && \
     apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y  \
-        autotools-dev   \
-        automake        \
-        cmake           \
-        curl            \
-        grep            \
-        sed             \
-        dpkg            \
-        fuse            \
-        git             \
-        wget            \
-        zip             \
-        build-essential \
-        pkg-config      \
-        python          \
-	python-dev      \
-        python-pip      \
-        bzip2           \
-        ca-certificates \
-        libglib2.0-0    \
-        libxext6        \
-        libsm6          \
-        libxrender1     \
-        git             \
-        mercurial       \
-        subversion      \
-        zlib1g-dev &&   \
-        apt-get clean && \
-        apt-get purge && \
-        rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 
 # Add user biodocker with password biodocker
 RUN groupadd fuse && \
