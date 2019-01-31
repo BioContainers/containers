@@ -10,15 +10,3 @@
 [submodule "simid/1.0.0"]
 	path = simid/1.0.0
 	url = https://github.com/phnmnl/container-simid/
-[submodule "mtblisa/0.9.5"]
-	path = mtblisa/0.9.5
-	url = https://github.com/phnmnl/container-mtblisa
-[submodule "phnmnl-batch_correction/phenomenal_2018_02_22"]
-	path = phnmnl-batch_correction/phenomenal_2018_02_22
-	url = https://github.com/phnmnl/container-batch_correction/
-[submodule "csifingerid/4.0"]
-	path = csifingerid/4.0
-	url = https://github.com/phnmnl/container-csifingerid
-[submodule "bruker2batman/1.0"]
-	path = bruker2batman/1.0
-	url = https://github.com/phnmnl/container-bruker2batman/
