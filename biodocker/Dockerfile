@@ -17,6 +17,16 @@
 # Source Image
 FROM ubuntu:16.04
 
+# Required Metadata
+
+LABEL base_image=="ubuntu:16.04"
+LABEL version=4
+LABEL software.version="08252016"
+LABEL software="biodocker_base_image"
+LABEL about.summary="Basic image for BioDocker"
+LABEL about.home="http://biodocker.org/"
+LABEL about.license="SPDX:Apache-2.0"
+
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
 

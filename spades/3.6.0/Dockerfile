@@ -1,8 +1,8 @@
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:latest"
-LABEL version="1"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="2"
 LABEL software="spades"
 LABEL software.version="3.6.0"
 LABEL about.summary="Tools (written in C using htslib) for manipulating next-generation sequencing data"

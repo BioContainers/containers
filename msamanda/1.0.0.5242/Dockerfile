@@ -1,11 +1,11 @@
 ################## BASE IMAGE ######################
 
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 
-LABEL base_image="biocontainers:latest"
-LABEL version="2"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="4"
 LABEL software="MSAmanda"
 LABEL software.version="1.0.0.5242"
 LABEL about.summary="scoring system to identify peptides out of tandem mass spectrometry"
@@ -32,7 +32,7 @@ RUN ZIP=MSAmanda_Standalone_LinuxMac_1.0.0.5243.zip && \
   unzip /tmp/$ZIP -d /home/biodocker/bin && \
   rm /tmp/$ZIP && \
   chmod 755 /home/biodocker/bin/MSAmanda_Standalone_LinuxMac_1.0.0.5243/MSAmanda.exe && \
-  bash -c 'echo -e "#!/bin/bash\nmono /home/biodocker/bin/MSAmanda_Standalone_LinuxMac_1.0.0.5243/MSAmanda.exe $@" > /home/biodocker/bin/MSAmanda' && \
+  bash -c 'echo -e "#!/bin/bash\nmono /home/biodocker/bin/MSAmanda_Standalone_LinuxMac_1.0.0.5243/MSAmanda.exe \$@" > /home/biodocker/bin/MSAmanda' && \
   chmod +x /home/biodocker/bin/MSAmanda
 
 ENV PATH /home/biodocker/bin/MSAmanda:$PATH

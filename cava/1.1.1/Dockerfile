@@ -1,9 +1,9 @@
 ################## BASE IMAGE ######################
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:latest"
-LABEL version="1"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="2"
 LABEL software="cava"
 LABEL software.version="1.1.1"
 LABEL about.summary="lightweight, fast and flexible NGS variant annotation tool"

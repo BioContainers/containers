@@ -1,11 +1,11 @@
 ################## BASE IMAGE ######################
 
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 
-LABEL base_image="biocontainers:latest"
-LABEL version="2"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="3"
 LABEL software="bowtie"
 LABEL software.version="1.1.2"
 LABEL about.summary="an ultrafast memory-efficient short read aligner"

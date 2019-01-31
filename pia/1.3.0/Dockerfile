@@ -1,9 +1,9 @@
 ################## BASE IMAGE ######################
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:latest"
-LABEL version="1"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="2"
 LABEL software="PIA - Protein Inference Algorithms"
 LABEL software.version="1.3.0"
 LABEL about.summary="Compile PIA XML files and run analysis pipelines for protein inference with this image"
@@ -23,14 +23,16 @@ ENV USER_HOME /home/biodocker
 ENV PIA_PATH /home/biodocker/pia
 ENV PIA_JAR $PIA_PATH/pia-1.3.0.jar
 
+USER root
+COPY ./runpia.sh $USER_HOME/bin/
+RUN chmod +x $USER_HOME/bin/runpia.sh
+
 USER biodocker
 
 RUN set -x \
   && wget $URL/$ZIP_FILE -O $USER_HOME/$ZIP_FILE \
   && unzip $USER_HOME/$ZIP_FILE -d $PIA_PATH \
   && rm $USER_HOME/$ZIP_FILE
-
-COPY ./runpia.sh $USER_HOME/bin/
 
 WORKDIR /data/
 

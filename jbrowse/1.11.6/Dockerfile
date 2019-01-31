@@ -1,11 +1,11 @@
 ############################### Dockerfile ##################################
 
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################################### Metadata ################################
 
-LABEL base_image="biocontainers:latest"
-LABEL version="1"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="2"
 LABEL software="jbrowse"
 LABEL software.version="1.11.6"
 LABEL about.summary="JBrowse is a fast, embeddable genome browser built completely with JavaScript and HTML5, with optional run-once data formatting tools written in Perl."

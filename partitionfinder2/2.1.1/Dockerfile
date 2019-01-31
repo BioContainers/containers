@@ -1,9 +1,9 @@
 ################## BASE IMAGE ######################
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:latest"
-LABEL version="1"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="2"
 LABEL software="partitionfinder2"
 LABEL software.version="2.1.1"
 LABEL about.summary="PartitionFinder 2: program for simultaneously choosing partitioning schemes and models of molecular evolution for phylogenetic analyses of DNA, protein, and morphological data"

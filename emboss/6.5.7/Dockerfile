@@ -1,9 +1,9 @@
 ################## BASE IMAGE ######################
-FROM biocontainers/biocontainers:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:latest"
-LABEL version="1"
+LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL version="2"
 LABEL software="emboss"
 LABEL software.version="6.5.7"
 LABEL about.summary="software analysis package"
