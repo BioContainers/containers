@@ -16,4 +16,5 @@ gen
 
 *.o
 .idea/
+.DS*
 
