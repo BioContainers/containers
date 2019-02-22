@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="3"
+LABEL version="1"
 LABEL software="CPAT"
 LABEL software.version="1.2.4"
 LABEL about.summary="Coding Potential Assessment Tool"
