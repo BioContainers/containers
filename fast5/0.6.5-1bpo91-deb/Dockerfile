@@ -16,5 +16,5 @@ LABEL    software="fast5" \
 
 USER root
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y fast5 && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
+RUN apt-get update && apt-get install -t stretch-backports -y fast5 && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
 USER biodocker
