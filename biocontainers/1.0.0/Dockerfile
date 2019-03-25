@@ -54,7 +54,6 @@ RUN apt-get clean all && \
         libxext6        \
         libsm6          \
         libxrender1     \
-        git             \
         mercurial       \
         subversion      \
         zlib1g-dev &&   \
