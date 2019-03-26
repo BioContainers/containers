@@ -3,9 +3,9 @@ FROM alpine:3.9.2
 
 ################## METADATA ######################
 LABEL base_image="alpine:3.9.2"
-LABEL version="4"
+LABEL version="1"
 LABEL software="biocontainers"
-LABEL software.version="1.0.0+alpine"
+LABEL software.version="1.0.0_alpine"
 LABEL about.summary="Base image for BioContainers based on Alpine Linux"
 LABEL about.home="http://biocontainers.pro"
 LABEL about.documentation="https://github.com/BioContainers/specs/wiki"
