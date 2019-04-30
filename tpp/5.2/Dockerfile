@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.1.0_cv1"
 LABEL version="1"
-LABEL software="TPP"
+LABEL software="tpp"
 LABEL software.version="5.2"
 LABEL about.summary="a collection of integrated tools for MS/MS proteomics"
 LABEL about.home="http://tppms.org/"
