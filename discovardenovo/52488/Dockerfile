@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="discovardenovo"
 LABEL software.version="52488"
 LABEL about.summary="Genome variant discovery through assembly"
@@ -12,6 +12,7 @@ LABEL about.documentation="http://www.broadinstitute.org/software/discovar/blog/
 LABEL about.license_file="ftp://ftp.broadinstitute.org/pub/crd/Discovar/LICENSE"
 LABEL extra.identifiers.biotools="discovar_de_novo"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="discovardenovo"
 
 
 ################## INSTALLATION ######################
@@ -61,7 +62,7 @@ USER biodocker
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["discovardenovo"]
+# CMD ["discovardenovo"]
 
 ##################### INSTALLATION END #####################
 
