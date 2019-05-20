@@ -38,4 +38,4 @@ ENV PATH /home/biodocker/bin/ssaha2:$PATH
 
 WORKDIR /data/
 
-" CMD ["ssaha2"]
+# CMD ["ssaha2"]
