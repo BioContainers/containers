@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="4"
+LABEL version="5"
 LABEL software="TPMCalculator"
 LABEL software.version="0.0.1"
 LABEL about.summary="This program calculates the TPM (Transcript per Millions) values for the exons and introns from NGS RNA-Seq aligned reads (BAM files)"
@@ -11,6 +11,7 @@ LABEL about.home="https://github.com/ncbi/TPMCalculator"
 LABEL about.documentation="https://github.com/ncbi/TPMCalculator"
 LABEL about.license_file="https://github.com/ncbi/TPMCalculator/blob/master/LICENSE"
 LABEL about.tags="RNA-seq"
+LABEL extra.binaries="TPMCalculator"
 
 ################## MAINTAINER ######################
 MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>
@@ -46,4 +47,4 @@ RUN cd $DST && \
 
 WORKDIR /data/
 
-CMD ["TPMCalculator"]
+# CMD ["TPMCalculator"]
