@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 ################## METADATA ######################
 
 LABEL base_image="ubuntu:16.04"
-LABEL version="1"
+LABEL version="2"
 LABEL software="biocontainers"
 LABEL software.version="1.1.0"
 LABEL about.summary="Base image for BioDocker"
@@ -84,6 +84,6 @@ RUN conda upgrade conda
 VOLUME ["/data", "/config"]
 
 # Overwrite this with 'CMD []' in a dependent Dockerfile
-CMD ["/bin/bash"]
+# CMD ["/bin/bash"]
 
 WORKDIR /data
