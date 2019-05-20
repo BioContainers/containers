@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="3"
+LABEL version="4"
 LABEL software="bamtools"
 LABEL software.version="2.4.0"
 LABEL about.summary="C++ API & command-line toolkit for working with BAM data"
@@ -14,6 +14,7 @@ LABEL about.license_file="https://github.com/pezmaster31/bamtools/blob/master/LI
 LABEL about.license="SPDX:MIT"
 LABEL extra.identifiers.biotools="bamtools"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="bamtools"
 
 ################## MAINTAINER ######################
 
@@ -23,4 +24,4 @@ RUN conda install bamtools=2.4.0
 
 WORKDIR /data/
 
-CMD ["bamtools"]
+# CMD ["bamtools"]
