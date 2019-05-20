@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ######################## METADATA ###########################################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="gcta"
 LABEL software.version="1.24.7"
 LABEL about.summary="A tool for Genome-wide Complex Trait Analysis"
@@ -13,6 +13,7 @@ LABEL about.license_file="https://opensource.org/licenses/MIT"
 LABEL about.license="SPDX:MIT"
 LABEL about.tags="Genomics"
 LABEL about.provides="gcta 1.24.7"
+LABEL extra.binaries="gcta64"
 
 ################## BEGIN INSTALLATION ######################
 
@@ -28,7 +29,7 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["gcta64"]
+# CMD ["gcta64"]
 
 ##################### INSTALLATION END #####################
 
