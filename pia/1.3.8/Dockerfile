@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:08252016-4
 
 # Metadata
 LABEL base.image="biocontainers:08252016-4" \
-  version="1" \
+  version="2" \
   software="PIA - Protein Inference Algorithms" \
   software.version="1.3.8" \
   about.summary="Compile PIA XML files and run analysis pipelines for protein inference with this image" \
@@ -13,6 +13,7 @@ LABEL base.image="biocontainers:08252016-4" \
   about.license="three-clause BSD license" \
   about.license_file="https://raw.githubusercontent.com/mpc-bioinformatics/pia/master/LICENSE" \
   extra.identifiers.biotools="pia" \
+  extra.binaries="runpia.sh"
   about.tags="Proteomics"
 
 # Maintainer
@@ -37,4 +38,4 @@ RUN set -x \
 
 WORKDIR /data/
 
-ENTRYPOINT ["runpia.sh"]
+# ENTRYPOINT ["runpia.sh"]
