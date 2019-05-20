@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="velvet"
 LABEL software.version="1.2.10"
 LABEL about.summary="Short read de novo assembler using de Bruijn graphs"
@@ -13,6 +13,7 @@ LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
 LABEL extra.identifiers.biotools="velvet"
+LABEL extra.binaries="velvetg"
 
 ENV ZIP=velvet_1.2.10.tgz
 ENV URL=https://github.com/BioDocker/software-archive/releases/download/velvet/
@@ -31,7 +32,7 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["velvetg"]
+# CMD ["velvetg"]
 
 ##################### INSTALLATION END #####################
 
