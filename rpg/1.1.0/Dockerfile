@@ -10,8 +10,7 @@ LABEL about.summary="RPG is a software dedicated to predict proteases-induced cl
 LABEL about.home="https://gitlab.pasteur.fr/nmaillet/rpg"
 LABEL about.documentation="https://rapid-peptide-generator.readthedocs.io"
 LABEL about.license_file="https://gitlab.pasteur.fr/nmaillet/rpg/blob/master/LICENSE"
-LABEL about.license="GNU GPLv3"
-LABEL extra.identifiers.biotools="rpg"
+LABEL about.license="GPL-3.0-or-later"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
