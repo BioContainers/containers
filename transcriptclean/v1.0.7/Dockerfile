@@ -10,7 +10,7 @@ LABEL about.summary="TranscriptClean is a Python program that corrects mismatche
 LABEL about.home="https://github.com/dewyman/TranscriptClean"
 LABEL about.documentation="https://github.com/dewyman/TranscriptClean/blob/master/README.md"
 LABEL about.license_file="https://github.com/dewyman/TranscriptClean/blob/master/LICENSE.md"
-LABEL about.license="MIT License"
+LABEL about.license="MIT"
 LABEL about.tags="Transcriptomics"
 
 ################## MAINTAINER ##################
