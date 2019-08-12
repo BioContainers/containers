@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv5
 ################## METADATA ##################
 LABEL base_image="biocontainers:v1.0.0_cv5"
 LABEL version="1"
-LABEL software="TranscriptClean"
+LABEL software="transcriptclean"
 LABEL software.version="1.0.7"
 LABEL about.summary="TranscriptClean is a Python program that corrects mismatches, microindels, and noncanonical splice junctions in long reads that have been mapped to the genome."
 LABEL about.home="https://github.com/dewyman/TranscriptClean"
