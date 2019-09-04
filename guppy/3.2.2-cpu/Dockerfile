@@ -7,7 +7,6 @@ LABEL    software="guppy-cpu" \
     about.home="https://community.nanoporetech.com/downloads" \
     software.version="3.2.2" \ 
     version="1" \ 
-    extra.identifiers.biotools="guppy" \ 
     about.license="custom, see /usr/share/doc/ont-guppy-cpu/copyright" \ 
     about.license_file="/usr/share/doc/ont-guppy-cpu/copyright" \ 
     extra.binaries="/usr/bin/guppy_aligner,/usr/bin/guppy_barcoder,/usr/bin/guppy_basecall_server,/usr/bin/guppy_basecaller,/usr/bin/guppy_basecaller_1d2" \ 
