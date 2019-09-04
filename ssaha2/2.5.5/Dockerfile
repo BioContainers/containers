@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################## METADATA ######################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="ssaha2"
 LABEL software.version="2.5.5"
 LABEL about.summary="SSAHA2 maps DNA sequencing reads onto a genomic reference sequence using a combination of word hashing and dynamic programming"
@@ -15,6 +15,7 @@ LABEL about.license_file="http://www.sanger.ac.uk/science/tools/ssaha2-0"
 LABEL about.license="SPDX:GPL-3.0"
 LABEL extra.identifiers.biotools="SSAHA2"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="ssaha2"
 
 ################## MAINTAINER ######################
 
@@ -37,4 +38,4 @@ ENV PATH /home/biodocker/bin/ssaha2:$PATH
 
 WORKDIR /data/
 
-CMD ["ssaha2"]
+# CMD ["ssaha2"]

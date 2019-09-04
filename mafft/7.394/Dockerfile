@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="mafft"
 LABEL software.version="7.394"
 LABEL about.summary="Multiple alignment program for amino acid or nucleotide sequences"
@@ -13,6 +13,7 @@ LABEL about.license_file="https://mafft.cbrc.jp/alignment/software/license.txt"
 LABEL about.license="SPDX:Custom"
 LABEL extra.identifiers.biotools="MAFFT_CBRC"
 LABEL about.tags="Genomics"
+LABEL extra.binarie="mafft"
 
 ################## MAINTAINER ######################
 
@@ -43,4 +44,4 @@ ENV PATH /home/biodocker/bin/mafft/extensions:$PATH
 
 WORKDIR /data/
 
-CMD ["mafft"]
+# CMD ["mafft"]

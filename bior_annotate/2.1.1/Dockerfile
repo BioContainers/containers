@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ############################# METADATA ######################################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="1"
+LABEL version="2"
 LABEL software="BioR annotate"
 LABEL software.version="2.1.1"
 LABEL about.summary="BIOR (Biological Reference Repository) is a rapid, flexible system for genomic annotation"
@@ -165,7 +165,7 @@ ENV PATH=$PATH:/home/biodocker/bin/annnotate/scripts/
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["bash"]
+# CMD ["bash"]
 
 ##################### INSTALLATION END #####################
 

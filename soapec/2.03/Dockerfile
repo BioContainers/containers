@@ -2,7 +2,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="soapec"
 LABEL software.version="2.03"
 LABEL about.summary="A correction tool for SOAPdenovo"
@@ -11,6 +11,7 @@ LABEL about.documentation="http://soap.genomics.org.cn/soapdenovo.html"
 LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html"
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="Corrector_HA"
 
 ################## BEGIN INSTALLATION ######################
 
@@ -31,7 +32,7 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["Corrector_HA"]
+# CMD ["Corrector_HA"]
 
 ##################### INSTALLATION END #####################
 

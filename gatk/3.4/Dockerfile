@@ -1,23 +1,21 @@
 ############################## Dockerfile ###################################
 
-FROM biocontainers/biocontainers:latest
+FROM java:7
 
 ###################################### METADATA ##############################
 
-LABEL base_image="biocontainers:latest"
-LABEL version="1"
-LABEL software="gatk"
-LABEL software.version="3.4"
-LABEL about.summary="The Genome Analysis Toolkit or GATK is a software package developed at the Broad Institute to analyze high-throughput sequencing data."
-LABEL about.home="https://www.broadinstitute.org/gatk/|https://github.com/broadgsa/gatk-protected/"
-LABEL about.license_file="https://github.com/broadgsa/gatk-protected/blob/master/licensing/protected_license.txt"
-LABEL about.license="SPDX:BSD-3-Clause"
-LABEL about.tags="Genomics"
-LABEL extra.identifiers.biotools="gatk"
-
-LABEL about.provides="gatk 3.4|samtools 1.2|bwakit 0.7.12|picard tools 1.139"
-
-FROM java:7
+LABEL base_image="biocontainers:latest" \
+  version="2" \
+  software="gatk" \
+  software.version="3.4" \
+  about.summary="The Genome Analysis Toolkit or GATK is a software package developed at the Broad Institute to analyze high-throughput sequencing data." \
+  about.home="https://www.broadinstitute.org/gatk/|https://github.com/broadgsa/gatk-protected/" \
+  about.license_file="https://github.com/broadgsa/gatk-protected/blob/master/licensing/protected_license.txt" \
+  about.license="SPDX:BSD-3-Clause" \
+  about.tags="Genomics" \
+  extra.identifiers.biotools="gatk" \
+  extra.binaries="GenomeAnalysisTK" \
+  about.provides="gatk 3.4|samtools 1.2|bwakit 0.7.12|picard tools 1.139"
 
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
@@ -158,7 +156,7 @@ VOLUME ["/data", "/config"]
 
 
 
-CMD ["GenomeAnalysisTK"]
+# CMD ["GenomeAnalysisTK"]
 
 ##################### INSTALLATION END #####################
 

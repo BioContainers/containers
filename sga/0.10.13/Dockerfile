@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################## METADATA ######################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="sga"
 LABEL software.version="0.10.13"
 LABEL about.summary="De novo sequence assembler using string graphs"
@@ -14,6 +14,7 @@ LABEL about.license_file="https://github.com/jts/sga/blob/master/src/COPYING"
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
 LABEL extra.identifiers.biotools="sga"
+LABEL extra.binaries="sga"
 
 ################## INSTALLATION ######################
 
@@ -112,7 +113,7 @@ USER biodocker
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["sga"]
+# CMD ["sga"]
 
 ##################### INSTALLATION END #####################
 

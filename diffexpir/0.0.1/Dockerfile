@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################## METADATA ######################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="4"
+LABEL version="5"
 LABEL software="diffexpir"
 LABEL software.version="0.0.1"
 LABEL about.summary="Differentially expressed intron retention"
@@ -14,6 +14,7 @@ LABEL about.documentation="https://github.com/r78v10a07/DiffExpIR"
 LABEL about.license_file="https://github.com/r78v10a07/DiffExpIR"
 LABEL about.license="SPDX:MIT"
 LABEL about.tags="RNA-seq"
+LABEL extra.binaries="diffexpIR"
 
 ################## MAINTAINER ######################
 MAINTAINER Roberto Vera Alvarez <r78v10a07@gmail.com>
@@ -48,4 +49,4 @@ RUN cd $HOME && \
 
 WORKDIR /data/
 
-CMD ["diffexpIR"]
+# CMD ["diffexpIR"]

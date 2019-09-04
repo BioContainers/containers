@@ -16,6 +16,7 @@ LABEL about.license_file="https://github.com/10XGenomics/longranger/blob/master/
 LABEL about.license="AGPLv2"
 LABEL extra.identifiers.biotools="longranger"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="longranger"
 
 ################## MAINTAINER ######################
 #MAINTAINER Roman Valls Guimera <brainstorm@nopcode.org> # Deprecated syntax, https://biocontainer.pro docs must be updated
@@ -42,4 +43,4 @@ WORKDIR /data
 
 ENV PATH "$HOME"/bin:"$PATH"
 
-ENTRYPOINT [ "longranger" ]
+# ENTRYPOINT [ "longranger" ]

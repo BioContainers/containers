@@ -3,7 +3,7 @@ FROM ubuntu:xenial
 
 # Metadata
 LABEL base_image="ubuntu:xenial" \
-    version="1" \
+    version="3" \
     software="danpos" \
     software.version="2.2.2" \
     about.summary="A toolkit for Dynamic Analysis of Nucleosome and Protein Occupancy by Sequencing" \
@@ -12,6 +12,7 @@ LABEL base_image="ubuntu:xenial" \
     about.license="GPL-3.0" \
     about.license_file="http://www.gnu.org/licenses/gpl-3.0.txt" \
     extra.identifier.biotools="https://bio.tools/danpos" \
+    extra.binaries="danpos.py" \
     about.tags="nucleosome"
 
 MAINTAINER Nicholas Samuel Hill <nicholas.samuel.hill@gmail.com>
@@ -43,6 +44,6 @@ RUN wget http://lilab.research.bcm.edu/dldcc-web/lilab/kaifuc/danpos/release/dan
   cd /root && \
   rm -rf danpos-2.2.2.tgz danpos-2.2.2
   
-ENTRYPOINT ["danpos.py"]
+# ENTRYPOINT ["danpos.py"]
 
-CMD ["-h"]
+# CMD ["-h"]

@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################## METADATA ######################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="bowtie2"
 LABEL software.version="2.2.9"
 LABEL about.summary="an ultrafast memory-efficient short read aligner"
@@ -15,6 +15,7 @@ LABEL about.license_file="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
 LABEL about.license="SPDX:Artistic-2.0"
 LABEL extra.identifiers.biotools="bowtie2"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="bowtie2"
 
 ################## MAINTAINER ######################
 MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
@@ -34,4 +35,4 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
 
 WORKDIR /data
 
-CMD ["bowtie2"]
+# CMD ["bowtie2"]

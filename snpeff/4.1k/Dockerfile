@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################## METADATA ######################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="snpeff"
 LABEL software.version="4.1k"
 LABEL about.summary="Genetic variant annotation and effect prediction toolbox"
@@ -13,6 +13,7 @@ LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.h
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
 LABEL extra.identifiers.biotools="snpeff"
+LABEL extra.binaries="snpeff"
 
 
 ################## INSTALLATION ######################
@@ -36,7 +37,7 @@ ENV PATH=$PATH:/home/biodocker/bin/snpEff/scripts:/home/biodocker/bin/snpEff/scr
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["snpeff"]
+# CMD ["snpeff"]
 
 ##################### INSTALLATION END #####################
 

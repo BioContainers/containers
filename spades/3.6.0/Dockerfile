@@ -2,7 +2,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="spades"
 LABEL software.version="3.6.0"
 LABEL about.summary="Tools (written in C using htslib) for manipulating next-generation sequencing data"
@@ -12,6 +12,7 @@ LABEL about.license_file="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.h
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
 LABEL extra.identifiers.biotools="Spades"
+LABEL extra.binaries="bwa-spades"
 
 
 ################## BEGIN INSTALLATION ######################
@@ -32,7 +33,7 @@ RUN wget $URL/$ZIP -O $DST/$ZIP && \
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["bwa-spades"]
+# CMD ["bwa-spades"]
 
 ##################### INSTALLATION END #####################
 

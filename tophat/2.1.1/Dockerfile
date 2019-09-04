@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################################### METADATA ######################  ######################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="tophat"
 LABEL software.version="2.1.1"
 LABEL about.summary="TopHat is a fast splice junction mapper for RNA-Seq reads"
@@ -13,6 +13,7 @@ LABEL about.license_file="https://opensource.org/licenses/Artistic-2.0"
 LABEL about.license="SPDX:Artistic-2.0"
 LABEL about.tags="Genomics, Transcriptomics"
 LABEL extra.identifiers.biotools="tophat"
+LABEL extra.binaries="tophat"
 
 ################## BEGIN INSTALLATION ######################
 
@@ -31,7 +32,7 @@ RUN wget $URL/$TAR -O $DST/$TAR && \
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["tophat"]
+# CMD ["tophat"]
 
 ##################### INSTALLATION END #####################
 

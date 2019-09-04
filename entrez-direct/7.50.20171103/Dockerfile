@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="4"
+LABEL version="5"
 LABEL software="entrez-direct"
 LABEL software.version="7.50.20171103"
 LABEL about.summary="Entrez Direct (EDirect) is an advanced method for accessing the NCBI's set of interconnected Entrez databases"
@@ -42,4 +42,4 @@ RUN cd $DST && \
 
 WORKDIR /data/
 
-CMD ["esearch"]
+# CMD ["esearch"]
