@@ -1,6 +1,7 @@
 # Set the base image to Ubuntu 16.04
 FROM ubuntu:16.04
 LABEL    software="guppy-cpu" \ 
+    base_imnage="ubuntu:16.04" \
     container="guppy" \ 
     about.summary="Basecalling and demultiplexing for Oxford Nanopore reads, CPU version" \ 
     about.home="https://community.nanoporetech.com/downloads" \
@@ -11,6 +12,8 @@ LABEL    software="guppy-cpu" \
     about.license_file="/usr/share/doc/ont-guppy-cpu/copyright" \ 
     extra.binaries="/usr/bin/guppy_aligner,/usr/bin/guppy_barcoder,/usr/bin/guppy_basecall_server,/usr/bin/guppy_basecaller,/usr/bin/guppy_basecaller_1d2" \ 
     about.tags=""
+
+MAINTAINER Adam Giess <adamgiess81@gmail.com>
 
 ARG PACKAGE_VERSION=3.2.2
 ARG BUILD_PACKAGES="wget apt-transport-https"
