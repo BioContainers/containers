@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv5
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv5"
-LABEL version="1"
+LABEL version="2"
 LABEL software="talon"
 LABEL software.version="4.2"
 LABEL about.summary="TALON is a Python program for identifying known and novel genes/isoforms in long read transcriptome data sets."
@@ -24,6 +24,7 @@ SHELL ["/bin/bash", "-c"]
 RUN apt-get update && \
     apt-get install -y python3 && \
     apt-get install -y python3-pip && \
+    pip install pathlib==1.0.1 && \
     pip3 install pathlib2==2.3.4 && \
     pip3 install pandas==0.25.1 && \
 ################## INSTALL TALON ##################
@@ -45,6 +46,7 @@ RUN apt-get update && \
     sed -i '1i#!/usr/bin/env python3' /home/biodocker/bin/TALON-${ZIP:1}/post-TALON_tools/map_antisense_genes_to_sense.py && \
     sed -i '1i#!/usr/bin/env python3' /home/biodocker/bin/TALON-${ZIP:1}/post-TALON_tools/summarize_datasets.py && \
     sed -i '1i#!/usr/bin/env python3' /home/biodocker/bin/TALON-${ZIP:1}/post-TALON_tools/create_GTF_abundance_from_database.py && \
+    sed -i '1i#!/usr/bin/env python3' /home/biodocker/bin/TALON-${ZIP:1}/reformat_gtf.py && \
 ################## MAKE THE TOOL SCRIPTS AVAILABLE THROUGHOUT THE CONTAINER ##################
     ln -s /home/biodocker/bin/TALON-${ZIP:1}/talon.py /usr/bin/talon && \
     ln -s /home/biodocker/bin/TALON-${ZIP:1}/initialize_talon_database.py /usr/bin/initialize_talon_database && \
@@ -54,6 +56,7 @@ RUN apt-get update && \
     mv /home/biodocker/bin/TALON-${ZIP:1}/post-TALON_tools/summarize_datasets.py /home/biodocker/bin/TALON-${ZIP:1}/ && \
     ln -s /home/biodocker/bin/TALON-${ZIP:1}/summarize_datasets.py /usr/bin/summarize_datasets && \
     ln -s /home/biodocker/bin/TALON-${ZIP:1}/post-TALON_tools/create_GTF_abundance_from_database.py /usr/bin/create_GTF_abundance_from_database && \
+    ln -s /home/biodocker/bin/TALON-${ZIP:1}/reformat_gtf.py /usr/bin/reformat_gtf && \
 ################## - ##################
     apt-get update && \
     apt-get clean && \
@@ -72,3 +75,4 @@ WORKDIR /data/
 # map_antisense_genes_to_sense.py --> map_antisense_genes_to_sense
 # summarize_datasets.py --> summarize_datasets
 # create_GTF_abundance_from_database.py --> create_GTF_abundance_from_database
+# reformat_gtf.py --> reformat_gtf
