@@ -32,3 +32,6 @@ RUN apt-get clean all && \
     apt-get clean all && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+################## TOOL INFO ##################
+# talon_generate_report not working due to R dependencies.
