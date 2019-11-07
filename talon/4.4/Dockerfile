@@ -24,6 +24,7 @@ RUN apt-get clean all && \
     apt-get install -y libbz2-dev && \
     apt-get install -y liblzma-dev && \
     apt-get install -y git && \
+    apt-get install -y bedtools && \
     pip install pybedtools==0.8.0 && \
     pip install pandas==0.25.3 && \
     pip install numpy==1.17.3 && \
