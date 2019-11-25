@@ -12,7 +12,9 @@ LABEL about.summary="Prediction of copy numbers and allelic content using deep-s
 LABEL about.home="http://boevalab.inf.ethz.ch/FREEC/index.html"
 LABEL about.documentation="http://boevalab.inf.ethz.ch/FREEC/index.html"
 LABEL extra.identifiers.biotools="FREEC"
+LABEL about.license="GPL-2+"
 LABEL about.tags="Genomics"
+LABEL container="control-freec"
 
 ################## MAINTAINER ######################
 
