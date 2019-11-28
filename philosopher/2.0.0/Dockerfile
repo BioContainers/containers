@@ -19,8 +19,8 @@ MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 USER root
 RUN apt-get update && apt-get install -y wget
 RUN ZIP=philosopher_linux_amd64.deb && \
-  wget https://github.com/Nesvilab/philosopher/releases/download/v2.0.0/$ZIP -O /tmp/$ZIP && dpkg -i /tmp/$ZIP
-RUN rm -rfv /tmp/$ZIP
+  wget https://github.com/Nesvilab/philosopher/releases/download/v2.0.0/$ZIP -O /tmp/$ZIP && dpkg -i /tmp/$ZIP && rm -rfv /tmp/$ZIP && \
+  apt-get remove -y --purge wget && apt-get -y autoremove && apt-get clean && apt-get purge
 
 USER biodocker
 
