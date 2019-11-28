@@ -2,9 +2,9 @@
 FROM biocontainers/biocontainers:debian-stretch-backports
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:v1.0.0_cv4"
+LABEL base_image="biocontainers/biocontainers:debian-stretch-backports"
 LABEL version="2.0.0"
-LABEL software="Philosopher"
+LABEL software="philosopher"
 LABEL software.version="2.0.0"
 LABEL about.summary="A complete toolkit for shotgun proteomics data analysis"
 LABEL about.home="https://philosopher.nesvilab.org"
