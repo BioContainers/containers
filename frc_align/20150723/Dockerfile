@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="frc_align"
 LABEL software.version="20150723"
 LABEL about.summary="Computes FRC from SAM/BAM file and not from afg files"
@@ -13,6 +13,7 @@ LABEL about.documentation="https://github.com/vezzi/FRC_align"
 LABEL about.license_file="https://github.com/vezzi/FRC_align/blob/master/COPYING"
 LABEL about.license="SPDX:GPL-3.0-only"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="FRC"
 
 ################## INSTALLATION ######################
 
@@ -51,7 +52,7 @@ USER biodocker
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["FRC"]
+# CMD ["FRC"]
 
 ##################### INSTALLATION END #####################
 

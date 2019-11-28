@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Bertrand Neron <bneron@pasteur.fr>
 
-LABEL version="1" \
+LABEL version="2" \
     software="coregenebuilder" \ 
     software.version="1.0" \ 
     about.summary="CoreGeneBuilder can be used to extract a core genome (or a persistent genome) from a given set of bacterial genomes." \ 
@@ -14,7 +14,8 @@ LABEL version="1" \
     ANNOT.EDAM_Operation="['operation_2995', 'operation_0289', 'operation_0362', 'operation_0291']" \
     ANNOT.EDAM_Topic="['topic_0623']" \
     ANNOT.Requires="[blast+, muscle, biopython , R, prodigal, andi, ecamber, opscan, fasta2agp]" \
-    ANNOT.Provides="['coregenebuilder']"
+    ANNOT.Provides="['coregenebuilder']" \
+    extra.binaries="coregenebuilder"
       
 RUN apt-get -y update && \
     apt-get install -y --no-install-recommends \
@@ -46,7 +47,7 @@ WORKDIR /root/mydisk
 
 USER cgb
 
-ENTRYPOINT ["coregenebuilder"]
+# ENTRYPOINT ["coregenebuilder"]
 
-CMD ["-h"]
+# CMD ["-h"]
 

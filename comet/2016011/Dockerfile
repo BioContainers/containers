@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="4"
+LABEL version="5"
 LABEL software="Comet"
 LABEL software.version="2016011"
 LABEL about.summary="an open source tandem mass spectrometry sequence database search tool"
@@ -13,6 +13,7 @@ LABEL about.license_file="http://comet-ms.sourceforge.net/"
 LABEL about.license="SPDX:Apache-2.0"
 LABEL extra.identifiers.biotools="comet"
 LABEL about.tags="Proteomics"
+LABEL extra.binaries="comet"
 
 ################## MAINTAINER ######################
 MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
@@ -33,4 +34,4 @@ ENV PATH /home/biodocker/bin/Comet:$PATH
 
 WORKDIR /data/
 
-CMD ["comet"]
+# CMD ["comet"]

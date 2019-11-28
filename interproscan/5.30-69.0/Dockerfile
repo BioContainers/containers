@@ -46,14 +46,15 @@ MAINTAINER Ola Tarkowska (EMBL-EBI) <olat@ebi.ac.uk>
 LABEL  base_image="ubuntu:16.04" \
        software="interproscan" \
        software.version="5.30-69.0" \
-       version="2" \
+       version="3" \
        about.summary="Scan sequences against the InterPro protein signature databases." \
        about.home="https://www.ebi.ac.uk/interpro/interproscan.html" \
        about.license="Apache-2.0" \
        about.license_file="https://github.com/ebi-pf-team/interproscan/blob/dev/LICENSE" \
        about.documentation="https://github.com/ebi-pf-team/interproscan/wiki" \
        about.tags="biology::nucleic, biology::protein, field::biology, field::biology:bioinformatics, interface::commandline, role::program,:biological-sequence" \
-       extra.identifier.biotools="interproscan_4"
+       extra.identifier.biotools="interproscan_4" \
+       extra.binaries="interproscan.sh"
 
 
 RUN apt-get update && \
@@ -73,7 +74,7 @@ COPY --from=buildcore /opt/interproscan /opt/interproscan
 
 WORKDIR /opt/interproscan
 
-CMD ["/bin/bash", "interproscan.sh"]
+# CMD ["/bin/bash", "interproscan.sh"]
 
 
 ##################### INSTALLATION END #####################

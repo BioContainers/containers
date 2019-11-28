@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################################# METADATA ###################################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="htslib"
 LABEL software.version="1.2.1"
 LABEL about.summary="C library for high-throughput sequencing data formats"
@@ -15,6 +15,7 @@ LABEL about.license_file="https://github.com/samtools/htslib/blob/develop/LICENS
 LABEL about.license="SPDX:MIT"
 LABEL about.tags="Genomics"
 LABEL extra.identifiers.biotools="HTSlib"
+LABEL extra.binaries="tabix"
 
 ################## BEGIN INSTALLATION ######################
 
@@ -42,7 +43,7 @@ USER biodocker
 WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
-CMD ["tabix"]
+# CMD ["tabix"]
 
 ##################### INSTALLATION END #####################
 

@@ -1,7 +1,7 @@
 FROM biocontainers/biocontainers:08252016-4
 
 LABEL base_image="biocontainers:08252016-4"
-LABEL version="1"
+LABEL version="2"
 LABEL software="progressiveCactus"
 LABEL software.version="0.1"
 LABEL about.summary="multiple whole-genome alignment package"
@@ -10,6 +10,7 @@ LABEL about.documentation="https://github.com/glennhickey/progressiveCactus"
 LABEL about.license="SPDX:GPL-3.0"
 LABEL about.license_file="https://github.com/glennhickey/progressiveCactus/blob/master/LICENSE"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="runProgressiveCactus.sh"
 
 MAINTAINER Ricky Lim <rlim.email@gmail.com>
 
@@ -39,5 +40,5 @@ ENV PATH /home/biodocker/bin/progressiveCactus/bin:$PATH
 
 WORKDIR /data/
 
-CMD ["runProgressiveCactus.sh", "-h"]
+# CMD ["runProgressiveCactus.sh", "-h"]
 

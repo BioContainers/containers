@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="telescoper"
 LABEL software.version="1.0.0"
 LABEL about.summary="De novo Assembly of Highly Repetitive Regions"
@@ -13,6 +13,7 @@ LABEL about.license_file="https://sourceforge.net/projects/telescoper/files/LICE
 LABEL extra.identifiers.biotools="Telescoper"
 LABEL about.license="SPDX:Custom"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="telescoper"
 
 ################## MAINTAINER ######################
 
@@ -45,4 +46,4 @@ ENV PATH /home/biodocker/bin/telescoper:$PATH
 
 WORKDIR /data/
 
-CMD ["telescoper"]
+# CMD ["telescoper"]

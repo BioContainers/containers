@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="partitionfinder2"
 LABEL software.version="2.1.1"
 LABEL about.summary="PartitionFinder 2: program for simultaneously choosing partitioning schemes and models of molecular evolution for phylogenetic analyses of DNA, protein, and morphological data"
@@ -12,6 +12,7 @@ LABEL about.documentation="https://github.com/brettc/partitionfinder/blob/master
 LABEL about.license_file="https://github.com/brettc/partitionfinder/blob/master/LICENSE"
 LABEL about.license="SPDX:GPL-2.0-only"
 LABEL about.tags="Genomics"
+LABEL extra.binaries="partitionfinder2"
 
 ################## MAINTAINER ######################
 
@@ -47,4 +48,4 @@ ENV PATH /home/biodocker/bin/partitionfinder2:$PATH
 
 WORKDIR /data/
 
-CMD ["partitionfinder2"]
+# CMD ["partitionfinder2"]

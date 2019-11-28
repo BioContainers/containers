@@ -21,8 +21,6 @@ Wiki of the project   : https://github.com/BioContainers/specs/wiki
 
 Containers            : https://github.com/BioContainers/containers
 
-Containers Development: https://github.com/BioContainers/sandbox
-
 Email                 : biodockers@gmail.com
 
 License
@@ -54,7 +52,7 @@ Contents
 
 ### 1.1. What is BioContainers?
 
-The BioContainers project came from the idea of using the containers-based technologies such as [Docker](https://www.docker.com) or  [rkt](https://github.com/coreos/rkt) for bioinformatics software. Having a common and controllable environment for running software could help to deal with some of the current problems during software development and distribution. BioContainers is a community-driven project that provides the infrastructure and basic guidelines to create, manage and distribute bioinformatics containers with a special focus on omics fields such as proteomics, genomics, trascriptomics and metabolomics. The main containers already implemented in BioContainers (https://github.com/BioContainers/containers) are discussed in details including examples on how to use BioContainers. 
+The BioContainers project came from the idea of using the containers-based technologies such as [Docker](https://www.docker.com) or  [rkt](https://github.com/coreos/rkt) for bioinformatics software. Having a common and controllable environment for running software could help to deal with some of the current problems during software development and distribution. BioContainers is a community-driven project that provides the infrastructure and basic guidelines to create, manage and distribute bioinformatics containers with a special focus on omics fields such as proteomics, genomics, trascriptomics and metabolomics. The main containers already implemented in BioContainers (https://github.com/BioContainers/containers) are discussed in detail, including examples on how to use BioContainers. 
 The currently available BioContainers containers facilitate the usage, and reproducibility of software and algorithms. They can be integrated into more comprehensive bioinformatics pipelines and different architectures (local desktop, Cloud environments or HPC clusters). We also present the  guidelines and specifications on how to create new containers, and how to contribute to the BioContainers project.
 
 ### 1.2. Objectives and Goals
@@ -68,8 +66,8 @@ including the source and examples.
 used in combination with other containers and bioinformatics tools.
 
 * Define a complete infrastructure to develop, deploy and test new bioinformatics containers
-using continuous integration suites such as Travis Continuous Integration (https://travisci.
-org/), Shippable (https://app.shippable.com/) or manually built solutions.
+using continuous integration suites such as Travis Continuous Integration (https://travisci.org/), 
+Shippable (https://app.shippable.com/), or manually built solutions.
 
 * Provide support and help to the bioinformatics community to deploy new containers for researchers that do not have bioinformatics support.
 
@@ -98,19 +96,19 @@ Most of the time when a bioinformatics analysis is performed, several bioinforma
 
 BioContainers are listed in two main registries: 
 
-* [Docker Hub](https://hub.docker.com/u/biodckr/):  Docker based containers that can be user using the docker infrastructure. 
-* [QUAY Hub](https://quay.io/organization/biodckr): Docker and rkt based containers that can be used rkt infrastructure. 
+* [Docker Hub](https://hub.docker.com/u/biodckr/):  Docker-based containers that can use the docker infrastructure. 
+* [QUAY Hub](https://quay.io/organization/biodckr): Docker- and rkt-based containers that can use the rkt infrastructure. 
 
-A full documentation about how to use BioContainers to perform bioinformatics analysis please check the [Full Documentation](http://BioDocker.org/docs) 
+For a full documentation about how to use BioContainers to perform bioinformatics analysis, please check the [Full Documentation](http://BioDocker.org/docs) 
 
 ### 2.4. BioContainers Architecture 
 
-BioContainers is a community-driven project that allows bioinformatics to request, build and deploy bioinformatics tools using containers. The following figure present the 
+BioContainers is a community-driven project that allows bioinformatics to request, build and deploy bioinformatics tools using containers. The following figure presents the 
 general BioContainers workflow: 
 
 ![What is Container](https://github.com/BioContainers/specs/blob/master/imgs//workflow.png)
 
-The next sections explain in details the presented workflow: 
+The next sections explain in detail the presented workflow: 
  
  * (i) How to request a workflow
  * (ii) Use a BioContainer
@@ -119,14 +117,14 @@ The next sections explain in details the presented workflow:
 
 #### 2.4.1 How to Request a Container
  
-Users can request a container by opening an issue in the [sandbox repository] (http://github.com/BioContainers/sandbox/issues) `(In the previous workflow this is the first step performed by user henrik)`. The issue 
-should contains the name of the software, the url of the code or binary to be package and information about the software [see BioContainers specification](http://github.com/BioContainers/container-specs.md). When the containers 
-is deploy and fully functional, the issue will be close by the developer or the contributor to BioContainers. 
+Users can request a container by opening an issue in the [containers repository] (http://github.com/BioContainers/containers/issues) `(In the previous workflow this is the first step performed by user henrik)`. The issue 
+should contain the name of the software, the url of the code or binary to be package and information about the software [see BioContainers specification](http://github.com/BioContainers/container-specs.md). When the container 
+is deployed and fully functional, the issue will be close by the developer or the contributor to BioContainers. 
   
 #### 2.4.2 Use a BioContainer. 
 
-When a container is deploy and the developer close the issue in GitHub the user `(henrik)` received a notification that the container is ready.
-The user can then used [docker](http://www.docker.com) or [rkt](https://coreos.com/rkt/docs/latest/) to pull or fetch the corresponding container. 
+When a container is deployed and the developer closes the issue in GitHub, the user `(henrik)` receives a notification that the container is ready.
+The user can then use [docker](http://www.docker.com) or [rkt](https://coreos.com/rkt/docs/latest/) to pull or fetch the corresponding container. 
 
 
 3. Developing containers
@@ -143,11 +141,11 @@ Inside the central repository there is a list of softwares with docker recipes, 
 
 ### 3.2. What do I need to develop?
 
-BioContainers are based on Linux systems, so you will need a computer with Linux installed, you also will need the `docker` or `rkt` daemon and the software you want to containerize.
+BioContainers are based on Linux systems, so you will need a computer with Linux installed. You also will need the `docker` or `rkt` daemon and the software you want to containerize.
 
 ### 3.3. How to create a Docker based Biocontainer?
 
-Having all in hands now you need to create a Dockerfile. Dockerfiles are simple recipes to instruct the daemon on how to set an appropriate OS and how to download, manage, install and
+Now you need to create a Dockerfile. Dockerfiles are simple recipes to instruct the daemon on how to set an appropriate OS and how to download, manage, install and
 give access to the software inside.
 
 You can check the [Docker](https://docs.docker.com/reference/builder/) documentation for more information.
@@ -156,7 +154,7 @@ Once the container is ready you can get in touch with us so we can make the appr
 
 ### 3.3. How to create a rkt based Biocontainer?
 
-Having all in hands now you need to create a rkt. rkt containers are simple recipes to instruct the daemon on how to set an appropriate OS and how to download, manage, install and
+Now you need to create a rkt. rkt containers are simple recipes to instruct the daemon on how to set an appropriate OS and how to download, manage, install and
 give access to the software inside.
 
 You can check the [rkt](https://github.com/coreos/rkt/blob/master/Documentation/getting-started-guide.md) documentation for more information.
@@ -169,7 +167,7 @@ Once the container is ready you can get in touch with us so we can make the appr
 
 ### 4.1. Get involved
 
-Whether you want to make your own software available to others as a container, to just use them on your pipelines and analysis or just give opinions, you are most welcome. This is a community-driven project, that means everyone has a voice.
+Whether you want to make your own software available to others as a container, use them on your pipelines and analysis or just give opinions, you are most welcome. This is a community-driven project, that means everyone has a voice.
 
 Here are some general ideas:
 
