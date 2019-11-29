@@ -14,7 +14,7 @@ LABEL about.license="SPDX:GPL-3.0"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+MAINTAINER Yasset Perez-Riverol <yperez@ebi.ac.uk>
 
 USER root
 RUN apt-get update && apt-get install -y wget
