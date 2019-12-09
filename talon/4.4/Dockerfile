@@ -28,7 +28,7 @@ RUN apt-get clean all && \
     pip install pybedtools==0.8.0 && \
     pip install pandas==0.25.3 && \
     pip install numpy==1.17.3 && \
-    pip install git+https://github.com/dewyman/TALON.git@4.4 && \
+    pip install https://github.com/dewyman/TALON/archive/4.4.tar.gz && \
     apt-get update && \
     apt-get clean all && \
     apt-get purge && \
