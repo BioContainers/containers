@@ -7,7 +7,7 @@ LABEL    software="bowtie2" \
     about.home="http://bowtie-bio.sourceforge.net/bowtie2" \ 
     software.version="2.3.4.3-1-deb" \ 
     upstream.version="2.3.4.3" \ 
-    version="1" \ 
+    version="2" \ 
     extra.identifiers.biotools="bowtie2" \ 
     about.copyright=" 2009-2016 Ben Langmead, C. Trapnell, M. Pop, Steven L. Salzberg" \ 
     about.license="GPL-3.0+" \ 
@@ -17,5 +17,5 @@ LABEL    software="bowtie2" \
 
 USER root
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && (apt-get install -t buster-backports -y bowtie2 || apt-get install -y bowtie2) && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
+RUN apt-get update && apt-get install -y libsys-hostname-long-perl && (apt-get install -t buster-backports -y bowtie2 || apt-get install -y bowtie2) && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
 USER biodocker
