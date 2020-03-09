@@ -66,7 +66,7 @@ including the source and examples.
 used in combination with other containers and bioinformatics tools.
 
 * Define a complete infrastructure to develop, deploy and test new bioinformatics containers
-using continuous integration suites such as Travis Continuous Integration (https://travisci.org/), 
+using continuous integration suites such as Travis Continuous Integration (https://travis-ci.org/), 
 Shippable (https://app.shippable.com/), or manually built solutions.
 
 * Provide support and help to the bioinformatics community to deploy new containers for researchers that do not have bioinformatics support.
@@ -99,7 +99,7 @@ BioContainers are listed in two main registries:
 * [Docker Hub](https://hub.docker.com/u/biodckr/):  Docker-based containers that can use the docker infrastructure. 
 * [QUAY Hub](https://quay.io/organization/biodckr): Docker- and rkt-based containers that can use the rkt infrastructure. 
 
-For a full documentation about how to use BioContainers to perform bioinformatics analysis, please check the [Full Documentation](http://BioDocker.org/docs) 
+For a full documentation about how to use BioContainers to perform bioinformatics analysis, please check the [Full Documentation](https://biocontainers-edu.biocontainers.pro/en/latest/) 
 
 ### 2.4. BioContainers Architecture 
 
@@ -118,7 +118,7 @@ The next sections explain in detail the presented workflow:
 #### 2.4.1 How to Request a Container
  
 Users can request a container by opening an issue in the [containers repository] (http://github.com/BioContainers/containers/issues) `(In the previous workflow this is the first step performed by user henrik)`. The issue 
-should contain the name of the software, the url of the code or binary to be package and information about the software [see BioContainers specification](http://github.com/BioContainers/container-specs.md). When the container 
+should contain the name of the software, the url of the code or binary to be package and information about the software [see BioContainers specification](https://github.com/BioContainers/specs). When the container 
 is deployed and fully functional, the issue will be close by the developer or the contributor to BioContainers. 
   
 #### 2.4.2 Use a BioContainer. 
