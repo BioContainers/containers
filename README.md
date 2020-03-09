@@ -99,7 +99,7 @@ BioContainers are listed in two main registries:
 * [Docker Hub](https://hub.docker.com/u/biodckr/):  Docker-based containers that can use the docker infrastructure. 
 * [QUAY Hub](https://quay.io/organization/biodckr): Docker- and rkt-based containers that can use the rkt infrastructure. 
 
-For a full documentation about how to use BioContainers to perform bioinformatics analysis, please check the [Full Documentation](http://BioDocker.org/docs) 
+For a full documentation about how to use BioContainers to perform bioinformatics analysis, please check the [Full Documentation](https://biocontainers-edu.biocontainers.pro/en/latest/) 
 
 ### 2.4. BioContainers Architecture 
 
