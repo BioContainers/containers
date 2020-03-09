@@ -118,7 +118,7 @@ The next sections explain in detail the presented workflow:
 #### 2.4.1 How to Request a Container
  
 Users can request a container by opening an issue in the [containers repository] (http://github.com/BioContainers/containers/issues) `(In the previous workflow this is the first step performed by user henrik)`. The issue 
-should contain the name of the software, the url of the code or binary to be package and information about the software [see BioContainers specification](http://github.com/BioContainers/container-specs.md). When the container 
+should contain the name of the software, the url of the code or binary to be package and information about the software [see BioContainers specification](https://github.com/BioContainers/specs). When the container 
 is deployed and fully functional, the issue will be close by the developer or the contributor to BioContainers. 
   
 #### 2.4.2 Use a BioContainer. 
