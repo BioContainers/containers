@@ -66,7 +66,7 @@ including the source and examples.
 used in combination with other containers and bioinformatics tools.
 
 * Define a complete infrastructure to develop, deploy and test new bioinformatics containers
-using continuous integration suites such as Travis Continuous Integration (https://travisci.org/), 
+using continuous integration suites such as Travis Continuous Integration (https://travis-ci.org/), 
 Shippable (https://app.shippable.com/), or manually built solutions.
 
 * Provide support and help to the bioinformatics community to deploy new containers for researchers that do not have bioinformatics support.
