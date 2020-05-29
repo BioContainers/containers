@@ -3,6 +3,7 @@ FROM biocontainers/biocontainers:v1.1.0_cv2
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.1.0_cv2"
+LABEL version = "5"
 LABEL software="bwa"
 LABEL software.version="0.7.17"
 LABEL about.summary="Burrow-Wheeler Aligner for pairwise alignment between DNA sequences"
