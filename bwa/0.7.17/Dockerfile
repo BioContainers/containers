@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.1.0_cv2
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.1.0_cv2"
-LABEL version = "5"
+LABEL version="1"
 LABEL software="bwa"
 LABEL software.version="0.7.17"
 LABEL about.summary="Burrow-Wheeler Aligner for pairwise alignment between DNA sequences"
@@ -14,6 +14,7 @@ LABEL about.license="SPDX:GPL-3.0"
 LABEL extra.identifiers.biotools="bwa"
 LABEL about.tags="Genomics"
 LABEL extra.binaries="bwa"
+
 
 ################## MAINTAINER ######################
 MAINTAINER Alvin Chen <ychen@aperiomics.com>
