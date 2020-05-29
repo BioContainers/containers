@@ -5,14 +5,15 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ############################# METADATA ######################################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="3"
 LABEL software="BioR annotate"
+LABEL container="bior"
 LABEL software.version="2.1.1"
 LABEL about.summary="BIOR (Biological Reference Repository) is a rapid, flexible system for genomic annotation"
 LABEL about.home="http://www.well.ox.ac.uk/cava|https://github.com/Steven-N-Hart/bior_annotate|http://bioinformaticstools.mayo.edu/research/bior/|https://github.com/BioinformaticsToolsAtMayo|https://github.com/Steven-N-Hart/bior_annotate"
 LABEL about.tags="Genomics"
 LABEL about.provides="BioR 2.1.1|htslib 1.2.1|samtools 1.2|bedtools 2.25.0|pysam 0.8.3|cava full 1.1.1|snpEff"
-LABEL extra.identifiers.biotools="BIOR"
+LABEL extra.identifiers.biotools="bior"
 
 ################## BEGIN INSTALLATION ######################
 
