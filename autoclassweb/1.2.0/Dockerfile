@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 ################### METADATA #######################
 LABEL base_image="ubuntu:20.04"
 LABEL version="1"
-LABEL software="AutoClassWeb"
+LABEL software="autoclassweb"
 LABEL software.version="1.2.0"
 LABEL about.summary="A web app to run AutoClass C Bayesian clustering"
 LABEL about.home="https://github.com/pierrepo/autoclassweb"
