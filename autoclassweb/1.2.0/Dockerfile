@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 
 ################### METADATA #######################
 LABEL base_image="ubuntu:20.04"
-LABEL version="1"
+LABEL version="3"
 LABEL software="autoclassweb"
 LABEL software.version="1.2.0"
 LABEL about.summary="A web app to run AutoClass C Bayesian clustering"
@@ -11,8 +11,8 @@ LABEL about.home="https://github.com/pierrepo/autoclassweb"
 LABEL about.documentation="https://github.com/pierrepo/autoclassweb"
 LABEL about.license_file="https://github.com/pierrepo/autoclassweb/blob/master/LICENSE.txt"
 LABEL about.license="SPDX:BSD-3-Clause"
+LABEL extra.identifiers.biotools="autoclassweb"
 LABEL about.tags="Genomics Proteomics Omics"
-LABEL extra.binaries="bamtools"
 
 ################## MAINTAINER ######################
 LABEL maintainer="Pierre Poulain <pierre.poulain@cupnet.net>"
