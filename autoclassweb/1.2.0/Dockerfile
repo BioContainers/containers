@@ -11,7 +11,6 @@ LABEL about.home="https://github.com/pierrepo/autoclassweb"
 LABEL about.documentation="https://github.com/pierrepo/autoclassweb"
 LABEL about.license_file="https://github.com/pierrepo/autoclassweb/blob/master/LICENSE.txt"
 LABEL about.license="SPDX:BSD-3-Clause"
-LABEL extra.identifiers.biotools="autoclassweb"
 LABEL about.tags="Genomics Proteomics Omics"
 LABEL extra.binaries="bamtools"
 
