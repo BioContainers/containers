@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 
 ################### METADATA #######################
 LABEL base_image="ubuntu:20.04"
-LABEL version="3"
+LABEL version="4"
 LABEL software="autoclassweb"
 LABEL software.version="1.2.0"
 LABEL about.summary="A web app to run AutoClass C Bayesian clustering"
@@ -69,5 +69,4 @@ VOLUME /app/results
 EXPOSE 5000
 
 # Run the web app
-CMD ["gunicorn", "--config", "gunicorn.py", "flaskapp:app"]
-
+#CMD ["gunicorn", "--config", "gunicorn.py", "flaskapp:app"]
