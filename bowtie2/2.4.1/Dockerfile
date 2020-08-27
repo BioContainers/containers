@@ -27,13 +27,16 @@ ENV FOLDER=bowtie2-2.4.1-linux-x86_64
 ENV DST=/home/biodocker/bin
 ENV ULOCAL=/usr/local/bin
 
-USER 0 
+USER 0
 
 RUN wget $URL/$ZIP/download -O $DST/$ZIP && \
     unzip $DST/$ZIP -d $DST && \
     rm $DST/$ZIP && \
     mv $DST/$FOLDER/* $DST && \
     rmdir $DST/$FOLDER
+
+RUN apt update
+RUN apt install python3 -y
 
 RUN ln -s $DST/* $ULOCAL/
 
