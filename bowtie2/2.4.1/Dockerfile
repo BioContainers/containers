@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.1.0_cv2
 ################## METADATA ######################
 
 LABEL base_image="biocontainers:v1.1.0_cv2"
-LABEL version="1"
+LABEL version="2"
 LABEL software="bowtie2"
 LABEL software.version="2.4.1"
 LABEL about.summary="an ultrafast memory-efficient short read aligner"
