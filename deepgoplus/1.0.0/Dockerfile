@@ -3,7 +3,7 @@ MAINTAINER coolmaksat <coolmaksat@gmail.com>
 ################## METADATA ######################
 LABEL base_image="python:3.6"
 LABEL version="1"
-LABEL software="DeepGOPlus"
+LABEL software="deepgoplus"
 LABEL software.version="1.0.0"
 LABEL about.summary="DeepGOPlus is a novel method for predicting protein functions from protein sequences using deep neural networks combined with sequence similarity based predictions."
 LABEL about.home="http://deepgoplus.bio2vec.net/"
