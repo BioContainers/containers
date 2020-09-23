@@ -4,12 +4,12 @@ FROM ubuntu:bionic
 # Metadata
 LABEL base_image="ubuntu:bionic"
 LABEL version="1"
-LABEL software="PLINK"
-LABEL software.version="v1.9p"
+LABEL software="gwas-fasp"
+LABEL software.version="v1.0.0"
 LABEL about.summary="Container image for GWAS analysis workflow for GA4GH Plenary 2020 FASP demonstrator containging PLINK and custom scripts"
 LABEL about.home="https://www.cog-genomics.org/plink2"
 LABEL about.license="SPDX:GPL-3.0-or-later"
-LABEL extra.identifiers.biotools=comet
+LABEL about.license_file="https://spdx.org/licenses/GPL-3.0-or-later.html"
 
 # Maintainer
 MAINTAINER Alexander Kanitz <alexander.kanitz@unibas.ch>
