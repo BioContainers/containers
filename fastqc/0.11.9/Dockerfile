@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.1.0_cv2
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.1.0_cv2"
-LABEL version="6"
+LABEL version="7"
 LABEL software="fastqc"
 LABEL software.version="0.11.9"
 LABEL about.summary="A quality control tool for high throughput sequence data."
@@ -28,7 +28,7 @@ ENV FOLDER=FastQC
 ENV DST=/home/biodocker/bin
 ENV ULOCAL=/usr/local/bin
 
-RUN apt-get update && apt-get install -y openjdk-9-jre-headless && \
+RUN apt-get update && apt-get install -y openjdk-8-jre-headless && \
     wget $URL/$ZIP -O $DST/$ZIP && \
     unzip $DST/$ZIP -d $DST && \
     rm $DST/$ZIP && \
