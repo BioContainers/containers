@@ -23,8 +23,8 @@ USER root
 SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update && \
-    conda update --all && \
-    conda install -y -c anaconda python=3.7 && \
+	conda update --all && \
+    conda install -y -c anaconda python=3.6 && \
 	conda install -y -c bioconda sambamba && \
 	conda install -y -c bioconda nanosv=1.2.4 && \
 	conda update --all && \
