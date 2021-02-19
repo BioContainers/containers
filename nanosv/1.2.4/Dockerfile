@@ -11,6 +11,7 @@ LABEL about.summary="NanoSV is a software package that can be used to identify s
 LABEL about.home="https://github.com/mroosmalen/nanosv"
 LABEL about.documentation="https://github.com/BioContainers/specs/wiki"
 LABEL about.license_file="https://github.com/mroosmalen/nanosv/blob/master/LICENSE"
+LABEL about.license_label="MIT"
 LABEL about.tags="Nanopore,PacBio,Structural Variants"
 
 ################## MAINTAINER ##################
