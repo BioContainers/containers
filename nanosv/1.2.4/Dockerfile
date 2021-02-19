@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.2.0_cv1
 
 LABEL base_image="biocontainers:v1.2.0_cv1"
 LABEL version="1"
-LABEL software="NanoSV"
+LABEL software="nanosv"
 LABEL software.version="1.2.4"
 LABEL about.summary="NanoSV is a software package that can be used to identify structural genomic variations in long-read sequencing data"
 LABEL about.home="https://github.com/mroosmalen/nanosv"
