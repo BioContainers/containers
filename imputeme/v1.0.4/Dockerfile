@@ -6,14 +6,14 @@ FROM rocker/shiny:4.0.1
 ################## METADATA ######################
 
 LABEL base_image="https://hub.docker.com/repository/docker/lassefolkersen/impute-me"
-LABEL version="v1.0.4"
+LABEL version="1"
 LABEL software="imputeme"
 LABEL software.version="v1.0.4"
 LABEL about.summary="A polygenic risk score calculator"
 LABEL about.home="https://github.com/lassefolkersen/impute-me"
 LABEL about.license_file="https://github.com/lassefolkersen/impute-me/blob/master/LICENSE"
-LABEL about.license="GNU Lesser General Public License v3.0"
-LABEL extra.identifiers.biotools="impute-me"
+LABEL about.license="LGPL-3.0-or-later"
+LABEL extra.identifiers.biotools="impute.me"
 LABEL about.tags="Genomics, polygenic risk scores, personal genomics"
 
 ################## MAINTAINER ######################
