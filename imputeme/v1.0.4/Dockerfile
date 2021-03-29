@@ -191,8 +191,6 @@ echo "block_double_uploads_by_md5sum <- FALSE           #If the upload interface
 echo "modules_to_compute <- c('AllDiseases','autoimmuneDiseases','BRCA','drugResponse','ethnicity','rareDiseases','ukbiobank','prs')           #Select the modules to pre-run (defaults to all folders in ~/srv/impute-me/ if not set)." >> /home/ubuntu/misc_files/configuration.R && \
 echo "verbose <- 1           #how much info to put into logs (min 0, max 10)" >> /home/ubuntu/misc_files/configuration.R
 
-block_double_uploads_by_md5sum
-
 #Create the accepted emails list (just put "any")
 RUN echo "email   imputeok" > /home/ubuntu/misc_files/accepted_emails.txt && \
 echo "any   TRUE" >> /home/ubuntu/misc_files/accepted_emails.txt
