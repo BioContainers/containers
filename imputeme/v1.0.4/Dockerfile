@@ -5,7 +5,7 @@ FROM rocker/shiny:4.0.1
 
 ################## METADATA ######################
 
-LABEL base_image="https://hub.docker.com/repository/docker/lassefolkersen/impute-me"
+LABEL base_image="lassefolkersen/impute-me"
 LABEL version="1"
 LABEL software="imputeme"
 LABEL software.version="v1.0.4"
