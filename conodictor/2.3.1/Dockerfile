@@ -2,13 +2,14 @@
 FROM ubuntu:20.04
 
 # metadata
-LABEL base.image="ubuntu:20.04"
+LABEL base_image="ubuntu:20.04"
 LABEL version="2"
 LABEL software="conodictor"
 LABEL software.version="2.3.1"
-LABEL description="Prediction of conopeptides superfamily from cone snail venom transcriptome."
-LABEL website="https://github.com/koualab/conodictor"
-LABEL license="https://github.com/koualab/conodictor/blob/master/LICENSE"
+LABEL about.description="Prediction of conopeptides superfamily from cone snail venom transcriptome."
+LABEL about.home="https://github.com/koualab/conodictor"
+LABEL about.license="MIT"
+LABEL about.license_file="https://github.com/koualab/conodictor/blob/master/LICENSE"
 LABEL maintainer="Anicet Ebou"
 LABEL maintainer.email="anicet.ebou@gmail.com"
 
