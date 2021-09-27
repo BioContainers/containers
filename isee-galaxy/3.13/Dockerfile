@@ -5,7 +5,7 @@ FROM iseedevelopers/isee:latest
 
 # Metadata
 LABEL base_image="iseedevelopers/isee:latest"
-LABEL version="0.1.0"
+LABEL version="1.0.0"
 LABEL software="isee"
 LABEL software.version="3.13"
 LABEL about.summary="a web dashboard for visualization of single cell transcriptome data"
