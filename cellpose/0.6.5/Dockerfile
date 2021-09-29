@@ -7,8 +7,9 @@ LABEL software.version="0.6.5"
 LABEL about.summary="A generalist algorithm for cell and nucleus segmentation."
 LABEL about.home="https://github.com/MouseLand/cellpose"
 LABEL about.license="BSD 3-Clause"
+LABEL about.license_file="https://raw.githubusercontent.com/MouseLand/cellpose/master/LICENSE"
 LABEL about.documentation="https://cellpose.readthedocs.io/en/latest/"
-
+LABEL extra.identifiers.biotools=cellpose
 LABEL maintainer ="sunyi000@gmail.com"
 
 ARG DEBIAN_FRONTEND="noninteractive"
