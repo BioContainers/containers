@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
-LABEL base_image="miniconda3"
-LABEL version="0"
+LABEL base_image="continuumio/miniconda3"
+LABEL version="1"
 LABEL software="cellpose"
 LABEL software.version="0.6.5"
 LABEL about.summary="A generalist algorithm for cell and nucleus segmentation."
@@ -45,6 +45,6 @@ RUN conda env create --name cellpose --file /opt/environment.yml && \
 SHELL ["conda", "run", "-n", "cellpose", "python", "-m","cellpose"]
 
 WORKDIR /cellpose
-ENTRYPOINT ["conda", "run", "-n", "cellpose", "python", "-m", "cellpose"]
 
-CMD ["","--help"]
+#ENTRYPOINT ["conda", "run", "-n", "cellpose", "python", "-m", "cellpose"]
+
