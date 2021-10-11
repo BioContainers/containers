@@ -44,7 +44,7 @@ LABEL about.tags="phylogenomics"
 
 # MAINTAINER ##################################################################################################################
 
-MAINTAINER Felix Thalén <felix.thalen@uni-goettingen.de>
+MAINTAINER Felix Thalen <felix.thalen@uni-goettingen.de>
 
 # BUILD #######################################################################################################################
 
