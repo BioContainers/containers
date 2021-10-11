@@ -33,7 +33,7 @@ FROM ubuntu:20.04
 
 LABEL base_image="ubuntu:20.04"
 LABEL version="1"
-LABEL software="Patchwork"
+LABEL software="patchwork"
 LABEL software.version="0.1.2"
 LABEL about.summary="Alignment-based Exon Retrieval and Concatenation with Phylogenomic Applications"
 LABEL about.home="https://github.com/fethalen/Patchwork"
@@ -60,4 +60,4 @@ COPY --from=build /home/patchwork/diamond diamond
 RUN ln -s patchwork-$VERSION/bin/patchwork patchwork
 ENV PATH /home/patchwork:$PATH
 
-CMD patchwork --help
+#CMD patchwork --help
