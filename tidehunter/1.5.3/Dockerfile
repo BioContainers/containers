@@ -21,7 +21,6 @@ USER root
 
 SHELL ["/bin/bash", "-c"]
 
-RUN conda update --all && \
-    conda install -y -c bioconda tidehunter=1.5.3
+RUN conda install -y -c bioconda tidehunter
 
 USER biodocker
