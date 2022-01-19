@@ -2,7 +2,7 @@ FROM ubuntu:20.04 as builder
 
 LABEL base_image="ubuntu:20.04, nginx:latest"
 LABEL version="1"
-LABEL software="Viv/avivator"
+LABEL software="avivator"
 LABEL software.version="0.12.3"
 LABEL about.summary="Avivator is a lightweight batteries-included WebGL viewer for remote imaging data, built around Viv. "
 LABEL about.home="https://github.com/hms-dbmi/viv/tree/master/avivator"
