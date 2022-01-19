@@ -1,15 +1,15 @@
 FROM ubuntu:20.04 as builder
 
-LABEL base_image="ubuntu:20.04, nginx:latest"
-LABEL version="1"
-LABEL software="avivator"
-LABEL software.version="0.12.3"
-LABEL about.summary="Avivator is a lightweight batteries-included WebGL viewer for remote imaging data, built around Viv. "
-LABEL about.home="https://github.com/hms-dbmi/viv/tree/master/avivator"
-LABEL about.license="MIT License"
-LABEL about.license_file="https://raw.githubusercontent.com/hms-dbmi/viv/master/LICENSE"
-LABEL about.documentation="http://viv.gehlenborglab.org/"
-LABEL maintainer ="sunyi000@gmail.com"
+LABEL base_image="ubuntu:20.04, nginx:latest" \
+  version="1" \
+  software="avivator" \
+  software.version="0.12.3" \
+  about.summary="Avivator is a lightweight batteries-included WebGL viewer for remote imaging data, built around Viv. " \
+  about.home="https://github.com/hms-dbmi/viv/tree/master/avivator" \
+  about.license="MIT License" \
+  about.license_file="https://raw.githubusercontent.com/hms-dbmi/viv/master/LICENSE" \
+  about.documentation="http://viv.gehlenborglab.org/" \
+  maintainer="sunyi000@gmail.com"
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
