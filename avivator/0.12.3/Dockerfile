@@ -9,7 +9,6 @@ LABEL about.home="https://github.com/hms-dbmi/viv/tree/master/avivator"
 LABEL about.license="MIT License"
 LABEL about.license_file="https://raw.githubusercontent.com/hms-dbmi/viv/master/LICENSE"
 LABEL about.documentation="http://viv.gehlenborglab.org/"
-LABEL extra.identifiers.biotools=avivator
 LABEL maintainer ="sunyi000@gmail.com"
 
 ARG DEBIAN_FRONTEND="noninteractive"
