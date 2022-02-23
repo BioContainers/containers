@@ -33,11 +33,9 @@ RUN cd /opt/software && git clone https://github.com/seqan/seqan.git seqan && wg
 RUN cd /opt/software && tar xvfz 1.0.0.tar.gz && cd KAST-1.0.0 && cmake ../KAST-1.0.0 -DCMAKE_MODULE_PATH=../seqan/util/cmake -DSEQAN_INCLUDE_PATH=../seqan/include -DCMAKE_CXX_FLAGS=-std=c++14 -DCMAKE_BUILD_TYPE=Release && make
 
 ## Install kast
-RUN ln -s /opt/software/KAST_1.0.0/kast /usr/local/bin/
+RUN ln -s /opt/software/KAST-1.0.0/kast /usr/local/bin/
 
 ## Extract scripts/data
 RUN cd /opt/software/KAST_figures && ls -lath && tar xvfz dna-example-lite.tar.gz && tar xvfz aa-example-lite.tar.gz && tar xvfz Figures.tar.gz
 
 WORKDIR /data/
-
-CMD ["kast"]
