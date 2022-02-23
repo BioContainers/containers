@@ -11,7 +11,6 @@ LABEL about.home="https://github.com/martinjvickers/KAST"
 LABEL about.documentation="https://github.com/martinjvickers/KAST/wiki"
 LABEL about.license_file="https://github.com/martinjvickers/KAST/LICENSE"
 LABEL about.license="MIT"
-LABEL extra.identifiers.biotools="kast"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
