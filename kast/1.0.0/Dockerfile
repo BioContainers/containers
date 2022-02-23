@@ -39,5 +39,3 @@ RUN ln -s /opt/software/KAST-1.0.0/kast /usr/local/bin/
 RUN cd /opt/software/KAST_figures && ls -lath && tar xvfz dna-example-lite.tar.gz && tar xvfz aa-example-lite.tar.gz && tar xvfz Figures.tar.gz
 
 WORKDIR /data/
-
-CMD ["kast"]
