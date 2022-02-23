@@ -4,14 +4,14 @@ FROM ubuntu:latest
 ################## METADATA ######################
 LABEL base_image="ubuntu:latest"
 LABEL version="1"
-LABEL software="KAST"
+LABEL software="kast"
 LABEL software.version="1.0.0"
 LABEL about.summary="Perform Alignment-free k-tuple frequency comparisons from sequences."
 LABEL about.home="https://github.com/martinjvickers/KAST"
 LABEL about.documentation="https://github.com/martinjvickers/KAST/wiki"
 LABEL about.license_file="https://github.com/martinjvickers/KAST/LICENSE"
 LABEL about.license="MIT"
-LABEL extra.identifiers.biotools="KAST"
+LABEL extra.identifiers.biotools="kast"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
