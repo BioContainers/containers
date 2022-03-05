@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 ################## METADATA ######################
 
 LABEL base_image="ubuntu:20.04"
-LABEL version="1"
+LABEL version="2"
 LABEL software="biocontainers"
 LABEL software.version="1.2.0"
 LABEL about.summary="Base image for BioDocker"
