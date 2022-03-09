@@ -33,6 +33,4 @@ RUN mv /usr/diann/1.8/diann-1.8 /usr/diann/1.8/diann
 
 ENV PATH="$PATH:/usr/diann/1.8"
 
-
-
 WORKDIR /data/
