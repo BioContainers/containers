@@ -27,7 +27,7 @@ RUN apt-get update -y && apt-get install -y wget
 RUN mkdir /opt/software
 
 ## Download everything
-RUN cd /opt/software && wget https://github.com/vdemichev/DiaNN/releases/download/1.8/diann_1.8.deb && dpkg -i diann_1.8.deb && rm -f diann_1.8.deb
+RUN cd /opt/software && wget https://github.com/vdemichev/DiaNN/releases/download/1.8/diann_1.8.deb && apt-get install -y ./diann_1.8.deb && rm -f diann_1.8.deb
 
 RUN mv /usr/diann/1.8/diann-1.8 /usr/diann/1.8/diann
 
