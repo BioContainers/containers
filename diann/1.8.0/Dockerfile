@@ -21,7 +21,7 @@ MAINTAINER Yasset Perez-Riverol <ypriverol@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 ## Update and install packages
-RUN apt-get update -y && apt-get install -y git g++ build-essential cmake zlib1g-dev libbz2-dev libboost-all-dev wget
+RUN apt-get update -y && apt-get install -y wget
 
 ## Temp directory
 RUN mkdir /opt/software
