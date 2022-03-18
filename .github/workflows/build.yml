@@ -1,0 +1,17 @@
+name: Unit tests and docker build
+
+on: [push, pull_request]
+
+jobs:
+
+  build:
+ 
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Check and build
+      run: |
+        echo "Path: ${GITHUB_WORKSPACE}, commit: ${GITHUB_SHA}, ref: ${GITHUB_REF}"
+        cd $GITHUB_WORKSPACE && biocontainers-build
+        docker image prune -a -f
