@@ -1,6 +1,10 @@
 name: Unit tests and docker build
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
 
