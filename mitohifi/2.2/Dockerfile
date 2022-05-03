@@ -11,7 +11,7 @@ LABEL about.home="https://github.com/marcelauliano/MitoHiFi"
 LABEL about.documentation="https://github.com/marcelauliano/MitoHiFi"
 LABEL about.license="MIT"
 LABEL about.license_file="https://github.com/marcelauliano/MitoHiFi/blob/master/LICENSE"
-LABEL about.tag="mitogenome, MT, organelle"
+LABEL about.tags="mitogenome, MT, organelle"
 
 # Maintainer
 MAINTAINER Ksenia Krasheninnikova kk16@sanger.ac.uk
