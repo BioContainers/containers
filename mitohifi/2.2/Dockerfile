@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 
 # Metadata
 LABEL base_image="ubuntu:18.04"
-LABEL version="2.2.1"
+LABEL version="1"
 LABEL software="MitoHiFi"
 LABEL software.version="2.2"
 LABEL about.summary="a python workflow that assembles a species mitogenome from Pacbio HiFi reads."
@@ -67,4 +67,3 @@ RUN echo "#!/usr/bin/env python" | cat - /bin/MitoHiFi/fixContigHeaders.py | \
 		tee /bin/MitoHiFi/fixContigHeaders.py
 
 RUN chmod -R 755 /bin
-CMD ["/bin/bash"]
