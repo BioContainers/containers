@@ -8,6 +8,8 @@ LABEL about.summary="A generalist algorithm for cell and nucleus segmentation."
 LABEL about.home="https://github.com/MouseLand/cellpose"
 LABEL about.license="BSD 3-Clause"
 LABEL about.documentation="https://cellpose.readthedocs.io/en/latest/"
+LABEL extra.identifiers.biotools=cellpose
+
 
 MAINTAINER Yi Sun <sunyi000@gmail.com>
 
