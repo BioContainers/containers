@@ -46,7 +46,7 @@ RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
 RUN pip install -U pip
 RUN pip install numpy numba>=0.43.1
 RUN pip install wheel scipy
-RUN pip install --no-cache-dir PyQt5 PyQt5.sip torch>=1.6 opencv-python-headless pyqtgraph>=0.11.0rc0 natsort google-cloud-storage 
+RUN pip install --no-cache-dir PyQt5 PyQt5.sip torch>=1.6 opencv-python-headless pyqtgraph>=0.11.0rc0 natsort
 
 RUN pip install -U scikit-image matplotlib
 RUN pip install scikit-learn tqdm tifffile fastremap 
