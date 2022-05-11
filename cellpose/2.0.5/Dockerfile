@@ -1,7 +1,7 @@
 FROM python:3.8-slim
 
-LABEL base_image="python:2.8-slim"
-LABEL version="0"
+LABEL base_image="python:3.8-slim"
+LABEL version="1"
 LABEL software="cellpose"
 LABEL software.version="2.0.5"
 LABEL about.summary="A generalist algorithm for cell and nucleus segmentation."
