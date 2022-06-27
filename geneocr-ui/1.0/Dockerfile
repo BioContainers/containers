@@ -13,15 +13,17 @@ LABEL maintainer.email="jitao_david.zhang@roche.com"
 
 # install dependencies
 RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt-get update && \
-    apt-get -y --no-install-recommends install \
+    apk add --update  && \
+    apk add --progress -f install \ 
     build-essential \
-    libpcre++-dev \
-    gfortran \
-    ca-certificates \
-    cmake \
-    git \
-    wget 
+    wget \
+    git
+    #libpcre++-dev \
+    #gfortran \
+    #ca-certificates \
+    #cmake \
+    #git \
+    #wget 
 #    python3 \
 #    python3-pip \
 #    zlib1g-dev \
@@ -33,20 +35,14 @@ RUN git clone --depth=1 https://github.com/bedapub/geneocr-ui.git && \
     cd geneocr-ui && \
     ls
 
-# stage1 - build react app first 
-#FROM node:13.12.0-alpine as build
-WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY ./package.json /app/
-COPY ./package-lock.json /app/
-RUN npm install
-COPY . /app
-RUN npm run build
+ENV PATH /geneocr-ui/node_modules/.bin:$PATH
+RUN cd /geneocr-ui && \
+    npm install && \
+    npm run build
 
-# stage 2 - build the final image and copy the react build files
 FROM nginxinc/nginx-unprivileged:stable-alpine
-COPY --chown=101 --from=build /app/build /usr/share/nginx/html
+COPY --chown=101 --from=build /geneocr-ui/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
-COPY --chown=101 nginx/nginx.conf /etc/nginx/conf.d
+COPY --chown=101 --from=build /geneocr-ui/nginx/nginx.conf /etc/nginx/conf.d
 EXPOSE 3000
 CMD ["nginx", "-g", "daemon off;"]
