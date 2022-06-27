@@ -5,7 +5,7 @@ FROM python:3.10-slim
 LABEL base_image="python:3.10-slim"
 LABEL version="1"
 LABEL software="GeneOCR API"
-LABEL software.version="1.0.0"
+LABEL software.version="1.0"
 LABEL about.summary="API of geneocr tool, which reads gene names in images"
 LABEL about.home="https://github.com/bedapub/geneocr-api"
 LABEL maintainer="Jitao David Zhang"
@@ -22,7 +22,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 RUN apt-get install ffmpeg libsm6 libxext6 libleptonica-dev tesseract-ocr libtesseract-dev python3-pil tesseract-ocr-eng tesseract-ocr-script-latn  -y
 
 
-RUN git clone --depth=1 https://github.com/bedapub/geneocr-api.git && \
+RUN git clone --depth=s1 https://github.com/bedapub/geneocr-api.git && \
     cd geneocr-api && \
     ls
 
@@ -39,24 +39,3 @@ WORKDIR /geneocr-api/app
 EXPOSE 8000
 
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
-#WORKDIR /code
-
-#COPY ./app/requirements.txt /code/requirements.txt
-
-
-#RUN pip install --upgrade pip
-#RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-
-#COPY ./app /code/app
-
-#RUN groupadd -g 1001 pmdagroup && \
-#    useradd -g pmdagroup -u 1001 pmdauser
-
-#USER pmdauser
-
-#WORKDIR /code/app
-
-#EXPOSE 8000
-
-#CMD 
-
