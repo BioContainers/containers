@@ -2,7 +2,7 @@
 FROM node:13.12.0-alpine as build
 
 # metadata
-LABEL base_image="ubuntu:20.04"
+LABEL base_image="node:13.12.0-alpine"
 LABEL version="1"
 LABEL software="GeneOCR UI"
 LABEL software.version="1.0.0"
