@@ -27,7 +27,7 @@ FROM nginxinc/nginx-unprivileged:stable-alpine
 LABEL base_image="node:13.12.0-alpine"
 LABEL version="1"
 LABEL software="GeneOCR UI"
-LABEL software.version="1.0.0"
+LABEL software.version="1.0"
 LABEL about.summary="UI of geneocr tool, which reads gene names in images"
 LABEL about.home="https://github.com/bedapub/geneocr-ui"
 LABEL maintainer="Jitao David Zhang"
