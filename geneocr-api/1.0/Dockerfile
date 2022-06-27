@@ -16,43 +16,47 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get -y --no-install-recommends install \
     build-essential \
-    libpcre++-dev \
-    gfortran \
-    ca-certificates \
-    cmake \
-    git \
-    wget 
-#    python3 \
-#    python3-pip \
-#    zlib1g-dev \
-#    libpng-dev \
-#    libfile-slurp-perl && \
-#    apt-get autoclean && rm -rf /var/lib/apt/lists/*
+    wget \
+    git 
 
-RUN git clone --depth=1 https://github.com/bedapub/geneocr-ui.git && \
-    cd geneocr-ui && \
-    ls
-
-WORKDIR /code
-
-COPY ./app/requirements.txt /code/requirements.txt
-
-RUN apt-get update
 RUN apt-get install ffmpeg libsm6 libxext6 libleptonica-dev tesseract-ocr libtesseract-dev python3-pil tesseract-ocr-eng tesseract-ocr-script-latn  -y
 
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY ./app /code/app
+RUN git clone --depth=1 https://github.com/bedapub/geneocr-api.git && \
+    cd geneocr-api && \
+    ls
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir --upgrade -r geneocr-api/app/requirements.txt
 
 RUN groupadd -g 1001 pmdagroup && \
     useradd -g pmdagroup -u 1001 pmdauser
 
 USER pmdauser
 
-WORKDIR /code/app
+WORKDIR /geneocr-api/app
 
 EXPOSE 8000
 
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+#WORKDIR /code
+
+#COPY ./app/requirements.txt /code/requirements.txt
+
+
+#RUN pip install --upgrade pip
+#RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+#COPY ./app /code/app
+
+#RUN groupadd -g 1001 pmdagroup && \
+#    useradd -g pmdagroup -u 1001 pmdauser
+
+#USER pmdauser
+
+#WORKDIR /code/app
+
+#EXPOSE 8000
+
+#CMD 
 
