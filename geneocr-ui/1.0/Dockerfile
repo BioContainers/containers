@@ -32,7 +32,7 @@ LABEL about.summary="UI of geneocr tool, which reads gene names in images"
 LABEL about.home="https://github.com/bedapub/geneocr-ui"
 LABEL maintainer="Jitao David Zhang"
 LABEL maintainer.email="jitao_david.zhang@roche.com"
-LABEL about.license="GPL-3+"
+LABEL about.license="GPL-3.0-or-later"
 LABEL about.license_file="/usr/share/nginx/html/LICENSE.md"
 
 # copy files from build
