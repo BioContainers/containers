@@ -32,9 +32,12 @@ LABEL about.summary="UI of geneocr tool, which reads gene names in images"
 LABEL about.home="https://github.com/bedapub/geneocr-ui"
 LABEL maintainer="Jitao David Zhang"
 LABEL maintainer.email="jitao_david.zhang@roche.com"
+LABEL about.license="GPL-3+"
+LABEL about.license_file="/usr/share/nginx/html/LICENSE.md"
 
 # copy files from build
 COPY --chown=101 --from=build /geneocr-ui/build /usr/share/nginx/html
+COPY --chown=101 --from=build /geneocr-ui/LICENSE.md /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY --chown=101 --from=build /geneocr-ui/nginx/nginx.conf /etc/nginx/conf.d
 EXPOSE 3000
