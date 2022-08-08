@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:latest
 
 # Metadata
 LABEL base_image="biocontainers:latest"
-LABEL version="3"
+LABEL version="1"
 LABEL software="eido"
 LABEL software.version="0.1.6"
 LABEL about.summary="An open source tool used to validate and convert PEP format sample metadata against a schema."
