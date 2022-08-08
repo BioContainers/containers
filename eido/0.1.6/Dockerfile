@@ -8,9 +8,8 @@ LABEL software="eido"
 LABEL software.version="0.1.6"
 LABEL about.summary="An open source tool used to validate and convert PEP format sample metadata against a schema."
 LABEL about.home="http://eido.databio.org/en/latest/"
-LABEL about.license="bsd-2-clause"
+LABEL about.license="BSD-2-Clause"
 LABEL about.tags="PEP, metadata, validation"
-LABEL extra.identifiers.biotools=eido
 
 # Maintainer
 MAINTAINER Nathan Sheffield <nsheff@virginia.edu>
