@@ -1,5 +1,5 @@
 # Base Image
-FROM biocontainers/biocontainers:latest
+FROM ubuntu:latest
 
 # Metadata
 LABEL base_image="biocontainers:latest"
@@ -15,15 +15,8 @@ LABEL extra.identifiers.biotools=eido
 # Maintainer
 MAINTAINER Nathan Sheffield <nsheff@virginia.edu>
 
-USER biodocker
+USER root
 
-RUN ZIP=v0.1.6.zip && \
-    wget https://github.com/pepkit/eido/archive/refs/tags/$ZIP -O /tmp/$ZIP && \
-    unzip /tmp/$ZIP -d /home/biodocker/bin/eido/ && \
-    chmod -R 755 /home/biodocker/bin/eido/* && \
-    rm /tmp/$ZIP
-
-ENV PATH /home/biodocker/bin/eido:$PATH
-
-WORKDIR /data/
-
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip && \
+    pip3 install eido==0.1.6
