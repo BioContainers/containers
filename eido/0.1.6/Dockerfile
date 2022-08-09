@@ -10,7 +10,7 @@ LABEL about.summary="An open source tool used to validate and convert PEP format
 LABEL about.home="http://eido.databio.org/en/latest/"
 LABEL about.license="BSD-2-Clause"
 LABEL about.tags="PEP, metadata, validation"
-LABEL extra.identifiers.biotools=eido
+LABEL extra.identifiers.biotools=eido-python-package
 
 # Maintainer
 MAINTAINER Nathan Sheffield <nsheff@virginia.edu>
