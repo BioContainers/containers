@@ -5,7 +5,7 @@ FROM ubuntu:latest
 LABEL base_image="biocontainers:latest"
 LABEL version="1"
 LABEL software="eido"
-LABEL software.version="0.1.6"
+LABEL software.version="0.1.8"
 LABEL about.summary="An open source tool used to validate and convert PEP format sample metadata against a schema."
 LABEL about.home="http://eido.databio.org/en/latest/"
 LABEL about.license="BSD-2-Clause"
@@ -19,4 +19,4 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y python3 python3-pip && \
-    pip3 install eido==0.1.6
+    pip3 install eido==0.1.8
