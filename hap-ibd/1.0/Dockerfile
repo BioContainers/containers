@@ -5,7 +5,7 @@ FROM ubuntu:latest@sha256:2d7ecc9c5e08953d586a6e50c29b91479a48f69ac1ba1f9dc0420d
 LABEL base_image="ubuntu:latest"
 LABEL version="1"
 LABEL software="hap-ibd"
-LABEL software.version="1.0, 20May22.818"
+LABEL software.version="1.0.rev20May22.818"
 LABEL about.summary="Detects identity-by-descent (IBD) segments and homozygosity-by-descent (HBD) segments in phased genotype data"
 LABEL about.home="https://github.com/browning-lab/hap-ibd"
 LABEL about.documentation="https://github.com/browning-lab/hap-ibd/blob/master/README.md"
