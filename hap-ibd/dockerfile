@@ -1,8 +1,8 @@
 ################## BASE IMAGE ######################
-FROM adoptopenjdk:8-jre@sha256:bf736024c65942ab045c497e408706f9e599651bf8c01a75ecb3d6971d66700d
+FROM ubuntu:latest@sha256:2d7ecc9c5e08953d586a6e50c29b91479a48f69ac1ba1f9dc0420d18a728dfc5
 
 ################## METADATA ######################
-LABEL base_image="biocontainers:vdebian-buster-backports_cv1"
+LABEL base_image="ubuntu:latest"
 LABEL version="1"
 LABEL software="hap-ibd"
 LABEL software.version="1.0, 20May22.818"
@@ -19,6 +19,7 @@ LABEL about.tags="Genomics"
 MAINTAINER Ashot Margaryan <ashotmarg2004@gmail.com>
 
 ################## INSTALL wget ####################
+USER root
 RUN  apt-get update \
   && apt-get install -y wget \
   && rm -rf /var/lib/apt/lists/*
@@ -30,21 +31,21 @@ RUN groupadd -g 901 biodocker \
 ################## INSTALLATION ####################
 WORKDIR /data/
 
-RUN JAR_FILE=hap-ibd.jar && \
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jre-headless && \
+    apt-get clean && \
+    apt-get purge && \
+    JAR_FILE=hap-ibd.jar && \
     mkdir /home/biodocker/bin && \
     wget https://faculty.washington.edu/browning/$JAR_FILE -O /usr/local/bin/$JAR_FILE && \
     ln -sv /usr/local/bin/$JAR_FILE /data/$JAR_FILE && \
     ln -sv /usr/local/bin/$JAR_FILE /home/biodocker/bin/$JAR_FILE && \
-    ln -sv /usr/local/bin/$JAR_FILE / && \
-    ln -sv /usr/local/bin/$JAR_FILE /bin/$JAR_FILE
-
-
-################## Make an "alias-like" command/file for running java -jar /home/biodocker/bin/hap-ibd.jar ####################
-RUN echo '#!/bin/bash\njava -jar /usr/local/bin/hap-ibd.jar "$@"' > /usr/local/bin/hap-ibd && \
+    ln -sv /usr/local/bin/$JAR_FILE /bin/$JAR_FILE && \
+    echo '#!/bin/bash\njava -jar /usr/local/bin/hap-ibd.jar "$@"' > /usr/local/bin/hap-ibd && \
     chmod +x /usr/local/bin/hap-ibd
 
+################## Make an "alias-like" command/file for running java -jar /home/biodocker/bin/hap-ibd.jar ####################
 ENV PATH /usr/local/bin/:$PATH
-
 USER biodocker
 
 ## run example: docker run hap-ibd java -jar hap-ibd.jar; or docker run hap-ibd hap-ibd (this second hap-ibd is an 'alias' for 'java -jar hap-ibd.jar')
