@@ -1,3 +1,6 @@
+# Calls biocontainer-ci repo / bioconda-backup script
+# on self hosted node
+
 name: Bioconda backups
 
 on:
@@ -7,7 +10,7 @@ on:
 jobs:
 
   build:
- 
+    timeout-minutes: 1440 
     runs-on: self-hosted
     steps:
     - name: Backup bioconda containers to local and aws registries
