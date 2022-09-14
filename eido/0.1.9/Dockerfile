@@ -19,4 +19,5 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y python3 python3-pip && \
+    pip3 install peppy==0.35.2 && \
     pip3 install eido==0.1.9
