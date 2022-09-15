@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################## METADATA ######################
 
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="3"
+LABEL version="1"
 LABEL about.summary="Model-based Analysis of ChIP-Exo"
 LABEL software="MACE"
 LABEL software.version="1.2"
