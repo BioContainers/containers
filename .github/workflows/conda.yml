@@ -1,7 +1,7 @@
 # Calls biocontainer-ci repo / bioconda-backup script
 # on self hosted node
 
-name: Bioconda backups
+name: Bioconda and docker backups
 
 on:
   schedule:
@@ -13,6 +13,7 @@ jobs:
     timeout-minutes: 1440 
     runs-on: self-hosted
     steps:
-    - name: Backup bioconda containers to local and aws registries
+    - name: Backup bioconda and docker containers to local and aws registries
       run: |
         cd /home/debian/sync && node index.js --backup --aws --conda --updated
+        cd /home/debian/sync && node index.js --aws --docker --updated
