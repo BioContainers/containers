@@ -10,7 +10,7 @@ LABEL about.summary="MaRaCluster - a tool for clustering and merging of fragment
 LABEL about.home="https://github.com/statisticalbiotechnology/maracluster"
 LABEL about.documentation="https://github.com/statisticalbiotechnology/maracluster"
 LABEL about.license_file="https://github.com/statisticalbiotechnology/maracluster/blob/master/LICENSE"
-LABEL about.license="SPDX:Apache-2"
+LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
