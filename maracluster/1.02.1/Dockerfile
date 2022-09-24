@@ -1,8 +1,8 @@
 ################## BASE IMAGE ######################
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
 ################## METADATA ######################
-LABEL base_image="ubuntu:latest"
+LABEL base_image="ubuntu:18.04"
 LABEL version="1"
 LABEL software="maracluster"
 LABEL software.version="1.02.1"
@@ -21,7 +21,7 @@ MAINTAINER Yasset Perez-Riverol <ypriverol@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 ## Update and install packages
-RUN apt-get update -y && apt-get install -y g++ build-essential cmake zlib1g-dev libbz2-dev libboost-all-dev wget
+RUN apt-get update -y && apt-get install -y g++ build-essential zlib1g-dev libbz2-dev libboost-all-dev wget
 
 ## Temp directory
 RUN mkdir /opt/software
