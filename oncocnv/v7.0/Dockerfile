@@ -16,7 +16,7 @@ LABEL base_image="ubuntu:20.04" \
       about.home="https://github.com/BoevaLab/ONCOCNV" \
       about.documentation="https://github.com/BoevaLab/ONCOCNV/blob/master/README.md" \
       about.license="GNU General Public License v3.0" \
-      extra.identifiers.biotools="https://bio.tools/ONCOCNV" \
+      extra.identifiers.biotools="oncocnv" \
       maintainer="Martin Rippin martin.rippin@helse-bergen.no"
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
