@@ -1,13 +1,4 @@
 FROM ubuntu:20.04 AS download
-LABEL base_image="ubuntu:20.04" \
-      version="1" \
-      software="ONCOCNV" \
-      software.version="v7.0" \
-      about.summary="ONCOCNV - a package to detect copy number changes in Deep Sequencing data" \
-      about.home="https://github.com/BoevaLab/ONCOCNV" \
-      about.documentation="https://github.com/BoevaLab/ONCOCNV/blob/master/README.md" \
-      about.license="none" \
-      maintainer="Martin Rippin martin.rippin@helse-bergen.no"
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -17,6 +8,15 @@ RUN apt-get update && \
 RUN git clone -b v7.0 --depth 1 https://github.com/BoevaLab/ONCOCNV.git
 
 FROM ubuntu:20.04
+LABEL base_image="ubuntu:20.04" \
+      version="1" \
+      software="ONCOCNV" \
+      software.version="v7.0" \
+      about.summary="ONCOCNV - a package to detect copy number changes in Deep Sequencing data" \
+      about.home="https://github.com/BoevaLab/ONCOCNV" \
+      about.documentation="https://github.com/BoevaLab/ONCOCNV/blob/master/README.md" \
+      about.license="GNU General Public License v3.0" \
+      maintainer="Martin Rippin martin.rippin@helse-bergen.no"
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
