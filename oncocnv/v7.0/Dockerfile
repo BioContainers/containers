@@ -46,3 +46,4 @@ RUN R -e "install.packages('remotes')" && \
     R -e "remove.packages('BiocManager')"
 COPY --from=download /ONCOCNV/src/*.R /usr/local/bin/
 COPY --from=download /ONCOCNV/src/*.pl /usr/local/bin/
+RUN chmod -R a+rwx /usr/local/bin
