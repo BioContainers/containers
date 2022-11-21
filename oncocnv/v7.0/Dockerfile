@@ -9,7 +9,7 @@ RUN git clone -b v7.0 --depth 1 https://github.com/BoevaLab/ONCOCNV.git
 
 FROM ubuntu:20.04
 LABEL base_image="ubuntu:20.04" \
-      version="1" \
+      version="2" \
       software="ONCOCNV" \
       software.version="v7.0" \
       about.summary="ONCOCNV - a package to detect copy number changes in Deep Sequencing data" \
