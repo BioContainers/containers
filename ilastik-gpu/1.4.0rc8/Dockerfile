@@ -2,7 +2,7 @@ FROM continuumio/miniconda3
 
 LABEL base_image="continuumio/miniconda3"
 LABEL version="1"
-LABEL software="ilastik"
+LABEL software="ilastiki-gpu"
 LABEL software.version="1.4.0rc8"
 LABEL about.summary="the interactive learning and segmentation toolkit"
 LABEL about.home="https://ilastik.org"
