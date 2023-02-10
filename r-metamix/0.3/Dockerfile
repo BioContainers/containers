@@ -21,4 +21,6 @@ LABEL extra.identifiers.biotools="metaMix"
 ################## MAINTAINER ######################
 MAINTAINER Sarah Buddle sarah.buddle.21@ucl.ac.uk
 
+RUN conda update --all 
+RUN conda config --append channels conda-forge
 RUN conda install -c conda-forge r-metamix
