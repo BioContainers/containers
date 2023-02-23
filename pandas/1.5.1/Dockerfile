@@ -4,7 +4,7 @@ FROM python:3.10.8
 
 ################## METADATA ######################
 
-LABEL base_image="biocontainers:v1.2.0_cv2"
+LABEL base_image="python:3.10.8"
 LABEL version="1"
 LABEL about.summary="Python library for data manipulation and analysis."
 LABEL software="pandas"
