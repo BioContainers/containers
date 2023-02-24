@@ -14,8 +14,9 @@ LABEL about.home="https://pandas.pydata.org/"
 LABEL about.software="https://pandas.pydata.org/about/index.html"
 LABEL about.documentation="https://pandas.pydata.org/docs/"
 LABEL about.license="BSD-3-Clause"
-LABEL about.licence_file="https://github.com/pandas-dev/pandas/blob/main/LICENSE"
+LABEL about.license_file="https://github.com/pandas-dev/pandas/blob/main/LICENSE"
 LABEL about.author="https://github.com/pandas-dev/pandas/blob/main/AUTHORS.md"
+LABEL extra.identifiers.biotools="pandas"
 
 ################## MAINTAINER ######################
 MAINTAINER Lara Ianov lianov@uab.edu
