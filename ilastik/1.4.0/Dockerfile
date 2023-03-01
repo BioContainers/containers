@@ -24,8 +24,6 @@ ENV LANG=en_US.UTF-8 \
     NUMBA_CACHE_DIR=/tmp/numba_cache \
     BIOIMAGEIO_CACHE_PATH="/tmp/pybio_cache" \
     PATH="/opt/ilastik-$ILASTIK_VERSION-Linux:$PATH"
-    
-
 
 RUN apt-get update -qq && \
     apt-get install -y  \
