@@ -1,4 +1,21 @@
+# Base Image
 FROM ubuntu:18.04
+
+# Metadata
+LABEL base_image="ubuntu:18.04"
+LABEL version="1"
+LABEL software="MitoHiFi"
+LABEL software.version="3.0.0"
+LABEL about.summary="a python workflow that assembles a species mitogenome from Pacbio HiFi reads."
+LABEL about.home="https://github.com/marcelauliano/MitoHiFi"
+LABEL about.documentation="https://github.com/marcelauliano/MitoHiFi"
+LABEL about.license="MIT"
+LABEL about.license_file="https://github.com/marcelauliano/MitoHiFi/blob/master/LICENSE"
+LABEL about.tags="mitogenome, MT, organelle"
+
+# Maintainer
+MAINTAINER Ksenia Krasheninnikova kk16@sanger.ac.uk
+
 
 ENV DEBIAN_FRONTEND=noninteractive
 
