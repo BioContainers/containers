@@ -21,4 +21,4 @@ LABEL extra.identifiers.biotools="ncbi_datasets"
 ################## MAINTAINER ######################
 MAINTAINER Priyanka Surana <ps22@sanger.ac.uk>
 
-RUN conda install -c conda-forge ncbi-datasets-cli
+RUN conda install -c conda-forge ncbi-datasets-cli=14.2.2
