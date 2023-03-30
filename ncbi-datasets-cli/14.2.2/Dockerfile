@@ -5,7 +5,7 @@ FROM biocontainers/biocontainers:v1.2.0_cv2
 ################## METADATA ######################
 
 LABEL base_image="biocontainers:v1.2.0_cv2"
-LABEL version="1"
+LABEL version="2"
 LABEL about.summary="NCBI Datasets is a new resource that lets you easily gather data from across NCBI databases."
 LABEL software="ncbi-datasets-cli"
 LABEL software.version="14.2.2"
@@ -21,4 +21,4 @@ LABEL extra.identifiers.biotools="ncbi_datasets"
 ################## MAINTAINER ######################
 MAINTAINER Priyanka Surana <ps22@sanger.ac.uk>
 
-RUN conda install -c conda-forge ncbi-datasets-cli
+RUN conda install -c conda-forge ncbi-datasets-cli=14.2.2
