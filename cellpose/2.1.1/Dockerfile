@@ -1,6 +1,6 @@
 FROM python:3.8
 
-LABEL base_image="python:3.8-slim"
+LABEL base_image="python:3.8"
 LABEL version="2"
 LABEL software="cellpose"
 LABEL software.version="2.1.1"
