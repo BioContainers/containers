@@ -5,7 +5,7 @@ FROM python:3.10.8
 ################## METADATA ######################
 
 LABEL base_image="python:3.10.8"
-LABEL version="2"
+LABEL version="1"
 LABEL about.summary="Python library for plotting."
 LABEL software="seaborn"
 LABEL software.version="0.12.2"
@@ -15,7 +15,6 @@ LABEL about.software="https://seaborn.pydata.org"
 LABEL about.documentation="https://seaborn.pydata.org"
 LABEL about.license="BSD-3-Clause"
 LABEL about.license_file="https://github.com/mwaskom/seaborn/LICENSE.md"
-LABEL extra.identifiers.biotools="seaborn, pandas, numpy, matplotlib"
 
 ################## MAINTAINER ######################
 MAINTAINER "Ferriol Calvet <ferriol.calvet@irbbarcelona.org>"
