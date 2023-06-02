@@ -7,7 +7,7 @@ FROM ubuntu:latest
 
 LABEL base_image="ubuntu:latest"
 LABEL version="1"
-LABEL about.summary="Tools to analyse cis-regulatory elements in genome sequences: motif discovery (support genome-wide data sets like ChIP-seq), transcription factor binding motif analysis (quality assessment, comparisons and clustering), comparative genomics, analysis of regulatory variations"
+LABEL about.summary="Tools to analyse cis-regulatory elements in genome sequences: motif discovery, transcription factor binding motif analysis, comparative genomics, regulatory variations"
 LABEL software="rsat"
 LABEL software.version="20230602"
 LABEL about.tags="implemented-in::perl,R,python,C"
