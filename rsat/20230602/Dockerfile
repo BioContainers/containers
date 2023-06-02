@@ -14,7 +14,7 @@ LABEL about.tags="implemented-in::perl,R,python,C"
 LABEL about.home="http://rsat.eu"
 LABEL about.software="https://github.com/rsa-tools/rsat-code"
 LABEL about.documentation="https://github.com/rsa-tools"
-LABEL about.license="AGPL-3.0 license"
+LABEL about.license="AGPL-3.0-only"
 LABEL about.license_file="ses also motif licenses at $RSAT/public_html/motif_databasess"
 LABEL maintainer="rsat-developers@list01.bio.ens.psl.eu"
 
