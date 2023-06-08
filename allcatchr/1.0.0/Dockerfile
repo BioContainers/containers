@@ -12,7 +12,7 @@ LABEL    software="allcatchr" \
     version="1" \
     extra.identifiers.biotools="allcatchr" \
     about.copyright="2022, Thomas Beder" \
-    about.license="mit" \
+    about.license="MIT" \
     about.license_file="https://github.com/ThomasBeder/ALLCatchR/blob/main/LICENSE.txt" \
     maintainer="Nadine Wolgast <NadineWolgast@gmx.de.br>"\
 
