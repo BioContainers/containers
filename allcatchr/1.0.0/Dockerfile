@@ -16,7 +16,6 @@ LABEL about.license="MIT"
 LABEL extra.identifiers.biotools="allcatchr"
 LABEL about.tags="Transcriptomics"
 
-
 ################## MAINTAINER ######################
 
 MAINTAINER Nadine Wolgast <NadineWolgast@gmx.de>
@@ -24,7 +23,6 @@ MAINTAINER Nadine Wolgast <NadineWolgast@gmx.de>
 ################## INSTALLATION ######################
 
 USER root
-
 # Install system dependencies
 RUN apt-get update && apt-get install -y libcurl4-openssl-dev libssl-dev libfontconfig1-dev \
     libxml2-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev \
