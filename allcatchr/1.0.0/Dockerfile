@@ -1,52 +1,43 @@
-############################# Dockerfile ####################################
+################## BASE IMAGE ######################
 FROM biocontainers/biocontainers:latest
 
-############################# METADATA ######################################
+################## METADATA ######################
 
-LABEL    software="allcatchr" \
-    base_image="biocontainers:latest" \
-    container="allcatchr" \
-    about.summary="The gene expression classifier ALLCatchR identifies B-precursor ALL subtypes and underlying developmental trajectories" \
-    about.home="https://github.com/ThomasBeder/ALLCatchR" \
-    software.version="1.0.0" \
-    version="1" \
-    extra.identifiers.biotools="allcatchr" \
-    about.copyright="2022, Thomas Beder" \
-    about.license="MIT" \
-    about.license_file="https://github.com/ThomasBeder/ALLCatchR/blob/main/LICENSE.txt" \
-    maintainer="Nadine Wolgast <NadineWolgast@gmx.de.br>"\
+LABEL base_image="biocontainers:latest"
+LABEL version="2"
+LABEL software="allcatchr"
+LABEL software.version="1.0.0"
+LABEL about.summary="Gene expression classifier to identify B-precursor ALL subtypes and underlying developmental trajectories"
+LABEL about.home="https://github.com/ThomasBeder/ALLCatchR"
+LABEL about.documentation="https://github.com/ThomasBeder/ALLCatchR"
+LABEL about.license_file="https://github.com/ThomasBeder/ALLCatchR/blob/main/LICENSE.txt"
+LABEL about.license="MIT"
+LABEL extra.identifiers.biotools="allcatchr"
+LABEL about.tags="Transcriptomics"
 
-################## BEGIN INSTALLATION ######################
 
-# Change user to root
-USER root
-ENV ZIP=ALLCatchR-main.zip
-ENV URL=https://github.com/ThomasBeder/ALLCatchR.git
-ENV FOLDER=allcatchr-1.0.0
+################## MAINTAINER ######################
+
+MAINTAINER Nadine Wolgast <NadineWolgast@gmx.de>
+
+################## INSTALLATION ######################
+
+USER biodocker
+ENV ZIP=main.zip
+ENV URL=https://github.com/ThomasBeder/ALLCatchR/archive/refs/heads/
+ENV FOLDER=ALLCatchR-main
 ENV DST=/tmp
 
 RUN wget $URL/$ZIP -O $DST/$ZIP && \
-    tar xvf $DST/$ZIP -C $DST && \
+    unzip $DST/$ZIP -d $DST && \
     rm $DST/$ZIP && \
     cd $DST/$FOLDER && \
-    ./configure && \
-    make && \
-    make install && \
-    cp /usr/local/lib/ALLCatchR-1.0* /lib/x86_64-linux-gnu/ && \
+    R -e "devtools::install_github('ThomasBeder/ALLCatchR')" && \
     cd / && \
     rm -rf $DST/$FOLDER
 
-# Change user to back to biodocker
-USER biodocker
+WORKDIR /data/
 
-# CHANGE WORKDIR TO /DATA
-WORKDIR /data
 
-# DEFINE DEFAULT COMMAND
-# CMD ["allcatchr"]
 
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Nadine Wolgast <NadineWolgast@gmx.de>
 
