@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
 LABEL version="1"
-LABEL software="EvidentialGene"
+LABEL software="evidential-gene"
 LABEL software.version="22jan14"
 LABEL about.summary="EvidentialGene is a genome informatics project for Evidence Directed Gene Construction for Eukaryotes"
 LABEL about.home="http://arthropods.eugenes.org/EvidentialGene/evigene/"
