@@ -32,5 +32,5 @@ RUN R -e "library(devtools)"
 RUN R -e "devtools::install_github(\"ThomasBeder/ALLCatchR\")"
 RUN R -e "library(ALLCatchR)"
 
-#USER biodocker
-WORKDIR /data/
+USER biodocker
+
