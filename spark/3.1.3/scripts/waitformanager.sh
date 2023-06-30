@@ -32,4 +32,4 @@ while true; do
     elapsed_secs=$(( ${elapsed_secs} + ${sleep_secs} ))
 done
 
-export spark_uri=${test_uri}
+echo ${test_uri} > spark_uri

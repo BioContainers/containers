@@ -14,8 +14,9 @@ worker_cores=$1; shift
 executor_memory=$1; shift
 driver_cores=$1; shift
 driver_memory=$1; shift
+container_engine=$1; shift
 
-echo "Starting the Spark driver ${main_class}"
+echo "Starting Spark driver with main class ${main_class}"
 
 # Initialize the environment for Spark
 export SPARK_ENV_LOADED=
@@ -40,6 +41,7 @@ else
     "
 fi
 
+set -x
 /opt/spark/bin/spark-class org.apache.spark.deploy.SparkSubmit \
     $spark_cluster_params \
     --master ${spark_uri} \
@@ -51,3 +53,4 @@ fi
     --conf spark.driver.cores=${driver_cores} \
     --driver-memory ${driver_memory} \
     ${app_jar_file} ${spark_app_args} ${args}
+set +x

@@ -10,6 +10,7 @@ worker_mem_in_gb=$1; shift
 spark_worker_log_file=$1; shift
 spark_config_filepath=$1; shift
 terminate_file_name=$1; shift
+args=$1; shift
 sleep_secs=$1; shift
 container_engine=$1; shift
 
@@ -19,6 +20,7 @@ rm -f ${spark_worker_log_file} || true
 export SPARK_WORKER_OPTS="-Dspark.worker.cleanup.enabled=true -Dspark.worker.cleanup.interval=30 -Dspark.worker.cleanup.appDataTtl=1 -Dspark.port.maxRetries=64"
 
 # Initialize the environment for Spark 
+echo "Initializing Spark environment..."
 export SPARK_ENV_LOADED=
 export SPARK_HOME=/opt/spark
 export PYSPARK_PYTHONPATH_SET=
@@ -29,8 +31,11 @@ set +u
 . "/opt/spark/bin/load-spark-env.sh"
 set -u
 
+echo "Determining worker IP address..."
 . $DIR/determine_ip.sh $container_engine
 
+# Start the Spark worker
+set -x
 /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker \
     ${spark_uri} \
     -c ${worker_cores} \
@@ -38,8 +43,9 @@ set -u
     -d ${cluster_work_dir} \
     -h ${local_ip} \
     --properties-file ${spark_config_filepath} \
-    !{args} &> ${spark_worker_log_file} &
+    ${args} &> ${spark_worker_log_file} &
 spid=$!
+set +x
 
 # Ensure that Spark process dies if this script is interrupted
 function cleanup() {
