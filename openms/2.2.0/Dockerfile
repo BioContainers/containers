@@ -29,6 +29,7 @@ RUN      apt-get -y update && \
                                  libboost-random1.58.0 && \
          apt-get clean && \
          apt-get purge && \
+         echo '#!/bin/sh\nsudo -E -H -u root FileInfo "$@"' > /usr/bin/FileInfo_anyuser && \
          rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install build dependencies: libsvm, zlib, glpk, xerces
