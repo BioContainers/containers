@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="3"
+LABEL version="4"
 LABEL software="OpenMS"
 LABEL software.version="2.2.0"
 LABEL about.summary="C++ libraries ans tools for MS/MS data analysis"
@@ -29,6 +29,7 @@ RUN      apt-get -y update && \
                                  libboost-random1.58.0 && \
          apt-get clean && \
          apt-get purge && \
+         echo '#!/bin/sh\nsudo -E -H -u root FileInfo "$@"' > /usr/bin/FileInfo_anyuser && \
          rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install build dependencies: libsvm, zlib, glpk, xerces
