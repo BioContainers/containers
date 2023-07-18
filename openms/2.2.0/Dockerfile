@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="4"
+LABEL version="5"
 LABEL software="OpenMS"
 LABEL software.version="2.2.0"
 LABEL about.summary="C++ libraries ans tools for MS/MS data analysis"
@@ -22,22 +22,20 @@ USER root
 
 # install build dependencies: boost
 RUN      apt-get -y update && \
+         apt-get -y install -y apt-utils && \
          apt-get install -y --no-install-recommends --no-install-suggests libboost-date-time1.58.0 \
                                  libboost-iostreams1.58.0 \
                                  libboost-regex1.58.0 \
                                  libboost-math1.58.0 \
                                  libboost-random1.58.0 && \
-         apt-get clean && \
-         apt-get purge && \
-         echo '#!/bin/sh\nsudo -E -H -u root FileInfo "$@"' > /usr/bin/FileInfo_anyuser && \
+         apt-get -y install sudo && \
+         apt-get -y clean && \
          rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install build dependencies: libsvm, zlib, glpk, xerces
 RUN      apt-get -y update && \
          apt-get install -y --no-install-recommends --no-install-suggests zlib1g libbz2-1.0 && \
          apt-get install -y --no-install-recommends --no-install-suggests libsvm3 zlib1g libxerces-c3.1 libbz2-1.0 libglpk36 && \
-         apt-get clean && \
-         apt-get purge && \
          rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install build dependencies: qt
@@ -55,6 +53,17 @@ RUN wget https://github.com/Roestlab/containers/releases/download/openms2.2.0/op
 ENV PATH /usr/local/bin/:$PATH
 ENV LD_LIBRARY_PATH /usr/local/lib/:$LD_LIBRARY_PATH
 
+#giving access to non_Root_user without creating a header folder such as ".config"
+
+RUN      apt-get -y update && \
+         echo "ALL     ALL=NOPASSWD:  ALL" >> /etc/sudoers && \
+         echo '#!/bin/sh\nsudo -E -H -u root FileInfo "$@"' > /usr/local/bin/FileInfo_anyuser && \
+         chmod ugo+rx /usr/local/bin/FileInfo* && \
+         /sbin/ldconfig -v && \
+         apt-get clean && \
+         apt-get purge && \
+         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Change user to back to biodocker
 USER biodocker
 
@@ -65,4 +74,3 @@ WORKDIR /data/
 
 # some QT-Apps/Gazebo don't not show controls without this
 ENV QT_X11_NO_MITSHM 1
-
