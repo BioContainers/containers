@@ -3,18 +3,16 @@
 # or standalone (if the spark_uri parameter is set to "local[*]")
 DIR=$(cd "$(dirname "$0")"; pwd)
 
+container_engine=$1; shift
 cluster_work_dir=$1; shift
 spark_uri=$1; shift
 app_jar_file=$1; shift
 main_class=$1; shift
-spark_app_args=$1; shift
-args=$1; shift
 parallelism=$1; shift
 worker_cores=$1; shift
 executor_memory=$1; shift
 driver_cores=$1; shift
 driver_memory=$1; shift
-container_engine=$1; shift
 
 echo "Starting Spark driver with main class ${main_class}"
 
@@ -42,15 +40,19 @@ else
 fi
 
 set -x
+# Run the Spark driver to submit the application.
+# The default (4MB) open cost consolidates files into tiny partitions regardless of 
+# the number of cores. By forcing this parameter to zero, we can specify the exact 
+# parallelism that we want.
 /opt/spark/bin/spark-class org.apache.spark.deploy.SparkSubmit \
     $spark_cluster_params \
     --master ${spark_uri} \
     --class ${main_class} \
     --conf spark.files.openCostInBytes=0 \
     --conf spark.default.parallelism=${parallelism} \
-    --conf spark.executor.cores=${worker_cores} \
+    --executor-cores ${worker_cores} \
     --executor-memory ${executor_memory} \
-    --conf spark.driver.cores=${driver_cores} \
+    --driver-cores ${driver_cores} \
     --driver-memory ${driver_memory} \
-    ${app_jar_file} ${spark_app_args} ${args}
+    ${app_jar_file} $@
 set +x

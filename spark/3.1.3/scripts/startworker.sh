@@ -17,10 +17,9 @@ container_engine=$1; shift
 echo "Starting spark worker ${worker_id} - logging to ${spark_worker_log_file}"
 rm -f ${spark_worker_log_file} || true
 
-export SPARK_WORKER_OPTS="-Dspark.worker.cleanup.enabled=true -Dspark.worker.cleanup.interval=30 -Dspark.worker.cleanup.appDataTtl=1 -Dspark.port.maxRetries=64"
-
 # Initialize the environment for Spark 
 echo "Initializing Spark environment..."
+export SPARK_WORKER_OPTS="-Dspark.worker.cleanup.enabled=true -Dspark.worker.cleanup.interval=30 -Dspark.worker.cleanup.appDataTtl=1 -Dspark.port.maxRetries=64"
 export SPARK_ENV_LOADED=
 export SPARK_HOME=/opt/spark
 export PYSPARK_PYTHONPATH_SET=
