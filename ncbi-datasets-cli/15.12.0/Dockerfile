@@ -1,11 +1,11 @@
 ################## BASE IMAGE ######################
 
-FROM biocontainers/biocontainers:v1.2.0_cv2
+FROM condaforge/mambaforge:23.1.0-4
 
 ################## METADATA ######################
 
-LABEL base_image="biocontainers:v1.2.0_cv2"
-LABEL version="2"
+LABEL base_image="mambaforge"
+LABEL version="23.1.0-4"
 LABEL about.summary="NCBI Datasets is a new resource that lets you easily gather data from across NCBI databases."
 LABEL software="ncbi-datasets-cli"
 LABEL software.version="15.12.0"
