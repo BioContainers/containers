@@ -28,9 +28,6 @@ RUN --mount=type=cache,target=/opt/conda/pkgs micromamba install -n base -f /tmp
 # clean
 RUN micromamba clean --all --yes
 
-# CHANGE WORKDIR TO /DATA
-WORKDIR /data
-
 # DEFINE DEFAULT COMMAND
 # CMD ["megahit"]
 ##################### INSTALLATION END #####################
