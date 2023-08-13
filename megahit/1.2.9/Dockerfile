@@ -23,10 +23,12 @@ ENV PATH=/opt/conda/bin:$PATH
 COPY env_megahit.yml /tmp
 
 # Install packages
-RUN --mount=type=cache,target=/opt/conda/pkgs micromamba install -n base -f /tmp/env_megahit.yml -y
+RUN micromamba install -n base -f /tmp/env_megahit.yml -y
 
 # clean
 RUN micromamba clean --all --yes
+
+WORKDIR /data
 
 # DEFINE DEFAULT COMMAND
 # CMD ["megahit"]
