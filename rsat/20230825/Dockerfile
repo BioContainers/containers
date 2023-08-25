@@ -105,7 +105,7 @@ WORKDIR /packages
 
 ## <----  Clone RSAT repository into your working dir
 
-RUN git clone https://github.com/rsa-tools/rsat-code.git
+RUN git clone https://github.com/rsa-tools/rsat-code.git --branch 20230825 --single-branch
 
 ########################################################       Notes       ########################################################
 # [Jun2023] When clonning 'motif_databases' you get 
