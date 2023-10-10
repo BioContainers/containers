@@ -1,0 +1,8 @@
+name: biocontainers-megahit
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - megahit=1.2.9
+    - conda-forge::procps-ng
+    - pigz
