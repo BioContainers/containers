@@ -3,9 +3,9 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="2"
+LABEL version="1"
 LABEL software="evidential-gene"
-LABEL software.version="22jan14"
+LABEL software.version="23jul15"
 LABEL about.summary="EvidentialGene is a genome informatics project for Evidence Directed Gene Construction for Eukaryotes"
 LABEL about.home="http://arthropods.eugenes.org/EvidentialGene/evigene/"
 LABEL about.documentation="http://arthropods.eugenes.org/EvidentialGene/evigene/docs/"
@@ -21,7 +21,7 @@ USER 0
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y perl cpanminus exonerate cd-hit ncbi-blast+ && \
-    wget -O EvidentialGene.tar http://arthropods.eugenes.org/EvidentialGene/other/evigene_old/evigene_older/evigene22jan14.tar && \
+    wget -O EvidentialGene.tar http://arthropods.eugenes.org/EvidentialGene/other/evigene_old/evigene_older/evigene23jul15.tar && \
     tar -xvf EvidentialGene.tar && rm EvidentialGene.tar && \
     chmod +x evigene/scripts/*.pl && \
     mv evigene /opt/ && \
