@@ -116,6 +116,8 @@ The next sections explain in detail the presented workflow:
  
 
 #### 2.4.1 How to Request a Container
+
+Bioconda packages automatically build a related container. If you are looking for a bioconda package container, check related package documentation, a container in quay.io should be available, see [example page](https://bioconda.github.io/recipes/kinship-read/README.html#package-kinship-read). Do not forget to use the needed tag version, no *latest* tag is available.
  
 Users can request a container by opening an issue in the [containers repository](http://github.com/BioContainers/containers/issues) `(In the previous workflow this is the first step performed by user henrik)`. The issue 
 should contain the name of the software, the url of the code or binary to be package and information about the software [see BioContainers specification](https://github.com/BioContainers/specs). When the container 
