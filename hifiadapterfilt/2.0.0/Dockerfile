@@ -36,8 +36,12 @@ RUN wget -qO- https://github.com/sheinasim/HiFiAdapterFilt/archive/refs/tags/v2.
 
 WORKDIR /opt
 
-ENV PATH $PATH:/opt/HiFiAdapterFilt
+ENV HIFIADPATERFILT_VERSION "2.0.0"
 
-ENV PATH $PATH:/opt/HiFiAdapterFilt/DB
+ENV PATH $PATH:/opt/HiFiAdapterFilt-${HIFIADPATERFILT_VERSION}
+
+ENV PATH $PATH:/opt/HiFiAdapterFilt-${HIFIADPATERFILT_VERSION}/DB
 
 WORKDIR /tmp
+
+CMD ["bash"]
