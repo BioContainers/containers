@@ -12,14 +12,12 @@ LABEL about.documentation="https://github.com/sheinasim/HiFiAdapterFilt"
 LABEL about.license_file="https://github.com/sheinasim/HiFiAdapterFilt/LICENSE"
 LABEL about.license="GNU General Public License v3.0"
 LABEL extra.identifiers.biotools="hifiadapterfilt"
-LABEL about.tags="genomics"
+LABEL about.tags="genomics, hifi"
 
 ################## MAINTAINER ######################
 MAINTAINER Arthur Le Bars <arthur.le-bars@france-bioinformatique.fr>
 
 ################## INSTALLATION ######################
-USER biodocker
-
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq -y update
@@ -29,7 +27,8 @@ RUN apt-get -qq -y update
 RUN apt-get -qq -y install vim \
     ncbi-blast+ \  
     bamtools \        
-    pigz
+    pigz \
+    wget
     
 RUN apt-get -y clean
 
