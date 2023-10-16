@@ -9,6 +9,7 @@ LABEL software="spark" \
     container="spark" \
     about.summary="Apache Spark is a unified analytics engine for large-scale data processing. This container combines the Spark runtime with additional scripts for simplified creation of Spark clusters." \
     about.home="https://spark.apache.org" \
+    about.documentation="https://spark.apache.org/docs/3.1.3" \
     software.version=${SPARK_VERSION} \
     upstream.version=${SPARK_VERSION} \
     version="1" \
