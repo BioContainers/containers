@@ -3,7 +3,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="1"
+LABEL version="2"
 LABEL software="evidential-gene"
 LABEL software.version="22jan14"
 LABEL about.summary="EvidentialGene is a genome informatics project for Evidence Directed Gene Construction for Eukaryotes"
@@ -21,16 +21,16 @@ USER 0
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y perl cpanminus exonerate cd-hit ncbi-blast+ && \
-    wget -O EvidentialGene.tar http://arthropods.eugenes.org/EvidentialGene/other/evigene_old/evigene22jan14.tar && \
+    wget -O EvidentialGene.tar http://arthropods.eugenes.org/EvidentialGene/other/evigene_old/evigene_older/evigene22jan14.tar && \
     tar -xvf EvidentialGene.tar && rm EvidentialGene.tar && \
     chmod +x evigene/scripts/*.pl && \
-    mv evigene /home/biodocker/bin/ && \
+    mv evigene /opt/ && \
     ln -s /usr/bin/cdhit /usr/bin/cd-hit && \
     ln -s /usr/bin/cdhit-est /usr/bin/cd-hit-est && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENV PATH="/home/biodocker/bin/evigene/scripts:/home/biodocker/bin/evigene/scripts/genoasm:/home/biodocker/bin/evigene/scripts/genes:/home/biodocker/bin/evigene/scripts/prot:/home/biodocker/bin/evigene/scripts/genes/evgpipe_scriptwork:/home/biodocker/bin/evigene/scripts/rnaseq:/home/biodocker/bin/evigene/scripts/omcl:/home/biodocker/bin/evigene/scripts/grid:/home/biodocker/bin/evigene/scripts/ests:${PATH}"
+ENV PATH="/opt/evigene/scripts:/opt/evigene/scripts/genoasm:/opt/evigene/scripts/genes:/opt/evigene/scripts/prot:/opt/evigene/scripts/genes/evgpipe_scriptwork:/opt/evigene/scripts/rnaseq:/opt/evigene/scripts/omcl:/opt/evigene/scripts/grid:/opt/evigene/scripts/ests:${PATH}"
 
 USER biodocker
 
