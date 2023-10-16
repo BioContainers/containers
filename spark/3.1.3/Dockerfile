@@ -7,13 +7,14 @@ MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL software="spark" \
     base_image="openjdk:openjdk11" \
     container="spark" \
-    about.summary="Apache Spark" \
+    about.summary="Apache Spark is a unified analytics engine for large-scale data processing. This container combines the Spark runtime with additional scripts for simplified creation of Spark clusters." \
     about.home="https://spark.apache.org" \
     software.version=${SPARK_VERSION} \
     upstream.version=${SPARK_VERSION} \
     version="1" \
     about.license="SPDX:Apache-2.0" \
     about.license_file="/opt/spark/LICENSE" \
+    extra.identifiers.biotools="spark" \
     extra.binaries="/opt/spark/bin" \
     about.tags="implemented-in::java, interface::daemon, role::devel-lib"
 
