@@ -2,6 +2,16 @@ ARG DASK_VERSION=2023.8.1
 
 FROM oraclelinux:9
 
+LABEL base_image="oraclelinux:9"
+LABEL software="Dask"
+LABEL software.version="2023.8.1"
+LABEL about.summary="Dask is a flexible library for parallel computing in Python."
+LABEL about.home="https://www.dask.org"
+LABEL about.license="BSD-3-Clause"
+LABEL about.license_file="https://github.com/dask/dask/blob/main/LICENSE.txt"
+LABEL about.documentation="https://docs.dask.org/en/stable/"
+LABEL maintainer="biocontainers biodocker@gmail.com"
+
 ARG TARGETPLATFORM
 
 ENV NVIDIA_VISIBLE_DEVICES=all

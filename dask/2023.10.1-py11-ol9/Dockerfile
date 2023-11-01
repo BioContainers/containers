@@ -10,6 +10,7 @@ LABEL about.home="https://www.dask.org"
 LABEL about.license="BSD-3-Clause"
 LABEL about.license_file="https://github.com/dask/dask/blob/main/LICENSE.txt"
 LABEL about.documentation="https://docs.dask.org/en/stable/"
+LABEL maintainer="biocontainers biodocker@gmail.com"
 
 ARG TARGETPLATFORM
 
