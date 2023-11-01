@@ -83,7 +83,8 @@ dask worker \
     --host ${local_ip} \
     --local-directory ${worker_dir} \
     ${args[@]} \
-    ${scheduler_address} 2> >(tee ${worker_dir}/${worker_name}.log >&2) \
+    ${scheduler_address} \
+    2> >(tee ${worker_dir}/${worker_name}.log >&2) \
     &
 
 # wait for PID file
