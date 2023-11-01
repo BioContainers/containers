@@ -4,6 +4,7 @@ FROM oraclelinux:9
 
 MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL base_image="oraclelinux:9"
+LABEL version="1"
 LABEL software="Dask"
 LABEL software.version="2023.10.1"
 LABEL about.summary="Dask is a flexible library for parallel computing in Python."
