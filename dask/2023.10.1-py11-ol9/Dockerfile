@@ -2,16 +2,21 @@ ARG DASK_VERSION=2023.10.1
 
 FROM oraclelinux:9
 
+MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL base_image="oraclelinux:9"
 LABEL software="Dask"
 LABEL software.version="2023.10.1"
-LABEL python.version="3.11"
 LABEL about.summary="Dask is a flexible library for parallel computing in Python."
 LABEL about.home="https://www.dask.org"
 LABEL about.license="BSD-3-Clause"
 LABEL about.license_file="https://github.com/dask/dask/blob/main/LICENSE.txt"
 LABEL about.documentation="https://docs.dask.org/en/stable/"
-LABEL maintainer="biocontainers biodocker@gmail.com"
+LABEL extra.identifiers.biotools="dask"
+LABEL extra.binaries="/opt/mambaforge/bin"
+LABEL extra.scripts="/opt/scripts/daskscripts"
+LABEL about.tags="implemented-in::python, interface::daemon, role::devel-lib"
+LABEL conda_forge.minforge.version="23.3.1-1"
+LABEL python.version="3.11"
 
 ARG TARGETPLATFORM
 
@@ -27,7 +32,7 @@ RUN dnf update -y && \
         which
 
 # Install miniconda
-RUN wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-$(uname -m).sh \
+RUN wget https://github.com/conda-forge/miniforge/releases/download/23.3.1-1/Mambaforge-23.3.1-1-Linux-$(uname -m).sh \
     -O mamba-install.sh && \
     bash mamba-install.sh -b -p /opt/mambaforge
 
