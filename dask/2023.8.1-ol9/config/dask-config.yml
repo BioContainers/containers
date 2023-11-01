@@ -1,0 +1,48 @@
+distributed:
+    admin:
+        tick:
+            interval: 500ms # time between event loop health checks
+            limit: 2h # time allowed between triggering a warning
+
+    comm:
+        retry:
+            count: 10
+
+        timeouts:
+            connect: 600s
+
+    distributed:
+        nanny:
+            pre-spawn-environ:
+                MALLOC_TRIM_THRESHOLD_: 0
+
+    scheduler:
+        allowed-failures: 5 # default 3
+        worker-ttl: 120s # default 5min
+        unknown-task-duration: 120s
+
+        locks:
+            lease-timeout: 900s
+            lease-validation-interval: 300s
+
+    worker:
+        use-file-locking: False
+
+        lifetime:
+            stagger: '5 minutes'
+
+        memory:
+            transfer: 0.5 # default 0.1
+            target: 0.9 # default 0.6
+            spill: 0.9 # default 0.7
+            pause: false # default 0.8
+            terminate: false # default 0.95
+            recent-to-old-time: 300s
+            monitor-interval: 500ms # default 100ms
+
+            rebalance:
+                sender-min: 0.5
+                recipient-max: 0.5
+
+        profile:
+            interval: 50ms # default 10ms
