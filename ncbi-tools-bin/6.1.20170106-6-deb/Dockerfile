@@ -16,5 +16,5 @@ LABEL    software="ncbi-tools-bin" \
 
 USER root
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && (apt-get install -t buster-backports -y ncbi-tools-bin || apt-get install -y ncbi-tools-bin) && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
+RUN apt-get update && (apt-get install -t buster-backports -y ncbi-tools-bin procps || apt-get install -y ncbi-tools-bin procps) && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
 USER biodocker
