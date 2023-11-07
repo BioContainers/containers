@@ -4,9 +4,12 @@ LABEL base.image="debian:buster-backports"
 LABEL version=2
 LABEL software="Biocontainers debian based image"
 LABEL software.version="debian-buster-backports"
+LABEL about.summary="Base image for BioDocker"
 LABEL about.home="http://biocontainers.pro"
 LABEL about.documentation="https://github.com/BioContainers/specs/wiki"
-LABEL license="https://github.com/BioContainers/containers/blob/master/LICENSE"
+LABEL about.license_file="https://github.com/BioContainers/containers/blob/master/LICENSE"
+LABEL about.license="SPDX:Apache-2.0"
+LABEL about.tags="Genomics,Proteomics,Transcriptomics,General,Metabolomics"
 
 MAINTAINER Mateo Boudet <mateo.boudet@irisa.fr>
 
