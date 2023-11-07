@@ -1,14 +1,14 @@
 FROM debian:buster-backports
 
 LABEL base.image="debian:buster-backports"
-LABEL version=1
+LABEL version=2
 LABEL software="Biocontainers debian based image"
 LABEL software.version="debian-buster-backports"
 LABEL about.home="http://biocontainers.pro"
 LABEL about.documentation="https://github.com/BioContainers/specs/wiki"
 LABEL license="https://github.com/BioContainers/containers/blob/master/LICENSE"
 
-MAINTAINER Olivier Sallou <osallou@irisa.fr>
+MAINTAINER Mateo Boudet <mateo.boudet@irisa.fr>
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN mkdir /data /config
