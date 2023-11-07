@@ -1,7 +1,7 @@
 FROM debian:buster-backports
 
 LABEL base.image="debian:buster-backports"
-LABEL version=1
+LABEL version=2
 LABEL software="Biocontainers debian based image"
 LABEL software.version="debian-buster-backports"
 LABEL about.summary="Base image for BioDocker"
@@ -11,7 +11,7 @@ LABEL about.license_file="https://github.com/BioContainers/containers/blob/maste
 LABEL about.license="SPDX:Apache-2.0"
 LABEL about.tags="Genomics,Proteomics,Transcriptomics,General,Metabolomics"
 
-MAINTAINER Olivier Sallou <osallou@irisa.fr>
+MAINTAINER Mateo Boudet <mateo.boudet@irisa.fr>
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN mkdir /data /config
