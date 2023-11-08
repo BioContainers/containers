@@ -1,13 +1,13 @@
-FROM biocontainers/biocontainers:vdebian-buster-backports_cv1
+FROM biocontainers/biocontainers:debian-buster-backports_cv2
 MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL    software="ncbi-tools-bin" \ 
-    base_image="biocontainers/biocontainers:vdebian-buster-backports_cv1" \ 
+    base_image="biocontainers/biocontainers:debian-buster-backports_cv2" \ 
     container="ncbi-tools-bin" \ 
     about.summary="NCBI libraries for biology applications (text-based utilities)" \ 
     about.home="http://www.ncbi.nlm.nih.gov/IEB/ToolBox/" \ 
     software.version="6.1.20170106-6-deb" \ 
     upstream.version="6.1.20170106" \ 
-    version="1" \ 
+    version="2" \ 
     about.copyright="1996-2017 NCBI" \ 
     about.license="public_domain" \ 
     about.license_file="/usr/share/doc/ncbi-tools-bin/copyright" \ 
