@@ -51,5 +51,7 @@ WORKDIR /opt/scripts/daskscripts
 ENV DASK_CONFIG=/opt/scripts/daskscripts/config/dask-config.yml
 
 # Add scripts
-COPY --chmod=755 scripts/* /opt/scripts/daskscripts
+COPY scripts/* /opt/scripts/daskscripts
 COPY config /opt/scripts/daskscripts/config
+
+RUN chmod 755 /opt/scripts/daskscripts/*.sh
