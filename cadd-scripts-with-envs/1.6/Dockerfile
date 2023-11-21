@@ -2,8 +2,8 @@ FROM mambaorg/micromamba:1.5.3
 
 ARG CADD_VERSION=1.6
 
-MAINTAINER "biocontainers" <biodocker@gmail.com>
-LABEL    software="CADD-scripts" \
+MAINTAINER "Marius Bjoernstad" <pmb@fa2k.net>
+LABEL software="cadd-scripts-with-envs" \
     software.version="${CADD_VERSION}" \
     version="1" \
     about.summary="CADD is a tool for scoring the deleteriousness of single nucleotide variants as well as insertion/deletions variants in the human genome" \
@@ -12,7 +12,6 @@ LABEL    software="CADD-scripts" \
     about.license="SPDX:Custom" \
     about.license_file="https://github.com/kircherlab/CADD-scripts/blob/v1.6.post1/LICENSE" \
     extra.binaries="/opt/conda/bin/cadd.sh" \
-    extra.identifiers.biotools="cadd_phred" \
     about.tags="Genomics, Human geneitcs" \
     base_image="mambaorg/micromamba:1.5.3"
 
