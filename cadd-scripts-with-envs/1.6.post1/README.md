@@ -17,10 +17,10 @@ Then use the following options
 
 Singularity/Apptainer:
 
-    -B $REFPATH:/opt/conda/share/cadd-scripts-1.6-1/data/annotations
+    -B $REFPATH:/opt/CADD-scripts-1.6.post1/data/annotations
 
 Docker:
 
-    -v $REFPATH:/opt/conda/share/cadd-scripts-1.6-1/data/annotations
+    -v $REFPATH:/opt/CADD-scripts-1.6.post1/data/annotations
 
 
