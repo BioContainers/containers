@@ -1,9 +1,12 @@
 FROM tensorflow/tensorflow:2.11.0-gpu-jupyter
 
 LABEL base_image="tensorflow:2.11.0-gpu-jupyter"
+LABEL version="1"
 LABEL maintainer="ko.sugawara@ens-lyon.fr"
 LABEL software="stardist"
 LABEL software.version="0.8.5"
+LABEL about.summary="Object Detection with Star-convex Shapes."
+LABEL about.home="https://github.com/stardist/stardist"
 LABEL about.license="BSD-3-Clause"
 LABEL about.license_file="https://github.com/stardist/stardist/blob/master/LICENSE.txt"
 
