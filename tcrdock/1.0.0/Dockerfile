@@ -14,6 +14,7 @@ LABEL about.license_file="https://github.com/eliasball/TCRdock"
 LABEL about.license="MIT (Apache-2.0 for original Alphafold)"
 LABEL about.tags="Structure Prediction:Immunology"
 LABEL maintainer="Elias Ball <contact.eliasball@gmail.com>"
+MAINTAINER Elias Ball <contact.eliasball@gmail.com>
 
 ################## INSTALLATION ######################
 
