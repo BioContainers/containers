@@ -27,7 +27,7 @@ RUN apt-get update && \
 USER mambauser
 
 RUN cd /home/mambauser && \
-    git clone https://github.com/eliasball/TCRdock.git && \
+    git clone https://github.com/eliasball/TCRdock.git --branch v1.0.0 && \
     cd TCRdock && \
     micromamba install --yes --name base --file env.yml && \
     micromamba clean --all --yes
