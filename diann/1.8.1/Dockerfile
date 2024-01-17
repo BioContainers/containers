@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 ################## METADATA ######################
 LABEL base_image="ubuntu:latest"
-LABEL version="1"
+LABEL version="2"
 LABEL software="diann"
 LABEL software.version="1.8.1"
 LABEL about.summary="DIA-NN - a universal software for data-independent acquisition (DIA) proteomics data processing."
@@ -21,7 +21,10 @@ MAINTAINER Yasset Perez-Riverol <ypriverol@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 ## Update and install packages
-RUN apt-get update -y && apt-get install -y g++ build-essential cmake zlib1g-dev libbz2-dev libboost-all-dev wget
+RUN apt-get update -y && apt-get install -y g++ build-essential cmake zlib1g-dev libbz2-dev libboost-all-dev wget locales
+
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
 
 ## Temp directory
 RUN mkdir /opt/software
