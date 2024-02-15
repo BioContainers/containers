@@ -1,6 +1,6 @@
-FROM python:3.8
+FROM python:3.11
 
-LABEL base_image="python:3.8"
+LABEL base_image="python:3.11"
 LABEL version="1"
 LABEL software="cellpose"
 LABEL software.version="2.3.2"
@@ -13,6 +13,7 @@ LABEL extra.identifiers.biotools=cellpose
 
 
 MAINTAINER Yi Sun <sunyi000@gmail.com>
+MAINTAINER Florian Wuennemann <flowuenne@gmail.com>
 
 
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -20,8 +21,11 @@ ARG CELLPOSE_VERSION="2.3.2"
 
 ENV LANG en_US.UTF-8 \
     LC_ALL en_US.UTF-8 \
-    LANGUAGE en_US:en  \
-    NUMBA_CACHE_DIR=/tmp
+    LANGUAGE en_US:en
+
+ENV MPLCONFIGDIR=/tmp/mpl_cache
+ENV NUMBA_CACHE_DIR=/tmp/numba_cache
+RUN mkdir /.cellpose && chmod 777 /.cellpose
 
 RUN apt-get update -qq && \
     apt-get install -y -q --no-install-recommends \
