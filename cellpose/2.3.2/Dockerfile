@@ -24,10 +24,8 @@ ENV LANG en_US.UTF-8 \
 ENV MPLCONFIGDIR=/tmp/mpl_cache
 ENV NUMBA_CACHE_DIR=/tmp/numba_cache
 
-# Create a non-root user and give ownership of the /.cellpose directory
-RUN useradd -m cellposeuser && \
-    mkdir /.cellpose && \
-    chown cellposeuser:cellposeuser /.cellpose
+# Create /.cellpose directory with more restrictive permissions
+RUN mkdir /.cellpose && chmod 755 /.cellpose
 
 RUN apt-get update -qq && \
     apt-get install -y -q --no-install-recommends \
@@ -68,6 +66,3 @@ RUN pip install --no-cache-dir  -U pip \
     tifffile \
     fastremap \
     cellpose==$CELLPOSE_VERSION
-
-# Switch to non-root user for running the application
-USER cellposeuser
