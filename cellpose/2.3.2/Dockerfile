@@ -11,10 +11,8 @@ LABEL about.license_file="https://github.com/MouseLand/cellpose/blob/main/LICENS
 LABEL about.documentation="https://cellpose.readthedocs.io/en/latest/"
 LABEL extra.identifiers.biotools=cellpose
 
-
 MAINTAINER Yi Sun <sunyi000@gmail.com>
 MAINTAINER Florian Wuennemann <flowuenne@gmail.com>
-
 
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG CELLPOSE_VERSION="2.3.2"
@@ -25,7 +23,11 @@ ENV LANG en_US.UTF-8 \
 
 ENV MPLCONFIGDIR=/tmp/mpl_cache
 ENV NUMBA_CACHE_DIR=/tmp/numba_cache
-RUN mkdir /.cellpose && chmod 777 /.cellpose
+
+# Create a non-root user and give ownership of the /.cellpose directory
+RUN useradd -m cellposeuser && \
+    mkdir /.cellpose && \
+    chown cellposeuser:cellposeuser /.cellpose
 
 RUN apt-get update -qq && \
     apt-get install -y -q --no-install-recommends \
@@ -46,15 +48,26 @@ RUN apt-get update -qq && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* 
 
-
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
     locale-gen
 
-RUN pip install -U pip
-RUN pip install numpy numba>=0.43.1
-RUN pip install wheel scipy
-RUN pip install --no-cache-dir PyQt5 PyQt5.sip torch>=1.6 opencv-python-headless pyqtgraph>=0.11.0rc0 natsort
+RUN pip install --no-cache-dir  -U pip \
+    numpy \
+    numba>=0.43.1 \
+    wheel \
+    scipy \
+    PyQt5 \
+    PyQt5.sip \
+    torch>=1.6 \
+    opencv-python-headless \
+    pyqtgraph>=0.11.0rc0 \
+    natsort \
+    scikit-image matplotlib \
+    scikit-learn \
+    tqdm \
+    tifffile \
+    fastremap \
+    cellpose==$CELLPOSE_VERSION
 
-RUN pip install -U scikit-image matplotlib
-RUN pip install scikit-learn tqdm tifffile fastremap 
-RUN pip install cellpose==$CELLPOSE_VERSION
+# Switch to non-root user for running the application
+USER cellposeuser
