@@ -3,7 +3,7 @@ FROM python:3.11
 LABEL base_image="python:3.11"
 LABEL version="1"
 LABEL software="cellpose"
-LABEL software.version="2.3.2"
+LABEL software.version="3.0.1"
 LABEL about.summary="A generalist algorithm for cell and nucleus segmentation."
 LABEL about.home="https://github.com/MouseLand/cellpose"
 LABEL about.license="BSD-3-Clause"
@@ -15,7 +15,7 @@ MAINTAINER Yi Sun <sunyi000@gmail.com>
 MAINTAINER Florian Wuennemann <flowuenne@gmail.com>
 
 ARG DEBIAN_FRONTEND="noninteractive"
-ARG CELLPOSE_VERSION="2.3.2"
+ARG CELLPOSE_VERSION="3.0.1"
 
 ENV LANG en_US.UTF-8 \
     LC_ALL en_US.UTF-8 \
@@ -23,9 +23,7 @@ ENV LANG en_US.UTF-8 \
 
 ENV MPLCONFIGDIR=/tmp/mpl_cache
 ENV NUMBA_CACHE_DIR=/tmp/numba_cache
-
-# Create /.cellpose directory with more restrictive permissions
-RUN mkdir /.cellpose && chmod 755 /.cellpose
+ENV CELLPOSE_LOCAL_MODELS_PATH=/tmp/cellpose_models
 
 RUN apt-get update -qq && \
     apt-get install -y -q --no-install-recommends \
