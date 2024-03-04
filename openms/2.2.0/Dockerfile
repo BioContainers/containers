@@ -4,7 +4,7 @@ FROM biocontainers/biocontainers:v1.0.0_cv4
 
 ################## METADATA ######################
 LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="5"
+LABEL version="6"
 LABEL software="OpenMS"
 LABEL software.version="2.2.0"
 LABEL about.summary="C++ libraries ans tools for MS/MS data analysis"
@@ -59,6 +59,8 @@ RUN      apt-get -y update && \
          echo "ALL     ALL=NOPASSWD:  ALL" >> /etc/sudoers && \
          echo '#!/bin/sh\nsudo -E -H -u root FileInfo "$@"' > /usr/local/bin/FileInfo_anyuser && \
          chmod ugo+rx /usr/local/bin/FileInfo* && \
+         echo '#!/bin/sh\nsudo -E -H -u root FileConverter "$@"' > /usr/local/bin/FileConverter_anyuser && \
+         chmod ugo+rx /usr/local/bin/FileConverter* && \
          /sbin/ldconfig -v && \
          apt-get clean && \
          apt-get purge && \
