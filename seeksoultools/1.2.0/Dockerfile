@@ -11,7 +11,7 @@ LABEL    software="seeksoultools" \
     software.version="1.2.0" \ 
     version="1" \ 
     about.copyright="2023 SeekGene BioSciences" \ 
-    about.license="Not in the SPDX list, free of charge" \ 
+    about.license="Custom License" \ 
     about.license_file="/seeksoultools.1.2.0/lib/python3.10/site-packages/seeksoultools-1.2.0.dist-info/LICENSE" \ 
     about.tags=""
 
