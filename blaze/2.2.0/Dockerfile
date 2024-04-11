@@ -17,10 +17,12 @@ MAINTAINER "Austyn Trull <atrull@uab.edu>"
 
 ################## INSTALLATION ######################
 
-RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y \
-    build-essential \
-    libhdf5-dev
+RUN apt-get update && apt-get install --no-install-recommends -y \
+        build-essential \
+        libhdf5-dev && \
+    apt-get clean && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN pip install --upgrade pip
-RUN pip install blaze2==2.2.0
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir blaze2==2.2.0
