@@ -1,11 +1,11 @@
 ## <---- Create a clone of Ubuntu image
 
-FROM ubuntu:latest
+FROM ubuntu:jammy
 
 
 ## <----- METADATA 
 
-LABEL base_image="ubuntu:latest"
+LABEL base_image="ubuntu:jammy"
 LABEL version="1"
 LABEL about.summary="Tools to analyse cis-regulatory elements in genome sequences: motif discovery, TF factor binding motif analysis, comparative genomics, regulatory variations"
 LABEL software="rsat"
