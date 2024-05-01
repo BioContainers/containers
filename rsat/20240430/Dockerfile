@@ -222,8 +222,7 @@ RUN useradd ${RSATUSER} \
 ## <---- Set env variables
 
 ENV R_LIBS_SITE="${RSAT}/R-scripts/Rpackages/"
-ENV PATH="${PATH}:${RSAT}/perl-scripts/"
-
+ENV PATH="${PATH}:${RSAT}/ext_lib/ensemblgenomes-44-97/ensembl-git-tools/bin:${RSAT}/python-scripts:${RSAT}/perl-scripts/parsers:${RSAT}/perl-scripts:${RSAT}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 ## <---- Create new folder with test _data 
 
