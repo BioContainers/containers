@@ -1,11 +1,11 @@
 ## <---- Create a clone of Ubuntu image
 
-FROM ubuntu:jammy
+FROM ubuntu:focal
 
 
 ## <----- METADATA 
 
-LABEL base_image="ubuntu:jammy"
+LABEL base_image="ubuntu:focal"
 LABEL version="1"
 LABEL about.summary="Tools to analyse cis-regulatory elements in genome sequences: motif discovery, TF factor binding motif analysis, comparative genomics, regulatory variations"
 LABEL software="rsat"
@@ -57,7 +57,7 @@ RUN apt-get install -y --no-install-recommends \
    && rm -rf /var/lib/apt/lists/*
 
 
-##  <----  Add the CRAN repository to your system sources’ list
+##  <----  Add the CRAN repository to your system sources list, 4.0 for focal
 
 RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" > /etc/apt/sources.list.d/cran.list
 RUN gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 \
@@ -74,7 +74,6 @@ RUN apt-get update \
 		r-base \
 		r-base-dev \
 		r-recommended \
-		r-cran-rcolorbrewer \
         && echo 'options(repos = c(CRAN = "https://cloud.r-project.org/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site \
         && echo 'source("/etc/R/Rprofile.site")' >> /etc/littler.r \
 	&& ln -s /usr/share/doc/littler/examples/install.r /usr/local/bin/install.r \
@@ -126,14 +125,10 @@ RUN wget --no-parent -r --reject "index.html*" https://rsat.eead.csic.es/plants/
 	&& rm -rf  /packages/rsat.eead.csic.es/ \
 	&& mv rsat-code rsat
 
-
-
-
 ## <---- Create soft link 
 
 RUN cd rsat/public_html/ \
-&& ln -s ../../motif_databases/
-
+	&& ln -s ../../motif_databases/
 
 ## <---- Declare the environment path and set the new working directory
 
@@ -206,10 +201,10 @@ RUN bash installer/03_install_rsat.bash \
 	&& bash installer/08_apache_config.bash \
 	&& bash installer/10_clean_unnecessary_files.bash
 
+ENV R_LIBS_SITE="${RSAT}/R-scripts/Rpackages/"
+
 RUN echo "source ${RSAT}/RSAT_config.bashrc" >> /etc/bash.bashrc \
 	&& echo "service apache2 start" >>  /etc/bash.bashrc 
-
-
 
 ## <---- add new user called rsat_user and give it permission to $RSAT
 
@@ -250,7 +245,9 @@ USER ${RSATUSER}
 
 WORKDIR "/home/${RSATUSER}"
 
+## <---- add default entry point
 
+#ENTRYPOINT ["/packages/rsat/perl-scripts/peak-motifs"]
 
 #################################  Useful command lines  ################################# 
 #
