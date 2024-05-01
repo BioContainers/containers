@@ -201,8 +201,6 @@ RUN bash installer/03_install_rsat.bash \
 	&& bash installer/08_apache_config.bash \
 	&& bash installer/10_clean_unnecessary_files.bash
 
-ENV R_LIBS_SITE="${RSAT}/R-scripts/Rpackages/"
-
 RUN echo "source ${RSAT}/RSAT_config.bashrc" >> /etc/bash.bashrc \
 	&& echo "service apache2 start" >>  /etc/bash.bashrc 
 
@@ -221,6 +219,10 @@ RUN useradd ${RSATUSER} \
 	&& mkdir -p ${TESTPATH} \
 	&& chmod -R a+w ${RSATUSERHOME}
 
+## <---- Set env variables
+
+ENV R_LIBS_SITE="${RSAT}/R-scripts/Rpackages/"
+ENV PATH="${PATH}:${RSAT}/perl-scripts/"
 
 
 ## <---- Create new folder with test _data 
@@ -245,9 +247,6 @@ USER ${RSATUSER}
 
 WORKDIR "/home/${RSATUSER}"
 
-## <---- add default entry point
-
-#ENTRYPOINT ["/packages/rsat/perl-scripts/peak-motifs"]
 
 #################################  Useful command lines  ################################# 
 #
