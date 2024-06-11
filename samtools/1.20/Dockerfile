@@ -1,12 +1,8 @@
 ################## BASE IMAGE ######################
-
-FROM biocontainers/biocontainers:v1.0.0_cv4
+FROM debian:bookworm
 
 ################## METADATA ######################
-
 ARG software_version=1.20
-LABEL base_image="biocontainers:v1.0.0_cv4"
-LABEL version="4"
 LABEL software="samtools"
 LABEL software.version="$software_version"
 LABEL about.summary="Tools for manipulating next-generation sequencing data"
@@ -20,10 +16,18 @@ LABEL extra.identifiers.biotools="SAM"
 LABEL extra.binaries="samtools"
 
 ################## MAINTAINER ######################
-MAINTAINER Saulo Alves Aflitos <sauloal@gmail.com>
+MAINTAINER Sebastian Bassi <sebastian@toyoko.io>
 
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+RUN apt-get update
+RUN apt-get install -y wget && rm -rf /var/lib/apt/lists/*
+RUN wget \
+    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir /root/.conda \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh
+RUN conda config --add channels bioconda
+RUN conda install conda-forge::libgcc-ng
 RUN conda install ncurses samtools=$software_version
-
 WORKDIR /data/
-
-# CMD ["samtools"]
