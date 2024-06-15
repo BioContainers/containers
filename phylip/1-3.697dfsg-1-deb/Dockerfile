@@ -1,5 +1,5 @@
-FROM FROM debian:bookworm-slim
-MAINTAINER biocontainers <biodocker@gmail.com>
+FROM debian:bookworm-slim
+MAINTAINER biocontainers <sebastian@toyoko.io>
 LABEL    software="phylip" \ 
     base_image="biocontainers/biocontainers:vdebian-buster-backports_cv1" \ 
     container="phylip" \ 
@@ -16,4 +16,6 @@ LABEL    software="phylip" \
 
 USER root
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y phylip && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
+RUN apt-get update
+RUN apt-get install -y phylip 
+RUN apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
