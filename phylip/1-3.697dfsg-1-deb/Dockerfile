@@ -1,4 +1,4 @@
-FROM biocontainers/biocontainers:vdebian-buster-backports_cv1
+FROM FROM debian:bookworm-slim
 MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL    software="phylip" \ 
     base_image="biocontainers/biocontainers:vdebian-buster-backports_cv1" \ 
@@ -16,5 +16,4 @@ LABEL    software="phylip" \
 
 USER root
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && (apt-get install -t buster-backports -y phylip || apt-get install -y phylip) && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
-USER biodocker
+RUN apt-get update && apt-get install -y phylip && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
