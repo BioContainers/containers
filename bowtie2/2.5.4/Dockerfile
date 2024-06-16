@@ -19,7 +19,7 @@ RUN cd /opt
 RUN if [ $(uname -m) = x86_64 ] ; then arch=x86_64; \
     elif [ $(uname -m) = aarch64 ] ; then arch=aarch64; \
     else echo "Architecture $(uname -m) is not supported" >&2; exit 1; \
-    fi &&  wget https://github.com/BenLangmead/bowtie2/releases/download/v${software_version}/bowtie2-{software_version}-linux-${arch}.zip \
+    fi &&  wget https://github.com/BenLangmead/bowtie2/releases/download/v${software_version}/bowtie2-${software_version}-linux-${arch}.zip \
     && unzip bowtie2-{software_version}-linux-${arch}.zip \
     && rm bowtie2-{software_version}-linux-${arch}.zip
 
