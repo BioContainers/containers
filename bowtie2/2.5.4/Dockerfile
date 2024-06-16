@@ -6,19 +6,20 @@ LABEL    software="bowtie2"
 ARG software_version=2.5.4
 
 RUN apt-get update
-RUN apt-get install -y wget 
-RUN apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 
-#USER 0
-RUN mkdir -p /opt
-RUN cd /opt/ && if [ $(uname -m) = x86_64 ] ; then arch=x86_64; \
-    elif [ $(uname -m) = aarch64 ] ; then arch=aarch64; \
-    else echo "Architecture $(uname -m) is not supported" >&2; exit 1; \
-    fi &&  wget https://github.com/BenLangmead/bowtie2/releases/download/v${software_version}/bowtie2-${software_version}-linux-${arch}.zip \
-    && unzip bowtie2-${software_version}-linux-${arch}.zip \
-    && rm bowtie2-${software_version}-linux-${arch}.zip \
-    && PATH="/opt/bowtie2-${software_version}-linux-${arch}/:${PATH}"
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+RUN apt-get update
+RUN apt-get install -y wget && rm -rf /var/lib/apt/lists/*
+RUN wget \
+    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir /root/.conda \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh
+RUN conda config --add channels bioconda
+RUN conda install conda-forge::libgcc-ng
+RUN conda install ncurses bowtie2=$software_version
 
 CMD ["/bin/sh"]
 
-WORKDIR /opt/
