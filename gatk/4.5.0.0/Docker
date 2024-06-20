@@ -22,6 +22,7 @@ RUN if [ $(uname -m) = x86_64 ] ; then arch=x86_64; \
     && rm -f Miniconda3-latest-Linux-${arch}.sh
 
 RUN conda config --add channels bioconda
+RUN conda config --add channels conda-forge
 RUN conda install gatk4=$software_version
 
 CMD ["/bin/sh"]
