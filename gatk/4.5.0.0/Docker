@@ -1,0 +1,26 @@
+################## BASE IMAGE ######################
+FROM debian:bookworm-slim
+
+################## METADATA ######################
+ARG software_version=4.5.0.0
+LABEL software="GATK"
+LABEL software.version="$software_version"
+LABEL about.summary="Tools for manipulating next-generation sequencing data"
+LABEL about.home="https://gatk.broadinstitute.org/hc/en-uss"
+LABEL about.tags="Genomics"
+
+################## MAINTAINER ######################
+MAINTAINER Sebastian Bassi <sebastian@toyoko.io>
+
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+RUN apt-get update
+RUN apt-get install -y wget && rm -rf /var/lib/apt/lists/*
+RUN wget \
+    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir /root/.conda \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh
+RUN conda config --add channels bioconda
+RUN conda install gatk4=$software_version
+WORKDIR /data/
