@@ -29,5 +29,6 @@ RUN wget \
     && rm -f Miniconda3-latest-Linux-x86_64.sh
 RUN conda config --add channels bioconda
 RUN conda install conda-forge::libgcc-ng
-RUN conda install ncurses samtools=$software_version
+RUN conda install -c conda-forge libzlib
+RUN conda install ncurses samtools=$software_version --solver classic
 WORKDIR /data/
