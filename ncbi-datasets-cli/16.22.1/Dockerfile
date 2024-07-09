@@ -4,8 +4,8 @@ FROM condaforge/mambaforge:24.3.0-0
 
 ################## METADATA ######################
 
-LABEL base_image="mambaforge"
-LABEL version="24.3.0-0"
+LABEL base_image="mambaforge:24.3.0-0"
+LABEL version="1"
 LABEL about.summary="NCBI Datasets is a new resource that lets you easily gather data from across NCBI databases."
 LABEL software="ncbi-datasets-cli"
 LABEL software.version="16.22.1"
