@@ -25,6 +25,10 @@ RUN if [ $(uname -m) = aarch64 ] ; then arch=aarch64; \
     cd ReleaseMT/build && make all_r; \
     fi
 
+RUN if [ $(uname -m) = aarch64 ] ; then arch=aarch64; \
+    mkdir bin && \
+    cp ncbi-blast-2.16.0+-src/c++/ReleaseMT/bin/* bin/; \
+    fi
 
 RUN sed -i '$ a BLASTDB=/blast/blastdb:/blast/blastdb_custom' /etc/environment
 ENV BLASTDB /blast/blastdb:/blast/blastdb_custom
