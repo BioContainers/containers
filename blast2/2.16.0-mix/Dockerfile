@@ -20,6 +20,7 @@ RUN if [ $(uname -m) = aarch64 ] ; then arch=aarch64; \
     apt-get -y -m update && apt-get install -y wget curl libidn-dev libnet-perl liblist-moreutils-perl perl-doc libgomp1 libxml2 libsqlite3-dev build-essential && \
     wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.16.0+-src.tar.gz && \
     tar -xvzf ncbi-blast-2.16.0+-src.tar.gz && \
+    rm ncbi-blast-2.16.0+-src.tar.gz && \
     cd ncbi-blast-2.16.0+-src/c++/ && ./configure && \
     cd ReleaseMT/build && make all_r; \
     fi
