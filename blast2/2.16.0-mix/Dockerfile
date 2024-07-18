@@ -12,7 +12,7 @@ WORKDIR /blast
 RUN if [ $(uname -m) = x86_64 ] ; then arch=x64; \
     apt-get -y -m update && apt-get install -y wget curl libidn-dev libnet-perl liblist-moreutils-perl perl-doc libgomp1 libxml2 libsqlite3-dev; \
     wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi-blast-${version}+-${arch}-linux.tar.gz && \
-    tar xzf ncbi-blast-${version}+-${arch}-linux.tar.gz --strip-components=1 && rm ncbi-blast-${version}+-${arch}-linux.tar.gzd; \
+    tar xzf ncbi-blast-${version}+-${arch}-linux.tar.gz --strip-components=1 && rm ncbi-blast-${version}+-${arch}-linux.tar.gz; \
     fi
 
 # Do this since there is no ARM binaries for now
