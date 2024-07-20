@@ -22,13 +22,10 @@ RUN if [ $(uname -m) = aarch64 ] ; then arch=aarch64; \
     tar -xvzf ncbi-blast-2.16.0+-src.tar.gz && \
     rm ncbi-blast-2.16.0+-src.tar.gz && \
     cd ncbi-blast-2.16.0+-src/c++/ && ./configure && \
-    cd ReleaseMT/build && make all_r; \
-    fi
-
-RUN if [ $(uname -m) = aarch64 ] ; then arch=aarch64; \
-    rm -rf ncbi-blast-2.16.0+-src/c++/src && \
-    mkdir bin && \
-    mv ncbi-blast-2.16.0+-src/c++/ReleaseMT/bin/* bin/; \
+    cd ReleaseMT/build && make all_r && \
+    rm -rf /blast/ncbi-blast-2.16.0+-src/c++/src && \
+    mkdir /blast/bin && \
+    mv /blast/ncbi-blast-2.16.0+-src/c++/ReleaseMT/bin/* /blast/bin/; \
     fi
 
 RUN sed -i '$ a BLASTDB=/blast/blastdb:/blast/blastdb_custom' /etc/environment
