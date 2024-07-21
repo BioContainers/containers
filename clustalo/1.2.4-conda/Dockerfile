@@ -7,7 +7,7 @@ FROM continuumio/miniconda3
 LABEL version="1"
 LABEL about.summary="Model-based Analysis of ChIP-Exo"
 LABEL software="MACE"
-LABEL software.version="1.2"
+LABEL software.version="1.2.4"
 LABEL about.tags="Genomics"
 LABEL about.home="http://chipexo.sourceforge.net/"
 LABEL about.software="https://sourceforge.net/projects/chipexo/files/MACE-1.2.tar.gz"
