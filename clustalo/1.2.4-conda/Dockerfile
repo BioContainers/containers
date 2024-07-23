@@ -5,17 +5,17 @@ FROM continuumio/miniconda3
 ################## METADATA ######################
 
 LABEL version="1"
-LABEL about.summary="Model-based Analysis of ChIP-Exo"
-LABEL software="MACE"
+LABEL about.summary="making accurate alignments of many protein sequences"
+LABEL software="Clustal Omega"
 LABEL software.version="1.2.4"
 LABEL about.tags="Genomics"
-LABEL about.home="http://chipexo.sourceforge.net/"
-LABEL about.software="https://sourceforge.net/projects/chipexo/files/MACE-1.2.tar.gz"
-LABEL about.documentation="http://chipexo.sourceforge.net/"
+LABEL about.home="http://www.clustal.org/omega/"
 LABEL about.license="GPL-3.0"
-LABEL about.author="Wang, Liguo"
+LABEL about.author="Sievers F, Wilm A, Dineen DG, Gibson TJ, Karplus K, Li W, Lopez R, McWilliam H, Remmert M, Söding J, Thompson JD, Higgins DG "
 
 ################## MAINTAINER ######################
 MAINTAINER Sebastian Bassi <sebastian@toyoko.io>
 
 RUN conda install -c conda-forge -c bioconda clustalo==1.2.4
+
+# NOTE: Conda version has binaries for AMD64 and ARM v8, DEB version has AMD64, ARM v8 and ARM v7 (RASPI)
