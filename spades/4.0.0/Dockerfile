@@ -1,10 +1,11 @@
 FROM python:3.10.14-slim-bullseye
 
 LABEL    software="spades" \ 
+    author="Sebastian Bassi <sebastian@toyoko.io>" \
     base_image="python:3.10.14-slim-bullseye" \ 
     container="spades" \ 
     about.summary="genome assembler for single-cell and isolates data sets" \ 
-    about.home="http://cab.spbu.ru/software/spades/" \ 
+    about.home="https://ablab.github.io/spades/" \ 
     software.version="4.0.0" \ 
     upstream.version="4.0.0" \ 
     version="1" \ 
@@ -16,8 +17,6 @@ LABEL    software="spades" \
     about.tags="biology::nucleic-acids, field::biology, field::biology:bioinformatics,:c++,:python, interface::commandline,:program, scope::utility, works-with::biological-sequence,:file" 
 
 USER root
-
-MAINTAINER Sebastian Bassi
 
 RUN apt-get update && apt-get install -y build-essential cmake wget libbz2-dev
 
