@@ -1,0 +1,27 @@
+FROM debian:bookworm-slim
+
+MAINTAINER Sebastian Bassi <sebastian@toyoko.io>
+LABEL    software="fastp"
+
+ARG software_version=0.23.4
+
+RUN apt-get update
+RUN apt-get install -y wget && rm -rf /var/lib/apt/lists/*
+
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
+
+RUN if [ $(uname -m) = x86_64 ] ; then arch=x86_64; \
+    elif [ $(uname -m) = aarch64 ] ; then arch=aarch64; \
+    else echo "Architecture $(uname -m) is not supported" >&2; exit 1; \
+    fi && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-${arch}.sh \
+    && mkdir /root/.conda \
+    && bash Miniconda3-latest-Linux-${arch}.sh -b \
+    && rm -f Miniconda3-latest-Linux-${arch}.sh
+
+RUN conda config --add channels bioconda && conda config --add channels conda-forge
+RUN conda install fastp=$software_version
+
+CMD ["/bin/sh"]
+WORKDIR /data/
