@@ -1,0 +1,8 @@
+FROM nextgenusfs/funannotate-slim
+
+# install databases
+RUN funannotate setup -i all --wget -b dikarya microsporidia embryophyta metazoa arthropoda vertebrata protists tetrapoda
+
+# When image is run, run the code with the environment
+SHELL ["/bin/bash", "-c"]
+CMD funannotate
