@@ -59,7 +59,8 @@ ENV PATH="/venv/bin:$PATH" \
     QUARRY_PATH="/venv/opt/codingquarry-2.0/QuarryFiles" \
     ZOE="/usr/share/snap" \
     USER="me" \
-    FUNANNOTATE_DB="/opt/databases"
+    FUNANNOTATE_DB="/opt/databases" \
+    GENEMARK_PATH="/root/gmes"
 
 # When image is run, run the code with the environment
 SHELL ["/bin/bash", "-c"]
