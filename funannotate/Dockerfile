@@ -41,7 +41,8 @@ COPY gmes.tar.gz /root
 
 RUN cd /root && \
     tar xfz gmes.tar.gz && \
-    rm gmes.tar.gz
+    rm gmes.tar.gz && \
+    ln -s /ftmp/gm_key /root/.gm_key
 
 # Install debian snap via apt-get
 RUN apt-get update && apt-get install -y snap augustus augustus-data locales locales-all libgl1 procps && \
