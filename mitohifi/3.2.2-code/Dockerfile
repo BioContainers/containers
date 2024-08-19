@@ -17,3 +17,6 @@ ENV CONDA_DIR=/opt/conda
 
 ENV PATH /opt/wrappers:/opt/cdhit/:/opt/hifiasm-0.16.1/:/opt/MitoHiFi/src/:/opt/MitoFinder/:/opt/minimap2-2.24_x64-linux/:${PATH}
 #create docker in main branch now
+
+# This is a patch for https://github.com/Edinburgh-Genome-Foundry/DnaFeaturesViewer/issues/88
+COPY BiopythonTranslatorBase.py /usr/local/lib/python3.6/dist-packages/dna_features_viewer/BiopythonTranslator/BiopythonTranslatorBase.py
