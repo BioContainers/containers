@@ -43,6 +43,8 @@ def get_genes_list(in_annotation, format="genbank"):
                     except KeyError:
                         #genes.append(feat.qualifiers['product'][0])
                         product = feat.qualifiers['product'][0]
+                        if product == "hypothetical protein":
+                            continue
                         if product not in name_replacement:
                             raise Exception(f"Not found: {product}")
                         gene = name_replacement[product]
