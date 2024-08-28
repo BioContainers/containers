@@ -21,7 +21,8 @@ name_replacement = {"NADH dehydrogenase subunit 6": "ND6",
                     "cytochrome c oxidase subunit II": "COII",
                     "16S ribosomal RNA": "l-rRNA",
                     "NADH dehydrogenase subunit 3": "ND3",
-                    "NADH dehydrogenase subunit 5": "ND5"}
+                    "NADH dehydrogenase subunit 5": "ND5",
+                    "ribosomal protein S3": "rpS3"}
 
 def get_genes_list(in_annotation, format="genbank"):
     """
