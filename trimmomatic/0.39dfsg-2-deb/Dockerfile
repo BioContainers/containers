@@ -17,3 +17,5 @@ LABEL    software="trimmomatic" \
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y trimmomatic=0.39+dfsg-2 && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/*
+
+# NOTE: There is data in /usr/share/trimmomatic/
