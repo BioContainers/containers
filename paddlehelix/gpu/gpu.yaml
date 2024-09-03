@@ -1,0 +1,28 @@
+docker:
+  image: "quay.io/biocontainers/paddlehelix:1.0.1--py37_cuda11.2_0"
+  url: "https://quay.io/repository/biocontainers/paddlehelix"
+container:
+  maintainer: "rijulsharma"
+  description: "PaddleHelix is a machine-learning-based bio-computing framework aimed at facilitating the development of AI applications in biology. This version supports GPU acceleration."
+  tags: 
+    - PaddleHelix
+    - Bioinformatics
+    - Machine Learning
+    - GPU
+  identifiers:
+    - biotools:paddlehelix
+    - doi:10.1101/2021.11.03.467020
+  license: "Apache-2.0"
+  home_url: "https://github.com/PaddlePaddle/PaddleHelix"
+  software_version: "1.0.1"
+  software:
+    - paddlehelix
+    - paddlepaddle-gpu
+  dependencies:
+    - python=3.7
+    - rdkit
+    - scikit-learn
+    - numpy
+    - pandas
+    - pgl
+    - cuda=11.2
