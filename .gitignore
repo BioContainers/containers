@@ -1,5 +1,7 @@
 ### Example user template
 
+.DS_Store
+
 # IntelliJ project files
 .idea
 *.iml
