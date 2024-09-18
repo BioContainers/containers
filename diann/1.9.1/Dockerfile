@@ -10,7 +10,7 @@ LABEL about.summary="DIA-NN - a universal software for data-independent acquisit
 LABEL about.home="https://github.com/vdemichev/DiaNN"
 LABEL about.documentation="https://github.com/vdemichev/DiaNN"
 LABEL about.license_file="https://github.com/vdemichev/DiaNN/LICENSE.txt"
-LABEL about.license="Proprietary - See LICENSE.txt for details"
+LABEL about.license="custom, see /usr/diann/1.9.1/LICENSE.txt"
 LABEL about.tags="Proteomics"
 
 ################## MAINTAINER ######################
@@ -22,7 +22,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ## Update and install packages
 RUN apt-get update -y && apt-get install -y \
-    g++ build-essential cmake zlib1g-dev libbz2-dev libboost-all-dev wget locales unzip \
+    wget locales unzip \
  && sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
  && locale-gen
 
@@ -40,6 +40,11 @@ RUN mkdir -p /usr/diann/1.9.1 && \
 
 RUN chmod +x /usr/diann/1.9.1/diann
 
+## Set environment variables
 ENV PATH="/usr/diann/1.9.1:$PATH"
+ENV LD_LIBRARY_PATH="/usr/diann/1.9.1:$LD_LIBRARY_PATH"
+
+## Create symbolic links for libgomp-98b21ff3.so.1
+RUN ln -s /usr/diann/1.9.1/libgomp-98b21ff3.so.1 /usr/diann/1.9.1/libgomp.so.1
 
 WORKDIR /data/
