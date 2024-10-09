@@ -15,7 +15,7 @@ LABEL about.documentation="https://pod5-file-format.readthedocs.io/en/latest/ind
 LABEL about.license_file="https://github.com/nanoporetech/pod5-file-format/blob/master/LICENSE.md"
 LABEL about.license="Mozilla Public License 2.0"
 LABEL about.tags="Genomics"
-LABEL extra.identifiers.biotools="POD5"
+LABEL extra.identifiers.biotools="pod5"
 LABEL extra.binaries="pod5"
 
 ################## MAINTAINER ######################
@@ -25,10 +25,11 @@ LABEL maintainer="Eduard Perez Mendez <mail@eperezme.com>"
 
 WORKDIR /app
 
-RUN apt-get update \
+RUN apt-get update && apt-get install -y --no-install-recommends bash \
+    procps \
     && pip install --upgrade pip \
     && pip install lib-pod5==0.3.15 pod5==$software_version \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ################## ENTRYPOINT ######################
-ENTRYPOINT ["/bin/bash"]
+CMD ["bash"]
