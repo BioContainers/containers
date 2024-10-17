@@ -1,7 +1,0 @@
-Clinvar	bior_same_variant	/data5/bsi/catalogs/user/v1/Clinvar/2015_03_09/Clinvar.tsv.bgz
-ExAC	bior_same_variant	/data5/bsi/catalogs/user/v1/ExAc/2015_05_18/noTCGA_ExAc.tsv.bgz
-hgmd_2014.2	bior_same_variant	/data5/bsi/catalogs/user/v1/HGMD/2014_07_16/hgmd_pro.tsv.gz
-cosmic68	bior_same_variant	/data5/bsi/catalogs/bior/v1/cosmic/v68/CosmicCompleteExport_GRCh37.tsv.bgz
-dbSNP139	bior_same_variant	/data5/bsi/catalogs/bior/v1/dbSNP/139/00-All_GRCh37.tsv.bgz
-dbNSFPv2.8	bior_same_variant	/data5/bsi/catalogs/user/v1/variant_prediction/dbNSFP/2014_11_24/dbNSFP.all.catalog.gz	
-BlatED50	bior_overlap	/data5/bsi/catalogs/user/v1/BLAT_ED/BlatED50.tsv.bgz
