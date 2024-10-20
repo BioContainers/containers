@@ -10,7 +10,7 @@ on:
 jobs:
 
   build:
-    timeout-minutes: 1440 
+    timeout-minutes: 4320 
     runs-on: self-hosted
     steps:
     - name: Backup bioconda and docker containers to local and aws registries
