@@ -1,5 +1,0 @@
-matplotlib==3.0.1
-numpy==1.16.5
-pandas==0.24.2
-argparse==1.1
-seaborn==0.9.0
