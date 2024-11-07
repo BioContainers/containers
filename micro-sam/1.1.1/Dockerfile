@@ -3,6 +3,7 @@ FROM mambaorg/micromamba:1.5.10-noble
 
 # Matadata
 LABEL base.image="mambaorg/micromamba:1.5.10-noble"
+LABEL version="1"
 LABEL software="micro-sam"
 LABEL software.version="1.1.1"
 LABEL about.summary="Tools for segmentation and tracking in microscopy build on top of Segment Anything."
