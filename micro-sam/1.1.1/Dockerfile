@@ -37,4 +37,10 @@ USER root
 # clone the repository and install the package
 RUN git clone https://github.com/computational-cell-analytics/micro-sam.git \
     && cd micro-sam \
+    && git checkout 9b055c3 \
     && pip install -e .
+
+
+
+    
+    
