@@ -1,0 +1,25 @@
+name: sam
+channels:
+    - pytorch
+    - conda-forge
+dependencies:
+    - cpuonly
+    # This pin is necessary because later nifty versions have import errors on windows.
+    - nifty =1.2.1=*_4
+    - imagecodecs
+    - natsort
+    - pip
+    - zarr
+    - pooch
+    - protobuf <5
+    - python-xxhash
+    - python-elf >=0.4.8
+    - pytorch >=2.4
+    - segment-anything
+    - torchvision
+    - torch_em >=0.7.0
+    - tqdm
+    - timm
+    - git
+    - pip:
+        - git+https://github.com/ChaoningZhang/MobileSAM.git
