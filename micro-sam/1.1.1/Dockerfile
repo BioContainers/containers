@@ -9,7 +9,7 @@ LABEL software.version="1.1.1"
 LABEL about.summary="Tools for segmentation and tracking in microscopy build on top of Segment Anything."
 LABEL about.home="https://github.com/computational-cell-analytics/micro-sam"
 LABEL about.documentation="https://computational-cell-analytics.github.io/micro-sam/micro_sam.html"
-LABEL about.license="MIT License"
+LABEL about.license="MIT"
 LABEL about.license_file="https://github.com/computational-cell-analytics/micro-sam/blob/master/LICENSE"
 LABEL about.tags="Bioinformatics, Image Analysis, Microscopy, Segmentation"
 
