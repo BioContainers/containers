@@ -47,7 +47,7 @@ RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
     locale-gen
 
 WORKDIR /opt/
-RUN wget https://files.ilastik.org/ilastik-1.4.1-gpu-Linux.tar.bz2 && \
+RUN wget https://files.ilastik.org/ilastik-1.4.1-Linux.tar.bz2 && \
     tar xjf ilastik-1.*-Linux.tar.bz2 && \
     rm -f ilastik-1.*-Linux.tar.bz2
 
