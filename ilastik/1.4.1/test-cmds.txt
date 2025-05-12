@@ -1,1 +1,1 @@
-/opt/ilastik-1.4.0-Linux/run_ilastik.sh --headless --version
+/opt/ilastik-1.4.1-Linux/run_ilastik.sh --headless --version
