@@ -3,7 +3,7 @@ MAINTAINER biocontainers <biodocker@gmail.com>
 LABEL    software="gbrowse" \ 
     container="gbrowse" \ 
     about.summary="GMOD Generic Genome Browser" \ 
-    about.home="http://www.gbrowse.org/" \ 
+    about.home="http://gmod.org/wiki/GBrowse" \ 
     software.version="2.56dfsg-2-deb" \ 
     version="1" \ 
     extra.identifiers.biotools="gbrowse" \ 
