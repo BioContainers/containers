@@ -7,6 +7,18 @@ WORKDIR /app/rastair
 RUN cargo build --release
 
 FROM r-base:4.3.2 AS release
+
+LABEL base_image="rust:1.78-buster, r-base:4.3.2" \
+      version="1"   \
+      software="rastair" \
+      software.version="v0.8.2" \
+      about.summary="Fast processing of TAPS-based sequencing data" \
+      about.home="https://bitbucket.org/bsblabludwig/rastair/src/v0.8.2/" \
+      about.documentation="https://bitbucket.org/bsblabludwig/rastair/src/v0.8.2/" \
+      about.license="SPDX:GPL-3" \
+      about.tags="Methylation, TAPS" \
+      maintainer="Andrew Gaines andrew.gaines@watchmakergenomics.com"
+
 # Copy the compiled binary from the build stage
 COPY --from=builder /app/rastair/target/release/rastair /usr/local/bin/rastair
 
