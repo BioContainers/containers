@@ -1,0 +1,2 @@
+seeksoultools --version
+seeksoultools --help
