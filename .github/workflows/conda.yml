@@ -15,5 +15,5 @@ jobs:
     steps:
     - name: Backup bioconda and docker containers to local and aws registries
       run: |
-        cd /home/debian/sync && node index.js --backup --aws --conda --updated
-        cd /home/debian/sync && node index.js --aws --docker --updated
+        cd /home/debian/sync && node index.js --backup --conda --updated
+        cd /home/debian/sync && node index.js --docker --updated
