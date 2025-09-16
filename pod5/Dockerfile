@@ -1,0 +1,35 @@
+################## BASE IMAGE ######################
+
+FROM python:3.11-slim
+
+################## METADATA ######################
+
+ARG software_version=0.3.15
+LABEL base_image="python:3.11-slim"
+LABEL version="1"
+LABEL software="pod5"
+LABEL software.version="$software_version"
+LABEL about.summary="The pod5 python module can be used to read and write nanopore reads stored in POD5 files"
+LABEL about.home="https://github.com/nanoporetech/pod5-file-format"
+LABEL about.documentation="https://pod5-file-format.readthedocs.io/en/latest/index.html"
+LABEL about.license_file="https://github.com/nanoporetech/pod5-file-format/blob/master/LICENSE.md"
+LABEL about.license="Mozilla Public License 2.0"
+LABEL about.tags="Genomics"
+LABEL extra.identifiers.biotools="pod5"
+LABEL extra.binaries="pod5"
+
+################## MAINTAINER ######################
+LABEL maintainer="Eduard Perez Mendez <mail@eperezme.com>"
+
+################## INSTALLATION ####################
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends bash \
+    procps \
+    && pip install --upgrade pip \
+    && pip install lib-pod5==0.3.15 pod5==$software_version \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+################## ENTRYPOINT ######################
+CMD ["bash"]
