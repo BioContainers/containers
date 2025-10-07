@@ -17,3 +17,5 @@ gen
 *.o
 .idea/
 
+# Mac files
+.DS_Store
