@@ -13,7 +13,8 @@ LABEL about.summary="ColabDesign - Making Protein Design accessible to all"
 LABEL software="ColabDesign"
 LABEL software.version="1.0.3"
 LABEL about.home="https://github.com/sokrypton/ColabDesign"
-LABEL about.license="Beerware"
+LABEL about.license="Other"
+LABEL about.license_file="/opt/colabdesign/LICENSE.txt" \
 
 ################## MAINTAINER ######################
 MAINTAINER David Prihoda <david.prihoda@gmail.com>
