@@ -25,6 +25,5 @@ RUN micromamba install -y -n base -f /tmp/conda.yml && micromamba clean -a -y
 ENV PATH="$MAMBA_ROOT_PREFIX/bin:$PATH"
 
 USER root
-
 # Verify installation
 RUN sourmash --version && sourmash scripts multisearch --help
