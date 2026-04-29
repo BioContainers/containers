@@ -9,7 +9,7 @@ LABEL about.home="https://github.com/JuliaPhylo/SNaQ.jl"
 LABEL about.documentation="https://juliaphylo.github.io/SNaQ.jl/dev/"
 LABEL about.license_file="https://github.com/JuliaPhylo/SNaQ.jl/blob/main/LICENSE"
 LABEL about.license="MIT"
-LABEL extra.identifiers.biotools="snaq"
+LABEL extra.identifiers.biotools=""
 LABEL about.tags="Phylogenetics"
 
 MAINTAINER Alexander Ramos-Diaz <ra.ramos.diaz@gmail.com>
