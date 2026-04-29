@@ -8,7 +8,7 @@ LABEL about.summary="Maximum pseudolikelihood estimation of species network"
 LABEL about.home="https://github.com/JuliaPhylo/SNaQ.jl"
 LABEL about.documentation="https://juliaphylo.github.io/SNaQ.jl/dev/"
 LABEL about.license_file="https://github.com/JuliaPhylo/SNaQ.jl/blob/main/LICENSE"
-LABEL about.license="MIT License"
+LABEL about.license="MIT"
 LABEL extra.identifiers.biotools="snaq"
 LABEL about.tags="Phylogenetics"
 
