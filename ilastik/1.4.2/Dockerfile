@@ -35,7 +35,8 @@ RUN apt-get update -qq && \
             build-essential \
             libglu1-mesa-dev \
             qtcreator \
-            libgl1-mesa-glx \
+            libglx-mesa0 \
+            libgl1 \
             nautilus \
             xdg-utils \
             wget && \
