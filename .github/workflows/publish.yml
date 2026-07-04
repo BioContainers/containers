@@ -95,6 +95,35 @@ jobs:
           done < "$TESTS"
           exit $status
 
+      # --- Security gate: scan the locally-built image BEFORE pushing. ---
+      # A fixable HIGH/CRITICAL CVE fails the job, so nothing is pushed. Unfixable
+      # OS-level CVEs are ignored. Maintainers can accept specific CVEs by adding a
+      # `.trivyignore` (CVE IDs, one per line) in the container's version directory.
+      - name: Prepare Trivy ignore file
+        run: |
+          if [ -f "$C/$V/.trivyignore" ]; then
+            cp "$C/$V/.trivyignore" .trivyignore
+            echo "Using per-container .trivyignore:"; cat .trivyignore
+          fi
+
+      - name: Trivy security scan (gate on fixable HIGH/CRITICAL)
+        uses: aquasecurity/trivy-action@0.35.0
+        with:
+          image-ref: bcimg:local
+          format: sarif
+          output: trivy.sarif
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: '1'
+
+      - name: Upload Trivy results to Security tab
+        if: always()
+        continue-on-error: true
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: trivy.sarif
+          category: trivy-${{ env.C }}
+
       - name: Log in to DockerHub
         uses: docker/login-action@v3
         with:
@@ -117,23 +146,6 @@ jobs:
             echo "Published amd64-only: $IMG"
             echo "- \`$IMG\` — **amd64-only** (base has no arm64)" >> "$GITHUB_STEP_SUMMARY"
           fi
-
-      - name: Trivy security scan (report-only)
-        continue-on-error: true
-        uses: aquasecurity/trivy-action@0.35.0
-        with:
-          image-ref: biocontainers/${{ env.C }}:${{ steps.check.outputs.tag }}
-          format: sarif
-          output: trivy.sarif
-          severity: HIGH,CRITICAL
-          ignore-unfixed: true
-
-      - name: Upload Trivy results to Security tab
-        continue-on-error: true
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: trivy.sarif
-          category: trivy-${{ env.C }}
 
       - name: Set up Apptainer (Singularity)
         uses: eWaterCycle/setup-apptainer@v2

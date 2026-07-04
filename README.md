@@ -155,11 +155,18 @@ longer a self-hosted/Jenkins build node. Three workflows drive it:
 * **`pr-report.yml`** posts the pass/fail commit status and a PR comment (listing errors and
   advisory warnings). It runs separately so it works for pull requests opened from forks.
 * **`publish.yml`** runs when a PR is merged to `master`. It re-validates, builds a
-  multi-arch (`linux/amd64` + `linux/arm64`) image, pushes
-  `biocontainers/<software>:<version>_cv<version-label>` to DockerHub, runs a Trivy security
-  scan (report-only — results go to the repository *Security* tab and never block the push),
-  and builds a Singularity `.sif` attached as a GitHub Release asset. Pull the Singularity image
-  directly with `singularity pull docker://biocontainers/<software>:<tag>`.
+  multi-arch (`linux/amd64` + `linux/arm64`) image, and pushes
+  `biocontainers/<software>:<version>_cv<version-label>` to DockerHub. Before the push it runs a
+  **Trivy security gate**: a fixable HIGH/CRITICAL CVE fails the job so nothing is published
+  (unfixable OS-level CVEs are ignored; results are always uploaded to the *Security* tab). A
+  container can accept specific CVEs with a `.trivyignore` file (CVE IDs, one per line) in its
+  version directory. After a successful push it builds a Singularity `.sif` attached as a GitHub
+  Release asset — pull it directly with `singularity pull docker://biocontainers/<software>:<tag>`.
+
+The build itself is also a gate: the image is built and its `test-cmds.txt` run *before* the
+push, so a container that fails to build (e.g. an EOL base image) is never published. Publishing
+can also be triggered manually from the Actions tab (**Run workflow** on *publish*) for a specific
+`container` + `version`.
 
 The validation logic lives in [`.github/scripts/validate.py`](.github/scripts/validate.py)
 (no third-party dependencies; unit-tested under `.github/scripts/tests/`).
