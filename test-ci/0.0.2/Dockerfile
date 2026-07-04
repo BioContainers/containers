@@ -8,7 +8,6 @@ LABEL software="testci"
 LABEL software.version="0.0.2"
 LABEL about.summary="A test container for internal testing"
 
-LABEL about.home="https://biocontainers.pro/"
 LABEL about.license_file="gpl3+"
 LABEL about.license="spdx:GPL-3.0-or-later"
 LABEL about.tags="test"
