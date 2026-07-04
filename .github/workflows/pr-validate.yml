@@ -1,0 +1,84 @@
+# Validate a container pull request on a GitHub-hosted runner.
+# Runs in the untrusted PR context: NO secrets, NO push. It only builds + checks +
+# tests the container, writes report.json, and lets its job status reflect pass/fail.
+# The companion `pr-report.yml` (workflow_run) posts the status/comment afterwards,
+# so this works for fork PRs where the token here is read-only.
+name: pr-validate
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-validate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compute changed files
+        run: |
+          git diff --name-only \
+            ${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }} \
+            > changed_files.txt
+          echo "Changed files:"; cat changed_files.txt
+
+      - name: Detect container and enforce PR rules
+        id: detect
+        run: |
+          python3 .github/scripts/validate.py detect \
+            --changed-files changed_files.txt --out report.json
+
+      - name: Build image (amd64)
+        run: |
+          C="${{ steps.detect.outputs.container }}"
+          V="${{ steps.detect.outputs.version }}"
+          docker build --no-cache --pull -t bcimg:pr "$C/$V"
+
+      - name: Extract labels
+        run: |
+          docker inspect --format '{{json .Config.Labels}}' bcimg:pr > labels.json
+          cat labels.json
+
+      - name: Check labels and compute tag
+        run: |
+          C="${{ steps.detect.outputs.container }}"
+          V="${{ steps.detect.outputs.version }}"
+          python3 .github/scripts/validate.py check \
+            --container "$C" --version "$V" \
+            --labels labels.json --dockerfile "$C/$V/Dockerfile" --out report.json
+
+      - name: Run tests (test-cmds.txt)
+        run: |
+          C="${{ steps.detect.outputs.container }}"
+          V="${{ steps.detect.outputs.version }}"
+          TESTS="$C/$V/test-cmds.txt"
+          if [ ! -f "$TESTS" ]; then
+            echo "No test-cmds.txt, skipping tests."; exit 0
+          fi
+          status=0
+          while IFS= read -r cmd || [ -n "$cmd" ]; do
+            [ -z "$cmd" ] && continue
+            echo "::group::TEST $cmd"
+            if docker run --rm bcimg:pr $cmd; then echo "ok"; else echo "FAILED"; status=1; fi
+            echo "::endgroup::"
+          done < "$TESTS"
+          exit $status
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: report
+          path: report.json
+          if-no-files-found: warn

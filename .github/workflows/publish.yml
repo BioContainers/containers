@@ -1,0 +1,128 @@
+# Build and publish containers merged to master, on GitHub-hosted runners.
+# A merge normally touches one container (enforced at PR time), but a direct push
+# may touch several, so `detect` produces a matrix and `publish` fans out over it.
+name: publish
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ github.sha }}
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.list.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: List changed containers in this push
+        id: list
+        run: |
+          git diff-tree --no-commit-id --name-only -r ${{ github.sha }} > changed_files.txt
+          echo "Changed files:"; cat changed_files.txt
+          python3 .github/scripts/validate.py list \
+            --changed-files changed_files.txt --out matrix.json
+
+  publish:
+    needs: detect
+    if: ${{ needs.detect.outputs.matrix != '' && needs.detect.outputs.matrix != '[]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # create the Singularity release
+      security-events: write # upload the Trivy SARIF
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.detect.outputs.matrix) }}
+    env:
+      C: ${{ matrix.container }}
+      V: ${{ matrix.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Build image (amd64) for validation
+        run: docker buildx build --load --platform linux/amd64 -t bcimg:local "$C/$V"
+
+      - name: Extract labels
+        run: docker inspect --format '{{json .Config.Labels}}' bcimg:local > labels.json
+
+      - name: Check labels and compute tag
+        id: check
+        run: |
+          python3 .github/scripts/validate.py check \
+            --container "$C" --version "$V" \
+            --labels labels.json --dockerfile "$C/$V/Dockerfile" --out report.json
+
+      - name: Run tests (test-cmds.txt)
+        run: |
+          TESTS="$C/$V/test-cmds.txt"
+          if [ ! -f "$TESTS" ]; then echo "No test-cmds.txt, skipping."; exit 0; fi
+          status=0
+          while IFS= read -r cmd || [ -n "$cmd" ]; do
+            [ -z "$cmd" ] && continue
+            echo "::group::TEST $cmd"
+            if docker run --rm bcimg:local $cmd; then echo "ok"; else echo "FAILED"; status=1; fi
+            echo "::endgroup::"
+          done < "$TESTS"
+          exit $status
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push multi-arch manifest
+        run: |
+          TAG="${{ steps.check.outputs.tag }}"
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            --pull --push \
+            -t "biocontainers/${C}:${TAG}" \
+            "$C/$V"
+
+      - name: Trivy security scan (report-only)
+        continue-on-error: true
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          image-ref: biocontainers/${{ env.C }}:${{ steps.check.outputs.tag }}
+          format: sarif
+          output: trivy.sarif
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+
+      - name: Upload Trivy results to Security tab
+        continue-on-error: true
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: trivy.sarif
+          category: trivy-${{ env.C }}
+
+      - name: Set up Apptainer (Singularity)
+        uses: eWaterCycle/setup-apptainer@v2
+      - name: Convert to Singularity .sif
+        run: |
+          TAG="${{ steps.check.outputs.tag }}"
+          apptainer build "${C}_${TAG}.sif" "docker://biocontainers/${C}:${TAG}"
+
+      - name: Attach .sif to a GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.C }}-${{ steps.check.outputs.tag }}
+          name: ${{ env.C }} ${{ steps.check.outputs.tag }}
+          files: ${{ env.C }}_${{ steps.check.outputs.tag }}.sif
+          body: |
+            Singularity image for `biocontainers/${{ env.C }}:${{ steps.check.outputs.tag }}`.
+            Pull the container directly with:
+            `singularity pull docker://biocontainers/${{ env.C }}:${{ steps.check.outputs.tag }}`

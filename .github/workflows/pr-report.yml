@@ -1,0 +1,92 @@
+# Posts the result of pr-validate back to the pull request.
+# Triggered by workflow_run so it runs in the BASE repo with write permission —
+# this is what lets us set a commit status and comment on PRs opened from forks,
+# without ever exposing a write token to the untrusted build in pr-validate.
+name: pr-report
+
+on:
+  workflow_run:
+    workflows: ["pr-validate"]
+    types: [completed]
+
+permissions:
+  statuses: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download validation report
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: report
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish status and comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const run = context.payload.workflow_run;
+            const buildOk = run.conclusion === 'success';
+
+            let report = {};
+            try { report = JSON.parse(fs.readFileSync('report.json', 'utf8')); }
+            catch (e) { core.warning('No report.json artifact found: ' + e.message); }
+
+            const sha = report.head_sha || run.head_sha;
+            const prNumber = report.pr_number ||
+              (run.pull_requests && run.pull_requests[0] && run.pull_requests[0].number);
+            const software = report.software || report.container || 'container';
+            const errors = report.errors || [];
+            const warnings = report.warnings || [];
+
+            // Commit status: build conclusion gates it; report supplies the detail.
+            if (sha) {
+              const state = buildOk && errors.length === 0 ? 'success' : 'failure';
+              const description = state === 'success'
+                ? 'All checks passed'
+                : (errors[0] || 'Build or tests failed — see the pr-validate run');
+              await github.rest.repos.createCommitStatus({
+                owner: context.repo.owner, repo: context.repo.repo, sha,
+                state, context: 'biocontainers/status/check/' + software,
+                description: description.slice(0, 140),
+                target_url: run.html_url,
+              });
+            }
+
+            if (!prNumber) { core.info('No PR number resolved; skipping comment.'); return; }
+
+            const lines = [];
+            const passed = buildOk && errors.length === 0;
+            lines.push(passed
+              ? `✅ **BioContainers CI passed** for \`${software}\`.`
+              : `❌ **BioContainers CI failed** for \`${software}\`.`);
+            if (report.tag) lines.push(`Image tag: \`biocontainers/${report.container}:${report.tag}\``);
+            if (!buildOk && errors.length === 0)
+              lines.push('\nThe build or test step failed. See the ' +
+                `[pr-validate run](${run.html_url}) for details.`);
+            if (errors.length) lines.push('\n**Errors (must fix):**\n' + errors.map(e => `- ${e}`).join('\n'));
+            if (warnings.length) lines.push('\n**Warnings (advisory):**\n' + warnings.map(w => `- ${w}`).join('\n'));
+            const marker = '<!-- biocontainers-ci -->';
+            const body = marker + '\n' + lines.join('\n');
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: prNumber,
+            });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                comment_id: existing.id, body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: prNumber, body,
+              });
+            }

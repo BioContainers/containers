@@ -141,6 +141,38 @@ There are two different ways to build a container.
 
 Inside the central repository there is a list of softwares with docker recipes, there you can find more information about how to work with them.
 
+### 3.1.1. Continuous integration (GitHub Actions)
+
+Containers are built, validated and published entirely on GitHub-hosted runners — there is no
+longer a self-hosted/Jenkins build node. Three workflows drive it:
+
+* **`pr-validate.yml`** runs on every pull request. It detects the single `<software>/<version>`
+  container you changed, enforces the PR rules (one container per PR, no `.github` edits, a
+  `Dockerfile` in the right place), builds the amd64 image, checks the required LABELs
+  (`software`, `base_image`, `software.version` — which must equal the directory version —
+  `version`, `about.summary`, `about.home`, `about.license`), and runs `test-cmds.txt` inside
+  the image. No image is pushed and no secrets are used.
+* **`pr-report.yml`** posts the pass/fail commit status and a PR comment (listing errors and
+  advisory warnings). It runs separately so it works for pull requests opened from forks.
+* **`publish.yml`** runs when a PR is merged to `master`. It re-validates, builds a
+  multi-arch (`linux/amd64` + `linux/arm64`) image, pushes
+  `biocontainers/<software>:<version>_cv<version-label>` to DockerHub, runs a Trivy security
+  scan (report-only — results go to the repository *Security* tab and never block the push),
+  and builds a Singularity `.sif` attached as a GitHub Release asset. Pull the Singularity image
+  directly with `singularity pull docker://biocontainers/<software>:<tag>`.
+
+The validation logic lives in [`.github/scripts/validate.py`](.github/scripts/validate.py)
+(no third-party dependencies; unit-tested under `.github/scripts/tests/`).
+
+**Required repository/organization secrets** (Settings → Secrets and variables → Actions):
+
+| Secret | Purpose |
+|---|---|
+| `DOCKERHUB_USERNAME` | Push access to the `biocontainers` DockerHub organization |
+| `DOCKERHUB_TOKEN` | DockerHub access token for the above account |
+
+`GITHUB_TOKEN` is provided automatically and needs no configuration.
+
 ### 3.2. What do I need to develop?
 
 BioContainers are based on Linux systems, so you will need a computer with Linux installed. You also will need the `docker` or `rkt` daemon and the software you want to containerize.
