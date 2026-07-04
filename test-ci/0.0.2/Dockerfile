@@ -27,3 +27,4 @@ USER biodocker
 
 
 WORKDIR /data/
+# CI smoke-test: exercising pr-validate/pr-report (no functional change)
