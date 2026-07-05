@@ -163,8 +163,10 @@ longer a self-hosted/Jenkins build node. Three workflows drive it:
   **Trivy security gate**: a fixable HIGH/CRITICAL CVE fails the job so nothing is published
   (unfixable OS-level CVEs are ignored; results are always uploaded to the *Security* tab). A
   container can accept specific CVEs with a `.trivyignore` file (CVE IDs, one per line) in its
-  version directory. After a successful push it builds a Singularity `.sif` attached as a GitHub
-  Release asset — pull it directly with `singularity pull docker://biocontainers/<software>:<tag>`.
+  version directory. After a successful push it builds a Singularity `.sif` and uploads it to the
+  BioContainers S3, served at
+  `https://containers.biocontainers.pro/s3/SingImgsRepo/<software>/<tag>/<software>_<tag>.sif`
+  (this step is skipped unless the `BIOCONTAINERS_S3_*` secrets are configured).
 
 The build itself is also a gate: the image is built and its `test-cmds.txt` run *before* the
 push, so a container that fails to build (e.g. an EOL base image) is never published. Publishing
@@ -180,6 +182,10 @@ The validation logic lives in [`.github/scripts/validate.py`](.github/scripts/va
 |---|---|
 | `DOCKERHUB_USERNAME` | Push access to the `biocontainers` DockerHub organization |
 | `DOCKERHUB_TOKEN` | DockerHub access token for the above account |
+| `BIOCONTAINERS_S3_ENDPOINT` | S3 API endpoint for the Singularity bucket (optional; Singularity upload is skipped if unset) |
+| `BIOCONTAINERS_S3_BUCKET` | S3 bucket name behind `containers.biocontainers.pro/s3` |
+| `BIOCONTAINERS_S3_ACCESS_KEY` / `BIOCONTAINERS_S3_SECRET_KEY` | S3 write credentials |
+| `BIOCONTAINERS_S3_REGION` | S3 region (if the store requires one, e.g. `eu-west-1`) |
 
 `GITHUB_TOKEN` is provided automatically and needs no configuration.
 

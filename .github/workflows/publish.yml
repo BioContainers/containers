@@ -54,7 +54,7 @@ jobs:
     if: ${{ needs.detect.outputs.matrix != '' && needs.detect.outputs.matrix != '[]' }}
     runs-on: ubuntu-latest
     permissions:
-      contents: write        # create the Singularity release
+      contents: read
       security-events: write # upload the Trivy SARIF
     strategy:
       fail-fast: false
@@ -63,6 +63,10 @@ jobs:
     env:
       C: ${{ matrix.container }}
       V: ${{ matrix.version }}
+      # Singularity is uploaded to the BioContainers S3 only when these are set as
+      # secrets; job-level so the step `if` guard can see the endpoint.
+      S3_ENDPOINT: ${{ secrets.BIOCONTAINERS_S3_ENDPOINT }}
+      S3_BUCKET: ${{ secrets.BIOCONTAINERS_S3_BUCKET }}
     steps:
       - uses: actions/checkout@v4
 
@@ -147,20 +151,29 @@ jobs:
             echo "- \`$IMG\` — **amd64-only** (base has no arm64)" >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      # --- Singularity: build a .sif and upload to the BioContainers S3, served at
+      # https://containers.biocontainers.pro/s3/SingImgsRepo/<tool>/<tag>/<tool>_<tag>.sif
+      # Runs only when the S3 secrets are configured (otherwise skipped, no failure). ---
       - name: Set up Apptainer (Singularity)
+        if: ${{ env.S3_ENDPOINT != '' }}
         uses: eWaterCycle/setup-apptainer@v2
+
       - name: Convert to Singularity .sif
+        if: ${{ env.S3_ENDPOINT != '' }}
         run: |
           TAG="${{ steps.check.outputs.tag }}"
           apptainer build "${C}_${TAG}.sif" "docker://biocontainers/${C}:${TAG}"
 
-      - name: Attach .sif to a GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.C }}-${{ steps.check.outputs.tag }}
-          name: ${{ env.C }} ${{ steps.check.outputs.tag }}
-          files: ${{ env.C }}_${{ steps.check.outputs.tag }}.sif
-          body: |
-            Singularity image for `biocontainers/${{ env.C }}:${{ steps.check.outputs.tag }}`.
-            Pull the container directly with:
-            `singularity pull docker://biocontainers/${{ env.C }}:${{ steps.check.outputs.tag }}`
+      - name: Upload Singularity image to BioContainers S3
+        if: ${{ env.S3_ENDPOINT != '' }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.BIOCONTAINERS_S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.BIOCONTAINERS_S3_SECRET_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.BIOCONTAINERS_S3_REGION }}
+        run: |
+          TAG="${{ steps.check.outputs.tag }}"
+          KEY="SingImgsRepo/${C}/${TAG}/${C}_${TAG}.sif"
+          aws s3 cp "${C}_${TAG}.sif" "s3://${S3_BUCKET}/${KEY}" --endpoint-url "$S3_ENDPOINT"
+          URL="https://containers.biocontainers.pro/s3/${KEY}"
+          echo "Singularity image served at: ${URL}"
+          echo "- Singularity: [\`${KEY}\`](${URL})" >> "$GITHUB_STEP_SUMMARY"
