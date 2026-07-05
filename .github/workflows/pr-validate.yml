@@ -39,11 +39,13 @@ jobs:
           python3 .github/scripts/validate.py detect \
             --changed-files changed_files.txt --out report.json
 
+      # detect has already validated that container/version match [A-Za-z0-9._-];
+      # values are passed via env (never interpolated into the shell) and quoted.
       - name: Build image (amd64)
-        run: |
-          C="${{ steps.detect.outputs.container }}"
-          V="${{ steps.detect.outputs.version }}"
-          docker build --no-cache --pull -t bcimg:pr "$C/$V"
+        env:
+          C: ${{ steps.detect.outputs.container }}
+          V: ${{ steps.detect.outputs.version }}
+        run: docker build --no-cache --pull -t bcimg:pr "$C/$V"
 
       - name: Extract labels
         run: |
@@ -51,24 +53,27 @@ jobs:
           cat labels.json
 
       - name: Check labels and compute tag
+        env:
+          C: ${{ steps.detect.outputs.container }}
+          V: ${{ steps.detect.outputs.version }}
         run: |
-          C="${{ steps.detect.outputs.container }}"
-          V="${{ steps.detect.outputs.version }}"
           python3 .github/scripts/validate.py check \
             --container "$C" --version "$V" \
             --labels labels.json --dockerfile "$C/$V/Dockerfile" --out report.json
 
       - name: Run tests (test-cmds.txt)
+        env:
+          C: ${{ steps.detect.outputs.container }}
+          V: ${{ steps.detect.outputs.version }}
         run: |
-          C="${{ steps.detect.outputs.container }}"
-          V="${{ steps.detect.outputs.version }}"
           TESTS="$C/$V/test-cmds.txt"
           if [ ! -f "$TESTS" ]; then
             echo "No test-cmds.txt, skipping tests."; exit 0
           fi
           status=0
           while IFS= read -r cmd || [ -n "$cmd" ]; do
-            [ -z "$cmd" ] && continue
+            cmd="${cmd%$'\r'}"                    # tolerate CRLF line endings
+            case "$cmd" in ''|\#*) continue ;; esac  # skip blank and comment lines
             echo "::group::TEST $cmd"
             if docker run --rm bcimg:pr $cmd; then echo "ok"; else echo "FAILED"; status=1; fi
             echo "::endgroup::"

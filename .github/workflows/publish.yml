@@ -33,17 +33,29 @@ jobs:
 
       - name: Determine containers to publish
         id: list
+        env:
+          IN_CONTAINER: ${{ github.event.inputs.container }}
+          IN_VERSION: ${{ github.event.inputs.version }}
+          EVENT_BEFORE: ${{ github.event.before }}
+          EVENT_SHA: ${{ github.sha }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            C='${{ github.event.inputs.container }}'
-            V='${{ github.event.inputs.version }}'
-            if [ ! -f "$C/$V/Dockerfile" ]; then
-              echo "No Dockerfile at $C/$V/Dockerfile"; exit 1
+            if [ ! -f "$IN_CONTAINER/$IN_VERSION/Dockerfile" ]; then
+              echo "No Dockerfile at $IN_CONTAINER/$IN_VERSION/Dockerfile"; exit 1
             fi
-            echo "matrix=[{\"path\":\"$C/$V\",\"container\":\"$C\",\"version\":\"$V\"}]" >> "$GITHUB_OUTPUT"
-            echo "Manual publish: $C/$V"
+            MATRIX=$(jq -nc --arg c "$IN_CONTAINER" --arg v "$IN_VERSION" \
+              '[{path:($c+"/"+$v), container:$c, version:$v}]')
+            echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
+            echo "Manual publish: $IN_CONTAINER/$IN_VERSION"
           else
-            git diff-tree --no-commit-id --name-only -r ${{ github.sha }} > changed_files.txt
+            # Use the push range so merge commits and multi-commit pushes are covered
+            # (git diff-tree on a merge commit alone yields no files).
+            if [ -z "$EVENT_BEFORE" ] || [ "$EVENT_BEFORE" = "0000000000000000000000000000000000000000" ]; then
+              git diff --name-only "${EVENT_SHA}^" "${EVENT_SHA}" > changed_files.txt 2>/dev/null || \
+                git show --pretty= --name-only "${EVENT_SHA}" > changed_files.txt
+            else
+              git diff --name-only "$EVENT_BEFORE" "$EVENT_SHA" > changed_files.txt
+            fi
             echo "Changed files:"; cat changed_files.txt
             python3 .github/scripts/validate.py list \
               --changed-files changed_files.txt --out matrix.json
@@ -92,7 +104,8 @@ jobs:
           if [ ! -f "$TESTS" ]; then echo "No test-cmds.txt, skipping."; exit 0; fi
           status=0
           while IFS= read -r cmd || [ -n "$cmd" ]; do
-            [ -z "$cmd" ] && continue
+            cmd="${cmd%$'\r'}"                    # tolerate CRLF line endings
+            case "$cmd" in ''|\#*) continue ;; esac  # skip blank and comment lines
             echo "::group::TEST $cmd"
             if docker run --rm bcimg:local $cmd; then echo "ok"; else echo "FAILED"; status=1; fi
             echo "::endgroup::"
@@ -135,18 +148,22 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push (multi-arch, amd64 fallback)
+        env:
+          TAG: ${{ steps.check.outputs.tag }}   # validated [A-Za-z0-9._-]; used only as "$TAG"
         run: |
-          TAG="${{ steps.check.outputs.tag }}"
           IMG="biocontainers/${C}:${TAG}"
-          # Many legacy BioContainers base images are amd64-only, so the arm64 leg
-          # fails fast at the FROM pull. Try multi-arch, fall back to amd64-only so
-          # amd64 always publishes and arm64 is added only when the base supports it.
-          if docker buildx build --platform linux/amd64,linux/arm64 --pull --push -t "$IMG" "$C/$V"; then
+          # No --pull: reuse the exact amd64 base/layers that the Trivy gate scanned
+          # above (bcimg:local was built from the same context/cache), so the amd64
+          # image we publish is the one that passed the gate. The arm64 image is built
+          # fresh and is not independently scanned; it uses the same Dockerfile/packages.
+          # Many legacy base images are amd64-only, so the arm64 leg may fail fast at the
+          # FROM pull — fall back to amd64-only in that case.
+          if docker buildx build --platform linux/amd64,linux/arm64 --push -t "$IMG" "$C/$V"; then
             echo "Published multi-arch (amd64+arm64): $IMG"
             echo "- \`$IMG\` — **multi-arch** (amd64 + arm64)" >> "$GITHUB_STEP_SUMMARY"
           else
             echo "arm64 build failed (base likely amd64-only); publishing amd64-only."
-            docker buildx build --platform linux/amd64 --pull --push -t "$IMG" "$C/$V"
+            docker buildx build --platform linux/amd64 --push -t "$IMG" "$C/$V"
             echo "Published amd64-only: $IMG"
             echo "- \`$IMG\` — **amd64-only** (base has no arm64)" >> "$GITHUB_STEP_SUMMARY"
           fi
@@ -154,24 +171,32 @@ jobs:
       # --- Singularity: build a .sif and upload to the BioContainers S3, served at
       # https://containers.biocontainers.pro/s3/SingImgsRepo/<tool>/<tag>/<tool>_<tag>.sif
       # Runs only when the S3 secrets are configured (otherwise skipped, no failure). ---
+      # These run only when the S3 endpoint is configured, and are best-effort
+      # (continue-on-error): the DockerHub push above is the release of record, so a
+      # missing bucket/credential or S3 hiccup must never fail an already-published
+      # container. Failures surface as a warning annotation.
       - name: Set up Apptainer (Singularity)
         if: ${{ env.S3_ENDPOINT != '' }}
+        continue-on-error: true
         uses: eWaterCycle/setup-apptainer@v2
 
       - name: Convert to Singularity .sif
         if: ${{ env.S3_ENDPOINT != '' }}
-        run: |
-          TAG="${{ steps.check.outputs.tag }}"
-          apptainer build "${C}_${TAG}.sif" "docker://biocontainers/${C}:${TAG}"
+        continue-on-error: true
+        env:
+          TAG: ${{ steps.check.outputs.tag }}
+        run: apptainer build "${C}_${TAG}.sif" "docker://biocontainers/${C}:${TAG}"
 
       - name: Upload Singularity image to BioContainers S3
         if: ${{ env.S3_ENDPOINT != '' }}
+        continue-on-error: true
         env:
+          TAG: ${{ steps.check.outputs.tag }}
           AWS_ACCESS_KEY_ID: ${{ secrets.BIOCONTAINERS_S3_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.BIOCONTAINERS_S3_SECRET_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.BIOCONTAINERS_S3_REGION }}
         run: |
-          TAG="${{ steps.check.outputs.tag }}"
+          if [ ! -f "${C}_${TAG}.sif" ]; then echo "No .sif built, skipping upload."; exit 0; fi
           KEY="SingImgsRepo/${C}/${TAG}/${C}_${TAG}.sif"
           aws s3 cp "${C}_${TAG}.sif" "s3://${S3_BUCKET}/${KEY}" --endpoint-url "$S3_ENDPOINT"
           URL="https://containers.biocontainers.pro/s3/${KEY}"

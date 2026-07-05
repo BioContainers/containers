@@ -18,6 +18,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 
 # Files matching these fragments must never be reachable from a submitted Dockerfile.
@@ -27,6 +28,16 @@ FORBIDDEN_DOCKERFILE_FRAGMENTS = (".aws", "etc/biocontainers-ci")
 REQUIRED_LABELS = ("software", "base_image", "software.version", "version", "about.summary",
                    "about.home", "about.license")
 
+# Container dir names, version dir names and the computed tag all end up as Docker
+# tags, filesystem paths, S3 keys and a commit-status context, and some are consumed
+# by shell steps — so they must be strictly safe. A legal Docker tag is already a
+# subset of this, so rejecting anything else is free.
+SAFE_TOKEN_RE = re.compile(r"^[A-Za-z0-9._-]+$")
+
+
+def _safe(value):
+    return bool(value) and SAFE_TOKEN_RE.match(value) is not None
+
 
 def _write_report(path, report):
     with open(path, "w") as fh:
@@ -34,13 +45,17 @@ def _write_report(path, report):
 
 
 def _set_output(**kwargs):
-    """Expose values to later workflow steps via $GITHUB_OUTPUT (no-op locally)."""
+    """Expose values to later workflow steps via $GITHUB_OUTPUT (no-op locally).
+
+    Uses the heredoc form so a value can never inject extra output lines even if it
+    contained a newline (values are also charset-validated before reaching here)."""
     out = os.environ.get("GITHUB_OUTPUT")
     if not out:
         return
     with open(out, "a") as fh:
         for key, value in kwargs.items():
-            fh.write("%s=%s\n" % (key, value))
+            value = "" if value is None else str(value)
+            fh.write("%s<<__GHEOF__\n%s\n__GHEOF__\n" % (key, value))
 
 
 def detect_container(changed_files, workdir="."):
@@ -70,6 +85,10 @@ def detect_container(changed_files, workdir="."):
         return None, None, ["A pull request may only modify one container; found: %s." % listed]
 
     container, version = next(iter(containers))
+    if not _safe(container) or not _safe(version):
+        return container, version, [
+            "Container and version directory names must match [A-Za-z0-9._-] "
+            "(got '%s/%s')." % (container, version)]
     dockerfile = os.path.join(workdir, container, version, "Dockerfile")
     if not os.path.exists(dockerfile):
         return container, version, [
@@ -92,6 +111,8 @@ def list_containers(changed_files, workdir="."):
         if len(parts) < 2:
             continue
         container, version = parts[0], parts[1]
+        if not _safe(container) or not _safe(version):
+            continue
         key = "%s/%s" % (container, version)
         if key in found:
             continue
@@ -174,7 +195,13 @@ def check_labels(container, version, labels, dockerfile):
     # conventional form is v<version>_cv<n> (e.g. v1.2.38-2-deb_cv1), so if it is
     # missing we recommend it below, but the container can still be merged.
     tag = "%s_cv%s" % (version, container_version or "1")
-    if version and not version.startswith("v"):
+    # The tag becomes a Docker tag and is consumed by shell steps in publish.yml, so
+    # it must contain only Docker-tag-safe characters. Reject anything else (a stray
+    # quote/space/newline in a LABEL would otherwise be a shell-injection vector).
+    if not _safe(tag) or len(tag) > 128:
+        errors.append("Computed tag '%s' is not a valid Docker tag (allowed: [A-Za-z0-9._-], "
+                      "max 128 chars). Check the version directory and the 'version' LABEL." % tag[:60])
+    elif version and not version.startswith("v"):
         warnings.append(
             "Recommended: use the conventional 'v'-prefixed version tag "
             "(e.g. v%s_cv%s). The container can still be merged without it." % (version, container_version or "1"))
@@ -198,7 +225,8 @@ def check_labels(container, version, labels, dockerfile):
             if _http_status("https://bio.tools/api/tool/%s/?format=json" % entry) == 404:
                 warnings.append("The declared bio.tools entry '%s' was not found; please check it." % entry)
         elif software:
-            if _http_status("https://bio.tools/api/tool/%s/?format=json" % software) != 404:
+            status = _http_status("https://bio.tools/api/tool/%s/?format=json" % software)
+            if status is not None and status != 404:
                 warnings.append("A bio.tools entry may match this software (https://bio.tools/%s); "
                                 "add extra.identifiers.biotools if it is the same tool." % software)
 
