@@ -169,9 +169,15 @@ def check_labels(container, version, labels, dockerfile):
     if not license_id:
         errors.append("about.license label not present")
 
-    # Conventional BioContainers tag: v<software.version>_cv<container-version>
-    # (matches the historical tags on DockerHub, e.g. v1.2.38-2-deb_cv1).
-    tag = "v%s_cv%s" % (version, container_version or "1")
+    # The tag uses the version the author put in the Dockerfile, verbatim:
+    # <software.version>_cv<container-version>. We do NOT force a 'v' prefix — the
+    # conventional form is v<version>_cv<n> (e.g. v1.2.38-2-deb_cv1), so if it is
+    # missing we recommend it below, but the container can still be merged.
+    tag = "%s_cv%s" % (version, container_version or "1")
+    if version and not version.startswith("v"):
+        warnings.append(
+            "Recommended: use the conventional 'v'-prefixed version tag "
+            "(e.g. v%s_cv%s). The container can still be merged without it." % (version, container_version or "1"))
 
     # Advisory (non-fatal) checks — only run when the required set is otherwise fine.
     if not errors:

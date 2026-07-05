@@ -12,7 +12,7 @@
  2. [Metadata](#check-biocontainers-dockerfile-metadata)  
  - [ ] LABEL base_image  
  - [ ] LABEL version
- - [ ] LABEL software.version  
+ - [ ] LABEL software.version  (recommended: `v`-prefixed, e.g. `v1.2.38` — the CI will suggest this if missing, but it is not required)
  - [ ] LABEL about.summary  
  - [ ] LABEL about.home  
  - [ ] LABEL about.license   

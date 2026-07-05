@@ -156,8 +156,10 @@ longer a self-hosted/Jenkins build node. Three workflows drive it:
   advisory warnings). It runs separately so it works for pull requests opened from forks.
 * **`publish.yml`** runs when a PR is merged to `master`. It re-validates, builds a
   multi-arch (`linux/amd64` + `linux/arm64`) image, and pushes
-  `biocontainers/<software>:v<version>_cv<version-label>` to DockerHub (the conventional
-  BioContainers tag format, e.g. `v1.2.38-2-deb_cv1`). Before the push it runs a
+  `biocontainers/<software>:<version>_cv<version-label>` to DockerHub, using the version from the
+  Dockerfile as-is. The conventional BioContainers tag is `v`-prefixed (e.g. `v1.2.38-2-deb_cv1`);
+  if the version is not `v`-prefixed the CI adds an advisory recommendation, but the container is
+  still merged and published. Before the push it runs a
   **Trivy security gate**: a fixable HIGH/CRITICAL CVE fails the job so nothing is published
   (unfixable OS-level CVEs are ignored; results are always uploaded to the *Security* tab). A
   container can accept specific CVEs with a `.trivyignore` file (CVE IDs, one per line) in its

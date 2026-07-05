@@ -92,8 +92,23 @@ def test_check_valid_labels_compute_tag(tmp_path, monkeypatch):
         "abyss", "2.1.5-7-deb", _good_labels(), str(df))
     assert ok is True
     assert software == "abyss"
-    assert tag == "v2.1.5-7-deb_cv1"
+    assert tag == "2.1.5-7-deb_cv1"
     assert errors == []
+    # version has no 'v' prefix -> advisory recommendation, but still valid
+    assert any("conventional 'v'-prefixed" in w for w in warnings)
+
+
+def test_check_v_prefixed_version_no_recommendation(tmp_path, monkeypatch):
+    _no_network(monkeypatch)
+    df = tmp_path / "Dockerfile"
+    df.write_text("FROM x\n")
+    labels = _good_labels()
+    labels["software.version"] = "v2.1.5-7-deb"
+    ok, _, tag, errors, warnings = validate.check_labels(
+        "abyss", "v2.1.5-7-deb", labels, str(df))
+    assert ok is True
+    assert tag == "v2.1.5-7-deb_cv1"
+    assert not any("conventional 'v'-prefixed" in w for w in warnings)
 
 
 def test_check_missing_required_label(tmp_path, monkeypatch):
@@ -145,5 +160,5 @@ def test_check_tag_defaults_cv1_when_version_blank(tmp_path, monkeypatch):
     labels["version"] = ""
     ok, _, tag, errors, _ = validate.check_labels("abyss", "2.1.5-7-deb", labels, str(df))
     # version label blank is itself an error, but the tag still falls back to _cv1
-    assert tag == "v2.1.5-7-deb_cv1"
+    assert tag == "2.1.5-7-deb_cv1"
     assert ok is False
