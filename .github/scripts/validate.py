@@ -169,7 +169,9 @@ def check_labels(container, version, labels, dockerfile):
     if not license_id:
         errors.append("about.license label not present")
 
-    tag = "%s_cv%s" % (version, container_version or "1")
+    # Conventional BioContainers tag: v<software.version>_cv<container-version>
+    # (matches the historical tags on DockerHub, e.g. v1.2.38-2-deb_cv1).
+    tag = "v%s_cv%s" % (version, container_version or "1")
 
     # Advisory (non-fatal) checks — only run when the required set is otherwise fine.
     if not errors:

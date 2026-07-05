@@ -92,7 +92,7 @@ def test_check_valid_labels_compute_tag(tmp_path, monkeypatch):
         "abyss", "2.1.5-7-deb", _good_labels(), str(df))
     assert ok is True
     assert software == "abyss"
-    assert tag == "2.1.5-7-deb_cv1"
+    assert tag == "v2.1.5-7-deb_cv1"
     assert errors == []
 
 
@@ -145,5 +145,5 @@ def test_check_tag_defaults_cv1_when_version_blank(tmp_path, monkeypatch):
     labels["version"] = ""
     ok, _, tag, errors, _ = validate.check_labels("abyss", "2.1.5-7-deb", labels, str(df))
     # version label blank is itself an error, but the tag still falls back to _cv1
-    assert tag == "2.1.5-7-deb_cv1"
+    assert tag == "v2.1.5-7-deb_cv1"
     assert ok is False
