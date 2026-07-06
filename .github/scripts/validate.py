@@ -54,7 +54,7 @@ SECRET_RULES = (
     (re.compile(r"\bghp_[A-Za-z0-9]{36}\b"), "a GitHub personal access token"),
     (re.compile(r"\bgho_[A-Za-z0-9]{36}\b"), "a GitHub OAuth token"),
     (re.compile(r"\bgithub_pat_[A-Za-z0-9_]{22,}\b"), "a GitHub fine-grained token"),
-    (re.compile(r"(?i)aws_secret_access_key\s*[=:]\s*[\"']?[A-Za-z0-9/+]{40}\b"), "an AWS secret access key"),
+    (re.compile(r"(?i)aws_secret_access_key(?:\s*[=:]\s*|\s+)[\"']?[A-Za-z0-9/+]{40}\b"), "an AWS secret access key"),
     (re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"), "a Slack token"),
 )
 
@@ -82,7 +82,8 @@ REVIEW_RULES = (
      "sets world-writable permissions (`chmod 777`) — scope permissions more tightly"),
     (re.compile(r"(?i)(?:--insecure|--no-check-certificate)\b"), True, ("RUN",),
      "disables TLS certificate verification (`--insecure` / `--no-check-certificate`)"),
-    (re.compile(r"(?i)(?:password|passwd|secret|token|api[_-]?key)\s*[=:]\s*[\"']?\S{6,}"), False, None,
+    (re.compile(r"(?i)(?:password|passwd|secret|token|api[_-]?key)(?:\s*[=:]\s*|\s+)[\"']?\S{6,}"),
+     False, ("ENV", "ARG", "RUN"),
      "may embed a credential/secret — verify that no real secret is committed"),
 )
 
@@ -309,45 +310,72 @@ def scan_dockerfile_risks(dockerfile_path):
     with open(dockerfile_path, errors="replace") as fh:
         raw_lines = fh.read().splitlines()
 
-    # Fold backslash line-continuations into one logical instruction so a split
-    # `curl … \` <newline> `| sh` cannot slip past a per-line regex. Each entry is
+    # Fold each Dockerfile instruction into one logical unit: both backslash
+    # continuations AND heredoc bodies (`RUN <<EOF … EOF`) are attached to their
+    # instruction, so neither a split `curl … \`↵`| sh` nor a heredoc'd
+    # `curl … | sh` can slip past the scoped regexes. Each entry is
     # (start_line, INSTRUCTION, joined_text).
-    logical, buf, start, instr = [], None, None, None
-    for i, raw in enumerate(raw_lines, 1):
-        if buf is None:
-            stripped = raw.strip()
-            if not stripped or stripped.startswith("#"):
-                continue
-            m = re.match(r"([A-Za-z]+)", stripped)
-            instr = m.group(1).upper() if m else ""
-            start, buf = i, raw
-        else:
-            buf += "\n" + raw
-        if raw.rstrip().endswith("\\"):
+    heredoc_re = re.compile(r"<<[-~]?\s*[\"']?([A-Za-z_][A-Za-z0-9_]*)[\"']?")
+    logical = []
+    i, n = 0, len(raw_lines)
+    while i < n:
+        raw = raw_lines[i]
+        stripped = raw.strip()
+        if not stripped or stripped.startswith("#"):
+            i += 1
             continue
-        logical.append((start, instr, buf))
-        buf = None
-    if buf is not None:
-        logical.append((start, instr, buf))
+        m = re.match(r"([A-Za-z]+)", stripped)
+        instr = m.group(1).upper() if m else ""
+        start = i + 1
+        parts = [raw]
+        # heredocs are only valid on RUN/COPY/ADD; ignore `<<` elsewhere
+        terms = heredoc_re.findall(raw) if instr in FETCH_INSTR else []
+        while raw.rstrip().endswith("\\") and i + 1 < n:   # backslash continuations
+            i += 1
+            raw = raw_lines[i]
+            parts.append(raw)
+            if instr in FETCH_INSTR:
+                terms += heredoc_re.findall(raw)
+        for term in terms:                                  # consume heredoc bodies
+            while i + 1 < n:
+                i += 1
+                raw = raw_lines[i]
+                parts.append(raw)
+                if raw.strip() == term:
+                    break
+        logical.append((start, instr, "\n".join(parts)))
+        i += 1
 
-    saw_from = False
+    stage_names, flagged_bases = set(), set()
     for start, instr, text in logical:
         snippet = text.splitlines()[0].strip()[:160]
+        has_secret = False
         for rx, what in SECRET_RULES:
             if rx.search(text):
+                has_secret = True
                 secrets.append({"line": start, "msg": "line %d appears to contain %s" % (start, what)})
         for rx, show, scope, msg in REVIEW_RULES:
             if scope is not None and instr not in scope:
                 continue
             if rx.search(text):
-                checklist.append({"line": start, "snippet": snippet if show else "", "msg": msg})
-        if instr == "FROM" and not saw_from:
-            saw_from = True
-            m = re.search(r"(?i)FROM\s+(\S+)", text)
-            if m and not APPROVED_BASE_RE.match(m.group(1)):
+                # never echo a line that also tripped a secret rule (no token leak)
+                safe = show and not has_secret
+                checklist.append({"line": start, "snippet": snippet if safe else "", "msg": msg})
+        if instr == "FROM":
+            first = re.sub(r"(?i)^\s*FROM\s+", "", text.splitlines()[0].strip())
+            toks = [t for t in first.split() if not t.startswith("--")]  # drop --platform= etc
+            if not toks:
+                continue
+            image = toks[0]
+            # flag every stage whose base is neither approved nor a prior build stage
+            if (image.lower() not in stage_names and image.lower() not in flagged_bases
+                    and not APPROVED_BASE_RE.match(image)):
+                flagged_bases.add(image.lower())
                 checklist.append({"line": start, "snippet": snippet,
                                   "msg": "base image `%s` is not an official `biocontainers/*` image "
-                                         "— confirm it is an approved base" % m.group(1)[:80]})
+                                         "— confirm it is an approved base" % image[:80]})
+            if len(toks) >= 3 and toks[1].upper() == "AS":
+                stage_names.add(toks[2].lower())
     return secrets, checklist
 
 

