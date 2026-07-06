@@ -34,6 +34,61 @@ REQUIRED_LABELS = ("software", "base_image", "software.version", "version", "abo
 # subset of this, so rejecting anything else is free.
 SAFE_TOKEN_RE = re.compile(r"^[A-Za-z0-9._-]+$")
 
+# --- Dockerfile risk surface -------------------------------------------------
+# A submitted Dockerfile is arbitrary contributor input. These patterns lift the
+# lines a human reviewer must look at up into the PR comment, so nothing risky is
+# ever merged without an explicit sign-off. Two tiers:
+#   SECRET_RULES  — high-confidence embedded credentials. These BLOCK the PR (the
+#                   secret is already in git history and must be rotated). Kept
+#                   deliberately narrow (structured tokens) so a legitimate PR is
+#                   never blocked by a false positive.
+#   REVIEW_RULES  — "please verify this" heuristics. These NEVER block (plenty of
+#                   legitimate containers do `curl | sh`); they populate an advisory
+#                   reviewer checklist. The middle field is show_snippet: whether it
+#                   is safe to echo the matched line back into the public PR comment
+#                   (False for the credential heuristic, so we never leak a value).
+SECRET_RULES = (
+    (re.compile(r"\bAKIA[0-9A-Z]{16}\b"), "an AWS access key ID"),
+    (re.compile(r"\bASIA[0-9A-Z]{16}\b"), "an AWS temporary access key ID"),
+    (re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY-----"), "a private key"),
+    (re.compile(r"\bghp_[A-Za-z0-9]{36}\b"), "a GitHub personal access token"),
+    (re.compile(r"\bgho_[A-Za-z0-9]{36}\b"), "a GitHub OAuth token"),
+    (re.compile(r"\bgithub_pat_[A-Za-z0-9_]{22,}\b"), "a GitHub fine-grained token"),
+    (re.compile(r"(?i)aws_secret_access_key\s*[=:]\s*[\"']?[A-Za-z0-9/+]{40}\b"), "an AWS secret access key"),
+    (re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{10,}\b"), "a Slack token"),
+)
+
+# Dockerfile instructions that actually fetch or execute content; the download
+# heuristics only fire inside these, so an http:// homepage in a LABEL is never
+# mistaken for an insecure download. Each REVIEW rule is
+# (regex, show_snippet, scope, message); scope=None means "any instruction".
+FETCH_INSTR = ("RUN", "ADD", "COPY")
+
+REVIEW_RULES = (
+    (re.compile(r"(?:curl|wget)\b[^|]*\|\s*(?:sudo\s+)?(?:ba)?sh\b"), True, ("RUN",),
+     "runs a remote script straight through a shell (`curl … | sh`) — confirm you trust the "
+     "source; prefer a pinned download + checksum"),
+    (re.compile(r"(?i)\bADD\s+https?://"), True, ("ADD",),
+     "uses `ADD <url>` (no checksum, bypasses the layer cache) — prefer `curl`/`wget` with a "
+     "verified checksum, or `COPY`"),
+    (re.compile(r"http://[^\s\"']+"), True, FETCH_INSTR,
+     "downloads over insecure `http://` — use `https://`"),
+    (re.compile(r"(?i)https?://(?:pastebin\.com|[a-z0-9.-]*gist\.github|bit\.ly|tinyurl\.com|t\.co)/"),
+     True, FETCH_INSTR,
+     "fetches from a paste site or URL shortener — confirm what is actually being downloaded"),
+    (re.compile(r"https?://\d{1,3}(?:\.\d{1,3}){3}"), True, FETCH_INSTR,
+     "downloads from a bare IP address — confirm this endpoint is trusted"),
+    (re.compile(r"(?i)chmod\s+(?:-R\s+)?0?777\b"), True, ("RUN",),
+     "sets world-writable permissions (`chmod 777`) — scope permissions more tightly"),
+    (re.compile(r"(?i)(?:--insecure|--no-check-certificate)\b"), True, ("RUN",),
+     "disables TLS certificate verification (`--insecure` / `--no-check-certificate`)"),
+    (re.compile(r"(?i)(?:password|passwd|secret|token|api[_-]?key)\s*[=:]\s*[\"']?\S{6,}"), False, None,
+     "may embed a credential/secret — verify that no real secret is committed"),
+)
+
+# Approved base-image prefixes; any other FROM is surfaced for a look (advisory only).
+APPROVED_BASE_RE = re.compile(r"(?i)^(?:docker\.io/)?(?:quay\.io/)?biocontainers/")
+
 
 def _safe(value):
     return bool(value) and SAFE_TOKEN_RE.match(value) is not None
@@ -239,16 +294,87 @@ def check_labels(container, version, labels, dockerfile):
     return ok, (software or container), tag, errors, warnings
 
 
+def scan_dockerfile_risks(dockerfile_path):
+    """Scan a submitted Dockerfile for content a reviewer must see.
+
+    Returns (secrets, checklist):
+      secrets   — [{line, msg}]           high-confidence embedded credentials (blocking)
+      checklist — [{line, snippet, msg}]  advisory 'please verify' items (never blocking;
+                  snippet is '' when it is not safe to echo the line into a public comment).
+    Comment/blank lines are ignored; only the first FROM is policy-checked.
+    """
+    secrets, checklist = [], []
+    if not (dockerfile_path and os.path.exists(dockerfile_path)):
+        return secrets, checklist
+    with open(dockerfile_path, errors="replace") as fh:
+        raw_lines = fh.read().splitlines()
+
+    # Fold backslash line-continuations into one logical instruction so a split
+    # `curl … \` <newline> `| sh` cannot slip past a per-line regex. Each entry is
+    # (start_line, INSTRUCTION, joined_text).
+    logical, buf, start, instr = [], None, None, None
+    for i, raw in enumerate(raw_lines, 1):
+        if buf is None:
+            stripped = raw.strip()
+            if not stripped or stripped.startswith("#"):
+                continue
+            m = re.match(r"([A-Za-z]+)", stripped)
+            instr = m.group(1).upper() if m else ""
+            start, buf = i, raw
+        else:
+            buf += "\n" + raw
+        if raw.rstrip().endswith("\\"):
+            continue
+        logical.append((start, instr, buf))
+        buf = None
+    if buf is not None:
+        logical.append((start, instr, buf))
+
+    saw_from = False
+    for start, instr, text in logical:
+        snippet = text.splitlines()[0].strip()[:160]
+        for rx, what in SECRET_RULES:
+            if rx.search(text):
+                secrets.append({"line": start, "msg": "line %d appears to contain %s" % (start, what)})
+        for rx, show, scope, msg in REVIEW_RULES:
+            if scope is not None and instr not in scope:
+                continue
+            if rx.search(text):
+                checklist.append({"line": start, "snippet": snippet if show else "", "msg": msg})
+        if instr == "FROM" and not saw_from:
+            saw_from = True
+            m = re.search(r"(?i)FROM\s+(\S+)", text)
+            if m and not APPROVED_BASE_RE.match(m.group(1)):
+                checklist.append({"line": start, "snippet": snippet,
+                                  "msg": "base image `%s` is not an official `biocontainers/*` image "
+                                         "— confirm it is an approved base" % m.group(1)[:80]})
+    return secrets, checklist
+
+
+def _fmt_checklist(item):
+    """Render one advisory checklist item as a single sanitizable string for the report."""
+    if item.get("snippet"):
+        return "%s  _(line %d: `%s`)_" % (item["msg"], item["line"], item["snippet"])
+    return "%s  _(line %d)_" % (item["msg"], item["line"])
+
+
 def cmd_detect(args):
     with open(args.changed_files) as fh:
         changed = fh.read().splitlines()
     container, version, errors = detect_container(changed, args.workdir)
+    checklist = []
+    if container and version and not errors:
+        dockerfile = os.path.join(args.workdir, container, version, "Dockerfile")
+        secrets, checklist = scan_dockerfile_risks(dockerfile)
+        for s in secrets:
+            errors.append(s["msg"] + " — remove it and rotate the credential before resubmitting.")
     report = {
         "container": container,
         "version": version,
         "ok": not errors,
         "errors": errors,
         "warnings": [],
+        "review_checklist": [_fmt_checklist(c) for c in checklist],
         "pr_number": os.environ.get("PR_NUMBER") or None,
         "head_sha": os.environ.get("HEAD_SHA") or None,
         "software": container,
@@ -272,6 +398,11 @@ def cmd_check(args):
     labels = json.loads(raw) if raw and raw != "null" else {}
     ok, software, tag, errors, warnings = check_labels(
         args.container, args.version, labels, args.dockerfile)
+    secrets, checklist = scan_dockerfile_risks(args.dockerfile)
+    for s in secrets:
+        errors.append(s["msg"] + " — remove it and rotate the credential before resubmitting.")
+    if secrets:
+        ok = False
     report = {
         "container": args.container,
         "version": args.version,
@@ -280,6 +411,7 @@ def cmd_check(args):
         "ok": ok,
         "errors": errors,
         "warnings": warnings,
+        "review_checklist": [_fmt_checklist(c) for c in checklist],
         "pr_number": os.environ.get("PR_NUMBER") or None,
         "head_sha": os.environ.get("HEAD_SHA") or None,
     }

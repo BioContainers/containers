@@ -63,9 +63,13 @@ jobs:
 
             const software = cleanName(report.software || report.container);
             const container = cleanName(report.container);
+            const version = report.version ? cleanName(report.version) : '';
             const tag = cleanName(report.tag);
             const errors = (Array.isArray(report.errors) ? report.errors : []).slice(0, 20).map(e => clean(e));
             const warnings = (Array.isArray(report.warnings) ? report.warnings : []).slice(0, 20).map(w => clean(w));
+            // Advisory 'a human must look at this line' items from the Dockerfile risk scan.
+            const checklist = (Array.isArray(report.review_checklist) ? report.review_checklist : [])
+              .slice(0, 20).map(x => clean(x, 400));
 
             // Commit status on the trusted head SHA; build conclusion gates pass/fail.
             if (sha) {
@@ -94,6 +98,23 @@ jobs:
                 `[pr-validate run](${run.html_url}) for details.`);
             if (errors.length) lines.push('\n**Errors (must fix):**\n' + errors.map(e => `- ${e}`).join('\n'));
             if (warnings.length) lines.push('\n**Warnings (advisory):**\n' + warnings.map(w => `- ${w}`).join('\n'));
+            // Surface Dockerfile lines a reviewer must consciously sign off on (curl|sh,
+            // http://, odd base image, …). Advisory — it spotlights, it does not block.
+            if (checklist.length)
+              lines.push('\n**🔍 Reviewer checklist — please verify these lines before approving:**\n' +
+                checklist.map(c => `- [ ] ${c}`).join('\n'));
+            // Bioconda-style: exact commands to pull & test THIS container locally.
+            if (container && version) {
+              const dir = `${container}/${version}`;
+              lines.push('\n<details><summary>🧪 Build &amp; test this container locally</summary>\n\n' +
+                '```bash\n' +
+                `gh pr checkout ${prNumber}\n` +
+                `docker build -t ${container}:review ${dir}/\n` +
+                `docker run --rm ${container}:review <cmd>   # e.g. ${software} --version\n` +
+                '```\n\n' +
+                `Add \`${dir}/test-cmds.txt\` (one command per line) and CI runs it automatically.\n` +
+                '</details>');
+            }
             const marker = '<!-- biocontainers-ci -->';
             const body = marker + '\n' + lines.join('\n');
 

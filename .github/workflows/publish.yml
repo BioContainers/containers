@@ -210,6 +210,12 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.BIOCONTAINERS_S3_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.BIOCONTAINERS_S3_SECRET_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.BIOCONTAINERS_S3_REGION }}
+          # The S3 store is Ceph/RGW. aws-cli v2.23+ adds default CRC32 checksums to
+          # multipart uploads, which this RGW rejects (InvalidRequest on
+          # CreateMultipartUpload). Revert to legacy behaviour: only checksum when the
+          # API strictly requires it. Without this, every .sif over ~8 MB fails to upload.
+          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
         run: |
           if [ ! -f "${C}_${TAG}.sif" ]; then echo "No .sif built, skipping upload."; exit 0; fi
           KEY="SingImgsRepo/${C}/${TAG}/${C}_${TAG}.sif"
