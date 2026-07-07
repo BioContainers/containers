@@ -1,0 +1,54 @@
+# Auto-close pull requests whose author hasn't returned in ~6 months.
+# A PR is marked "stale" after 180 days of inactivity, warned, then closed 14
+# days later if still no response. Any comment or new commit clears the stale
+# mark; a closed PR can be reopened (or a fresh PR opened) at any time. Issues
+# are deliberately left untouched. Add a "keep" label to exempt a PR.
+name: stale-prs
+
+on:
+  schedule:
+    - cron: "30 1 * * *"      # daily, 01:30 UTC
+  workflow_dispatch:          # allow manual runs / dry runs
+
+permissions:
+  contents: read
+  issues: write               # labelling/commenting a PR uses the issues API
+  pull-requests: write
+
+concurrency:
+  group: stale-prs
+  cancel-in-progress: false
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          # Pull requests only — never touch issues.
+          days-before-issue-stale: -1
+          days-before-issue-close: -1
+
+          # ~6 months with no activity -> stale; 14 more days of silence -> close.
+          days-before-pr-stale: 180
+          days-before-pr-close: 14
+
+          stale-pr-label: stale
+          exempt-pr-labels: keep,pinned,security,wip,blocked
+          exempt-draft-pr: true
+
+          stale-pr-message: >
+            👋 This pull request hasn't had any activity for 6 months, so it has
+            been marked **stale**. If it's still relevant, just leave a comment or
+            push an update and we'll take another look — otherwise it will be
+            closed in 14 days.
+
+          close-pr-message: >
+            This PR has been **staled** after 6+ months without activity and is
+            being closed to keep the review queue tidy. No work is lost — please
+            **re-open it** (or open a fresh PR) whenever you'd like to continue.
+
+          # Oldest first, and cap API calls per run so a large backlog is worked
+          # through gradually over several daily runs rather than all at once.
+          ascending: true
+          operations-per-run: 60
